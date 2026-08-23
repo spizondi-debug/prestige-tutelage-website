@@ -129,12 +129,11 @@ export default function Recruitment() {
               </ul>
               <Link to="/programmes#learnerships" className="btn btn-outline mt-8">How Learnerships Work</Link>
             </div>
-            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+            <div className="overflow-hidden rounded-xl2 border border-line shadow-card lg:mt-2">
               <Photo
-                src="young-professional.jpg"
-                alt="A young professional at the start of his working life"
-                className="aspect-[4/5] w-full"
-                position="35% 40%"
+                src="graduates-group.jpg"
+                alt="A group of graduates walking together after their ceremony"
+                className="aspect-[3/2] w-full"
               />
             </div>
           </div>
