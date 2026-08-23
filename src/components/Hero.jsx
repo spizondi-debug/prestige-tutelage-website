@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
-import Photo from './Photo.jsx'
+import HeroMedia from './HeroMedia.jsx'
 import { brand } from '../data/site.js'
+import { heroMedia } from '../data/media.js'
 
 /**
  * Hero — approved homepage hero (21st.dev "Hero Section 5" structure):
  * slim nav + two-column hero with headline, supporting copy and dual CTAs on
- * the left and a large photographic panel on the right.
+ * the left and a large media panel on the right.
+ *
+ * The media panel takes video when one is configured and the still otherwise.
+ * Keeping the headline beside the media rather than overlaid on it means the
+ * type never fights the footage for contrast, and the copy stays fully legible
+ * regardless of what is playing.
  */
 export default function Hero() {
   return (
@@ -26,20 +32,18 @@ export default function Hero() {
             </div>
 
             <h1 className="font-display text-hero font-semibold text-ink">
-              Developing People.
-              <br />
-              Strengthening Organisations.
+              Building South Africa’s Workforce for Tomorrow
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">
-              Prestige Tutelage delivers accredited learning, workforce development, short courses,
-              workplace training and tailored skills solutions that help organisations build capable,
-              confident and future-ready teams.
+              Accredited workforce development, learnerships, skills programmes and business
+              solutions designed to help organisations grow their people and strengthen their
+              B-BBEE impact.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link to="/programmes" className="btn btn-primary">Explore Our Programmes</Link>
-              <Link to="/corporate-training" className="btn btn-outline">Train Your Workforce</Link>
+              <Link to="/contact" className="btn btn-outline">Request a Proposal</Link>
             </div>
 
             <p className="mt-8 text-sm font-medium text-muted">
@@ -50,12 +54,7 @@ export default function Hero() {
           <div className="relative">
             <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-              <Photo
-                src="graduate-portrait-hero.jpg"
-                alt="A graduate in cap and gown on the steps after her graduation ceremony"
-                className="aspect-[4/5] w-full"
-                eager
-              />
+              <HeroMedia media={heroMedia} className="aspect-[4/5] w-full" />
             </div>
           </div>
         </div>

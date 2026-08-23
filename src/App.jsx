@@ -9,6 +9,7 @@ import Programmes from './pages/Programmes.jsx'
 import ShortCourses from './pages/ShortCourses.jsx'
 import CorporateTraining from './pages/CorporateTraining.jsx'
 import Services from './pages/Services.jsx'
+import BusinessSolutions from './pages/BusinessSolutions.jsx'
 import BBBEEConsulting from './pages/BBBEEConsulting.jsx'
 import Recruitment from './pages/Recruitment.jsx'
 import OfficeRental from './pages/OfficeRental.jsx'
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/short-courses" element={<ShortCourses />} />
           <Route path="/corporate-training" element={<CorporateTraining />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/business-solutions" element={<BusinessSolutions />} />
           <Route path="/bbbee-consulting" element={<BBBEEConsulting />} />
           <Route path="/recruitment" element={<Recruitment />} />
           <Route path="/office-rental" element={<OfficeRental />} />

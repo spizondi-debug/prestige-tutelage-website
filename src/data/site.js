@@ -17,34 +17,35 @@ export const contact = {
   websiteHref: 'https://www.prestigetutelage.co.za',
 }
 
-/** Services that live under the Services dropdown. */
-export const serviceLinks = [
-  { label: 'All Services', to: '/services', description: 'The full Prestige workforce ecosystem' },
-  { label: 'Skills Development Consulting', to: '/services#workforce-advisory', description: 'Gap analysis, needs analysis and planning' },
+/** Everything beyond training, grouped under Business Solutions. */
+export const businessSolutionLinks = [
+  { label: 'All Business Solutions', to: '/business-solutions', description: 'The full Prestige offering beyond training' },
   { label: 'B-BBEE Consultation', to: '/bbbee-consulting', description: 'Skills-development strategy and implementation' },
-  { label: 'Recruitment Services', to: '/recruitment', description: 'Talent sourcing, screening and learner intakes' },
-  { label: 'Office & Training Space Rental', to: '/office-rental', description: 'Flexible space in Ferndale, Randburg' },
+  { label: 'Recruitment', to: '/recruitment', description: 'Workforce sourcing and learner intakes' },
   { label: 'Assessment Centre', to: '/assessment-centre', description: 'Assessment, moderation and invigilation' },
+  { label: 'Office & Training Venue Rental', to: '/office-rental', description: 'Professional space in Ferndale, Randburg' },
+  { label: 'Skills Development Consulting', to: '/services#workforce-advisory', description: 'Gap analysis, needs analysis and planning' },
 ]
 
 /**
  * Primary navigation. `children` renders as a dropdown; the main bar stays
- * short so it does not overload.
+ * short so it does not overload. Corporate Training now sits inside the
+ * Programmes area of the site rather than taking a top-level slot.
  */
 export const nav = [
   { label: 'About', to: '/about' },
   { label: 'Programmes', to: '/programmes' },
   { label: 'Short Courses', to: '/short-courses' },
-  { label: 'Corporate Training', to: '/corporate-training' },
-  { label: 'Services', to: '/services', children: serviceLinks },
   { label: 'Industries', to: '/industries' },
+  { label: 'Growth Pathways', to: '/growth-pathways' },
+  { label: 'Business Solutions', to: '/business-solutions', children: businessSolutionLinks },
   { label: 'Insights', to: '/insights' },
   { label: 'Contact', to: '/contact' },
 ]
 
 export const utilityNav = [
+  { label: 'Corporate Training', to: '/corporate-training' },
   { label: 'Assessment Centre', to: '/assessment-centre' },
-  { label: 'Prestige Growth Pathways', to: '/growth-pathways' },
 ]
 
 /** Full sitemap for the mobile menu and 404 page. */
@@ -54,7 +55,7 @@ export const allPages = [
   { label: 'Programmes', to: '/programmes' },
   { label: 'Short Courses', to: '/short-courses' },
   { label: 'Corporate Training', to: '/corporate-training' },
-  { label: 'Services', to: '/services' },
+  { label: 'Business Solutions', to: '/business-solutions' },
   { label: 'B-BBEE Consultation', to: '/bbbee-consulting' },
   { label: 'Recruitment Services', to: '/recruitment' },
   { label: 'Office & Training Space Rental', to: '/office-rental' },

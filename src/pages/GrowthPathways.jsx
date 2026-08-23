@@ -26,9 +26,16 @@ export default function GrowthPathways() {
       <PageHeader
         eyebrow="A related Prestige solution"
         title="Prestige Growth Pathways"
-        lead="Most organisations do not lack training. They lack the thread that connects a skills gap to a development plan, a development plan to learning, and learning to something you can actually measure. Growth Pathways is that thread."
+        lead="One workforce. One development journey. Most organisations do not lack training — they lack the thread that connects a skills gap to a development plan, a development plan to learning, and learning to something you can actually measure. Growth Pathways is that thread."
       >
-        <Link to="/contact" className="btn btn-primary mt-8">Explore Prestige Growth Pathways</Link>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Link to="/contact?interest=Prestige%20Growth%20Pathways" className="btn btn-primary">
+            Discover Growth Pathways
+          </Link>
+          <Link to="/contact?interest=Prestige%20Growth%20Pathways" className="btn btn-outline">
+            Book a Demo
+          </Link>
+        </div>
       </PageHeader>
 
       {/* What it connects */}
