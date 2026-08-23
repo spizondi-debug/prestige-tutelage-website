@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import SmartImage from '../components/SmartImage.jsx'
+import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmeAreas, programmeGroups, learnerships } from '../data/programmes.js'
 import { shortCourseNotes } from '../data/shortCourses.js'
@@ -112,10 +112,9 @@ export default function Programmes() {
             <div className="relative">
               <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-xl2 bg-paper lg:block" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-                <SmartImage
-                  src="learnerships.jpg"
-                  alt="Learners and a workplace mentor during on-the-job training"
-                  label="learners with a workplace mentor"
+                <Photo
+                  src="graduate-celebrating.jpg"
+                  alt="A graduate celebrating after completing his qualification"
                   className="aspect-[5/4] w-full"
                 />
               </div>

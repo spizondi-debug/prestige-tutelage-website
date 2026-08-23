@@ -1,51 +1,55 @@
-# Real assets to add (drop-in)
+# Site assets
 
-The site is wired to use these exact files the moment they exist. Add real,
-licensed photography — **no AI-generated people, no illustrated or 3D
-characters, no generic AI art.**
-
-Until a file is present, that slot renders a quiet branded panel naming the
-photograph required. The site never shows a fake or generated image.
+All photography on this site is real. There are no placeholders: sections
+without a suitable photograph are designed without one rather than filled.
 
 ## Logo
 
-| File | Used by | Notes |
-|------|---------|-------|
-| `public/prestige-tutelage-logo.png` | `src/components/Logo.jsx` | The **official** Prestige Tutelage logo. `.svg` also fine — update the `src` in `Logo.jsx`. Do not recreate or substitute it. The footer inverts it automatically for the dark background. |
+`public/prestige-tutelage-logo.png` — the supplied original Prestige Tutelage
+logo, trimmed of its white margin and given an alpha channel so it sits cleanly
+on the cream navigation and the dark footer. Colours and artwork are unaltered.
+Used in desktop navigation, mobile navigation and the footer.
 
-## Photography
+**Do not redraw, recolour or substitute it.** To replace with a newer original,
+drop in a PNG/SVG at the same path (transparent background, tightly cropped).
 
-All paths below are relative to `public/images/`.
+## Photography in use
 
-| File | Used on | What the photograph should show |
-|------|---------|--------------------------------|
-| `hero.jpg` | Homepage hero | The flagship image. South African learners with a facilitator, or a graduation moment. Warm, human, real. |
-| `learnerships.jpg` | Homepage, Programmes | A learner working alongside a workplace mentor — on-the-job learning. |
-| `corporate-training.jpg` | Corporate Training | A facilitator leading a session with employees in a workplace or training room. |
-| `assessment-centre.jpg` | Homepage, Assessment Centre | Candidates completing a written assessment under invigilation. |
-| `growth-pathways.jpg` | Growth Pathways | A manager and employee in a development-planning conversation. |
-| `about-team.jpg` | About | The Prestige team, or the Randburg office at work. |
-| `impact-graduation.jpg` | Homepage impact | Learners celebrating at a graduation ceremony. |
-| `impact-workplace.jpg` | Homepage impact | An employee applying new skills on the job. |
-| `impact-youth.jpg` | Homepage impact | Young people in a workplace-readiness session. |
+| File | Used on |
+|------|---------|
+| `graduate-portrait-hero.jpg` | Homepage hero |
+| `graduate-celebrating.jpg` | Homepage learnerships · Programmes |
+| `graduates-together.jpg` | Homepage impact |
+| `graduates-group.jpg` | About |
+| `young-professional.jpg` | Prestige Growth Pathways |
 
-### Industry photography (`public/images/industries/`)
+Each is cropped from a supplied original, resized to ~1200–1600px on the long
+edge and saved as progressive JPEG at quality 82. Every one is lazy-loaded
+except the hero, which loads eagerly.
 
-| File | Sector |
-|------|--------|
-| `manufacturing.jpg` | Production team on a factory floor |
-| `agriculture.jpg` | Farm workers tending crops or livestock |
-| `logistics.jpg` | Warehouse / distribution centre team |
-| `retail.jpg` | Retail staff assisting a customer |
-| `professional-services.jpg` | Professionals collaborating in an office |
-| `public-sector.jpg` | Public-sector employees in a workshop |
-| `education.jpg` | Facilitator with adult learners in a community setting |
+## Photography still needed
 
-## Preparing images
+The supplied set is graduation-themed. These subjects would let the site show
+Prestige at work rather than only at the finish line, and would allow
+photography to return to the sections currently designed without it
+(Industries, Corporate Training, Assessment Centre):
 
-- Resize to roughly **1600px on the long edge** and keep each file **under ~300KB**.
-- Prefer genuine Prestige-owned photography. Where unavailable, use high-quality
-  licensed/royalty-free photography of real South African workplaces and people.
-- Images are lazy-loaded automatically (the hero loads eagerly).
-- Alt text is already written for every slot in the components — update it if a
-  supplied photograph shows something different.
+- A facilitator leading a session with employees — the single most valuable gap
+- Learners with a workplace mentor, on the job
+- Candidates in an invigilated assessment
+- Sector settings: manufacturing floor, farm or pack-house, warehouse, retail
+  floor, office
+- The Prestige team and the Randburg office
+
+Prefer genuine Prestige-owned photography of South African workplaces. Where
+unavailable, use properly licensed stock. **No AI-generated people.**
+
+## Adding a photograph
+
+1. Save the original at high resolution.
+2. Crop to the aspect the slot uses, resize to ~1600px long edge, export JPEG
+   at quality ~82.
+3. Drop it into `public/images/` with a descriptive filename.
+4. Use it via `<Photo src="filename.jpg" alt="..." className="aspect-[3/2]" />`
+   — `alt` text is required, and `position` accepts any CSS `object-position`
+   value if the focal point is off-centre.

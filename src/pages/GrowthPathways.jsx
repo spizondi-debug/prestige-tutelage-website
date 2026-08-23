@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import SmartImage from '../components/SmartImage.jsx'
+import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 
 const connects = [
@@ -64,11 +64,11 @@ export default function GrowthPathways() {
             <div className="relative order-last lg:order-first">
               <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-                <SmartImage
-                  src="growth-pathways.jpg"
-                  alt="Manager and employee discussing a development plan together"
-                  label="a development planning conversation"
+                <Photo
+                  src="young-professional.jpg"
+                  alt="A young professional at the start of his working life"
                   className="aspect-[5/4] w-full"
+                  position="35% 45%"
                 />
               </div>
             </div>

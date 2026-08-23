@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import SmartImage from '../components/SmartImage.jsx'
 import CTABand from '../components/CTABand.jsx'
 
 const capabilities = [
@@ -78,41 +77,30 @@ export default function AssessmentCentre() {
       {/* Who uses it */}
       <section className="border-y border-line bg-sand/60 py-16 lg:py-24">
         <div className="container-px">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <SectionHeading
                 eyebrow="Who we assess for"
                 title="Employers, providers and candidates."
               />
-              <div className="mt-8 space-y-6">
-                {[
-                  { t: 'Employers', d: 'Confirming competence across teams — for qualifications, learnerships or internal standards — with records that survive audit.' },
-                  { t: 'Training providers', d: 'Independent assessment and moderation capacity when your own is stretched or a separation of duties is required.' },
-                  { t: 'Candidates', d: 'A fair, well-run assessment with clear expectations, proper support and a transparent appeals route.' },
-                ].map((x) => (
-                  <div key={x.t} className="border-l-2 border-prestige-green/60 pl-5">
-                    <h3 className="font-sans font-semibold text-ink">{x.t}</h3>
-                    <p className="mt-1.5 leading-relaxed text-body">{x.d}</p>
-                  </div>
-                ))}
-              </div>
               <p className="mt-7 text-sm text-muted">
                 Scope of assessment, applicable qualifications and quality-assurance arrangements are
                 confirmed in writing per engagement.
               </p>
             </div>
 
-            <div className="relative">
-              <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-xl2 bg-paper lg:block" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-                <SmartImage
-                  src="assessment-centre.jpg"
-                  alt="Candidates completing a written assessment under invigilation"
-                  label="candidates during an invigilated assessment"
-                  className="aspect-[5/4] w-full"
-                />
-              </div>
-            </div>
+            <dl className="grid content-start border-t border-line">
+              {[
+                { t: 'Employers', d: 'Confirming competence across teams — for qualifications, learnerships or internal standards — with records that survive audit.' },
+                { t: 'Training providers', d: 'Independent assessment and moderation capacity when your own is stretched or a separation of duties is required.' },
+                { t: 'Candidates', d: 'A fair, well-run assessment with clear expectations, proper support and a transparent appeals route.' },
+              ].map((x) => (
+                <div key={x.t} className="grid gap-1 border-b border-line py-5 sm:grid-cols-[0.3fr_0.7fr] sm:gap-6">
+                  <dt className="font-display text-lg font-semibold text-ink">{x.t}</dt>
+                  <dd className="leading-relaxed text-body">{x.d}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>

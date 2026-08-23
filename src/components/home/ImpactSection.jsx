@@ -1,4 +1,4 @@
-import SmartImage from '../SmartImage.jsx'
+import Photo from '../Photo.jsx'
 
 // Impact framing without fabricated case studies or statistics: the outcomes
 // Prestige designs for. Verified client stories can replace/extend this later.
@@ -19,10 +19,10 @@ const outcomes = [
 
 export default function ImpactSection() {
   return (
-    <section className="border-y border-line bg-paper py-16 lg:py-24">
+    <section className="border-y border-line bg-paper">
       <div className="container-px">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-          <div>
+        <div className="grid items-center gap-12 py-16 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:py-24">
+          <div className="flex flex-col justify-center">
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-10 bg-prestige-green" />
               <span className="text-sm font-semibold tracking-wide text-prestige-blue">Impact</span>
@@ -43,34 +43,19 @@ export default function ImpactSection() {
             </p>
           </div>
 
-          <div className="grid content-center gap-5">
-            <div className="overflow-hidden rounded-lg border border-line">
-              <SmartImage
-                src="impact-graduation.jpg"
-                alt="Learners celebrating at a Prestige graduation ceremony"
-                label="graduation ceremony"
-                className="aspect-[16/9] w-full"
+          <figure className="flex flex-col">
+            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+              <Photo
+                src="graduates-together.jpg"
+                alt="Graduates sharing a moment together after their ceremony"
+                className="aspect-[3/2] w-full"
               />
             </div>
-            <div className="grid grid-cols-2 gap-5">
-              <div className="overflow-hidden rounded-lg border border-line">
-                <SmartImage
-                  src="impact-workplace.jpg"
-                  alt="Employee applying new skills on the job with a mentor observing"
-                  label="workplace application of learning"
-                  className="aspect-[4/3] w-full"
-                />
-              </div>
-              <div className="overflow-hidden rounded-lg border border-line">
-                <SmartImage
-                  src="impact-youth.jpg"
-                  alt="Young people in a workplace readiness session"
-                  label="youth development session"
-                  className="aspect-[4/3] w-full"
-                />
-              </div>
-            </div>
-          </div>
+            <figcaption className="mt-4 border-l-2 border-prestige-green/60 pl-4 text-sm leading-relaxed text-muted">
+              Every qualification represents a person whose working life changed — and an employer
+              with capability it did not have before.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

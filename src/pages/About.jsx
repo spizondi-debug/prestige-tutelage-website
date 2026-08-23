@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import SmartImage from '../components/SmartImage.jsx'
+import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { whyPrestige } from '../components/home/WhyPrestige.jsx'
 import { brand, contact } from '../data/site.js'
@@ -76,11 +76,10 @@ export default function About() {
             <div className="relative">
               <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-                <SmartImage
-                  src="about-team.jpg"
-                  alt="The Prestige Tutelage team at the Randburg office"
-                  label="Prestige team photograph"
-                  className="aspect-[5/4] w-full"
+                <Photo
+                  src="graduates-group.jpg"
+                  alt="A group of graduates walking together after their ceremony"
+                  className="aspect-[3/2] w-full"
                 />
               </div>
             </div>

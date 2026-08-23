@@ -37,8 +37,10 @@ export default function Footer() {
       <div className="container-px">
         <div className="grid gap-12 py-14 lg:grid-cols-[1.3fr_2fr] lg:py-16">
           <div>
-            <div className="[&_img]:brightness-0 [&_img]:invert">
-              <Logo onDark />
+            {/* The logo sits on its intended light ground so the brand colours
+                stay true rather than being recoloured for the dark footer. */}
+            <div className="inline-flex rounded-lg bg-paper px-5 py-3.5">
+              <Logo className="h-12" />
             </div>
             <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed">
               Accredited learning, workforce development, short courses, workplace training and

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { SectionHeading } from '../Section.jsx'
-import SmartImage from '../SmartImage.jsx'
 import { industries } from '../../data/industries.js'
 
 export default function IndustriesSection() {
@@ -16,35 +15,27 @@ export default function IndustriesSection() {
           <Link to="/industries" className="btn btn-outline shrink-0">All Industries</Link>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.slice(0, 4).map((ind) => (
-            <Link key={ind.slug} to={`/industries#${ind.slug}`} className="group">
-              <div className="overflow-hidden rounded-lg border border-line">
-                <SmartImage
-                  src={ind.image}
-                  alt={ind.imageAlt}
-                  label={ind.imageAlt}
-                  className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <h3 className="mt-3 font-sans font-semibold text-ink transition-colors group-hover:text-prestige-blue">
-                {ind.title}
-              </h3>
+        <div className="mt-12 grid gap-x-12 border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+          {industries.map((ind, i) => (
+            <Link
+              key={ind.slug}
+              to={`/industries#${ind.slug}`}
+              className="group grid grid-cols-[auto_1fr] gap-4 border-b border-line py-5 lg:pr-6"
+            >
+              <span className="font-display text-base font-semibold text-prestige-green">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span>
+                <h3 className="font-sans font-semibold text-ink transition-colors group-hover:text-prestige-blue">
+                  {ind.title}
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-body">
+                  {ind.offerings[0]}
+                </p>
+              </span>
             </Link>
           ))}
         </div>
-
-        <p className="mt-8 text-body">
-          Also serving{' '}
-          {industries.slice(4).map((ind, i, arr) => (
-            <span key={ind.slug}>
-              <Link to={`/industries#${ind.slug}`} className="font-medium text-prestige-blue hover:underline">
-                {ind.title}
-              </Link>
-              {i < arr.length - 1 ? (i === arr.length - 2 ? ' and ' : ', ') : '.'}
-            </span>
-          ))}
-        </p>
       </div>
     </section>
   )

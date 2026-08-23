@@ -39,8 +39,8 @@ export default function Navbar() {
       </div>
 
       <div className="container-px">
-        <nav className="flex items-center justify-between gap-4 py-3.5" aria-label="Main">
-          <Logo />
+        <nav className="flex items-center justify-between gap-4 py-3" aria-label="Main">
+          <Logo className="h-12 sm:h-14" />
 
           <ul className="hidden items-center gap-6 xl:flex">
             {nav.map((item) => (

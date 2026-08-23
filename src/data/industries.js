@@ -1,12 +1,9 @@
-// Industry sectors served. Each `image` maps to public/images/industries/<slug>.jpg
-// (real photography — see public/images/README.md).
+// Industry sectors served.
 
 export const industries = [
   {
     slug: 'manufacturing-engineering',
     title: 'Manufacturing & Engineering',
-    image: 'industries/manufacturing.jpg',
-    imageAlt: 'Production team members working on a South African factory floor',
     summary:
       'Production environments succeed on the discipline and capability of the people running the line. Prestige supports manufacturers with technical, supervisory and production-focused learning.',
     offerings: [
@@ -19,8 +16,6 @@ export const industries = [
   {
     slug: 'agriculture-agriprocessing',
     title: 'Agriculture & Agri-processing',
-    image: 'industries/agriculture.jpg',
-    imageAlt: 'Farm workers tending crops on a South African farm',
     summary:
       'From primary production to processing, agricultural enterprises need practical skills on the ground. Prestige delivers animal, poultry and plant production programmes as well as farm-team development.',
     offerings: [
@@ -33,8 +28,6 @@ export const industries = [
   {
     slug: 'logistics-supply-chain',
     title: 'Logistics & Supply Chain',
-    image: 'industries/logistics.jpg',
-    imageAlt: 'Warehouse team coordinating stock in a distribution centre',
     summary:
       'Warehousing, distribution and supply chain operations depend on coordinated, well-led teams. Prestige builds the supervisory, administrative and customer-facing skills that keep goods moving.',
     offerings: [
@@ -47,8 +40,6 @@ export const industries = [
   {
     slug: 'retail-consumer',
     title: 'Retail & Consumer',
-    image: 'industries/retail.jpg',
-    imageAlt: 'Retail staff assisting a customer in a South African store',
     summary:
       'Retail lives or dies on frontline capability. Prestige helps retailers develop store teams, first-line managers and support functions at scale.',
     offerings: [
@@ -61,8 +52,6 @@ export const industries = [
   {
     slug: 'professional-services',
     title: 'Professional Services',
-    image: 'industries/professional-services.jpg',
-    imageAlt: 'Professionals collaborating in a modern office meeting',
     summary:
       'In services businesses, people are the product. Prestige develops the management, HR, administrative and client-facing capability that professional firms run on.',
     offerings: [
@@ -75,8 +64,6 @@ export const industries = [
   {
     slug: 'public-sector',
     title: 'Public Sector',
-    image: 'industries/public-sector.jpg',
-    imageAlt: 'Public-sector employees in a workshop discussion',
     summary:
       'Public institutions carry development mandates of their own. Prestige supports departments, entities and municipalities with structured skills programmes and credible administration.',
     offerings: [
@@ -89,8 +76,6 @@ export const industries = [
   {
     slug: 'education-community',
     title: 'Education & Community Development',
-    image: 'industries/education.jpg',
-    imageAlt: 'Facilitator working with adult learners in a community classroom',
     summary:
       'Prestige works with schools, NPOs and community programmes to build practitioner capability — including early childhood development — and to open pathways for unemployed youth.',
     offerings: [

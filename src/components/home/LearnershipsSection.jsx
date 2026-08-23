@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SectionHeading } from '../Section.jsx'
-import SmartImage from '../SmartImage.jsx'
+import Photo from '../Photo.jsx'
 import { learnerships } from '../../data/programmes.js'
 
 export default function LearnershipsSection() {
@@ -11,10 +11,9 @@ export default function LearnershipsSection() {
           <div className="relative order-last lg:order-first">
             <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-              <SmartImage
-                src="learnerships.jpg"
-                alt="Learners and a workplace mentor during on-the-job training"
-                label="learners with a workplace mentor"
+              <Photo
+                src="graduate-celebrating.jpg"
+                alt="A graduate celebrating after completing his qualification"
                 className="aspect-[5/4] w-full"
               />
             </div>

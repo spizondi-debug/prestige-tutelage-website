@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom'
-import SmartImage from './SmartImage.jsx'
+import Photo from './Photo.jsx'
 import { brand } from '../data/site.js'
 
 /**
  * Hero — approved homepage hero (21st.dev "Hero Section 5" structure):
  * slim nav + two-column hero with headline, supporting copy and dual CTAs on
  * the left and a large photographic panel on the right.
- *
- * DROP-IN hero photo: save a real, licensed Prestige training/graduation
- * photograph to  public/images/hero.jpg  (no AI-generated people).
  */
 export default function Hero() {
   return (
@@ -53,11 +50,10 @@ export default function Hero() {
           <div className="relative">
             <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-              <SmartImage
-                src="hero.jpg"
-                alt="Prestige Tutelage learners and facilitator during a training session"
-                label="Prestige training or graduation photography"
-                className="aspect-[4/5] w-full sm:aspect-[5/4] lg:aspect-[4/5]"
+              <Photo
+                src="graduate-portrait-hero.jpg"
+                alt="A graduate in cap and gown on the steps after her graduation ceremony"
+                className="aspect-[4/5] w-full"
                 eager
               />
             </div>
