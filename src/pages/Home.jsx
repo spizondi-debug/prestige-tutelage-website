@@ -8,6 +8,7 @@ import IntroducePrestige from '../components/home/IntroducePrestige.jsx'
 import FeaturedProgrammes from '../components/home/FeaturedProgrammes.jsx'
 import TrainingFinder from '../components/home/TrainingFinder.jsx'
 // 05 — Featured programme stories
+import FeaturedStories from '../components/home/FeaturedStories.jsx'
 import LearnershipsSection from '../components/home/LearnershipsSection.jsx'
 import ShortCoursesSection from '../components/home/ShortCoursesSection.jsx'
 // 06/07/08 — Industries, Growth Pathways, the business ecosystem
@@ -47,6 +48,7 @@ export default function Home() {
       <FeaturedProgrammes />
       <TrainingFinder />
 
+      <FeaturedStories />
       <LearnershipsSection />
       <ShortCoursesSection />
 
