@@ -4,18 +4,30 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Premium neutral system
         paper: '#FFFFFF',
-        cream: '#FAF8F4',
-        sand: '#F1EDE4',
-        ink: '#12233F',
-        body: '#48586A',
-        muted: '#7C8AA0',
-        line: '#E6E3DA',
+        cream: '#F5F8FA',
+        cloud: '#F5F8FA',
+        sand: '#EAF0F4',
+        mist: '#EAF0F4',
+        ink: '#102436',
+        body: '#526575',
+        muted: '#7C8C98',
+        line: '#DCE6EC',
+
+        // Premium dark foundations
+        midnight: '#071A2B',
+        navy: '#0B2742',
+        electric: '#1585D8',
+
+        // Keep the established Prestige blue + green as brand anchors
         prestige: {
           blue: '#1E4FD8',
-          'blue-deep': '#0A2A6B',
+          'blue-deep': '#0B2742',
+          'blue-soft': '#E4ECFF',
           green: '#0FB87A',
-          'green-deep': '#0A8A5C',
+          'green-deep': '#07845C',
+          'green-soft': '#E6F8F1',
         },
       },
       fontFamily: {
@@ -23,14 +35,16 @@ export default {
         sans: ['"DM Sans"', 'Inter', 'Arial', 'sans-serif'],
       },
       fontSize: {
-        'hero': ['clamp(2.6rem, 5.2vw, 4.6rem)', { lineHeight: '1.05', letterSpacing: '-0.015em' }],
+        hero: ['clamp(2.6rem, 5.2vw, 4.6rem)', { lineHeight: '1.05', letterSpacing: '-0.015em' }],
       },
       borderRadius: {
         xl2: '20px',
       },
       boxShadow: {
-        soft: '0 1px 2px rgba(18,35,63,0.05)',
-        card: '0 18px 50px -24px rgba(18,35,63,0.28)',
+        soft: '0 1px 2px rgba(7,26,43,0.06)',
+        card: '0 22px 60px -28px rgba(7,26,43,0.30)',
+        premium: '0 18px 50px rgba(7,26,43,0.12)',
+        glow: '0 16px 45px rgba(30,79,216,0.22)',
       },
     },
   },
