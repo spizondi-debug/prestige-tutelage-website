@@ -1,23 +1,38 @@
 import { usePageMeta } from '../lib/meta.js'
+
+// 01 — Cinematic Prestige Path hero
 import CinematicHero from '../components/home/CinematicHero.jsx'
+// 02/03 — More than training + proof points
 import IntroducePrestige from '../components/home/IntroducePrestige.jsx'
-import CredibilityStrip from '../components/home/CredibilityStrip.jsx'
-import WhatWeDo from '../components/home/WhatWeDo.jsx'
+// 04 — Programmes and the explorer
 import FeaturedProgrammes from '../components/home/FeaturedProgrammes.jsx'
+import TrainingFinder from '../components/home/TrainingFinder.jsx'
+// 05 — Featured programme stories
 import LearnershipsSection from '../components/home/LearnershipsSection.jsx'
 import ShortCoursesSection from '../components/home/ShortCoursesSection.jsx'
-import CorporateTrainingSection from '../components/home/CorporateTrainingSection.jsx'
-import ServicesSection from '../components/home/ServicesSection.jsx'
+// 06/07/08 — Industries, Growth Pathways, the business ecosystem
 import IndustriesSection from '../components/home/IndustriesSection.jsx'
-import AssessmentSection from '../components/home/AssessmentSection.jsx'
-import BeyondTraining from '../components/home/BeyondTraining.jsx'
 import GrowthPathwaysSection from '../components/home/GrowthPathwaysSection.jsx'
-import WhyPrestige from '../components/home/WhyPrestige.jsx'
+import BeyondTraining from '../components/home/BeyondTraining.jsx'
+// 09 — The human anchor
+import RealPrestige from '../components/home/RealPrestige.jsx'
+// 10/11 — Outcomes and trust
 import ImpactSection from '../components/home/ImpactSection.jsx'
-import TrainingFinder from '../components/home/TrainingFinder.jsx'
+import WhyPrestige from '../components/home/WhyPrestige.jsx'
+import CredibilityStrip from '../components/home/CredibilityStrip.jsx'
+// 12/13 — Insights and the closing CTA
 import InsightsPreview from '../components/home/InsightsPreview.jsx'
 import CTABand from '../components/CTABand.jsx'
 
+/**
+ * The homepage arc: cinematic opening → who Prestige is → what they deliver →
+ * who they deliver it for → the wider ecosystem → the people behind it →
+ * proof → what to do next.
+ *
+ * Sections that restated each other were removed rather than reordered: the
+ * services overview, the "what we do" pillars, the corporate-training band and
+ * the assessment band all duplicated content that now lives on its own page.
+ */
 export default function Home() {
   usePageMeta(
     null,
@@ -28,20 +43,23 @@ export default function Home() {
     <>
       <CinematicHero />
       <IntroducePrestige />
-      <CredibilityStrip />
-      <WhatWeDo />
+
       <FeaturedProgrammes />
+      <TrainingFinder />
+
       <LearnershipsSection />
       <ShortCoursesSection />
-      <CorporateTrainingSection />
-      <ServicesSection />
+
       <IndustriesSection />
-      <AssessmentSection />
-      <BeyondTraining />
       <GrowthPathwaysSection />
-      <WhyPrestige />
+      <BeyondTraining />
+
+      <RealPrestige />
+
       <ImpactSection />
-      <TrainingFinder />
+      <WhyPrestige />
+      <CredibilityStrip />
+
       <InsightsPreview />
       <CTABand />
     </>

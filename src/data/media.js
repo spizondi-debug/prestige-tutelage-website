@@ -4,18 +4,21 @@
 // photograph instead, so the site is never waiting on a file that does not
 // exist yet. To switch a slot to video, drop the encoded files into
 // public/videos/… and fill in the fields below — nothing else changes.
+// See public/videos/README.md for encoding targets.
 //
 // Every video slot must keep a `poster` still: it is what shows on the first
 // paint, on slow connections, and for anyone who prefers reduced motion.
 
-export const heroMedia = {
-  // e.g. 'homepage/prestige-workforce-hero'  (no extension — see `sources`)
+const sources = [
+  { type: 'video/webm', ext: 'webm' },
+  { type: 'video/mp4', ext: 'mp4' },
+]
+
+/** The "Real people. Real development." moment — the human anchor of the site. */
+export const realPrestigeMedia = {
+  // e.g. 'homepage/prestige-training-room'  (no extension)
   src: null,
-  poster: 'graduate-portrait-hero.jpg',
-  alt: 'A graduate in cap and gown on the steps after her graduation ceremony',
-  // Encodings are tried in order; WebM first where available, MP4 as fallback.
-  sources: [
-    { type: 'video/webm', ext: 'webm' },
-    { type: 'video/mp4', ext: 'mp4' },
-  ],
+  poster: 'facilitator-session.jpg',
+  alt: 'A Prestige Tutelage facilitator leading a session with learners',
+  sources,
 }

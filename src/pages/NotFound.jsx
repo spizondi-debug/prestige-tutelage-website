@@ -12,11 +12,11 @@ export default function NotFound() {
           <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />
           <p className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">Error 404</p>
           <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-            We could not find that page.
+            This pathway doesn’t lead anywhere.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-body">
-            The link may be out of date, or the page may have moved. Everything on the site is listed
-            below.
+            The link may be out of date, or the page may have moved. Every pathway on the site is
+            listed below.
           </p>
 
           <nav className="mt-8 grid gap-x-10 border-t border-line sm:grid-cols-2" aria-label="All pages">
@@ -31,7 +31,7 @@ export default function NotFound() {
             ))}
           </nav>
 
-          <Link to="/" className="btn btn-primary mt-9">Back to Home</Link>
+          <Link to="/" className="btn btn-primary mt-9">Return Home</Link>
         </div>
       </div>
     </section>
