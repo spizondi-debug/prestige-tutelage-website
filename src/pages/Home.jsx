@@ -9,6 +9,7 @@ import CorporateTrainingSection from '../components/home/CorporateTrainingSectio
 import ServicesSection from '../components/home/ServicesSection.jsx'
 import IndustriesSection from '../components/home/IndustriesSection.jsx'
 import AssessmentSection from '../components/home/AssessmentSection.jsx'
+import BeyondTraining from '../components/home/BeyondTraining.jsx'
 import GrowthPathwaysSection from '../components/home/GrowthPathwaysSection.jsx'
 import WhyPrestige from '../components/home/WhyPrestige.jsx'
 import ImpactSection from '../components/home/ImpactSection.jsx'
@@ -34,6 +35,7 @@ export default function Home() {
       <ServicesSection />
       <IndustriesSection />
       <AssessmentSection />
+      <BeyondTraining />
       <GrowthPathwaysSection />
       <WhyPrestige />
       <ImpactSection />

@@ -3,6 +3,33 @@ import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
+import Disclaimer from '../components/Disclaimer.jsx'
+
+// Scope is confirmed per engagement — no approval for specific qualifications
+// or assessment-centre scope is asserted anywhere on this page.
+const SCOPE_NOTE =
+  'Scope of assessment, the applicable qualifications and the relevant quality-assurance arrangements are confirmed in writing per engagement.'
+
+const pathways = [
+  {
+    who: 'Employers',
+    text: 'Confirming competence across teams — for qualifications, learnerships or internal standards — with records that survive audit.',
+    needs: ['Assessment planning for a cohort', 'Moderation of internal assessment decisions', 'Evidence and record management', 'Results and reporting'],
+    cta: { label: 'Discuss an Employer Assessment', to: '/contact?interest=Assessment%20Centre' },
+  },
+  {
+    who: 'Training Providers',
+    text: 'Independent assessment and moderation capacity when your own is stretched, or when a separation of duties is required.',
+    needs: ['External moderation', 'Assessor capacity', 'Invigilation services', 'Assessment centre facilities'],
+    cta: { label: 'Discuss Provider Support', to: '/contact?interest=Assessment%20Centre' },
+  },
+  {
+    who: 'Candidates',
+    text: 'A fair, well-run assessment with clear expectations, proper support and a transparent appeals route.',
+    needs: ['Registration and scheduling', 'What to expect on the day', 'Results processing', 'Queries and appeals'],
+    cta: { label: 'Candidate Enquiry', to: '/contact?interest=Assessment%20Centre' },
+  },
+]
 
 const capabilities = [
   { name: 'Candidate Registration', text: 'Accurate capture and verification of candidate details before any assessment begins.' },
@@ -28,7 +55,7 @@ const principles = [
 export default function AssessmentCentre() {
   usePageMeta(
     'Assessment Centre',
-    'The Prestige Tutelage Assessment Centre provides candidate registration, scheduling, assessment, moderation, invigilation, evidence management, results processing and quality assurance.',
+    'Assessment centre services in Johannesburg — candidate registration, assessment scheduling, assessors, moderation, invigilation, evidence management, results processing and quality assurance from Prestige Tutelage, Randburg.',
   )
 
   return (
@@ -77,31 +104,42 @@ export default function AssessmentCentre() {
       {/* Who uses it */}
       <section className="border-y border-line bg-sand/60 py-16 lg:py-24">
         <div className="container-px">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <div>
-              <SectionHeading
-                eyebrow="Who we assess for"
-                title="Employers, providers and candidates."
-              />
-              <p className="mt-7 text-sm text-muted">
-                Scope of assessment, applicable qualifications and quality-assurance arrangements are
-                confirmed in writing per engagement.
-              </p>
-            </div>
+          <SectionHeading
+            eyebrow="Who we assess for"
+            title="Three routes in — employers, providers and candidates."
+            lead="Each comes to the assessment centre with different needs. Find yours below."
+          />
 
-            <dl className="grid content-start border-t border-line">
-              {[
-                { t: 'Employers', d: 'Confirming competence across teams — for qualifications, learnerships or internal standards — with records that survive audit.' },
-                { t: 'Training providers', d: 'Independent assessment and moderation capacity when your own is stretched or a separation of duties is required.' },
-                { t: 'Candidates', d: 'A fair, well-run assessment with clear expectations, proper support and a transparent appeals route.' },
-              ].map((x) => (
-                <div key={x.t} className="grid gap-1 border-b border-line py-5 sm:grid-cols-[0.3fr_0.7fr] sm:gap-6">
-                  <dt className="font-display text-lg font-semibold text-ink">{x.t}</dt>
-                  <dd className="leading-relaxed text-body">{x.d}</dd>
-                </div>
-              ))}
-            </dl>
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            {pathways.map((p) => (
+              <article key={p.who} className="flex flex-col border border-line bg-paper p-7">
+                <h3 className="font-display text-2xl font-semibold text-ink">{p.who}</h3>
+                <p className="mt-3 leading-relaxed text-body">{p.text}</p>
+
+                <h4 className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted">
+                  Typically needing
+                </h4>
+                <ul className="mt-3 flex-1 border-t border-line">
+                  {p.needs.map((n) => (
+                    <li key={n} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                      {n}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  to={p.cta.to}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep"
+                >
+                  {p.cta.label}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
           </div>
+
+          <Disclaimer className="mt-10">{SCOPE_NOTE}</Disclaimer>
         </div>
       </section>
 

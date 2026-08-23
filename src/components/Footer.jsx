@@ -6,9 +6,19 @@ const columns = [
   {
     heading: 'Training',
     links: [
-      { label: 'Programmes', to: '/programmes' },
+      { label: 'Programmes & Qualifications', to: '/programmes' },
+      { label: 'Learnerships', to: '/programmes#learnerships' },
       { label: 'Short Courses', to: '/short-courses' },
       { label: 'Corporate Training', to: '/corporate-training' },
+    ],
+  },
+  {
+    heading: 'Business Services',
+    links: [
+      { label: 'All Services', to: '/services' },
+      { label: 'B-BBEE Consultation', to: '/bbbee-consulting' },
+      { label: 'Recruitment Services', to: '/recruitment' },
+      { label: 'Office & Training Space', to: '/office-rental' },
       { label: 'Assessment Centre', to: '/assessment-centre' },
     ],
   },
@@ -16,16 +26,9 @@ const columns = [
     heading: 'Company',
     links: [
       { label: 'About', to: '/about' },
-      { label: 'Services', to: '/services' },
       { label: 'Industries', to: '/industries' },
       { label: 'Prestige Growth Pathways', to: '/growth-pathways' },
-    ],
-  },
-  {
-    heading: 'Resources',
-    links: [
       { label: 'Insights', to: '/insights' },
-      { label: 'Find the Right Training', to: '/#training-finder' },
       { label: 'Contact', to: '/contact' },
     ],
   },

@@ -5,16 +5,18 @@ import PageHeader from '../components/PageHeader.jsx'
 import { brand, contact } from '../data/site.js'
 
 const interests = [
-  'Accredited programme / qualification',
-  'Learnership (employed)',
-  'Learnership (unemployed)',
-  'Short courses',
-  'Corporate / workplace training',
-  'Skills gap or training needs analysis',
-  'Assessment Centre services',
-  'CSI / youth development programme',
+  'Accredited Qualification',
+  'Learnership',
+  'Short Course',
+  'Corporate Training',
+  'B-BBEE Consultation',
+  'Recruitment',
+  'Office / Training Space Rental',
+  'Assessment Centre',
+  'Skills Development Consulting',
+  'CSI / Youth Programme',
   'Prestige Growth Pathways',
-  'Something else',
+  'Other',
 ]
 
 const empty = { name: '', company: '', email: '', telephone: '', interest: '', message: '' }
@@ -25,20 +27,25 @@ export default function Contact() {
     'Contact Prestige Tutelage in Ferndale, Randburg — request a proposal for accredited training, learnerships, short courses, corporate training or assessment services.',
   )
 
-  // "Enquire About This Programme" links arrive with ?programme=… — prefill the
-  // enquiry so the visitor does not retype what they just clicked.
+  // Service and programme CTAs arrive with ?interest=… or ?programme=… — prefill
+  // the enquiry so the visitor does not retype what they just clicked.
   const [params] = useSearchParams()
   const programme = params.get('programme')
+  const interest = params.get('interest')
 
-  const [values, setValues] = useState(() =>
-    programme
-      ? {
-          ...empty,
-          interest: 'Accredited programme / qualification',
-          message: `I would like to enquire about ${programme}.\n\n`,
-        }
-      : empty,
-  )
+  const [values, setValues] = useState(() => {
+    if (programme) {
+      return {
+        ...empty,
+        interest: 'Accredited Qualification',
+        message: `I would like to enquire about ${programme}.\n\n`,
+      }
+    }
+    if (interest && interests.includes(interest)) {
+      return { ...empty, interest }
+    }
+    return empty
+  })
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)
 

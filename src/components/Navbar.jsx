@@ -1,10 +1,92 @@
-import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo.jsx'
 import { nav, utilityNav, allPages, contact } from '../data/site.js'
 
+/** Desktop dropdown — opens on hover or focus, closes on Escape, outside click or navigation. */
+function ServicesMenu({ item, linkClass }) {
+  const [open, setOpen] = useState(false)
+  const wrap = useRef(null)
+  // After navigating from the menu the cursor is left sitting on the trigger,
+  // so the panel would immediately reopen on the next mouseenter. Suppress
+  // reopening briefly until the pointer genuinely returns.
+  const suppress = useRef(false)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    setOpen(false)
+    suppress.current = true
+    const t = setTimeout(() => { suppress.current = false }, 400)
+    return () => clearTimeout(t)
+  }, [pathname])
+
+  const openMenu = () => { if (!suppress.current) setOpen(true) }
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    const onClick = (e) => !wrap.current?.contains(e.target) && setOpen(false)
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('mousedown', onClick)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('mousedown', onClick)
+    }
+  }, [open])
+
+  return (
+    <div
+      ref={wrap}
+      className="relative"
+      onMouseEnter={openMenu}
+      onMouseLeave={() => setOpen(false)}
+      onFocus={openMenu}
+      onBlur={(e) => !wrap.current?.contains(e.relatedTarget) && setOpen(false)}
+    >
+      <NavLink
+        to={item.to}
+        className={({ isActive }) => `${linkClass({ isActive })} inline-flex items-center gap-1.5`}
+        aria-expanded={open}
+        aria-haspopup="true"
+      >
+        {item.label}
+        <svg
+          viewBox="0 0 10 6"
+          className={`h-1.5 w-2.5 transition-transform ${open ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          aria-hidden="true"
+        >
+          <path d="M1 1l4 4 4-4" />
+        </svg>
+      </NavLink>
+
+      {open && (
+        <div className="absolute left-1/2 top-full z-50 w-[22rem] -translate-x-1/2 pt-3">
+          <ul className="overflow-hidden rounded-lg border border-line bg-paper shadow-card">
+            {item.children.map((c, i) => (
+              <li key={c.to} className={i ? 'border-t border-line' : ''}>
+                <Link to={c.to} className="group block px-5 py-3.5 transition-colors hover:bg-sand/60">
+                  <span className="block font-sans text-[0.95rem] font-semibold text-ink transition-colors group-hover:text-prestige-blue">
+                    {c.label}
+                  </span>
+                  <span className="mt-0.5 block text-sm text-muted">{c.description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  useEffect(() => setOpen(false), [pathname])
 
   const linkClass = ({ isActive }) =>
     `text-[0.925rem] font-medium transition-colors hover:text-prestige-blue ${
@@ -45,14 +127,18 @@ export default function Navbar() {
           <ul className="hidden items-center gap-6 xl:flex">
             {nav.map((item) => (
               <li key={item.to}>
-                <NavLink to={item.to} className={linkClass}>{item.label}</NavLink>
+                {item.children ? (
+                  <ServicesMenu item={item} linkClass={linkClass} />
+                ) : (
+                  <NavLink to={item.to} className={linkClass}>{item.label}</NavLink>
+                )}
               </li>
             ))}
           </ul>
 
           <div className="hidden xl:block">
-            <Link to="/programmes" className="btn btn-primary px-5 py-2.5 text-sm">
-              Explore Programmes
+            <Link to="/contact" className="btn btn-primary px-5 py-2.5 text-sm">
+              Request a Proposal
             </Link>
           </div>
 
