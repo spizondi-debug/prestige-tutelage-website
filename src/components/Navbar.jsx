@@ -84,24 +84,53 @@ function ServicesMenu({ item, linkClass }) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  // True while the navigation sits over a section marked [data-dark-hero],
+  // so it can go transparent over the cinematic opening and solid afterwards.
+  const [onDark, setOnDark] = useState(false)
   const { pathname } = useLocation()
 
   useEffect(() => setOpen(false), [pathname])
 
+  useEffect(() => {
+    let frame = 0
+    const measure = () => {
+      frame = 0
+      const hero = document.querySelector('[data-dark-hero]')
+      setOnDark(Boolean(hero) && hero.getBoundingClientRect().bottom > 120)
+    }
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure) }
+    measure()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      if (frame) cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [pathname])
+
+  const dark = onDark && !open
+
   const linkClass = ({ isActive }) =>
-    `text-[0.925rem] font-medium transition-colors hover:text-prestige-blue ${
-      isActive ? 'text-prestige-blue' : 'text-ink/80'
+    `text-[0.925rem] font-medium transition-colors ${
+      dark
+        ? isActive ? 'text-white' : 'text-white/75 hover:text-white'
+        : isActive ? 'text-prestige-blue' : 'text-ink/80 hover:text-prestige-blue'
     }`
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 border-b transition-colors duration-500 ${
+        dark ? 'border-white/10 bg-night/70 backdrop-blur' : 'border-line bg-cream/95 backdrop-blur'
+      }`}
+    >
       {/* Utility bar — contact + secondary destinations */}
-      <div className="hidden border-b border-line/70 bg-sand/50 lg:block">
+      <div className={`hidden border-b lg:block ${dark ? 'border-white/10 bg-white/[0.03]' : 'border-line/70 bg-sand/50'}`}>
         <div className="container-px">
-          <div className="flex items-center justify-between py-1.5 text-[0.8rem] text-body">
+          <div className={`flex items-center justify-between py-1.5 text-[0.8rem] ${dark ? 'text-white/70' : 'text-body'}`}>
             <div className="flex items-center gap-5">
-              <a href={contact.phoneHref} className="transition-colors hover:text-prestige-blue">{contact.phone}</a>
-              <a href={contact.emailHref} className="transition-colors hover:text-prestige-blue">{contact.email}</a>
+              <a href={contact.phoneHref} className={`transition-colors ${dark ? 'hover:text-white' : 'hover:text-prestige-blue'}`}>{contact.phone}</a>
+              <a href={contact.emailHref} className={`transition-colors ${dark ? 'hover:text-white' : 'hover:text-prestige-blue'}`}>{contact.email}</a>
             </div>
             <div className="flex items-center gap-5">
               {utilityNav.map((item) => (
@@ -109,7 +138,7 @@ export default function Navbar() {
                   key={item.to}
                   to={item.to}
                   className={({ isActive }) =>
-                    `font-medium transition-colors hover:text-prestige-blue ${isActive ? 'text-prestige-blue' : ''}`
+                    `font-medium transition-colors ${dark ? 'hover:text-white' : 'hover:text-prestige-blue'} ${isActive ? (dark ? 'text-white' : 'text-prestige-blue') : ''}`
                   }
                 >
                   {item.label}
@@ -122,7 +151,7 @@ export default function Navbar() {
 
       <div className="container-px">
         <nav className="flex items-center justify-between gap-4 py-3" aria-label="Main">
-          <Logo className="h-12 sm:h-14" />
+          <span className={dark ? '[&_img]:brightness-0 [&_img]:invert' : ''}><Logo className="h-12 sm:h-14" /></span>
 
           <ul className="hidden items-center gap-6 xl:flex">
             {nav.map((item) => (
@@ -137,21 +166,21 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden xl:block">
-            <Link to="/contact" className="btn btn-primary px-5 py-2.5 text-sm">
-              Request a Proposal
+            <Link to="/contact" className={`btn px-5 py-2.5 text-sm ${dark ? 'btn-green' : 'btn-primary'}`}>
+              Let’s Talk
             </Link>
           </div>
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line text-ink xl:hidden"
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-lg border xl:hidden ${dark ? 'border-white/25 text-white' : 'border-line text-ink'}`}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
             <span className="relative block h-4 w-5">
-              <span className={`absolute left-0 top-0 h-0.5 w-5 bg-ink transition-transform ${open ? 'translate-y-2 rotate-45' : ''}`} />
-              <span className={`absolute left-0 top-[7px] h-0.5 w-5 bg-ink transition-opacity ${open ? 'opacity-0' : ''}`} />
-              <span className={`absolute bottom-0 left-0 h-0.5 w-5 bg-ink transition-transform ${open ? '-translate-y-2 -rotate-45' : ''}`} />
+              <span className={`absolute left-0 top-0 h-0.5 w-5 ${dark ? 'bg-white' : 'bg-ink'} transition-transform ${open ? 'translate-y-2 rotate-45' : ''}`} />
+              <span className={`absolute left-0 top-[7px] h-0.5 w-5 ${dark ? 'bg-white' : 'bg-ink'} transition-opacity ${open ? 'opacity-0' : ''}`} />
+              <span className={`absolute bottom-0 left-0 h-0.5 w-5 ${dark ? 'bg-white' : 'bg-ink'} transition-transform ${open ? '-translate-y-2 -rotate-45' : ''}`} />
             </span>
           </button>
         </nav>

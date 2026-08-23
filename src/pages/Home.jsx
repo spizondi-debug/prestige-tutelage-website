@@ -1,5 +1,6 @@
 import { usePageMeta } from '../lib/meta.js'
-import Hero from '../components/Hero.jsx'
+import CinematicHero from '../components/home/CinematicHero.jsx'
+import IntroducePrestige from '../components/home/IntroducePrestige.jsx'
 import CredibilityStrip from '../components/home/CredibilityStrip.jsx'
 import WhatWeDo from '../components/home/WhatWeDo.jsx'
 import FeaturedProgrammes from '../components/home/FeaturedProgrammes.jsx'
@@ -25,7 +26,8 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
+      <CinematicHero />
+      <IntroducePrestige />
       <CredibilityStrip />
       <WhatWeDo />
       <FeaturedProgrammes />
