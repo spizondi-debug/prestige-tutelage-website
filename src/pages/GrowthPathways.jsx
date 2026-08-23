@@ -69,8 +69,8 @@ export default function GrowthPathways() {
         <div className="container-px">
           <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <div className="relative order-last lg:order-first">
-              <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
+              <div className="absolute -left-4 -top-4 hidden h-full w-full bg-sand lg:block" aria-hidden="true" />
+              <div className="relative overflow-hidden">
                 <Photo
                   src="young-professional.jpg"
                   alt="A young professional at the start of his working life"

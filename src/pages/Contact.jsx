@@ -198,7 +198,7 @@ export default function Contact() {
 
             {/* Details */}
             <aside className="lg:pt-1">
-              <div className="rounded-xl2 border border-line bg-paper p-7">
+              <div className="rounded-lg border border-line bg-paper p-7">
                 <h2 className="font-display text-xl font-semibold text-ink">{brand.legalName}</h2>
 
                 <div className="mt-6 space-y-5 text-body">

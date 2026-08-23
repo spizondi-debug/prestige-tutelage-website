@@ -37,14 +37,13 @@ export default {
         // Oversized statements for the cinematic sections
         statement: ['clamp(2.2rem, 6.4vw, 5.5rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],
         editorial: ['clamp(2rem, 4.4vw, 3.6rem)', { lineHeight: '1.08', letterSpacing: '-0.015em' }],
-      },
-      borderRadius: {
-        xl2: '20px',
+        // Standard section title — a step up from body scale, bounded so it
+        // still works for sub-sections on interior pages.
+        section: ['clamp(1.85rem, 3.2vw, 2.85rem)', { lineHeight: '1.12', letterSpacing: '-0.012em' }],
       },
       boxShadow: {
-        soft: '0 1px 2px rgba(18,35,63,0.05)',
+        // Only the nav dropdown lifts off the page now; photographs sit flat.
         card: '0 18px 50px -24px rgba(18,35,63,0.28)',
-        lift: '0 30px 70px -30px rgba(6,10,19,0.55)',
       },
       transitionTimingFunction: {
         // Restrained, premium easing — no bounce.

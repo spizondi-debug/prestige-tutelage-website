@@ -74,8 +74,8 @@ export default function About() {
               <p className="mt-4 text-sm font-medium text-muted">{brand.credibility.join(' • ')}</p>
             </div>
             <div className="relative">
-              <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
+              <div className="absolute -right-4 -top-4 hidden h-full w-full bg-sand lg:block" aria-hidden="true" />
+              <div className="relative overflow-hidden">
                 <Photo
                   src="graduates-group.jpg"
                   alt="A group of graduates walking together after their ceremony"

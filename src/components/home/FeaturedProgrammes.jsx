@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SectionHeading } from '../Section.jsx'
+import Reveal from '../Reveal.jsx'
 import Disclaimer from '../Disclaimer.jsx'
 import {
   qualifications,
@@ -25,47 +25,67 @@ export default function FeaturedProgrammes() {
     .filter(Boolean)
 
   return (
-    <section className="border-y border-line bg-paper py-16 lg:py-24">
+    <section className="border-t border-line bg-paper py-20 lg:py-28">
       <div className="container-px">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading
-            eyebrow="Qualifications"
-            title="Qualifications across business, production, agriculture and community."
-            lead={`${qualifications.length} qualifications spanning ${populatedAreas.length} training areas — each listed with the SAQA ID and NQF level Prestige has verified.`}
-          />
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <Reveal>
+            <p className="eyebrow">Qualifications</p>
+            <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-ink">
+              Business, production, agriculture and community.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
+              {qualifications.length} qualifications across {populatedAreas.length} training
+              areas — each listed with the SAQA ID and NQF level Prestige has verified.
+            </p>
+          </Reveal>
           <Link to="/programmes" className="btn btn-outline shrink-0">Browse All Qualifications</Link>
         </div>
 
-        <ul className="mt-12 grid gap-x-12 border-t border-line lg:grid-cols-2">
+        <ul className="mt-14 border-t border-line">
           {featured.map((q) => (
-            <li key={q.saqaId} className="border-b border-line py-5">
-              <Link to="/programmes#catalogue" className="group flex items-baseline justify-between gap-6">
-                <span>
-                  <h3 className="font-display text-lg font-semibold text-ink transition-colors group-hover:text-prestige-blue">
+            <li key={q.saqaId}>
+              <Link
+                to="/programmes#catalogue"
+                className="group flex items-center justify-between gap-6 border-b border-line py-6 transition-colors hover:bg-cream lg:px-2"
+              >
+                <span className="min-w-0">
+                  <h3 className="font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue sm:text-xl">
                     {q.name}
                   </h3>
-                  <span className="mt-1 block text-sm text-muted">
+                  <span className="mt-1.5 block text-sm text-muted">
                     SAQA ID {q.saqaId}
                     {q.credits ? ` · ${q.credits} credits` : ''} · {q.area}
                   </span>
                 </span>
-                <span className="shrink-0 font-sans text-sm font-semibold text-prestige-blue">
-                  NQF {q.nqf}
+                <span className="flex shrink-0 items-center gap-4">
+                  <span className="rounded-full border border-prestige-blue/25 px-3.5 py-1 font-sans text-sm font-semibold text-prestige-blue">
+                    NQF {q.nqf}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="text-lg text-muted transition-all duration-500 ease-prestige group-hover:translate-x-1 group-hover:text-prestige-blue"
+                  >
+                    ›
+                  </span>
                 </span>
               </Link>
             </li>
           ))}
         </ul>
 
-        <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+        <div className="mt-10 flex flex-wrap gap-x-3 gap-y-3">
           {populatedAreas.map((a) => (
-            <Link key={a} to="/programmes#catalogue" className="font-medium text-prestige-blue hover:underline">
-              {a} <span className="font-normal text-muted">({qualificationsIn(a).length})</span>
+            <Link
+              key={a}
+              to="/programmes#catalogue"
+              className="rounded-full border border-ink/15 px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
+            >
+              {a} <span className="opacity-60">({qualificationsIn(a).length})</span>
             </Link>
           ))}
         </div>
 
-        <Disclaimer className="mt-8">{AVAILABILITY_DISCLAIMER}</Disclaimer>
+        <Disclaimer className="mt-10 max-w-3xl">{AVAILABILITY_DISCLAIMER}</Disclaimer>
       </div>
     </section>
   )

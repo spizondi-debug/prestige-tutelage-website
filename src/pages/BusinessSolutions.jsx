@@ -117,7 +117,7 @@ export default function BusinessSolutions() {
               </div>
 
               {s.photo && (
-                <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+                <div className="overflow-hidden">
                   <Photo src={s.photo} alt={s.photoAlt} className="aspect-[3/2] w-full" />
                 </div>
               )}

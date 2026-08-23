@@ -54,7 +54,7 @@ export default function OfficeRental() {
       <section className="py-16 lg:py-20">
         <div className="container-px">
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+            <div className="overflow-hidden">
               <Photo
                 src="training-room.jpg"
                 alt="A training room at Prestige Tutelage set up with a projector screen and boardroom seating"

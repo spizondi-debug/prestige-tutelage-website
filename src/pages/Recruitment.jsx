@@ -69,7 +69,7 @@ export default function Recruitment() {
                 busy managers, and keeping every applicant informed. That is the part we carry.
               </p>
             </div>
-            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+            <div className="overflow-hidden">
               <Photo
                 src="recruitment-interview.jpg"
                 alt="A candidate interview taking place over a video call"
@@ -129,7 +129,7 @@ export default function Recruitment() {
               </ul>
               <Link to="/programmes#learnerships" className="btn btn-outline mt-8">How Learnerships Work</Link>
             </div>
-            <div className="overflow-hidden rounded-xl2 border border-line shadow-card lg:mt-2">
+            <div className="overflow-hidden lg:mt-2">
               <Photo
                 src="learner-cohort.jpg"
                 alt="A Prestige Tutelage learner intake outside the training venue"

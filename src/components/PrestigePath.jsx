@@ -192,20 +192,38 @@ export default function PrestigePath({ stage = 0, className = '', intensity = 1 
     }
 
     window.addEventListener('pointermove', onPointer, { passive: true })
-    // Pause entirely when the tab is hidden — no work in the background.
-    const onVis = () => {
-      if (document.hidden) { running = false; cancelAnimationFrame(raf) }
-      else if (!running) { running = true; raf = requestAnimationFrame(draw) }
+
+    // The loop runs only when the canvas is both on screen and in a visible
+    // tab. Several Paths can be mounted at once, so an off-screen one must
+    // cost nothing — otherwise every instance animates for the whole page.
+    let onScreen = true
+    const gate = () => {
+      const should = onScreen && !document.hidden
+      if (should === running) return
+      running = should
+      if (should) raf = requestAnimationFrame(draw)
+      else cancelAnimationFrame(raf)
     }
-    document.addEventListener('visibilitychange', onVis)
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting
+        gate()
+      },
+      { rootMargin: '150px' },
+    )
+    io.observe(canvas)
+
+    document.addEventListener('visibilitychange', gate)
     raf = requestAnimationFrame(draw)
 
     return () => {
       running = false
       cancelAnimationFrame(raf)
+      io.disconnect()
       window.removeEventListener('resize', resize)
       window.removeEventListener('pointermove', onPointer)
-      document.removeEventListener('visibilitychange', onVis)
+      document.removeEventListener('visibilitychange', gate)
     }
   }, [reduced, intensity])
 

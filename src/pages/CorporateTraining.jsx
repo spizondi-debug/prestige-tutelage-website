@@ -57,7 +57,7 @@ export default function CorporateTraining() {
       <section className="py-16 lg:py-24">
         <div className="container-px">
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+            <div className="overflow-hidden">
               <Photo
                 src="facilitator-session.jpg"
                 alt="A Prestige Tutelage facilitator leading a session with learners"
@@ -106,7 +106,7 @@ export default function CorporateTraining() {
                 title="Delivered the way your organisation actually runs."
                 lead="Shift patterns, production pressure and dispersed sites are normal. We plan around them rather than asking you to plan around us."
               />
-              <div className="mt-8 overflow-hidden rounded-xl2 border border-line shadow-card">
+              <div className="mt-8 overflow-hidden">
                 <Photo
                   src="workshop-training.jpg"
                   alt="A learner in full protective equipment working with an angle grinder during practical training"

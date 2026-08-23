@@ -143,7 +143,7 @@ export default function TrainingFinder() {
   return (
     <section id="training-finder" className="py-16 lg:py-24">
       <div className="container-px">
-        <div className="overflow-hidden rounded-xl2 border border-line bg-paper shadow-soft">
+        <div className="overflow-hidden rounded-lg border border-line bg-paper">
           <div className="grid lg:grid-cols-[1fr_1fr]">
             <div className="p-8 sm:p-10 lg:p-12">
               <div className="mb-5 flex items-center gap-3">

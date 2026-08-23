@@ -201,7 +201,7 @@ export default function Programmes() {
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+              <div className="overflow-hidden">
                 <Photo
                   src="graduate-celebrating.jpg"
                   alt="A graduate celebrating after completing his qualification"
