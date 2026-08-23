@@ -13,7 +13,6 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur">
-      {/* Utility bar — contact + secondary destinations */}
       <div className="hidden border-b border-line/70 bg-sand/50 lg:block">
         <div className="container-px">
           <div className="flex items-center justify-between py-1.5 text-[0.8rem] text-body">
@@ -44,8 +43,33 @@ export default function Navbar() {
 
           <ul className="hidden items-center gap-6 xl:flex">
             {nav.map((item) => (
-              <li key={item.to}>
-                <NavLink to={item.to} className={linkClass}>{item.label}</NavLink>
+              <li key={item.to} className={item.children ? 'group relative' : ''}>
+                <NavLink to={item.to} className={linkClass}>
+                  <span className="inline-flex items-center gap-1.5">
+                    {item.label}
+                    {item.children && <span aria-hidden="true" className="text-[0.7rem] text-muted">▾</span>}
+                  </span>
+                </NavLink>
+
+                {item.children && (
+                  <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <div className="border border-line bg-paper p-2 shadow-xl">
+                      {item.children.map((child) => (
+                        <NavLink
+                          key={child.to}
+                          to={child.to}
+                          className={({ isActive }) =>
+                            `block px-4 py-3 text-sm font-medium transition-colors hover:bg-sand/70 hover:text-prestige-blue ${
+                              isActive ? 'text-prestige-blue' : 'text-ink/80'
+                            }`
+                          }
+                        >
+                          {child.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
