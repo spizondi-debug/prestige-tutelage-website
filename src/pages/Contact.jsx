@@ -31,7 +31,8 @@ export default function Contact() {
   // the enquiry so the visitor does not retype what they just clicked.
   const [params] = useSearchParams()
   const programme = params.get('programme')
-  const interest = params.get('interest')
+  // ?service= is accepted as an alias so older service links keep working.
+  const interest = params.get('interest') ?? params.get('service')
 
   const [values, setValues] = useState(() => {
     if (programme) {
