@@ -1,9 +1,25 @@
 // Programme areas offered by Prestige Tutelage.
 //
-// CONTENT INTEGRITY: NQF levels, SAQA IDs and accreditation numbers are only
-// displayed once verified with Prestige. Until then, each programme area is
-// described without inventing qualification details. Set `nqf` / `saqaId` on
-// an entry once Prestige confirms it, and it will render automatically.
+// CONTENT INTEGRITY: qualification detail is only displayed once verified with
+// Prestige. Areas carrying a `qualifications` array below have been confirmed
+// (SAQA ID, NQF level and credits as supplied); areas without one are described
+// without inventing detail. To add a verified qualification, append it to the
+// relevant area — it renders automatically on the Programmes page, in the
+// qualifications table and on the homepage.
+
+/** Verified registered qualifications, in the order supplied by Prestige. */
+export const qualifications = [
+  { name: 'Management Assistant', saqaId: '101876', nqf: 5, credits: 316, area: 'office-administration' },
+  { name: 'Human Resource Management Administrator', saqaId: '121150', nqf: 5, credits: 120, area: 'human-resources' },
+  { name: 'Human Resource Management Officer', saqaId: '121151', nqf: 6, credits: 134, area: 'human-resources' },
+  { name: 'Office Supervisor', saqaId: '118740', nqf: 5, credits: 240, area: 'office-administration' },
+  { name: 'Marketing Coordinator', saqaId: '118706', nqf: 5, credits: 175, area: 'marketing' },
+  { name: 'Project Manager', saqaId: '101869', nqf: 5, credits: 240, area: 'project-management' },
+  { name: 'Early Childhood Development Practitioner', saqaId: '97542', nqf: 4, credits: 131, area: 'early-childhood-development' },
+]
+
+/** Qualifications belonging to a programme area, or [] if none are verified. */
+export const qualificationsFor = (slug) => qualifications.filter((q) => q.area === slug)
 
 export const programmeAreas = [
   {

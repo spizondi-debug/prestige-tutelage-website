@@ -68,9 +68,12 @@ const goals = [
     id: 'qualification',
     label: 'Find an accredited qualification',
     recommendation: {
-      title: 'Accredited programme areas',
-      text: 'Browse programme areas across business, production, agriculture and community — and we will confirm the right qualification and level for your need.',
-      links: [{ label: 'View Programmes', to: '/programmes' }],
+      title: 'Registered qualifications',
+      text: 'See the qualifications we deliver with their SAQA IDs, NQF levels and credits — then we confirm the right fit and delivery route for your people.',
+      links: [
+        { label: 'View Qualifications', to: '/programmes#qualifications' },
+        { label: 'Talk to Us', to: '/contact' },
+      ],
     },
   },
   {

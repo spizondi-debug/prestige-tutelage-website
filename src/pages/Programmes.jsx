@@ -4,13 +4,19 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
-import { programmeAreas, programmeGroups, learnerships } from '../data/programmes.js'
+import {
+  programmeAreas,
+  programmeGroups,
+  learnerships,
+  qualifications,
+  qualificationsFor,
+} from '../data/programmes.js'
 import { shortCourseNotes } from '../data/shortCourses.js'
 
 export default function Programmes() {
   usePageMeta(
     'Programmes',
-    'Accredited programme areas from Prestige Tutelage across project management, HR, marketing, administration, management, production technology, early childhood development and agriculture.',
+    'Registered qualifications from Prestige Tutelage including Management Assistant (NQF 5), Human Resource Management Administrator and Officer, Office Supervisor, Marketing Coordinator, Project Manager and Early Childhood Development Practitioner — plus programme areas across production technology and agriculture.',
   )
 
   return (
@@ -19,7 +25,16 @@ export default function Programmes() {
         eyebrow="Programmes"
         title="Accredited learning that maps onto real occupations."
         lead="Prestige Tutelage delivers programmes across business and management, technical production, agriculture and community development — as full qualifications, learnerships or components of a wider workforce plan."
-      />
+      >
+        <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="On this page">
+          <a href="#qualifications" className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
+            Registered qualifications
+          </a>
+          <a href="#learnerships" className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
+            Learnerships
+          </a>
+        </nav>
+      </PageHeader>
 
       {/* How programmes are delivered */}
       <section className="border-b border-line bg-paper py-12 lg:py-16">
@@ -36,6 +51,61 @@ export default function Programmes() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Registered qualifications */}
+      <section id="qualifications" className="scroll-mt-28 py-16 lg:py-24">
+        <div className="container-px">
+          <SectionHeading
+            eyebrow="Registered qualifications"
+            title="Qualifications we deliver, on the record."
+            lead="Each is a registered qualification with its SAQA ID, NQF level and credit value stated. Delivered as a full qualification or through a learnership."
+          />
+
+          <div className="mt-10 overflow-x-auto">
+            <table className="w-full min-w-[36rem] border-collapse text-left">
+              <caption className="sr-only">
+                Registered qualifications delivered by Prestige Tutelage, with SAQA ID, NQF level and credits
+              </caption>
+              <thead>
+                <tr className="border-y border-line">
+                  <th scope="col" className="py-3 pr-6 text-sm font-semibold uppercase tracking-wider text-muted">
+                    Qualification
+                  </th>
+                  <th scope="col" className="py-3 pr-6 text-sm font-semibold uppercase tracking-wider text-muted">
+                    SAQA ID
+                  </th>
+                  <th scope="col" className="py-3 pr-6 text-sm font-semibold uppercase tracking-wider text-muted">
+                    NQF
+                  </th>
+                  <th scope="col" className="py-3 text-right text-sm font-semibold uppercase tracking-wider text-muted">
+                    Credits
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {qualifications.map((q) => (
+                  <tr key={q.saqaId} className="border-b border-line">
+                    <th scope="row" className="py-4 pr-6 font-display text-lg font-semibold text-ink">
+                      {q.name}
+                    </th>
+                    <td className="py-4 pr-6 font-medium tabular-nums text-body">{q.saqaId}</td>
+                    <td className="py-4 pr-6 text-body">
+                      <span className="font-semibold text-prestige-blue">Level {q.nqf}</span>
+                    </td>
+                    <td className="py-4 text-right tabular-nums text-body">{q.credits}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-6 text-sm text-muted">
+            Additional programme areas below are delivered as skills programmes or customised
+            interventions. Where a qualification is not listed here, we confirm the registration
+            detail in writing when we scope your intervention.
+          </p>
         </div>
       </section>
 
@@ -56,22 +126,30 @@ export default function Programmes() {
                 <div key={group}>
                   <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">{group}</h3>
                   <div className="mt-5 grid gap-x-12 border-t border-line lg:grid-cols-2">
-                    {items.map((p) => (
-                      <article key={p.slug} className="border-b border-line py-6">
-                        <h4 className="font-display text-xl font-semibold text-ink">{p.title}</h4>
-                        <p className="mt-2 leading-relaxed text-body">{p.summary}</p>
-                        <p className="mt-3 text-sm text-muted">
-                          <span className="font-semibold text-body">Typically for:</span> {p.forWho}
-                        </p>
-                        {(p.nqf || p.saqaId) && (
-                          <p className="mt-2 text-sm font-medium text-prestige-blue">
-                            {p.nqf ? `NQF Level ${p.nqf}` : ''}
-                            {p.nqf && p.saqaId ? ' · ' : ''}
-                            {p.saqaId ? `SAQA ID ${p.saqaId}` : ''}
+                    {items.map((p) => {
+                      const quals = qualificationsFor(p.slug)
+                      return (
+                        <article key={p.slug} className="border-b border-line py-6">
+                          <h4 className="font-display text-xl font-semibold text-ink">{p.title}</h4>
+                          <p className="mt-2 leading-relaxed text-body">{p.summary}</p>
+                          <p className="mt-3 text-sm text-muted">
+                            <span className="font-semibold text-body">Typically for:</span> {p.forWho}
                           </p>
-                        )}
-                      </article>
-                    ))}
+                          {quals.length > 0 && (
+                            <ul className="mt-4 space-y-2 border-t border-line pt-4">
+                              {quals.map((q) => (
+                                <li key={q.saqaId} className="text-sm">
+                                  <span className="font-semibold text-ink">{q.name}</span>
+                                  <span className="mt-0.5 block text-muted">
+                                    SAQA ID {q.saqaId} · NQF Level {q.nqf} · {q.credits} credits
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </article>
+                      )
+                    })}
                   </div>
                 </div>
               )
@@ -79,10 +157,11 @@ export default function Programmes() {
           </div>
 
           <div className="mt-10 rounded-lg border border-line bg-paper p-6">
-            <h3 className="font-sans font-semibold text-ink">Qualification detail confirmed on enquiry</h3>
+            <h3 className="font-sans font-semibold text-ink">What we publish</h3>
             <p className="mt-2 leading-relaxed text-body">
-              NQF levels, SAQA registrations and accreditation numbers differ by programme and are
-              confirmed in writing when we scope your intervention. We publish only what we can verify.
+              Registered qualifications are listed above with their SAQA ID, NQF level and credits.
+              For every other programme area, the applicable registration and accreditation detail is
+              confirmed in writing when we scope your intervention — we publish only what we can verify.
             </p>
           </div>
         </div>
