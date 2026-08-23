@@ -42,17 +42,22 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-ink text-white/80">
-      <div className="container-px">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-midnight text-white/80">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-prestige-blue/10 blur-3xl" />
+        <div className="absolute -left-28 bottom-0 h-64 w-64 rounded-full bg-prestige-green/10 blur-3xl" />
+      </div>
+
+      <div className="container-px relative">
         <div className="grid gap-12 py-14 lg:grid-cols-[1.15fr_2.2fr] lg:py-16">
           <div>
-            <div className="inline-flex rounded-lg bg-paper px-5 py-3.5">
+            <div className="inline-flex rounded-lg bg-paper px-5 py-3.5 shadow-soft">
               <Logo className="h-12" />
             </div>
-            <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed">
+            <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-white/75">
               Accredited learning, workforce development, recruitment, advisory, assessment and professional business support for South African organisations.
             </p>
-            <p className="mt-5 text-sm text-white/60">
+            <p className="mt-5 text-sm text-white/50">
               {brand.credibility.join(' • ')}
             </p>
           </div>
@@ -60,7 +65,7 @@ export default function Footer() {
           <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
             {columns.map((col) => (
               <div key={col.heading}>
-                <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/60">
+                <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-prestige-green">
                   {col.heading}
                 </h3>
                 <ul className="mt-4 space-y-2.5">
@@ -75,7 +80,7 @@ export default function Footer() {
               </div>
             ))}
             <div className="sm:col-span-2 xl:col-span-4">
-              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/60">Contact</h3>
+              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-prestige-green">Contact</h3>
               <div className="mt-4 flex flex-col gap-2 text-[0.95rem] sm:flex-row sm:flex-wrap sm:gap-x-8">
                 <address className="not-italic leading-relaxed">
                   {brand.legalName}
@@ -92,7 +97,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-white/10 py-6 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-white/10 py-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {brand.legalName}. All rights reserved.</p>
           <p>
             <a href={contact.websiteHref} className="transition-colors hover:text-white">{contact.website}</a>
