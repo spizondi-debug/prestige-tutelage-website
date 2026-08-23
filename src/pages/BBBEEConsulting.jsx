@@ -61,9 +61,9 @@ export default function BBBEEConsulting() {
             </div>
             <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
               <Photo
-                src="graduates-group.jpg"
-                alt="A group of graduates walking together after their ceremony"
-                className="aspect-[4/3] w-full"
+                src="bbbee-consultation.jpg"
+                alt="Two colleagues in conversation beside an office window"
+                className="aspect-[3/2] w-full"
               />
             </div>
           </div>

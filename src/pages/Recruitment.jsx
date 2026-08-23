@@ -56,12 +56,29 @@ export default function Recruitment() {
       {/* Service groups */}
       <section className="py-16 lg:py-20">
         <div className="container-px">
-          <SectionHeading
-            eyebrow="What we do"
-            title="From first advert to first day."
-            lead="Take the whole process, or the part you do not have capacity for."
-          />
-          <div className="mt-12 space-y-12">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <SectionHeading
+                eyebrow="What we do"
+                title="From first advert to first day."
+                lead="Take the whole process, or the part you do not have capacity for."
+              />
+              <p className="mt-5 leading-relaxed text-body">
+                Most of the work sits between the advert and the offer: reading applications
+                properly, calling candidates who look right on paper, coordinating diaries across
+                busy managers, and keeping every applicant informed. That is the part we carry.
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+              <Photo
+                src="recruitment-interview.jpg"
+                alt="A candidate interview taking place over a video call"
+                className="aspect-[3/2] w-full"
+              />
+            </div>
+          </div>
+
+          <div className="mt-14 space-y-12">
             {recruitmentGroups.map((g, i) => (
               <div key={g.slug} id={g.slug} className="scroll-mt-28 border-t border-line pt-8">
                 <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
