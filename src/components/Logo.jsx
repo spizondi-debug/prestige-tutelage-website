@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { assetUrl } from '../lib/asset.js'
 
 /**
  * Logo — the official Prestige Tutelage logo.
@@ -10,7 +11,7 @@ export default function Logo({ className = 'h-11' }) {
   return (
     <Link to="/" className="inline-flex items-center" aria-label="Prestige Tutelage — home">
       <img
-        src={`${import.meta.env.BASE_URL}prestige-tutelage-logo.png`}
+        src={assetUrl('prestige-tutelage-logo.png')}
         alt="Prestige Tutelage"
         width="316"
         height="168"

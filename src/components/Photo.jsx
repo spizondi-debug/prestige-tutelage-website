@@ -1,3 +1,5 @@
+import { assetUrl } from '../lib/asset.js'
+
 /**
  * Photo — a real photograph in a fixed aspect box.
  *
@@ -8,7 +10,7 @@ export default function Photo({ src, alt, className = '', position = 'center', e
   return (
     <div className={`overflow-hidden bg-sand ${className}`.trim()}>
       <img
-        src={`${import.meta.env.BASE_URL}images/${src}`}
+        src={assetUrl(`images/${src}`)}
         alt={alt}
         loading={eager ? 'eager' : 'lazy'}
         decoding={eager ? 'sync' : 'async'}
