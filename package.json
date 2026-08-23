@@ -1,0 +1,23 @@
+{
+  "name": "prestige-tutelage-website",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Prestige Tutelage — accredited training and workforce development. Standalone marketing website (separate from Prestige Growth Pathways).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "vite": "^5.3.5"
+  }
+}
