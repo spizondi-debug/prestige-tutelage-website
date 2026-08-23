@@ -8,7 +8,7 @@ import { corporateProcess, corporateAudiences, deliveryFormats } from '../data/c
 export default function CorporateTraining() {
   usePageMeta(
     'Corporate Training',
-    'Corporate and workplace training built around your business — skills gap analysis, programme design, on-site delivery, learner administration and measurable outcomes.',
+    'Corporate training and workplace training in South Africa, built around your business — skills gap analysis, supervisory and leadership training, programme design, on-site delivery, learner administration and measurable outcomes.',
   )
 
   return (

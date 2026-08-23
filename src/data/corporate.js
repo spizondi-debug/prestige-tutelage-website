@@ -14,7 +14,7 @@ export const corporateAudiences = [
   { role: 'Skills Development Facilitators', need: 'Clean learner data, reporting and support for skills planning cycles.' },
   { role: 'HR Managers', need: 'Practical interventions for real people issues — performance, discipline, onboarding.' },
   { role: 'Operations Managers', need: 'Training scheduled around production, delivered close to the work.' },
-  { role: 'Procurement Teams', need: 'A registered, Level 1 B-BBEE supplier with transparent, structured proposals.' },
+  { role: 'Procurement Teams', need: 'A Level 1 B-BBEE contributor with transparent, structured proposals.' },
   { role: 'Executives', need: 'Workforce capability treated as a business lever, with visible outcomes.' },
 ]
 

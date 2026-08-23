@@ -6,7 +6,7 @@ import { industries } from '../data/industries.js'
 export default function Industries() {
   usePageMeta(
     'Industries',
-    'Prestige Tutelage delivers training across manufacturing and engineering, agriculture, logistics, retail, professional services, the public sector and community development.',
+    'Workplace training and learnerships across manufacturing, agriculture and agri-processing, logistics, retail, professional services, the public sector and community development — from Prestige Tutelage, an accredited South African training provider.',
   )
 
   return (

@@ -33,7 +33,13 @@ export default function LearnershipsSection() {
                 </div>
               ))}
             </div>
-            <Link to="/contact" className="btn btn-primary mt-9">Discuss a Learnership</Link>
+            <p className="mt-6 border-l-2 border-prestige-blue/25 pl-5 text-sm leading-relaxed text-muted">
+              {learnerships.contributionNote}
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link to="/contact" className="btn btn-primary">Discuss a Learnership</Link>
+              <Link to="/programmes#learnerships" className="btn btn-outline">How Learnerships Work</Link>
+            </div>
           </div>
         </div>
       </div>

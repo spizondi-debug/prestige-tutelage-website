@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 import { SectionHeading } from '../Section.jsx'
-import { shortCourseCategories, shortCoursePositioning } from '../../data/shortCourses.js'
+import {
+  shortCourseCategories,
+  shortCoursePositioning,
+  coursesOf,
+  totalShortCourses,
+} from '../../data/shortCourses.js'
 
 export default function ShortCoursesSection() {
   return (
@@ -11,8 +16,12 @@ export default function ShortCoursesSection() {
             <SectionHeading
               eyebrow="Short courses"
               title={shortCoursePositioning}
-              lead="Focused one-to-three-day courses that close specific gaps fast — delivered for teams at your workplace or scheduled for individuals."
+              lead={`${totalShortCourses} focused courses across ${shortCourseCategories.length} categories — delivered for teams at your workplace or arranged for individuals.`}
             />
+            <p className="mt-5 leading-relaxed text-body">
+              Professional development interventions: non-NQF and non-credit-bearing unless a
+              specific course has been confirmed otherwise.
+            </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link to="/short-courses" className="btn btn-primary">Browse Short Courses</Link>
               <Link to="/contact" className="btn btn-outline">Build a Course for My Team</Link>
@@ -26,7 +35,7 @@ export default function ShortCoursesSection() {
                   <span className="font-sans font-semibold text-ink transition-colors group-hover:text-prestige-blue">
                     {c.title}
                   </span>
-                  <span className="shrink-0 text-sm text-muted">{c.courses.length} courses</span>
+                  <span className="shrink-0 text-sm text-muted">{coursesOf(c).length}</span>
                 </Link>
               </li>
             ))}

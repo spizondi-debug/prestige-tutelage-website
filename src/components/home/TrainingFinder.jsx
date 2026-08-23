@@ -1,134 +1,138 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-// Training Finder — a quiet, editorial selector (deliberately not a chatbot).
-// Each goal maps to a recommendation with real destinations on this site.
+/**
+ * Training Finder — a quiet, editorial selector (deliberately not a chatbot).
+ *
+ * Each goal maps to one of Prestige's actual routes — a qualification, a
+ * learnership, a short course, a corporate programme, an assessment service or
+ * a custom intervention — and links to real destinations on this site.
+ * `route` labels the kind of answer so the recommendation stays honest about
+ * what is being proposed.
+ */
 const goals = [
   {
     id: 'upskill',
     label: 'Upskill current employees',
-    recommendation: {
-      title: 'Short courses and employed learnerships',
-      text: 'Close immediate gaps with focused short courses, and build depth with employed (18.1) learnerships toward full qualifications.',
-      links: [
-        { label: 'Short Courses', to: '/short-courses' },
-        { label: 'Programmes & Learnerships', to: '/programmes' },
-      ],
-    },
+    route: 'Qualification + short courses',
+    title: 'Short courses now, a qualification pathway alongside',
+    text: 'Close immediate gaps with focused short courses, and build depth with employed (18.1) learnerships toward a qualification.',
+    links: [
+      { label: 'Short Courses', to: '/short-courses' },
+      { label: 'Qualifications', to: '/programmes#catalogue' },
+    ],
   },
   {
     id: 'learnership',
     label: 'Run a learnership',
-    recommendation: {
-      title: 'End-to-end learnership implementation',
-      text: 'Prestige manages employed and unemployed learnerships fully — recruitment support, delivery, workplace monitoring, learner administration and reporting.',
-      links: [
-        { label: 'Programmes & Learnerships', to: '/programmes' },
-        { label: 'Talk to Us', to: '/contact' },
-      ],
-    },
+    route: 'Learnership',
+    title: 'End-to-end learnership implementation',
+    text: 'Prestige can carry sourcing, screening, onboarding, learning agreements, delivery, workplace coordination, learner support, assessment and reporting.',
+    links: [
+      { label: 'How Learnerships Work', to: '/programmes#learnerships' },
+      { label: 'Talk to Us', to: '/contact' },
+    ],
   },
   {
     id: 'managers',
     label: 'Develop managers',
-    recommendation: {
-      title: 'Management programmes and leadership short courses',
-      text: 'Develop first-line and middle managers through accredited management learning plus practical courses in supervision, performance and coaching.',
-      links: [
-        { label: 'Management Programmes', to: '/programmes' },
-        { label: 'Leadership & Management Courses', to: '/short-courses#leadership-management' },
-      ],
-    },
+    route: 'Qualification + short courses',
+    title: 'Management qualifications and leadership short courses',
+    text: 'Generic Management (NQF 4) or the Office Supervisor and Project Manager qualifications, supported by practical courses in supervision, coaching and performance.',
+    links: [
+      { label: 'Management Qualifications', to: '/programmes#catalogue' },
+      { label: 'Leadership Courses', to: '/short-courses#leadership-management' },
+    ],
   },
   {
     id: 'performance',
     label: 'Improve workplace performance',
-    recommendation: {
-      title: 'Diagnose first, then a targeted intervention',
-      text: 'Start with a skills gap or training needs analysis, then design training around the real constraint — that is our corporate training process.',
-      links: [
-        { label: 'Corporate Training', to: '/corporate-training' },
-        { label: 'Workforce Strategy Services', to: '/services#workforce-strategy' },
-      ],
-    },
+    route: 'Corporate programme',
+    title: 'Diagnose first, then a targeted intervention',
+    text: 'Start with a skills gap or training needs analysis, then design training around the real constraint — that is our corporate training process.',
+    links: [
+      { label: 'Corporate Training', to: '/corporate-training' },
+      { label: 'Workforce Strategy', to: '/services#workforce-strategy' },
+    ],
   },
   {
-    id: 'youth',
-    label: 'Train unemployed youth',
-    recommendation: {
-      title: 'Unemployed learnerships and workplace readiness',
-      text: 'Structured 18.2 learnerships and workplace readiness programmes that move young people toward employability — with real support along the way.',
-      links: [
-        { label: 'Social Impact Services', to: '/services#social-impact' },
-        { label: 'Workplace Readiness Courses', to: '/short-courses#workplace-readiness' },
-      ],
-    },
-  },
-  {
-    id: 'qualification',
-    label: 'Find an accredited qualification',
-    recommendation: {
-      title: 'Registered qualifications',
-      text: 'See the qualifications we deliver with their SAQA IDs, NQF levels and credits — then we confirm the right fit and delivery route for your people.',
-      links: [
-        { label: 'View Qualifications', to: '/programmes#qualifications' },
-        { label: 'Talk to Us', to: '/contact' },
-      ],
-    },
-  },
-  {
-    id: 'short-courses',
-    label: 'Run short courses',
-    recommendation: {
-      title: 'Practical short courses for teams',
-      text: 'Choose from leadership, professional skills, HR, sales, administration and readiness courses — or have one built around your team.',
-      links: [
-        { label: 'Browse Short Courses', to: '/short-courses' },
-        { label: 'Build a Course for My Team', to: '/contact' },
-      ],
-    },
+    id: 'production',
+    label: 'Develop production teams',
+    route: 'Qualification + custom intervention',
+    title: 'Production qualifications and plant-specific training',
+    text: 'Production Operator, Process Controller and Production Supervisor qualifications, plus customised interventions in 5S, Lean, root-cause analysis and visual management.',
+    links: [
+      { label: 'Manufacturing Qualifications', to: '/programmes#catalogue' },
+      { label: 'Operational Excellence Courses', to: '/short-courses#operational-excellence' },
+    ],
   },
   {
     id: 'agriculture',
     label: 'Develop agricultural skills',
-    recommendation: {
-      title: 'Agricultural programmes',
-      text: 'Animal, poultry and plant production programmes plus farm-team and supervisory development, delivered close to the operation.',
-      links: [
-        { label: 'Agricultural Programmes', to: '/programmes' },
-        { label: 'Agriculture Industry Page', to: '/industries#agriculture-agriprocessing' },
-      ],
-    },
+    route: 'Qualification',
+    title: 'Agriculture & agri-processing qualifications',
+    text: 'Poultry, Animal and Plant Production and Horticulture qualifications for farm teams, supervisors, emerging farmers and agri-processing employers.',
+    links: [
+      { label: 'Agriculture Qualifications', to: '/programmes#catalogue' },
+      { label: 'Agriculture Industry Page', to: '/industries#agriculture-agriprocessing' },
+    ],
+  },
+  {
+    id: 'youth',
+    label: 'Train unemployed youth',
+    route: 'Learnership + short courses',
+    title: 'Unemployed learnerships and workplace readiness',
+    text: 'Structured 18.2 learnerships combined with workplace readiness courses — CV development, interview preparation, employability and professional conduct.',
+    links: [
+      { label: 'Learnerships', to: '/programmes#learnerships' },
+      { label: 'Workplace Readiness Courses', to: '/short-courses#workplace-readiness' },
+    ],
+  },
+  {
+    id: 'qualification',
+    label: 'Find a qualification',
+    route: 'Qualification',
+    title: 'The full qualification catalogue',
+    text: 'Filter by programme type, training area or NQF level. Every qualification shows the SAQA ID and NQF level Prestige has verified.',
+    links: [{ label: 'Browse Qualifications', to: '/programmes#catalogue' }],
+  },
+  {
+    id: 'short-courses',
+    label: 'Run short courses',
+    route: 'Short course',
+    title: 'Practical short courses for teams',
+    text: 'Leadership, communication, HR, sales, personal effectiveness, operational excellence, safety, workplace readiness and digital skills.',
+    links: [
+      { label: 'Browse Short Courses', to: '/short-courses' },
+      { label: 'Build a Course for My Team', to: '/contact' },
+    ],
   },
   {
     id: 'csi',
     label: 'Implement a CSI programme',
-    recommendation: {
-      title: 'CSI skills programmes',
-      text: 'Turn social investment into structured, credible skills training for communities and unemployed learners — designed and administered properly.',
-      links: [
-        { label: 'Social Impact Services', to: '/services#social-impact' },
-        { label: 'Talk to Us', to: '/contact' },
-      ],
-    },
+    route: 'Custom intervention',
+    title: 'CSI skills programmes',
+    text: 'Turn social investment into structured skills training for communities and unemployed learners — designed and administered properly.',
+    links: [
+      { label: 'Social Impact Services', to: '/services#social-impact' },
+      { label: 'Talk to Us', to: '/contact' },
+    ],
   },
   {
     id: 'assess',
     label: 'Assess candidates',
-    recommendation: {
-      title: 'Assessment Centre services',
-      text: 'Registration, scheduling, invigilation, assessment, moderation and results processing — managed with integrity end to end.',
-      links: [{ label: 'Assessment Centre', to: '/assessment-centre' }],
-    },
+    route: 'Assessment service',
+    title: 'Assessment Centre services',
+    text: 'Registration, scheduling, invigilation, assessment, moderation, evidence management and results processing — managed end to end.',
+    links: [{ label: 'Assessment Centre', to: '/assessment-centre' }],
   },
   {
     id: 'unsure',
     label: 'I’m not sure yet',
-    recommendation: {
-      title: 'Start with a conversation',
-      text: 'Tell us what your organisation is dealing with. We will help you frame the need before proposing any training at all.',
-      links: [{ label: 'Contact Prestige', to: '/contact' }],
-    },
+    route: 'Conversation',
+    title: 'Start with a conversation',
+    text: 'Tell us what your organisation is dealing with. We will help you frame the need before proposing any training at all.',
+    links: [{ label: 'Contact Prestige', to: '/contact' }],
   },
 ]
 
@@ -172,11 +176,13 @@ export default function TrainingFinder() {
             <div className="flex flex-col justify-start border-t border-line bg-sand/50 p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
               {active ? (
                 <div aria-live="polite">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-muted">Our recommendation</p>
-                  <h3 className="mt-3 font-display text-2xl font-semibold text-ink">{active.recommendation.title}</h3>
-                  <p className="mt-3 leading-relaxed text-body">{active.recommendation.text}</p>
+                  <p className="text-sm font-semibold uppercase tracking-wider text-muted">
+                    Recommended route · {active.route}
+                  </p>
+                  <h3 className="mt-3 font-display text-2xl font-semibold text-ink">{active.title}</h3>
+                  <p className="mt-3 leading-relaxed text-body">{active.text}</p>
                   <div className="mt-6 flex flex-wrap gap-3">
-                    {active.recommendation.links.map((l, i) => (
+                    {active.links.map((l, i) => (
                       <Link key={l.to + l.label} to={l.to} className={i === 0 ? 'btn btn-primary' : 'btn btn-outline'}>
                         {l.label}
                       </Link>
@@ -190,14 +196,15 @@ export default function TrainingFinder() {
                     Select a goal to see our recommendation.
                   </p>
                   <p className="mt-3 leading-relaxed text-body">
-                    We will point you to the most relevant Prestige programmes and services — and if
-                    nothing fits neatly, we design around your need.
+                    We will point you to the most relevant Prestige route — a qualification,
+                    learnership, short course, corporate programme, assessment service or a custom
+                    intervention designed around your need.
                   </p>
                   <ol className="mt-6 space-y-2.5 border-t border-line pt-5">
                     {[
                       'Choose the goal closest to your situation.',
-                      'See the programmes and services we would recommend.',
-                      'Talk to us — we confirm the detail and scope it properly.',
+                      'See the route and programmes we would recommend.',
+                      'Talk to us — we confirm availability and scope it properly.',
                     ].map((s, i) => (
                       <li key={s} className="flex items-start gap-3 text-[0.95rem] text-body">
                         <span className="font-display font-semibold text-prestige-green">

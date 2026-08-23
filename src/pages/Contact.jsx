@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { brand, contact } from '../data/site.js'
@@ -24,7 +25,20 @@ export default function Contact() {
     'Contact Prestige Tutelage in Ferndale, Randburg — request a proposal for accredited training, learnerships, short courses, corporate training or assessment services.',
   )
 
-  const [values, setValues] = useState(empty)
+  // "Enquire About This Programme" links arrive with ?programme=… — prefill the
+  // enquiry so the visitor does not retype what they just clicked.
+  const [params] = useSearchParams()
+  const programme = params.get('programme')
+
+  const [values, setValues] = useState(() =>
+    programme
+      ? {
+          ...empty,
+          interest: 'Accredited programme / qualification',
+          message: `I would like to enquire about ${programme}.\n\n`,
+        }
+      : empty,
+  )
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)
 

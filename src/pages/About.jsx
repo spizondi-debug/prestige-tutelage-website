@@ -147,9 +147,11 @@ export default function About() {
                 <li className="border-l-2 border-prestige-green/60 pl-5">
                   <h3 className="font-sans font-semibold text-ink">Accredited training provider</h3>
                   <p className="mt-1 leading-relaxed text-body">
-                    Prestige delivers accredited programmes with formal assessment, moderation and
-                    quality assurance. Specific accreditations and qualification registrations are
-                    confirmed per programme during enquiry.
+                    Prestige delivers qualifications with formal assessment, moderation and quality
+                    assurance behind every result. Programme availability is subject to current
+                    qualification registration, our applicable accreditation or approved delivery
+                    route, and the relevant assessment and certification arrangements — all confirmed
+                    in writing when we scope your intervention.
                   </p>
                 </li>
                 <li className="border-l-2 border-prestige-green/60 pl-5">

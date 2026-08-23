@@ -19,7 +19,7 @@ import CTABand from '../components/CTABand.jsx'
 export default function Home() {
   usePageMeta(
     null,
-    'Prestige Tutelage delivers accredited learning, workforce development, short courses, workplace training and tailored skills solutions for South African organisations.',
+    'Accredited training provider in Randburg, South Africa. Prestige Tutelage delivers qualifications, learnerships, corporate short courses and workplace training across business administration, HR, project management, manufacturing, engineering, agriculture and early childhood development.',
   )
 
   return (

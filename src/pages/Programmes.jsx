@@ -1,49 +1,108 @@
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
+import Disclaimer from '../components/Disclaimer.jsx'
+import ProgrammeCard from '../components/ProgrammeCard.jsx'
 import {
-  programmeAreas,
-  programmeGroups,
-  learnerships,
   qualifications,
-  qualificationsFor,
+  populatedAreas,
+  areaIntros,
+  nqfLevels,
+  PROGRAMME_TYPES,
+  AVAILABILITY_DISCLAIMER,
+  learnerships,
+  technicalInterventions,
+  customCorporate,
 } from '../data/programmes.js'
-import { shortCourseNotes } from '../data/shortCourses.js'
+import { totalShortCourses } from '../data/shortCourses.js'
+
+const ALL = 'All'
+
+function FilterGroup({ label, options, value, onChange, formatter = (v) => v }) {
+  return (
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-wider text-muted">{label}</p>
+      <div className="mt-2.5 flex flex-wrap gap-2">
+        {[ALL, ...options].map((opt) => {
+          const active = value === opt
+          return (
+            <button
+              key={opt}
+              onClick={() => onChange(opt)}
+              aria-pressed={active}
+              className={`border px-3.5 py-2 text-sm font-medium transition-colors ${
+                active
+                  ? 'border-prestige-blue bg-prestige-blue text-white'
+                  : 'border-line bg-paper text-ink hover:border-prestige-blue/50'
+              }`}
+            >
+              {opt === ALL ? ALL : formatter(opt)}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
 
 export default function Programmes() {
   usePageMeta(
-    'Programmes',
-    'Registered qualifications from Prestige Tutelage including Management Assistant (NQF 5), Human Resource Management Administrator and Officer, Office Supervisor, Marketing Coordinator, Project Manager and Early Childhood Development Practitioner — plus programme areas across production technology and agriculture.',
+    'Programmes & Qualifications',
+    'Qualifications delivered by Prestige Tutelage across business administration, HR, project management, manufacturing and production, engineering, agriculture and early childhood development — with SAQA IDs and NQF levels stated. Accredited training provider in Randburg, South Africa.',
   )
+
+  const [type, setType] = useState(ALL)
+  const [area, setArea] = useState(ALL)
+  const [nqf, setNqf] = useState(ALL)
+
+  const filtered = useMemo(
+    () =>
+      qualifications.filter(
+        (q) =>
+          (type === ALL || q.type === type) &&
+          (area === ALL || q.area === area) &&
+          (nqf === ALL || q.nqf === nqf),
+      ),
+    [type, area, nqf],
+  )
+
+  const areasShown = populatedAreas.filter((a) => filtered.some((q) => q.area === a))
+  const filtersActive = type !== ALL || area !== ALL || nqf !== ALL
+  const reset = () => { setType(ALL); setArea(ALL); setNqf(ALL) }
 
   return (
     <>
       <PageHeader
-        eyebrow="Programmes"
-        title="Accredited learning that maps onto real occupations."
-        lead="Prestige Tutelage delivers programmes across business and management, technical production, agriculture and community development — as full qualifications, learnerships or components of a wider workforce plan."
+        eyebrow="Programmes & qualifications"
+        title="Learning that maps onto real occupations."
+        lead="Prestige Tutelage delivers qualifications across business and administration, manufacturing and production, engineering, agriculture and early childhood development — as full qualifications, through learnerships, or as part of a wider workforce plan."
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="On this page">
-          <a href="#qualifications" className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
-            Registered qualifications
-          </a>
-          <a href="#learnerships" className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
-            Learnerships
-          </a>
+          {[
+            ['#catalogue', 'Qualifications'],
+            ['#learnerships', 'Learnerships'],
+            ['#technical', 'Technical interventions'],
+            ['#custom', 'Custom corporate'],
+          ].map(([href, label]) => (
+            <a key={href} href={href} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
+              {label}
+            </a>
+          ))}
         </nav>
       </PageHeader>
 
-      {/* How programmes are delivered */}
-      <section className="border-b border-line bg-paper py-12 lg:py-16">
+      {/* Delivery routes */}
+      <section className="border-b border-line bg-paper py-12 lg:py-14">
         <div className="container-px">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { t: 'Full qualifications', d: 'Structured learning toward a registered qualification, with formal assessment and moderation.' },
+              { t: 'Full qualifications', d: 'Structured learning toward a qualification, with formal assessment and moderation.' },
               { t: 'Learnerships', d: 'Qualification-linked programmes combining classroom learning with structured workplace experience.' },
-              { t: 'Skills programmes', d: 'Focused, credit-bearing components for organisations that need targeted capability quickly.' },
+              { t: 'Skills programmes', d: 'Focused components for organisations that need targeted capability quickly.' },
             ].map((x) => (
               <div key={x.t} className="border-l-2 border-prestige-green/60 pl-5">
                 <h2 className="font-sans font-semibold text-ink">{x.t}</h2>
@@ -51,126 +110,78 @@ export default function Programmes() {
               </div>
             ))}
           </div>
+          <Disclaimer className="mt-10">{AVAILABILITY_DISCLAIMER}</Disclaimer>
         </div>
       </section>
 
-      {/* Registered qualifications */}
-      <section id="qualifications" className="scroll-mt-28 py-16 lg:py-24">
+      {/* Catalogue with filters */}
+      <section id="catalogue" className="scroll-mt-28 py-16 lg:py-20">
         <div className="container-px">
           <SectionHeading
-            eyebrow="Registered qualifications"
-            title="Qualifications we deliver, on the record."
-            lead="Each is a registered qualification with its SAQA ID, NQF level and credit value stated. Delivered as a full qualification or through a learnership."
+            eyebrow="Qualification catalogue"
+            title="Find the right qualification."
+            lead="Filter by what you need, the area you work in, or the NQF level you are targeting. Every qualification below shows the detail Prestige has verified."
           />
 
-          <div className="mt-10 overflow-x-auto">
-            <table className="w-full min-w-[36rem] border-collapse text-left">
-              <caption className="sr-only">
-                Registered qualifications delivered by Prestige Tutelage, with SAQA ID, NQF level and credits
-              </caption>
-              <thead>
-                <tr className="border-y border-line">
-                  <th scope="col" className="py-3 pr-6 text-sm font-semibold uppercase tracking-wider text-muted">
-                    Qualification
-                  </th>
-                  <th scope="col" className="py-3 pr-6 text-sm font-semibold uppercase tracking-wider text-muted">
-                    SAQA ID
-                  </th>
-                  <th scope="col" className="py-3 pr-6 text-sm font-semibold uppercase tracking-wider text-muted">
-                    NQF
-                  </th>
-                  <th scope="col" className="py-3 text-right text-sm font-semibold uppercase tracking-wider text-muted">
-                    Credits
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {qualifications.map((q) => (
-                  <tr key={q.saqaId} className="border-b border-line">
-                    <th scope="row" className="py-4 pr-6 font-display text-lg font-semibold text-ink">
-                      {q.name}
-                    </th>
-                    <td className="py-4 pr-6 font-medium tabular-nums text-body">{q.saqaId}</td>
-                    <td className="py-4 pr-6 text-body">
-                      <span className="font-semibold text-prestige-blue">Level {q.nqf}</span>
-                    </td>
-                    <td className="py-4 text-right tabular-nums text-body">{q.credits}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="mt-10 grid gap-6 border-y border-line py-7 lg:grid-cols-3 lg:gap-10">
+            <FilterGroup label="Programme type" options={PROGRAMME_TYPES} value={type} onChange={setType} />
+            <FilterGroup label="Training area" options={populatedAreas} value={area} onChange={setArea}
+              formatter={(a) => a.replace(' & Agri-processing', '').replace(', Administration & Leadership', '')} />
+            <FilterGroup label="NQF level" options={nqfLevels} value={nqf} onChange={setNqf}
+              formatter={(n) => `NQF ${n}`} />
           </div>
 
-          <p className="mt-6 text-sm text-muted">
-            Additional programme areas below are delivered as skills programmes or customised
-            interventions. Where a qualification is not listed here, we confirm the registration
-            detail in writing when we scope your intervention.
-          </p>
-        </div>
-      </section>
-
-      {/* Programme areas by group */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
-          <SectionHeading
-            eyebrow="Programme areas"
-            title="Where Prestige delivers."
-            lead="Each area is delivered in a format that suits your organisation — on-site, cohort-based or blended with workplace learning."
-          />
-
-          <div className="mt-12 space-y-14">
-            {programmeGroups.map((group) => {
-              const items = programmeAreas.filter((p) => p.group === group)
-              if (!items.length) return null
-              return (
-                <div key={group}>
-                  <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">{group}</h3>
-                  <div className="mt-5 grid gap-x-12 border-t border-line lg:grid-cols-2">
-                    {items.map((p) => {
-                      const quals = qualificationsFor(p.slug)
-                      return (
-                        <article key={p.slug} className="border-b border-line py-6">
-                          <h4 className="font-display text-xl font-semibold text-ink">{p.title}</h4>
-                          <p className="mt-2 leading-relaxed text-body">{p.summary}</p>
-                          <p className="mt-3 text-sm text-muted">
-                            <span className="font-semibold text-body">Typically for:</span> {p.forWho}
-                          </p>
-                          {quals.length > 0 && (
-                            <ul className="mt-4 space-y-2 border-t border-line pt-4">
-                              {quals.map((q) => (
-                                <li key={q.saqaId} className="text-sm">
-                                  <span className="font-semibold text-ink">{q.name}</span>
-                                  <span className="mt-0.5 block text-muted">
-                                    SAQA ID {q.saqaId} · NQF Level {q.nqf} · {q.credits} credits
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </article>
-                      )
-                    })}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          <div className="mt-10 rounded-lg border border-line bg-paper p-6">
-            <h3 className="font-sans font-semibold text-ink">What we publish</h3>
-            <p className="mt-2 leading-relaxed text-body">
-              Registered qualifications are listed above with their SAQA ID, NQF level and credits.
-              For every other programme area, the applicable registration and accreditation detail is
-              confirmed in writing when we scope your intervention — we publish only what we can verify.
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <p className="text-sm text-body" role="status" aria-live="polite">
+              Showing <span className="font-semibold text-ink">{filtered.length}</span> of {qualifications.length} qualifications
             </p>
+            {filtersActive && (
+              <button onClick={reset} className="text-sm font-semibold text-prestige-blue hover:underline">
+                Clear filters
+              </button>
+            )}
           </div>
+
+          {filtered.length === 0 ? (
+            <div className="mt-10 border border-line bg-paper p-10 text-center">
+              <p className="font-display text-xl font-semibold text-ink">
+                No qualifications match that combination.
+              </p>
+              <p className="mt-2 leading-relaxed text-body">
+                Try a broader filter — or tell us what you need and we will advise on the right route.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <button onClick={reset} className="btn btn-outline">Clear Filters</button>
+                <Link to="/contact" className="btn btn-primary">Talk to Us</Link>
+              </div>
+            </div>
+          ) : (
+            <div className="mt-12 space-y-14">
+              {areasShown.map((a) => {
+                const items = filtered.filter((q) => q.area === a)
+                return (
+                  <div key={a}>
+                    <div className="flex flex-col gap-2 border-b border-line pb-4">
+                      <h3 className="font-display text-2xl font-semibold text-ink">{a}</h3>
+                      <p className="max-w-3xl leading-relaxed text-body">{areaIntros[a]}</p>
+                    </div>
+                    <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                      {items.map((q) => <ProgrammeCard key={q.saqaId} q={q} />)}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+
+          <Disclaimer className="mt-12">{AVAILABILITY_DISCLAIMER}</Disclaimer>
         </div>
       </section>
 
       {/* Learnerships */}
-      <section id="learnerships" className="border-y border-line bg-sand/60 py-16 lg:py-24">
+      <section id="learnerships" className="scroll-mt-28 border-y border-line bg-sand/60 py-16 lg:py-24">
         <div className="container-px">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+          <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
                 eyebrow="Learnerships"
@@ -185,44 +196,91 @@ export default function Programmes() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6 leading-relaxed text-body">{learnerships.employerNote}</p>
+              <Disclaimer className="mt-7">{learnerships.contributionNote}</Disclaimer>
               <Link to="/contact" className="btn btn-primary mt-8">Discuss a Learnership</Link>
             </div>
-            <div className="relative">
-              <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-xl2 bg-paper lg:block" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
+
+            <div>
+              <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
                 <Photo
                   src="graduate-celebrating.jpg"
                   alt="A graduate celebrating after completing his qualification"
                   className="aspect-[5/4] w-full"
                 />
               </div>
+              <h3 className="mt-8 font-sans text-sm font-semibold uppercase tracking-wider text-muted">
+                What Prestige can carry for you
+              </h3>
+              <ul className="mt-4 grid gap-x-8 border-t border-line sm:grid-cols-2">
+                {learnerships.support.map((s) => (
+                  <li key={s} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Accredited vs non-accredited */}
-      <section className="py-16 lg:py-24">
+      {/* Customised technical interventions */}
+      <section id="technical" className="scroll-mt-28 py-16 lg:py-20">
         <div className="container-px">
-          <SectionHeading
-            eyebrow="Know what you are buying"
-            title="Accredited programmes and short courses do different jobs."
-          />
-          <div className="mt-10 grid gap-8 border-t border-line pt-10 lg:grid-cols-2">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
-              <h3 className="font-display text-xl font-semibold text-ink">Accredited programmes</h3>
-              <p className="mt-2 leading-relaxed text-body">{shortCourseNotes.accredited}</p>
-              <Link to="/programmes" className="mt-4 inline-block text-sm font-semibold text-prestige-blue hover:underline">
-                You are here →
-              </Link>
+              <SectionHeading
+                eyebrow="Technical interventions"
+                title="Customised technical training for your plant."
+                lead={technicalInterventions.lead}
+              />
+              <Disclaimer className="mt-6">{technicalInterventions.note}</Disclaimer>
             </div>
+            <ul className="grid content-start gap-x-10 border-t border-line sm:grid-cols-2">
+              {technicalInterventions.items.map((i) => (
+                <li key={i} className="flex items-start gap-3 border-b border-line py-3 text-body">
+                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                  {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Short courses pointer + custom corporate */}
+      <section id="custom" className="scroll-mt-28 border-t border-line bg-paper py-16 lg:py-20">
+        <div className="container-px">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <h3 className="font-display text-xl font-semibold text-ink">Short courses</h3>
-              <p className="mt-2 leading-relaxed text-body">{shortCourseNotes.nonAccredited}</p>
-              <Link to="/short-courses" className="mt-4 inline-block text-sm font-semibold text-prestige-blue hover:underline">
-                Browse short courses →
-              </Link>
+              <SectionHeading
+                eyebrow="Short courses"
+                title="Professional development, alongside the qualifications."
+                lead={`${totalShortCourses} practical short courses across leadership, communication, HR, sales, personal effectiveness, operational excellence, safety, workplace readiness and digital skills.`}
+              />
+              <p className="mt-5 leading-relaxed text-body">
+                Short courses are professional development interventions — non-NQF and
+                non-credit-bearing unless a specific course has been confirmed otherwise. They work
+                well on their own, or alongside a qualification pathway.
+              </p>
+              <Link to="/short-courses" className="btn btn-outline mt-7">Browse Short Courses</Link>
+            </div>
+
+            <div>
+              <SectionHeading
+                eyebrow="Custom corporate programmes"
+                title="When nothing off the shelf fits."
+                lead={customCorporate.lead}
+              />
+              <ul className="mt-6 border-t border-line">
+                {customCorporate.items.map((i) => (
+                  <li key={i} className="flex items-start gap-3 border-b border-line py-3 text-body">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                    {i}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contact" className="btn btn-primary mt-7">Design a Programme With Us</Link>
             </div>
           </div>
         </div>
@@ -230,7 +288,7 @@ export default function Programmes() {
 
       <CTABand
         title="Not sure which programme fits?"
-        text="Tell us the roles and gaps you are working with, and we will recommend the right qualification, learnership or blend."
+        text="Tell us the roles and gaps you are working with, and we will advise on the right qualification, learnership or blend — including what is currently available."
         secondary={{ label: 'Corporate Training', to: '/corporate-training' }}
       />
     </>
