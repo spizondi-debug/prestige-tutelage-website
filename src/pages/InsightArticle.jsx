@@ -1,0 +1,90 @@
+import { useParams, Link, Navigate } from 'react-router-dom'
+import { usePageMeta } from '../lib/meta.js'
+import CTABand from '../components/CTABand.jsx'
+import { insights } from '../data/insights.js'
+
+export default function InsightArticle() {
+  const { slug } = useParams()
+  const article = insights.find((a) => a.slug === slug)
+  const related = insights.filter((a) => a.slug !== slug).slice(0, 3)
+
+  usePageMeta(article?.title ?? 'Insight', article?.excerpt)
+
+  if (!article) return <Navigate to="/insights" replace />
+
+  return (
+    <>
+      <article>
+        <header className="border-b border-line">
+          <div className="container-px">
+            <div className="max-w-3xl py-14 lg:py-20">
+              <Link to="/insights" className="text-sm font-semibold text-prestige-blue hover:underline">
+                ← All insights
+              </Link>
+              <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-prestige-green">
+                {article.category}
+              </p>
+              <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
+                {article.title}
+              </h1>
+              <p className="mt-5 text-lg leading-relaxed text-body">{article.excerpt}</p>
+              <p className="mt-5 text-sm text-muted">{article.minutes} min read</p>
+            </div>
+          </div>
+        </header>
+
+        <div className="container-px">
+          <div className="max-w-2xl py-12 lg:py-16">
+            {article.body.map((block, i) => {
+              if (block.h) {
+                return (
+                  <h2 key={i} className="mt-10 font-display text-2xl font-semibold text-ink first:mt-0">
+                    {block.h}
+                  </h2>
+                )
+              }
+              if (block.list) {
+                return (
+                  <ul key={i} className="mt-5 space-y-3">
+                    {block.list.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-[1.05rem] leading-relaxed text-body">
+                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )
+              }
+              return (
+                <p key={i} className="mt-5 text-[1.05rem] leading-relaxed text-body first:mt-0">
+                  {block.p}
+                </p>
+              )
+            })}
+          </div>
+        </div>
+      </article>
+
+      {/* Related */}
+      <section className="border-t border-line py-14">
+        <div className="container-px">
+          <h2 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">
+            More insights
+          </h2>
+          <div className="mt-6 grid gap-x-12 border-t border-line lg:grid-cols-3">
+            {related.map((a) => (
+              <Link key={a.slug} to={`/insights/${a.slug}`} className="group border-b border-line py-5 lg:pr-6">
+                <p className="text-xs font-semibold uppercase tracking-wider text-prestige-green">{a.category}</p>
+                <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue">
+                  {a.title}
+                </h3>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTABand />
+    </>
+  )
+}

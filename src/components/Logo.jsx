@@ -1,35 +1,22 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { assetUrl } from '../lib/asset.js'
 
 /**
- * Logo — uses the official Prestige Tutelage logo when the image file is
- * present, and falls back to a typographic wordmark until it is added.
- *
- * DROP-IN: save the real logo to  public/prestige-tutelage-logo.png
- * (or .svg — update the src below). No other change needed.
+ * Logo — the official Prestige Tutelage logo.
+ * public/prestige-tutelage-logo.png is the supplied original, trimmed of its
+ * white margin and given an alpha channel so it sits on any background.
+ * Do not alter, redraw or substitute it.
  */
-export default function Logo() {
-  const [imgOk, setImgOk] = useState(true)
-  const src = `${import.meta.env.BASE_URL}prestige-tutelage-logo.png`
-
+export default function Logo({ className = 'h-11' }) {
   return (
-    <a href="#home" className="inline-flex items-center" aria-label="Prestige Tutelage — home">
-      {imgOk ? (
-        <img
-          src={src}
-          alt="Prestige Tutelage"
-          className="h-11 w-auto"
-          onError={() => setImgOk(false)}
-        />
-      ) : (
-        <span className="inline-flex items-center">
-          <span className="font-display text-[1.35rem] font-bold leading-none tracking-tight text-ink">
-            Prestige<span className="text-prestige-blue"> Tutelage</span>
-          </span>
-          <span className="ml-2 hidden rounded border border-line px-1.5 py-0.5 text-[0.55rem] font-semibold uppercase tracking-wide text-muted sm:inline">
-            logo placeholder
-          </span>
-        </span>
-      )}
-    </a>
+    <Link to="/" className="inline-flex items-center" aria-label="Prestige Tutelage — home">
+      <img
+        src={assetUrl('prestige-tutelage-logo.png')}
+        alt="Prestige Tutelage"
+        width="316"
+        height="168"
+        className={`${className} w-auto`}
+      />
+    </Link>
   )
 }
