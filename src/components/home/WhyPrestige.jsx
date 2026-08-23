@@ -11,7 +11,7 @@ export const whyPrestige = [
 
 export default function WhyPrestige() {
   return (
-    <section className="py-16 lg:py-24">
+    <section className="border-t border-line bg-cloud py-20 lg:py-28">
       <div className="container-px">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <SectionHeading

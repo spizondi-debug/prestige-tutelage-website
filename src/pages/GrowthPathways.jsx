@@ -50,7 +50,7 @@ export default function GrowthPathways() {
             <ol className="grid content-start border-t border-line">
               {connects.map((c, i) => (
                 <li key={c.t} className="grid gap-2 border-b border-line py-5 sm:grid-cols-[auto_1fr] sm:gap-6">
-                  <span className="font-display text-lg font-semibold text-prestige-green">
+                  <span className="font-display text-lg font-semibold text-prestige-blue">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span>
@@ -69,7 +69,7 @@ export default function GrowthPathways() {
         <div className="container-px">
           <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <div className="relative order-last lg:order-first">
-              <div className="absolute -left-4 -top-4 hidden h-full w-full bg-sand lg:block" aria-hidden="true" />
+              <div className="absolute -left-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
               <div className="relative overflow-hidden">
                 <Photo
                   src="young-professional.jpg"

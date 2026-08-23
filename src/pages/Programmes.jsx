@@ -88,7 +88,7 @@ export default function Programmes() {
             ['#technical', 'Technical interventions'],
             ['#custom', 'Custom corporate'],
           ].map(([href, label]) => (
-            <a key={href} href={href} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
+            <a key={href} href={href} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift">
               {label}
             </a>
           ))}
@@ -179,7 +179,7 @@ export default function Programmes() {
       </section>
 
       {/* Learnerships */}
-      <section id="learnerships" className="scroll-mt-28 border-y border-line bg-sand/60 py-16 lg:py-24">
+      <section id="learnerships" className="scroll-mt-28 border-y border-line bg-mist/60 py-16 lg:py-24">
         <div className="container-px">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>

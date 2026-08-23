@@ -51,7 +51,7 @@ const solutions = [
 
 export default function BeyondTraining() {
   return (
-    <section className="border-t border-line bg-paper py-20 lg:py-28">
+    <section className="border-t border-line bg-cloud py-20 lg:py-28">
       <div className="container-px">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>
@@ -75,7 +75,7 @@ export default function BeyondTraining() {
                   {s.photo ? (
                     <Photo src={s.photo} alt={s.alt} className="aspect-[3/4] w-full" />
                   ) : (
-                    <div className="relative aspect-[3/4] w-full bg-night">
+                    <div className="relative aspect-[3/4] w-full bg-midnight">
                       <PrestigePath
                         stage={s.stage}
                         intensity={0.5}
@@ -85,7 +85,7 @@ export default function BeyondTraining() {
                   )}
                   {/* Scrim: the index must stay legible over a bright photo. */}
                   <span
-                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(6,10,19,0.55),transparent)]"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(7,26,43,0.55),transparent)]"
                     aria-hidden="true"
                   />
                   <span className="absolute left-5 top-4 font-display text-sm font-semibold text-white">

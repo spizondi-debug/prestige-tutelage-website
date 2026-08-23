@@ -141,30 +141,30 @@ export default function TrainingFinder() {
   const active = goals.find((g) => g.id === selected)
 
   return (
-    <section id="training-finder" className="py-16 lg:py-24">
+    // The programme explorer sits on Deep Navy — the one interactive
+    // instrument on the homepage, given its own surface so it reads as a tool
+    // rather than another content band.
+    <section id="training-finder" className="bg-midnight py-16 lg:py-24">
       <div className="container-px">
-        <div className="overflow-hidden rounded-lg border border-line bg-paper">
+        <div className="overflow-hidden rounded-lg border border-line-dark bg-navy">
           <div className="grid lg:grid-cols-[1fr_1fr]">
             <div className="p-8 sm:p-10 lg:p-12">
-              <div className="mb-5 flex items-center gap-3">
-                <span className="h-px w-10 bg-prestige-green" />
-                <span className="text-sm font-semibold tracking-wide text-prestige-blue">Training finder</span>
-              </div>
-              <h2 className="font-display text-3xl font-semibold leading-tight text-ink">
+              <p className="eyebrow-light">Training finder</p>
+              <h2 className="mt-5 font-display text-section font-semibold leading-tight text-white">
                 Find the right training solution.
               </h2>
-              <p className="mt-3 leading-relaxed text-body">What are you trying to achieve?</p>
+              <p className="mt-3 leading-relaxed text-white/70">What are you trying to achieve?</p>
 
-              <div className="mt-6 flex flex-wrap gap-2.5" role="group" aria-label="Select your goal">
+              <div className="mt-7 flex flex-wrap gap-2.5" role="group" aria-label="Select your goal">
                 {goals.map((g) => (
                   <button
                     key={g.id}
                     onClick={() => setSelected(g.id)}
                     aria-pressed={selected === g.id}
-                    className={`rounded-lg border px-4 py-2.5 text-left text-sm font-medium transition-colors ${
+                    className={`rounded-lg border px-4 py-2.5 text-left text-sm font-medium transition-colors duration-200 ${
                       selected === g.id
                         ? 'border-prestige-blue bg-prestige-blue text-white'
-                        : 'border-line bg-cream text-ink hover:border-prestige-blue/50'
+                        : 'border-line-dark bg-white/[0.04] text-white/85 hover:border-white/30 hover:bg-white/10'
                     }`}
                   >
                     {g.label}
@@ -173,17 +173,21 @@ export default function TrainingFinder() {
               </div>
             </div>
 
-            <div className="flex flex-col justify-start border-t border-line bg-sand/50 p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
+            <div className="flex flex-col justify-start border-t border-line-dark bg-white/[0.03] p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
               {active ? (
                 <div aria-live="polite">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-muted">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-prestige-growth">
                     Recommended route · {active.route}
                   </p>
-                  <h3 className="mt-3 font-display text-2xl font-semibold text-ink">{active.title}</h3>
-                  <p className="mt-3 leading-relaxed text-body">{active.text}</p>
+                  <h3 className="mt-3 font-display text-2xl font-semibold text-white">{active.title}</h3>
+                  <p className="mt-3 leading-relaxed text-white/75">{active.text}</p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     {active.links.map((l, i) => (
-                      <Link key={l.to + l.label} to={l.to} className={i === 0 ? 'btn btn-primary' : 'btn btn-outline'}>
+                      <Link
+                        key={l.to + l.label}
+                        to={l.to}
+                        className={i === 0 ? 'btn btn-primary' : 'btn btn-ghost-light'}
+                      >
                         {l.label}
                       </Link>
                     ))}
@@ -191,23 +195,25 @@ export default function TrainingFinder() {
                 </div>
               ) : (
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-wider text-muted">How this works</p>
-                  <p className="mt-3 font-display text-2xl font-semibold text-ink">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-white/60">
+                    How this works
+                  </p>
+                  <p className="mt-3 font-display text-2xl font-semibold text-white">
                     Select a goal to see our recommendation.
                   </p>
-                  <p className="mt-3 leading-relaxed text-body">
+                  <p className="mt-3 leading-relaxed text-white/75">
                     We will point you to the most relevant Prestige route — a qualification,
                     learnership, short course, corporate programme, assessment service or a custom
                     intervention designed around your need.
                   </p>
-                  <ol className="mt-6 space-y-2.5 border-t border-line pt-5">
+                  <ol className="mt-6 space-y-2.5 border-t border-line-dark pt-5">
                     {[
                       'Choose the goal closest to your situation.',
                       'See the route and programmes we would recommend.',
                       'Talk to us — we confirm availability and scope it properly.',
                     ].map((s, i) => (
-                      <li key={s} className="flex items-start gap-3 text-[0.95rem] text-body">
-                        <span className="font-display font-semibold text-prestige-green">
+                      <li key={s} className="flex items-start gap-3 text-[0.95rem] text-white/75">
+                        <span className="font-display font-semibold text-prestige-growth">
                           {String(i + 1).padStart(2, '0')}
                         </span>
                         {s}

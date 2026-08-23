@@ -9,7 +9,7 @@ import {
 
 export default function ShortCoursesSection() {
   return (
-    <section className="border-y border-line bg-sand/60 py-16 lg:py-24">
+    <section className="border-y border-line bg-cloud py-16 lg:py-24">
       <div className="container-px">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>

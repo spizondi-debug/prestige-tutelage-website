@@ -13,7 +13,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-cream font-sans text-body;
+    @apply bg-cloud font-sans text-body;
   }
   h1, h2, h3 {
     @apply font-display text-ink;
@@ -26,24 +26,42 @@
   }
 
   /* ── Buttons ───────────────────────────────────────────────────────────
-     Pill geometry, restrained weight. The shape is the only decoration:
-     no shadows, no gradients, no transforms. */
+     Four roles, no more. Pill geometry; the shape and the fill do the work.
+
+     Contrast is what fixes the text colours here, not taste: white on
+     Prestige Green is 3.32:1, so the Growth CTA carries Midnight text. See
+     the note at the top of tailwind.config.js before changing any of these. */
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5
            text-[0.95rem] font-semibold tracking-[0.01em]
-           transition-colors duration-200 ease-prestige;
+           transition-all duration-200 ease-prestige;
   }
+
+  /* Primary — the default action. Brightens and lifts on hover. */
   .btn-primary {
-    @apply bg-prestige-blue text-white hover:bg-prestige-blue-deep;
+    @apply bg-prestige-blue text-white hover:bg-prestige-blue-bright hover:shadow-premium;
   }
-  .btn-outline {
-    @apply border border-ink/20 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white;
-  }
+
+  /* Growth — reserved for starting, progressing, enrolling. Not a general
+     alternative to primary: green earns its meaning by being rare. */
   .btn-green {
-    @apply bg-prestige-green text-white hover:bg-prestige-green-deep;
+    @apply bg-prestige-green text-midnight hover:bg-prestige-growth hover:shadow-premium;
   }
+
+  /* Dark — for light backgrounds that already carry a blue accent. */
+  .btn-dark {
+    @apply bg-midnight text-white hover:bg-navy hover:shadow-premium;
+  }
+
+  /* Outline — quiet secondary. Fills softly rather than inverting hard. */
+  .btn-outline {
+    @apply border border-navy/25 bg-transparent text-navy
+           hover:border-navy/40 hover:bg-navy/[0.06];
+  }
+
+  /* Outline on dark surfaces. */
   .btn-ghost-light {
-    @apply border border-white/30 text-white hover:border-white hover:bg-white hover:text-ink;
+    @apply border border-white/25 text-white hover:border-white/50 hover:bg-white/10;
   }
 
   /* ── Micro label ───────────────────────────────────────────────────────
@@ -52,7 +70,7 @@
     @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-prestige-blue;
   }
   .eyebrow-light {
-    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-prestige-green-lit;
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-prestige-growth;
   }
 
   /* ── Chevron link ──────────────────────────────────────────────────────
@@ -80,6 +98,15 @@
   }
   .rail > * {
     @apply snap-start shrink-0;
+  }
+
+  /* ── Glass ─────────────────────────────────────────────────────────────
+     For navigation and floating overlays only. Never for ordinary cards. */
+  .glass {
+    background: rgba(11, 39, 66, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
   }
 
   /* ── Media ─────────────────────────────────────────────────────────────

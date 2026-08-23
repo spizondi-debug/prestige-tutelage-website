@@ -22,7 +22,7 @@ export default function Services() {
             <a
               key={g.slug}
               href={`#${g.slug}`}
-              className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep"
+              className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
             >
               {g.title}
             </a>
@@ -52,7 +52,7 @@ export default function Services() {
                 {group.to && (
                   <Link
                     to={group.to}
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
                   >
                     {group.toLabel}
                     <span aria-hidden="true">→</span>

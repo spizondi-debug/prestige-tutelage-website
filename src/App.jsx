@@ -23,7 +23,7 @@ import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col bg-cream">
+    <div className="flex min-h-screen flex-col bg-cloud">
       <ScrollToTop />
       <Navbar />
       <main className="flex-1">

@@ -84,7 +84,7 @@ export default function Recruitment() {
                 <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
                   <div>
                     <div className="flex items-baseline gap-4">
-                      <span className="font-display text-2xl font-semibold text-prestige-green/70">
+                      <span className="font-display text-2xl font-semibold text-prestige-blue/80">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <h3 className="font-display text-2xl font-semibold leading-tight text-ink">
@@ -110,7 +110,7 @@ export default function Recruitment() {
       </section>
 
       {/* Learnership & youth recruitment — the differentiator */}
-      <section className="border-y border-line bg-sand/60 py-16 lg:py-20">
+      <section className="border-y border-line bg-mist/60 py-16 lg:py-20">
         <div className="container-px">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>

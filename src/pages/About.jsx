@@ -74,7 +74,7 @@ export default function About() {
               <p className="mt-4 text-sm font-medium text-muted">{brand.credibility.join(' • ')}</p>
             </div>
             <div className="relative">
-              <div className="absolute -right-4 -top-4 hidden h-full w-full bg-sand lg:block" aria-hidden="true" />
+              <div className="absolute -right-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
               <div className="relative overflow-hidden">
                 <Photo
                   src="graduates-group.jpg"
@@ -88,7 +88,7 @@ export default function About() {
       </section>
 
       {/* Purpose */}
-      <section className="border-y border-line bg-prestige-blue-deep py-16 lg:py-20">
+      <section className="border-y border-line bg-navy py-16 lg:py-20">
         <div className="container-px">
           <div className="max-w-3xl">
             <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />
@@ -193,7 +193,7 @@ export default function About() {
       </section>
 
       {/* Why partner */}
-      <section className="border-t border-line bg-sand/60 py-16 lg:py-24">
+      <section className="border-t border-line bg-mist/60 py-16 lg:py-24">
         <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading

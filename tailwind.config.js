@@ -1,32 +1,65 @@
 /** @type {import('tailwindcss').Config} */
+
+// PRESTIGE COLOUR SYSTEM
+//
+// The two brand colours are sampled from the official logo artwork, not
+// approximated: #006FD8 and #2DA22F. Do not substitute "close enough" values,
+// and do not recolour the logo itself.
+//
+// Every pairing below has been checked for WCAG AA (4.5:1) at body size.
+// Three results shape the whole system and must not be quietly undone:
+//
+//   * White on Prestige Green is 3.32:1 — it FAILS. Green buttons therefore
+//     carry Midnight text, never white.
+//   * White on Electric Blue is 3.90:1 — it FAILS. Electric Blue is a
+//     graphic accent (lighting, strokes, glow), never a text or fill colour
+//     behind white text.
+//   * Prestige Blue on Midnight is 3.58:1 — it FAILS. On dark surfaces
+//     interactive text is white, brightening to Growth Green on hover.
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        // Editorial (light) surfaces
-        paper: '#FFFFFF',
-        cream: '#FAF8F4',
-        sand: '#F1EDE4',
-        ink: '#12233F',
-        body: '#48586A',
-        muted: '#7C8AA0',
-        line: '#E6E3DA',
+        // ── Dark foundation ──────────────────────────────────────────────
+        // Never pure black: the darkest value on the site is #061521.
+        'midnight-deep': '#061521', // top of the cinematic hero gradient only
+        midnight: '#071A2B',        // the main dark foundation
+        navy: '#0B2742',            // secondary dark sections, cards on dark
+        'navy-lift': '#0D4F81',     // gradient midpoint; link hover on light
 
-        // Cinematic (dark) surfaces — the Prestige Path lives on these
-        night: '#060A13',
-        'night-2': '#0A1122',
-        'night-3': '#111C34',
-        'night-line': '#1E2A44',
+        // ── Light surfaces ───────────────────────────────────────────────
+        // Never stark white everywhere: Cloud is the default light section.
+        cloud: '#F5F8FA',
+        mist: '#EAF0F4',
+        paper: '#FFFFFF', // reserved for important content surfaces
+
+        // ── Text ─────────────────────────────────────────────────────────
+        ink: '#102436',   // primary — softer than black
+        body: '#526575',  // body copy
+        // Muted was specified as #7C8C98, which is 3.25:1 on Cloud and fails
+        // AA. Darkened along its own hue to the first passing value so
+        // captions and metadata stay legible, per "do not make important
+        // information too light".
+        muted: '#63727E',
+
+        // ── Hairlines ────────────────────────────────────────────────────
+        line: 'rgba(7, 26, 43, 0.10)',
+        'line-dark': 'rgba(255, 255, 255, 0.10)',
 
         prestige: {
-          blue: '#1E4FD8',
-          'blue-deep': '#0A2A6B',
-          'blue-lit': '#4C87FF', // legible on night surfaces
-          green: '#0FB87A',
-          'green-deep': '#0A8A5C',
-          'green-lit': '#2FE3A0', // legible on night surfaces
+          blue: '#006FD8',     // exact logo blue — knowledge, links, active states
+          'blue-bright': '#0877D8', // primary button hover; brightest blue still AA on white
+          electric: '#1585D8', // graphic accent only — lighting, strokes, glow
+          green: '#2DA22F',    // exact logo green — growth, progression, success
+          growth: '#45B95C',   // refined secondary green — highlights, hover, stats
         },
+      },
+      backgroundImage: {
+        // Signature gradients. Used selectively — never as a page-wide wash.
+        'prestige-digital': 'linear-gradient(135deg, #0B2742 0%, #0D4F81 48%, #1585D8 100%)',
+        'prestige-growth': 'linear-gradient(135deg, #0D4F81 0%, #1585D8 48%, #45B95C 100%)',
+        'prestige-midnight': 'linear-gradient(180deg, #061521 0%, #071A2B 55%, #0B2742 100%)',
       },
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
@@ -42,8 +75,10 @@ export default {
         section: ['clamp(1.85rem, 3.2vw, 2.85rem)', { lineHeight: '1.12', letterSpacing: '-0.012em' }],
       },
       boxShadow: {
-        // Only the nav dropdown lifts off the page now; photographs sit flat.
-        card: '0 18px 50px -24px rgba(18,35,63,0.28)',
+        // Premium, not heavy: tinted with the brand navy rather than black.
+        soft: '0 2px 8px rgba(7, 26, 43, 0.05)',
+        premium: '0 16px 50px rgba(7, 26, 43, 0.12)',
+        lifted: '0 22px 60px rgba(7, 26, 43, 0.18)',
       },
       transitionTimingFunction: {
         // Restrained, premium easing — no bounce.

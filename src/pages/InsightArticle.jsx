@@ -21,7 +21,7 @@ export default function InsightArticle() {
               <Link to="/insights" className="text-sm font-semibold text-prestige-blue hover:underline">
                 ← All insights
               </Link>
-              <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-prestige-green">
+              <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-prestige-blue">
                 {article.category}
               </p>
               <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
@@ -74,7 +74,7 @@ export default function InsightArticle() {
           <div className="mt-6 grid gap-x-12 border-t border-line lg:grid-cols-3">
             {related.map((a) => (
               <Link key={a.slug} to={`/insights/${a.slug}`} className="group border-b border-line py-5 lg:pr-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-prestige-green">{a.category}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue">{a.category}</p>
                 <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue">
                   {a.title}
                 </h3>

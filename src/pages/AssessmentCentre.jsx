@@ -102,7 +102,7 @@ export default function AssessmentCentre() {
       </section>
 
       {/* Who uses it */}
-      <section className="border-y border-line bg-sand/60 py-16 lg:py-24">
+      <section className="border-y border-line bg-mist/60 py-16 lg:py-24">
         <div className="container-px">
           <SectionHeading
             eyebrow="Who we assess for"
@@ -130,7 +130,7 @@ export default function AssessmentCentre() {
 
                 <Link
                   to={p.cta.to}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
                 >
                   {p.cta.label}
                   <span aria-hidden="true">→</span>

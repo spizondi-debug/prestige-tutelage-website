@@ -64,10 +64,10 @@ function ServicesMenu({ item, linkClass }) {
 
       {open && (
         <div className="absolute left-1/2 top-full z-50 w-[22rem] -translate-x-1/2 pt-3">
-          <ul className="overflow-hidden rounded-lg border border-line bg-paper shadow-card">
+          <ul className="overflow-hidden rounded-lg border border-line bg-paper shadow-premium">
             {item.children.map((c, i) => (
               <li key={c.to} className={i ? 'border-t border-line' : ''}>
-                <Link to={c.to} className="group block px-5 py-3.5 transition-colors hover:bg-sand/60">
+                <Link to={c.to} className="group block px-5 py-3.5 transition-colors hover:bg-mist/60">
                   <span className="block font-sans text-[0.95rem] font-semibold text-ink transition-colors group-hover:text-prestige-blue">
                     {c.label}
                   </span>
@@ -118,14 +118,19 @@ export default function Navbar() {
         : isActive ? 'text-prestige-blue' : 'text-ink/80 hover:text-prestige-blue'
     }`
 
+  // The dark state is opaque Midnight, not glass. The header is stacked above
+  // the hero rather than overlaying it, so a translucent fill composites over
+  // the Cloud body behind the page — which painted the bar rgb(76,97,118) and
+  // dropped the nav labels to 2.0:1. Glass needs something dark behind it;
+  // here there is nothing. `.glass` remains for real overlays.
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-500 ${
-        dark ? 'border-white/10 bg-night/70 backdrop-blur' : 'border-line bg-cream/95 backdrop-blur'
+        dark ? 'border-white/10 bg-midnight' : 'border-line bg-cloud/95 backdrop-blur'
       }`}
     >
       {/* Utility bar — contact + secondary destinations */}
-      <div className={`hidden border-b lg:block ${dark ? 'border-white/10 bg-white/[0.03]' : 'border-line/70 bg-sand/50'}`}>
+      <div className={`hidden border-b lg:block ${dark ? 'border-white/10 bg-white/[0.03]' : 'border-line/70 bg-mist/50'}`}>
         <div className="container-px">
           <div className={`flex items-center justify-between py-1.5 text-[0.8rem] ${dark ? 'text-white/70' : 'text-body'}`}>
             <div className="flex items-center gap-5">
@@ -166,7 +171,7 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden xl:block">
-            <Link to="/contact" className={`btn px-5 py-2.5 text-sm ${dark ? 'btn-green' : 'btn-primary'}`}>
+            <Link to="/contact" className="btn btn-primary px-5 py-2.5 text-sm">
               Let’s Talk
             </Link>
           </div>
@@ -187,7 +192,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-cream xl:hidden">
+        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-cloud xl:hidden">
           <div className="container-px py-4">
             <ul className="flex flex-col divide-y divide-line">
               {allPages.map((item) => (

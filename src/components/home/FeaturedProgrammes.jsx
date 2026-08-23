@@ -46,7 +46,7 @@ export default function FeaturedProgrammes() {
             <li key={q.saqaId}>
               <Link
                 to="/programmes#catalogue"
-                className="group flex items-center justify-between gap-6 border-b border-line py-6 transition-colors hover:bg-cream lg:px-2"
+                className="group flex items-center justify-between gap-6 border-b border-line py-6 transition-colors hover:bg-cloud lg:px-2"
               >
                 <span className="min-w-0">
                   <h3 className="font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue sm:text-xl">

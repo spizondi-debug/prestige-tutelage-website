@@ -33,7 +33,7 @@ export default function HeroMedia({ media, className = '' }) {
   }
 
   return (
-    <div className={`overflow-hidden bg-sand ${className}`.trim()}>
+    <div className={`overflow-hidden bg-mist ${className}`.trim()}>
       <video
         className="h-full w-full object-cover"
         poster={assetUrl(`images/${media.poster}`)}

@@ -34,14 +34,14 @@ export default function CinematicHero() {
 
   if (reduced) {
     return (
-      <section className="relative overflow-hidden bg-night text-white">
+      <section className="relative overflow-hidden bg-prestige-midnight text-white">
         <div className="absolute inset-0 opacity-70" aria-hidden="true">
           <PrestigePath stage={3} className="h-full w-full" />
         </div>
         <div className="container-px relative">
           <div className="max-w-3xl py-24">
             <Intro />
-            <ol className="mt-14 space-y-3 border-t border-night-line pt-8">
+            <ol className="mt-14 space-y-3 border-t border-line-dark pt-8">
               {stages.map((s) => (
                 <li key={s.line} className="font-display text-2xl font-semibold text-white/90">
                   {s.line}
@@ -55,13 +55,13 @@ export default function CinematicHero() {
   }
 
   return (
-    <section ref={ref} data-dark-hero className="relative bg-night text-white" style={{ height: '420vh' }}>
+    <section ref={ref} data-dark-hero className="relative bg-prestige-midnight text-white" style={{ height: '420vh' }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* The Prestige Path */}
         <div className="absolute inset-0" aria-hidden="true">
           <PrestigePath stage={stage} className="h-full w-full" />
           {/* Grounding vignette so type always sits on a readable field */}
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_45%,transparent_35%,rgba(6,10,19,0.82)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_45%,transparent_35%,rgba(7,26,43,0.82)_100%)]" />
         </div>
 
         {/* Opening headline */}
@@ -111,7 +111,7 @@ function Intro() {
   return (
     <div className="max-w-3xl">
       <div className="mb-6 flex items-center gap-3">
-        <span className="h-px w-10 bg-prestige-green-lit" />
+        <span className="h-px w-10 bg-prestige-growth" />
         <span className="text-sm font-semibold tracking-wide text-white/75">
           Accredited training &amp; workforce development
         </span>
@@ -127,10 +127,10 @@ function Intro() {
       </p>
 
       <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <Link to="/programmes" className="btn btn-green">Explore Our Programmes</Link>
+        <Link to="/programmes" className="btn btn-primary">Explore Our Programmes</Link>
         <Link
           to="/contact"
-          className="btn border border-white/25 text-white transition-colors hover:border-white/60"
+          className="btn btn-ghost-light"
         >
           Partner With Prestige
         </Link>

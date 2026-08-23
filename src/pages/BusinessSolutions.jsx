@@ -78,7 +78,7 @@ export default function BusinessSolutions() {
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="Business solutions">
           {solutions.map((s) => (
-            <Link key={s.to} to={s.to} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
+            <Link key={s.to} to={s.to} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift">
               {s.title}
             </Link>
           ))}

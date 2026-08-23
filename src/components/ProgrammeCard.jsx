@@ -17,7 +17,7 @@ export default function ProgrammeCard({ q }) {
 
   return (
     <article className="flex flex-col border border-line bg-paper p-6 transition-colors hover:border-prestige-blue/40">
-      <p className="text-xs font-semibold uppercase tracking-wider text-prestige-green">{q.type}</p>
+      <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue">{q.type}</p>
 
       <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-ink">{q.name}</h3>
 
@@ -43,7 +43,7 @@ export default function ProgrammeCard({ q }) {
 
       <Link
         to={`/contact?programme=${encodeURIComponent(`${q.name} (SAQA ID ${q.saqaId})`)}`}
-        className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep"
+        className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
       >
         Enquire About This Programme
         <span aria-hidden="true">→</span>

@@ -11,11 +11,11 @@ export default function CTABand({
   secondary = { label: 'Explore Our Programmes', to: '/programmes' },
 }) {
   return (
-    <section className="bg-prestige-blue-deep">
+    <section className="bg-midnight">
       <div className="container-px">
         <div className="grid items-center gap-8 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:py-20">
           <div>
-            <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />
+            <span className="mb-5 block h-px w-10 bg-prestige-growth" aria-hidden="true" />
             <h2 className="font-display text-3xl font-semibold leading-tight text-white sm:text-4xl">{title}</h2>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">{text}</p>
           </div>
@@ -24,7 +24,7 @@ export default function CTABand({
             {secondary && (
               <Link
                 to={secondary.to}
-                className="btn border border-white/30 text-white transition-colors hover:border-white/60"
+                className="btn btn-ghost-light"
               >
                 {secondary.label}
               </Link>

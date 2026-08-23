@@ -8,7 +8,7 @@ import { assetUrl } from '../lib/asset.js'
  */
 export default function Photo({ src, alt, className = '', position = 'center', eager = false }) {
   return (
-    <div className={`overflow-hidden bg-sand ${className}`.trim()}>
+    <div className={`overflow-hidden bg-mist ${className}`.trim()}>
       <img
         src={assetUrl(`images/${src}`)}
         alt={alt}

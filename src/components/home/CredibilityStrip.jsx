@@ -1,4 +1,5 @@
-// Trust strip under the hero — factual positioning only, no invented metrics.
+// Trust strip — factual positioning only, no invented metrics. Sits on Deep
+// Navy: the trust statement is where the site should feel most solid.
 const points = [
   {
     title: 'Accredited training',
@@ -20,13 +21,13 @@ const points = [
 
 export default function CredibilityStrip() {
   return (
-    <section className="border-y border-line bg-paper">
+    <section className="border-y border-line-dark bg-navy text-white">
       <div className="container-px">
         <div className="grid gap-x-10 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:py-14">
           {points.map((p) => (
-            <div key={p.title} className="border-l-2 border-prestige-green/60 pl-5">
-              <h2 className="font-sans text-[0.95rem] font-semibold text-ink">{p.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>
+            <div key={p.title} className="border-l-2 border-prestige-growth/70 pl-5">
+              <h2 className="font-sans text-[0.95rem] font-semibold text-white">{p.title}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-white/70">{p.text}</p>
             </div>
           ))}
         </div>

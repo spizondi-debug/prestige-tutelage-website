@@ -6,7 +6,7 @@ export default function InsightsPreview() {
   const featured = insights.slice(0, 3)
 
   return (
-    <section className="border-t border-line py-16 lg:py-24">
+    <section className="border-t border-line bg-cloud py-20 lg:py-28">
       <div className="container-px">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
@@ -19,7 +19,7 @@ export default function InsightsPreview() {
         <div className="mt-10 grid gap-x-10 border-t border-line lg:grid-cols-3">
           {featured.map((a) => (
             <Link key={a.slug} to={`/insights/${a.slug}`} className="group border-b border-line py-6 lg:pr-6">
-              <p className="text-xs font-semibold uppercase tracking-wider text-prestige-green">{a.category}</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue">{a.category}</p>
               <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue">
                 {a.title}
               </h3>

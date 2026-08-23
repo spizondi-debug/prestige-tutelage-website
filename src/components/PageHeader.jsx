@@ -1,4 +1,4 @@
-// Interior page header — echoes the approved hero language: cream ground,
+// Interior page header — echoes the approved hero language: Cloud ground,
 // hairline + eyebrow, Fraunces headline, restrained decoration.
 export default function PageHeader({ eyebrow, title, lead, children }) {
   return (

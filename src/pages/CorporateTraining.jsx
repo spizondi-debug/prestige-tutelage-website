@@ -26,7 +26,7 @@ export default function CorporateTraining() {
       </PageHeader>
 
       {/* The process */}
-      <section className="bg-prestige-blue-deep py-16 lg:py-24">
+      <section className="bg-navy py-16 lg:py-24">
         <div className="container-px">
           <div className="max-w-3xl">
             <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />
@@ -41,8 +41,8 @@ export default function CorporateTraining() {
 
           <ol className="mt-12 grid gap-px overflow-hidden rounded-lg border border-white/15 bg-white/15 sm:grid-cols-2 lg:grid-cols-5">
             {corporateProcess.map((step, i) => (
-              <li key={step.name} className="bg-prestige-blue-deep p-6">
-                <span className="font-display text-lg font-semibold text-prestige-green">
+              <li key={step.name} className="bg-navy p-6">
+                <span className="font-display text-lg font-semibold text-prestige-growth">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h3 className="mt-3 font-sans font-semibold text-white">{step.name}</h3>

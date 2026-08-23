@@ -47,7 +47,7 @@ export default function ImpactSection() {
               <div className="mt-10 max-w-xl divide-y divide-line border-y border-line">
                 {outcomes.map((o) => (
                   <div key={o.who} className="py-5">
-                    <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-prestige-green">
+                    <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-prestige-blue">
                       {o.who}
                     </h3>
                     <p className="mt-2 leading-relaxed text-body">{o.text}</p>

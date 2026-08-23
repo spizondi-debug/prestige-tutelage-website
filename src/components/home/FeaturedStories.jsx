@@ -43,7 +43,7 @@ const stories = [
 
 export default function FeaturedStories() {
   return (
-    <section className="bg-cream">
+    <section className="bg-cloud">
       {stories.map((s, i) => {
         const count = qualificationsIn(s.area).length
         const flip = i % 2 === 1
@@ -59,7 +59,7 @@ export default function FeaturedStories() {
                 {s.photo ? (
                   <Photo src={s.photo} alt={s.alt} className="absolute inset-0 h-full w-full" />
                 ) : (
-                  <div className="absolute inset-0 bg-night">
+                  <div className="absolute inset-0 bg-midnight">
                     <PrestigePath
                       stage={s.stage}
                       intensity={0.55}
@@ -91,7 +91,7 @@ export default function FeaturedStories() {
                     )}
                     <Link
                       to="/programmes#catalogue"
-                      className="chev group mt-8 text-prestige-blue hover:text-prestige-blue-deep"
+                      className="chev group mt-8 text-prestige-blue hover:text-navy-lift"
                     >
                       <span className="chev-label">Explore {s.eyebrow} programmes</span>
                       <span

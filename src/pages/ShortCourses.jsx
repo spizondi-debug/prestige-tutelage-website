@@ -79,7 +79,7 @@ export default function ShortCourses() {
               <a
                 key={c.slug}
                 href={`#${c.slug}`}
-                className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep"
+                className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
               >
                 {c.title}
                 <span className="ml-1.5 font-normal text-muted">{coursesOf(c).length}</span>
@@ -98,7 +98,7 @@ export default function ShortCourses() {
                 <div className="flex flex-col gap-6 border-t border-line pt-8 lg:flex-row lg:gap-16">
                   <div className="lg:w-[22rem] lg:shrink-0">
                     <div className="flex items-baseline gap-4">
-                      <span className="font-display text-2xl font-semibold text-prestige-green/70">
+                      <span className="font-display text-2xl font-semibold text-prestige-blue/80">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <h2 className="font-display text-2xl font-semibold leading-tight text-ink">
@@ -140,7 +140,7 @@ export default function ShortCourses() {
       </section>
 
       {/* Delivery */}
-      <section className="border-y border-line bg-sand/60 py-16 lg:py-20">
+      <section className="border-y border-line bg-mist/60 py-16 lg:py-20">
         <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
@@ -192,7 +192,7 @@ export default function ShortCourses() {
                 { t: 'You get a clear record', d: 'Attendance, certificates and facilitator feedback, properly documented.' },
               ].map((s, i) => (
                 <li key={s.t} className="border-b border-line py-5">
-                  <span className="font-display text-lg font-semibold text-prestige-green">
+                  <span className="font-display text-lg font-semibold text-prestige-blue">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="mt-2 font-sans font-semibold text-ink">{s.t}</h3>

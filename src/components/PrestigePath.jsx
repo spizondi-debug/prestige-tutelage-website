@@ -94,6 +94,7 @@ export default function PrestigePath({ stage = 0, className = '', intensity = 1 
     }
 
     const lerp = (a, b, t) => a + (b - a) * t
+    const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v)
 
     const draw = (time) => {
       if (!running) return
@@ -140,13 +141,15 @@ export default function PrestigePath({ stage = 0, className = '', intensity = 1 
             const d = Math.hypot(dx, dy)
             if (d > linkDist) continue
             const alpha = (1 - d / linkDist) * 0.85 * linkStrength * Math.min(p.z, q.z)
-            // Colour flows along the path: blue where learning begins,
-            // green where it turns into growth.
-            const mix = (p.x / w + p.hue * 0.25) % 1
-            ctx.strokeStyle =
-              mix < 0.5
-                ? `rgba(76,135,255,${alpha})`
-                : `rgba(47,227,160,${alpha})`
+            // The line IS the story: it leaves the person as Electric Blue
+            // (learning) and arrives as Growth Green (progression). The
+            // transition is continuous rather than a two-colour switch —
+            // growth is a journey, not a state change.
+            const prog = clamp01((p.x / w) * 1.15 - 0.08 + p.hue * 0.12)
+            const lr = Math.round(lerp(21, 69, prog))
+            const lg = Math.round(lerp(133, 185, prog))
+            const lb = Math.round(lerp(216, 92, prog))
+            ctx.strokeStyle = `rgba(${lr},${lg},${lb},${alpha})`
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(q.x, q.y)
@@ -155,15 +158,23 @@ export default function PrestigePath({ stage = 0, className = '', intensity = 1 
         }
       }
 
+      // Nodes are people, so they stay white throughout — a person does not
+      // change colour as they progress; their pathway does. The nearest ones
+      // carry a soft blue halo for connectivity. The halo is limited to the
+      // front layer because it doubles the draw calls for every node it
+      // touches.
       for (const p of particles) {
         const r = (s > 2.4 ? 2.15 : 1.7) * p.z
         const glow = 0.5 + 0.5 * Math.sin(t * 0.8 + p.drift)
-        // People read as white; the pathway light is blue → green.
-        const warm = Math.min(1, Math.max(0, (p.x / w) * 1.2 - 0.1))
-        const cr = Math.round(lerp(150, 90, warm))
-        const cg = Math.round(lerp(190, 235, warm))
-        const cb = Math.round(lerp(255, 190, warm))
-        ctx.fillStyle = `rgba(${cr},${cg},${cb},${(0.62 + glow * 0.38) * p.z})`
+
+        if (p.z > 0.72) {
+          ctx.fillStyle = `rgba(21,133,216,${0.1 * glow * p.z})`
+          ctx.beginPath()
+          ctx.arc(p.x, p.y, r * 3.2, 0, Math.PI * 2)
+          ctx.fill()
+        }
+
+        ctx.fillStyle = `rgba(255,255,255,${(0.58 + glow * 0.36) * p.z})`
         ctx.beginPath()
         ctx.arc(p.x, p.y, r, 0, Math.PI * 2)
         ctx.fill()

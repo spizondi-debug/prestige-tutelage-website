@@ -73,7 +73,7 @@ export default function OfficeRental() {
             {spaceCategories.map((cat, i) => (
               <article key={cat.slug} id={cat.slug} className="scroll-mt-28 border border-line bg-paper p-7">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-display text-2xl font-semibold text-prestige-green/70">
+                  <span className="font-display text-2xl font-semibold text-prestige-blue/80">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="font-display text-2xl font-semibold leading-tight text-ink">
@@ -102,7 +102,7 @@ export default function OfficeRental() {
       </section>
 
       {/* Why book here */}
-      <section className="border-y border-line bg-sand/60 py-14 lg:py-16">
+      <section className="border-y border-line bg-mist/60 py-14 lg:py-16">
         <div className="container-px">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading

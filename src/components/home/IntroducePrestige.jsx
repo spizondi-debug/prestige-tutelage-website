@@ -43,7 +43,7 @@ function Counter({ item }) {
 
 export default function IntroducePrestige() {
   return (
-    <section className="bg-cream py-24 lg:py-32">
+    <section className="bg-cloud py-24 lg:py-32">
       <div className="container-px">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-24">
           <Reveal>
