@@ -9,14 +9,23 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+
   html {
     scroll-behavior: smooth;
+    background: #F5F8FA;
   }
+
   body {
     @apply bg-cream font-sans text-body;
   }
+
   h1, h2, h3 {
     @apply font-display text-ink;
+  }
+
+  ::selection {
+    background: rgba(30, 79, 216, 0.18);
+    color: #071A2B;
   }
 }
 
@@ -24,16 +33,40 @@
   .container-px {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
   }
+
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-[0.95rem] font-semibold transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-[0.95rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prestige-blue focus-visible:ring-offset-2;
   }
+
   .btn-primary {
-    @apply bg-prestige-blue text-white hover:bg-prestige-blue-deep;
+    @apply bg-prestige-blue text-white shadow-soft hover:-translate-y-0.5 hover:bg-electric hover:shadow-glow;
   }
+
   .btn-outline {
-    @apply border border-prestige-blue/30 bg-white text-ink hover:border-prestige-blue;
+    @apply border border-line bg-paper text-ink hover:-translate-y-0.5 hover:border-prestige-blue hover:text-prestige-blue hover:shadow-soft;
   }
+
+  .btn-outline-light {
+    @apply border border-white/30 bg-white/[0.04] text-white backdrop-blur-sm hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/[0.09];
+  }
+
   .btn-green {
-    @apply bg-prestige-green text-white hover:bg-prestige-green-deep;
+    @apply bg-prestige-green text-midnight shadow-soft hover:-translate-y-0.5 hover:bg-prestige-green-deep hover:text-white hover:shadow-premium;
+  }
+
+  .surface-dark {
+    @apply bg-midnight text-white;
+  }
+
+  .surface-light {
+    @apply bg-cloud text-ink;
+  }
+
+  .prestige-gradient {
+    background: linear-gradient(135deg, #0B2742 0%, #1E4FD8 52%, #0FB87A 100%);
+  }
+
+  .prestige-midnight-gradient {
+    background: linear-gradient(145deg, #061521 0%, #071A2B 52%, #0B2742 100%);
   }
 }
