@@ -17,14 +17,23 @@ export const contact = {
   websiteHref: 'https://www.prestigetutelage.co.za',
 }
 
-// Primary navigation (desktop). Assessment Centre and Growth Pathways live in
-// the utility bar and footer so the main nav stays scannable.
+export const servicesNav = [
+  { label: 'All Services', to: '/services' },
+  { label: 'Skills Development Consulting', to: '/services#workforce-advisory' },
+  { label: 'B-BBEE Consultation', to: '/bbbee-consulting' },
+  { label: 'Recruitment Services', to: '/recruitment' },
+  { label: 'Office & Training Space Rental', to: '/office-rental' },
+  { label: 'Assessment Centre', to: '/assessment-centre' },
+]
+
+// Primary navigation (desktop). Services uses a restrained dropdown so the
+// broader business offering is visible without overloading the top level.
 export const nav = [
   { label: 'About', to: '/about' },
   { label: 'Programmes', to: '/programmes' },
   { label: 'Short Courses', to: '/short-courses' },
   { label: 'Corporate Training', to: '/corporate-training' },
-  { label: 'Services', to: '/services' },
+  { label: 'Services', to: '/services', children: servicesNav },
   { label: 'Industries', to: '/industries' },
   { label: 'Insights', to: '/insights' },
   { label: 'Contact', to: '/contact' },
@@ -43,6 +52,9 @@ export const allPages = [
   { label: 'Short Courses', to: '/short-courses' },
   { label: 'Corporate Training', to: '/corporate-training' },
   { label: 'Services', to: '/services' },
+  { label: 'B-BBEE Consultation', to: '/bbbee-consulting' },
+  { label: 'Recruitment Services', to: '/recruitment' },
+  { label: 'Office & Training Space Rental', to: '/office-rental' },
   { label: 'Industries', to: '/industries' },
   { label: 'Assessment Centre', to: '/assessment-centre' },
   { label: 'Prestige Growth Pathways', to: '/growth-pathways' },
