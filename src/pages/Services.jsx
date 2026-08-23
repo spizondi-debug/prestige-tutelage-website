@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import CTABand from '../components/CTABand.jsx'
@@ -6,15 +7,15 @@ import { serviceGroups } from '../data/services.js'
 export default function Services() {
   usePageMeta(
     'Services',
-    'Prestige Tutelage services across workforce strategy, training delivery, programme management, assessment and quality, social impact and skills development support.',
+    'Prestige Tutelage is a complete workforce support partner across training, skills development consulting, B-BBEE advisory, recruitment, programme management, assessment, office and training space, and social impact.',
   )
 
   return (
     <>
       <PageHeader
         eyebrow="Services"
-        title="The full machinery of workforce development."
-        lead="Training is one part of the picture. Prestige also carries the analysis, project management, learner administration, assessment and quality assurance that make skills development actually work."
+        title="More than training. A complete workforce support partner."
+        lead="Prestige supports the wider workforce-development journey — from learning and transformation strategy to recruitment, programme management, assessment and professional business facilities."
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="Service groups">
           {serviceGroups.map((g) => (
@@ -46,6 +47,11 @@ export default function Services() {
                 </div>
                 <h2 className="font-display text-3xl font-semibold leading-tight text-ink">{group.title}</h2>
                 <p className="mt-3 leading-relaxed text-body">{group.lead}</p>
+                {group.to && (
+                  <Link to={group.to} className="mt-5 inline-block text-sm font-semibold text-prestige-blue hover:underline">
+                    {group.cta || 'Explore this service'} →
+                  </Link>
+                )}
               </div>
 
               <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
@@ -62,8 +68,9 @@ export default function Services() {
       ))}
 
       <CTABand
-        title="Which of these do you need?"
-        text="Most engagements combine several. Tell us the situation and we will propose the right mix — no more than you need."
+        title="Which part of the workforce journey needs attention?"
+        text="Tell us the business problem first. We will recommend the right mix of training, advisory, talent, assessment or facilities support — no more than you need."
+        primary={{ label: 'Talk to Prestige', to: '/contact' }}
         secondary={{ label: 'Corporate Training', to: '/corporate-training' }}
       />
     </>
