@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
+import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { corporateProcess, corporateAudiences, deliveryFormats } from '../data/corporate.js'
 
@@ -55,6 +56,28 @@ export default function CorporateTraining() {
       {/* Who we work with */}
       <section className="py-16 lg:py-24">
         <div className="container-px">
+          <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+              <Photo
+                src="facilitator-session.jpg"
+                alt="A Prestige Tutelage facilitator leading a session with learners"
+                className="aspect-[3/2] w-full"
+              />
+            </div>
+            <div>
+              <SectionHeading
+                eyebrow="In the room"
+                title="Facilitators who earn the room."
+                lead="Training only transfers when the person at the front has industry credibility, reads the group, and can hold a mixed room of people with very different starting points."
+              />
+              <p className="mt-5 leading-relaxed text-body">
+                Our facilitators are practitioners. They teach from work they have actually done, in
+                language the group recognises — and they are comfortable moving between the formal
+                content and the real questions that come up.
+              </p>
+            </div>
+          </div>
+
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
               eyebrow="Who we work with"
@@ -76,12 +99,21 @@ export default function CorporateTraining() {
       {/* Delivery formats */}
       <section className="border-y border-line bg-paper py-16 lg:py-24">
         <div className="container-px">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <SectionHeading
-              eyebrow="Delivery formats"
-              title="Delivered the way your organisation actually runs."
-              lead="Shift patterns, production pressure and dispersed sites are normal. We plan around them rather than asking you to plan around us."
-            />
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+            <div>
+              <SectionHeading
+                eyebrow="Delivery formats"
+                title="Delivered the way your organisation actually runs."
+                lead="Shift patterns, production pressure and dispersed sites are normal. We plan around them rather than asking you to plan around us."
+              />
+              <div className="mt-8 overflow-hidden rounded-xl2 border border-line shadow-card">
+                <Photo
+                  src="workshop-training.jpg"
+                  alt="A learner in full protective equipment working with an angle grinder during practical training"
+                  className="aspect-[4/5] w-full"
+                />
+              </div>
+            </div>
             <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
               {deliveryFormats.map((f) => (
                 <div key={f.name} className="border-b border-line py-5">

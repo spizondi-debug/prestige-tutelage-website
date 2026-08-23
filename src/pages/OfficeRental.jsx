@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
+import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
@@ -52,11 +53,21 @@ export default function OfficeRental() {
       {/* Categories */}
       <section className="py-16 lg:py-20">
         <div className="container-px">
-          <SectionHeading
-            eyebrow="What the space is used for"
-            title="Four kinds of booking."
-            lead="Tell us what you are running and we will advise on the right room."
-          />
+          <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
+              <Photo
+                src="training-room.jpg"
+                alt="A training room at Prestige Tutelage set up with a projector screen and boardroom seating"
+                className="aspect-[4/3] w-full"
+                eager
+              />
+            </div>
+            <SectionHeading
+              eyebrow="What the space is used for"
+              title="Four kinds of booking."
+              lead="Tell us what you are running and we will advise on the right room. Room options, capacity, facilities and pricing are confirmed when you enquire."
+            />
+          </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {spaceCategories.map((cat, i) => (

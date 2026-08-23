@@ -46,9 +46,9 @@ export default function ImpactSection() {
           <figure className="flex flex-col">
             <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
               <Photo
-                src="graduates-together.jpg"
-                alt="Graduates sharing a moment together after their ceremony"
-                className="aspect-[3/2] w-full"
+                src="certificates-cohort.jpg"
+                alt="Prestige Tutelage learners with their certificates of completion"
+                className="aspect-[4/5] w-full"
               />
             </div>
             <figcaption className="mt-4 border-l-2 border-prestige-green/60 pl-4 text-sm leading-relaxed text-muted">

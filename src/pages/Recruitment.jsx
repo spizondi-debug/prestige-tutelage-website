@@ -131,8 +131,8 @@ export default function Recruitment() {
             </div>
             <div className="overflow-hidden rounded-xl2 border border-line shadow-card lg:mt-2">
               <Photo
-                src="graduates-group.jpg"
-                alt="A group of graduates walking together after their ceremony"
+                src="learner-cohort.jpg"
+                alt="A Prestige Tutelage learner intake outside the training venue"
                 className="aspect-[3/2] w-full"
               />
             </div>
