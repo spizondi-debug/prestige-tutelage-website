@@ -13,6 +13,15 @@ const columns = [
     ],
   },
   {
+    heading: 'Business Services',
+    links: [
+      { label: 'B-BBEE Consultation', to: '/bbbee-consulting' },
+      { label: 'Recruitment Services', to: '/recruitment' },
+      { label: 'Office & Training Space', to: '/office-rental' },
+      { label: 'Skills Development Consulting', to: '/services#workforce-advisory' },
+    ],
+  },
+  {
     heading: 'Company',
     links: [
       { label: 'About', to: '/about' },
@@ -35,23 +44,20 @@ export default function Footer() {
   return (
     <footer className="border-t border-line bg-ink text-white/80">
       <div className="container-px">
-        <div className="grid gap-12 py-14 lg:grid-cols-[1.3fr_2fr] lg:py-16">
+        <div className="grid gap-12 py-14 lg:grid-cols-[1.15fr_2.2fr] lg:py-16">
           <div>
-            {/* The logo sits on its intended light ground so the brand colours
-                stay true rather than being recoloured for the dark footer. */}
             <div className="inline-flex rounded-lg bg-paper px-5 py-3.5">
               <Logo className="h-12" />
             </div>
             <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed">
-              Accredited learning, workforce development, short courses, workplace training and
-              tailored skills solutions for South African organisations.
+              Accredited learning, workforce development, recruitment, advisory, assessment and professional business support for South African organisations.
             </p>
             <p className="mt-5 text-sm text-white/60">
               {brand.credibility.join(' • ')}
             </p>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
             {columns.map((col) => (
               <div key={col.heading}>
                 <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/60">
@@ -68,7 +74,7 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
-            <div className="sm:col-span-2 lg:col-span-3">
+            <div className="sm:col-span-2 xl:col-span-4">
               <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/60">Contact</h3>
               <div className="mt-4 flex flex-col gap-2 text-[0.95rem] sm:flex-row sm:flex-wrap sm:gap-x-8">
                 <address className="not-italic leading-relaxed">
