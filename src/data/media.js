@@ -18,7 +18,7 @@ const sources = [
 export const realPrestigeMedia = {
   // e.g. 'homepage/prestige-training-room'  (no extension)
   src: null,
-  poster: 'facilitator-session.jpg',
-  alt: 'A Prestige Tutelage facilitator leading a session with learners',
+  poster: 'training-room.jpg',
+  alt: 'A Prestige Tutelage training room set up with a projector screen and boardroom seating',
   sources,
 }
