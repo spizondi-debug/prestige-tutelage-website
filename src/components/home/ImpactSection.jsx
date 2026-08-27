@@ -26,7 +26,7 @@ const outcomes = [
  */
 export default function ImpactSection() {
   return (
-    <section className="border-t border-line bg-paper">
+    <section className="tex tex-grid border-t border-line bg-paper">
       <div className="grid lg:grid-cols-2">
         <div className="relative min-h-[22rem] lg:min-h-[40rem]">
           <Photo

@@ -109,6 +109,79 @@
     border: 1px solid rgba(255, 255, 255, 0.10);
   }
 
+  /* ── Texture ───────────────────────────────────────────────────────────
+     Flat colour blocks read as "clean corporate". These give each surface
+     something to catch the light, without a single image request: the grain
+     is generated SVG noise, everything else is a gradient.
+
+     Two separate layers, deliberately: grain on ::after with its own low
+     opacity, bloom on ::before at full opacity with alpha baked into the
+     gradient stops. Putting both on one layer means any opacity that tames
+     the grain also kills the bloom — which is exactly how the first attempt
+     washed the midnight hero out to grey.
+
+     Keep these values low. Texture you consciously notice is too strong. */
+
+  .tex {
+    position: relative;
+    isolation: isolate;
+  }
+  .tex > * {
+    position: relative;
+    z-index: 1;
+  }
+  .tex::before,
+  .tex::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Film grain — for dark surfaces. Fine, static, barely there. */
+  .tex-grain::after,
+  .tex-deep::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.035;
+  }
+
+  /* Soft light bloom for dark surfaces — the "technology" glow, kept wide
+     and dim so it never reads as a spotlight. */
+  .tex-bloom::before,
+  .tex-deep::before {
+    background-image:
+      radial-gradient(70% 60% at 8% -10%, rgba(21, 133, 216, 0.10) 0%, transparent 72%),
+      radial-gradient(60% 55% at 95% 108%, rgba(69, 185, 92, 0.06) 0%, transparent 72%);
+  }
+
+  /* Blueprint grid — for light surfaces. Reads as precision, not decoration. */
+  .tex-grid::after {
+    background-image:
+      linear-gradient(to right, rgba(7, 26, 43, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(7, 26, 43, 0.05) 1px, transparent 1px);
+    background-size: 76px 76px;
+    /* Fade the grid out downward so it frames the top of a section rather
+       than tiling the whole thing. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 62%);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 62%);
+  }
+
+  /* Dot matrix — a quieter alternative to the grid. */
+  .tex-dots::after {
+    background-image: radial-gradient(rgba(7, 26, 43, 0.11) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(90% 75% at 50% 40%, #000 0%, transparent 74%);
+    mask-image: radial-gradient(90% 75% at 50% 40%, #000 0%, transparent 74%);
+  }
+
+  /* A hairline catch of light along the top edge of a dark section — the
+     join between two surfaces, made deliberate. A shadow rather than a
+     pseudo-element, so it never competes for ::before with the bloom. */
+  .tex-edge {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
+
   /* ── Media ─────────────────────────────────────────────────────────────
      The slow push-in on hover. Suppressed entirely under reduced motion. */
   .zoom-parent img {

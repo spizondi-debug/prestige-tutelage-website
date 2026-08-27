@@ -34,7 +34,7 @@ export default function CinematicHero() {
 
   if (reduced) {
     return (
-      <section className="relative overflow-hidden bg-prestige-midnight text-white">
+      <section className="tex tex-deep relative overflow-hidden bg-prestige-midnight text-white">
         <div className="absolute inset-0 opacity-70" aria-hidden="true">
           <PrestigePath stage={3} className="h-full w-full" />
         </div>
@@ -55,7 +55,7 @@ export default function CinematicHero() {
   }
 
   return (
-    <section ref={ref} data-dark-hero className="relative bg-prestige-midnight text-white" style={{ height: '420vh' }}>
+    <section ref={ref} data-dark-hero className="tex tex-deep relative bg-prestige-midnight text-white" style={{ height: '420vh' }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* The Prestige Path */}
         <div className="absolute inset-0" aria-hidden="true">

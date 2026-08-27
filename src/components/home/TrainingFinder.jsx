@@ -144,7 +144,7 @@ export default function TrainingFinder() {
     // The programme explorer sits on Deep Navy — the one interactive
     // instrument on the homepage, given its own surface so it reads as a tool
     // rather than another content band.
-    <section id="training-finder" className="bg-midnight py-16 lg:py-24">
+    <section id="training-finder" className="tex tex-deep tex-edge bg-midnight py-16 lg:py-24">
       <div className="container-px">
         <div className="overflow-hidden rounded-lg border border-line-dark bg-navy">
           <div className="grid lg:grid-cols-[1fr_1fr]">

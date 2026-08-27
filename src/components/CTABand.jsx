@@ -11,7 +11,7 @@ export default function CTABand({
   secondary = { label: 'Explore Our Programmes', to: '/programmes' },
 }) {
   return (
-    <section className="bg-midnight">
+    <section className="tex tex-deep tex-edge bg-midnight">
       <div className="container-px">
         <div className="grid items-center gap-8 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:py-20">
           <div>

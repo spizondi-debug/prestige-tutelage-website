@@ -14,7 +14,7 @@ import { industries } from '../../data/industries.js'
  */
 export default function IndustriesSection() {
   return (
-    <section className="border-t border-line bg-paper py-20 lg:py-28">
+    <section className="tex tex-grid border-t border-line bg-paper py-20 lg:py-28">
       <div className="container-px">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>

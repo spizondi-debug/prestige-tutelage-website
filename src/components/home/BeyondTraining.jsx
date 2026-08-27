@@ -51,7 +51,7 @@ const solutions = [
 
 export default function BeyondTraining() {
   return (
-    <section className="border-t border-line bg-cloud py-20 lg:py-28">
+    <section className="tex tex-dots border-t border-line bg-cloud py-20 lg:py-28">
       <div className="container-px">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>
