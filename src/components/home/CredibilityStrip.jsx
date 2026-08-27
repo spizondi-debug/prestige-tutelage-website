@@ -21,7 +21,7 @@ const points = [
 
 export default function CredibilityStrip() {
   return (
-    <section className="tex tex-grain border-y border-line-dark bg-navy text-white">
+    <section className="tex tex-grain tex-bloom border-y border-line-dark bg-navy text-white">
       <div className="container-px">
         <div className="grid gap-x-10 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:py-14">
           {points.map((p) => (

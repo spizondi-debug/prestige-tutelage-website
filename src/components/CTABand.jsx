@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
 /**
- * CTABand — deep-blue closing band used across pages. Restrained: flat colour,
- * hairline accent, no gradients or glow.
+ * CTABand — the closing band used across pages. Carries the Prestige Digital
+ * Gradient, so the Growth Pathways treatment closes every page on the site.
  */
 export default function CTABand({
   title = 'Let’s talk about your workforce.',
@@ -11,8 +11,13 @@ export default function CTABand({
   secondary = { label: 'Explore Our Programmes', to: '/programmes' },
 }) {
   return (
-    <section className="tex tex-deep tex-edge bg-midnight">
-      <div className="container-px">
+    <section className="tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital">
+      {/* Holds type on a readable field where the gradient runs brightest. */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.9)_0%,rgba(7,26,43,0.6)_52%,rgba(7,26,43,0.32)_100%)]"
+        aria-hidden="true"
+      />
+      <div className="container-px relative">
         <div className="grid items-center gap-8 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:py-20">
           <div>
             <span className="mb-5 block h-px w-10 bg-prestige-growth" aria-hidden="true" />
