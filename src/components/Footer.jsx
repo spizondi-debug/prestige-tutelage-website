@@ -39,7 +39,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-line tex tex-grain bg-midnight-deep text-white/80">
       <div className="container-px">
-        <div className="grid gap-12 py-14 lg:grid-cols-[1.15fr_2.2fr] lg:py-16">
+        <div className="grid gap-12 py-16 lg:grid-cols-[0.85fr_2.6fr] lg:gap-16">
           <div>
             <div className="inline-flex rounded-lg bg-paper px-5 py-3.5">
               <Logo className="h-12" />
@@ -52,10 +52,10 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {columns.map((col) => (
               <div key={col.heading}>
-                <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/60">
+                <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
                   {col.heading}
                 </h3>
                 <ul className="mt-4 space-y-2.5">
@@ -69,20 +69,21 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
-            <div className="sm:col-span-2 xl:col-span-4">
-              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/60">Contact</h3>
-              <div className="mt-4 flex flex-col gap-2 text-[0.95rem] sm:flex-row sm:flex-wrap sm:gap-x-8">
-                <address className="not-italic leading-relaxed">
-                  {brand.legalName}
-                  <br />
-                  {contact.addressLines.join(', ')}
-                </address>
-                <p className="leading-relaxed">
-                  <a href={contact.phoneHref} className="transition-colors hover:text-white">{contact.phone}</a>
-                  <br />
-                  <a href={contact.emailHref} className="transition-colors hover:text-white">{contact.email}</a>
-                </p>
-              </div>
+
+            <div>
+              <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+                Contact
+              </h3>
+              <address className="mt-4 not-italic text-[0.95rem] leading-relaxed">
+                {brand.legalName}
+                <br />
+                {contact.addressLines.join(', ')}
+              </address>
+              <p className="mt-3 text-[0.95rem] leading-relaxed">
+                <a href={contact.phoneHref} className="transition-colors hover:text-white">{contact.phone}</a>
+                <br />
+                <a href={contact.emailHref} className="transition-colors hover:text-white">{contact.email}</a>
+              </p>
             </div>
           </div>
         </div>
