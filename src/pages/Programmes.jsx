@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Photo from '../components/Photo.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
@@ -19,7 +19,7 @@ import {
   customCorporate,
 } from '../data/programmes.js'
 import { totalShortCourses } from '../data/shortCourses.js'
-import { pageHeroes } from '../data/pageHeroes.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
 const ALL = 'All'
@@ -222,6 +222,7 @@ export default function Programmes() {
               <SectionHeading
                 eyebrow="Learnerships"
                 title="Work-based learning, managed properly."
+                tone="green"
                 lead={learnerships.intro}
               />
               <div className="mt-8 space-y-6">
@@ -237,13 +238,11 @@ export default function Programmes() {
             </div>
 
             <div>
-              <div className="overflow-hidden">
-                <Photo
-                  src="certificate-handover-overalls.jpg"
-                  alt="A Prestige Tutelage learner receiving his certificate of completion"
-                  className="aspect-[5/4] w-full"
-                />
-              </div>
+              <ContentSlider
+                images={sectionSliders.programmesLearnerships}
+                aspect="aspect-[5/4]"
+                label="Learners completing Prestige Tutelage learnerships"
+              />
               <h3 className="mt-8 font-sans text-sm font-semibold uppercase tracking-wider text-muted">
                 What Prestige can carry for you
               </h3>

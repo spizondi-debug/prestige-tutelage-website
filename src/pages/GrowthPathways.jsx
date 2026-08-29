@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Photo from '../components/Photo.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
-import { pageHeroes } from '../data/pageHeroes.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
 const connects = [
@@ -71,21 +71,17 @@ export default function GrowthPathways() {
       <section className="border-y border-line bg-paper py-16 lg:py-24">
         <div className="container-px">
           <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-            <div className="relative order-last lg:order-first">
-              <div className="absolute -left-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
-              <div className="relative overflow-hidden">
-                <Photo
-                  src="learner-angle-grinder.jpg"
-                  alt="A learner in full protective equipment using an angle grinder at a workbench"
-                  className="aspect-[5/4] w-full"
-                  position="35% 45%"
-                />
-              </div>
-            </div>
+            <ContentSlider
+              images={sectionSliders.growthPathways}
+              aspect="aspect-[5/4]"
+              label="Prestige Tutelage learners building practical skills"
+              className="order-last lg:order-first"
+            />
             <div>
               <SectionHeading
                 eyebrow="Why it matters"
                 title="Development that people can see themselves in."
+                tone="green"
               />
               <p className="mt-5 leading-relaxed text-body">
                 When an employee understands where they stand, what they are working toward and what

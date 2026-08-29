@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Photo from '../components/Photo.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import { bbbeeGroups, bbbeeProcess, SCOPE_STATEMENT, OUTCOME_QUALIFIER } from '../data/bbbee.js'
-import { pageHeroes } from '../data/pageHeroes.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
 export default function BBBEEConsulting() {
@@ -49,6 +49,7 @@ export default function BBBEEConsulting() {
               <SectionHeading
                 eyebrow="The problem we solve"
                 title="Spend that satisfies a scorecard but changes nothing is wasted twice."
+                tone="green"
               />
               <p className="mt-5 leading-relaxed text-body">
                 Plenty of organisations meet their skills-development obligations on paper and see no
@@ -62,13 +63,11 @@ export default function BBBEEConsulting() {
                 competing goals — they are the same programme, planned well.
               </p>
             </div>
-            <div className="overflow-hidden">
-              <Photo
-                src="learner-welding-workshop.jpg"
-                alt="A learner in welding gloves and visor working on a steel frame"
-                className="aspect-[3/2] w-full"
-              />
-            </div>
+            <ContentSlider
+              images={sectionSliders.bbbee}
+              aspect="aspect-[4/3]"
+              label="Prestige Tutelage learners at work in the trades"
+            />
           </div>
         </div>
       </section>

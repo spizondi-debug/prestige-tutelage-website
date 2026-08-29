@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Photo from '../components/Photo.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
@@ -15,7 +15,7 @@ import {
   vacancyFields,
   CHECKS_QUALIFIER,
 } from '../data/recruitment.js'
-import { pageHeroes } from '../data/pageHeroes.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
 export default function Recruitment() {
@@ -64,6 +64,7 @@ export default function Recruitment() {
               <SectionHeading
                 eyebrow="What we do"
                 title="From first advert to first day."
+                tone="green"
                 lead="Take the whole process, or the part you do not have capacity for."
               />
               <p className="mt-5 leading-relaxed text-body">
@@ -72,13 +73,11 @@ export default function Recruitment() {
                 busy managers, and keeping every applicant informed. That is the part we carry.
               </p>
             </div>
-            <div className="overflow-hidden">
-              <Photo
-                src="certificate-handover-red-shirt.jpg"
-                alt="A Prestige Tutelage learner receiving her certificate of completion"
-                className="aspect-[3/2] w-full"
-              />
-            </div>
+            <ContentSlider
+              images={sectionSliders.recruitmentProcess}
+              aspect="aspect-[4/3]"
+              label="Candidates placed through Prestige Tutelage"
+            />
           </div>
 
           <div className="mt-14 space-y-12">
@@ -120,6 +119,7 @@ export default function Recruitment() {
               <SectionHeading
                 eyebrow="Where we are strongest"
                 title="Learnership & youth recruitment."
+                tone="green"
                 lead={learnerRecruitment.lead}
               />
               <ul className="mt-8 grid gap-x-10 border-t border-line sm:grid-cols-2">
@@ -132,13 +132,12 @@ export default function Recruitment() {
               </ul>
               <Link to="/programmes#learnerships" className="btn btn-outline mt-8">How Learnerships Work</Link>
             </div>
-            <div className="overflow-hidden lg:mt-2">
-              <Photo
-                src="learner-cohort.jpg"
-                alt="A Prestige Tutelage learner intake outside the training venue"
-                className="aspect-[3/2] w-full"
-              />
-            </div>
+            <ContentSlider
+              images={sectionSliders.recruitmentYouth}
+              aspect="aspect-[4/3]"
+              label="Learnership and youth intakes recruited by Prestige Tutelage"
+              className="lg:mt-2"
+            />
           </div>
         </div>
       </section>

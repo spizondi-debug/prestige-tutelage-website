@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Photo from '../components/Photo.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { whyPrestige } from '../components/home/WhyPrestige.jsx'
 import { brand, contact } from '../data/site.js'
-import { pageHeroes } from '../data/pageHeroes.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
 const philosophy = [
@@ -67,6 +67,7 @@ export default function About() {
               <SectionHeading
                 eyebrow="Who we are"
                 title="Serious about training. Human about how it happens."
+                tone="green"
                 lead="We deliver accredited programmes, learnerships, short courses and workplace training for employers across South Africa — backed by our own assessment centre and disciplined learner administration."
               />
               <p className="mt-5 leading-relaxed text-body">
@@ -77,16 +78,11 @@ export default function About() {
               </p>
               <p className="mt-4 text-sm font-medium text-muted">{brand.credibility.join(' • ')}</p>
             </div>
-            <div className="relative">
-              <div className="absolute -right-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
-              <div className="relative overflow-hidden">
-                <Photo
-                  src="certificate-handover-congratulations.jpg"
-                  alt="A Prestige Tutelage learner being congratulated at a certificate handover"
-                  className="aspect-[3/2] w-full"
-                />
-              </div>
-            </div>
+            <ContentSlider
+              images={sectionSliders.aboutWhoWeAre}
+              aspect="aspect-[4/3]"
+              label="Prestige Tutelage certificate handovers"
+            />
           </div>
         </div>
       </section>

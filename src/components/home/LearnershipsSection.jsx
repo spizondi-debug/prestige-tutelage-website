@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { SectionHeading, Accent } from '../Section.jsx'
-import Photo from '../Photo.jsx'
+import ContentSlider from '../ContentSlider.jsx'
+import { sectionSliders } from '../../data/pageHeroes.js'
 import { learnerships } from '../../data/programmes.js'
 
 export default function LearnershipsSection() {
@@ -8,16 +9,12 @@ export default function LearnershipsSection() {
     <section className="border-t border-line bg-paper py-20 lg:py-28">
       <div className="container-px">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-          <div className="relative order-last lg:order-first">
-            <div className="absolute -left-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
-            <div className="relative overflow-hidden">
-              <Photo
-                src="certificate-handover-overalls.jpg"
-                alt="A Prestige Tutelage learner receiving his certificate of completion"
-                className="aspect-[5/4] w-full"
-              />
-            </div>
-          </div>
+          <ContentSlider
+            images={sectionSliders.homeLearnerships}
+            aspect="aspect-[5/4]"
+            label="Prestige Tutelage learnership completions"
+            className="order-last lg:order-first"
+          />
 
           <div>
             <SectionHeading

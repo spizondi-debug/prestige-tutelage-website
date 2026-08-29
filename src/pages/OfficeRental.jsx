@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Photo from '../components/Photo.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import { useEnquiryForm } from '../lib/useEnquiryForm.js'
 import { spaceCategories, spaceFields, DETAILS_ON_ENQUIRY } from '../data/spaces.js'
 import { contact } from '../data/site.js'
-import { pageHeroes } from '../data/pageHeroes.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
 export default function OfficeRental() {
@@ -58,17 +58,15 @@ export default function OfficeRental() {
       <section className="py-16 lg:py-20">
         <div className="container-px">
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-            <div className="overflow-hidden">
-              <Photo
-                src="training-room.jpg"
-                alt="A training room at Prestige Tutelage set up with a projector screen and boardroom seating"
-                className="aspect-[4/3] w-full"
-                eager
-              />
-            </div>
+            <ContentSlider
+              images={sectionSliders.officeRental}
+              aspect="aspect-[4/3]"
+              label="The Prestige Tutelage venue in use"
+            />
             <SectionHeading
               eyebrow="What the space is used for"
               title="Four kinds of booking."
+              tone="green"
               lead="Tell us what you are running and we will advise on the right room. Room options, capacity, facilities and pricing are confirmed when you enquire."
             />
           </div>

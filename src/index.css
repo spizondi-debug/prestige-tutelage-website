@@ -274,6 +274,13 @@
   }
 }
 
+/* Drives the slide progress bar. Keyed to the slide index in the component,
+   so it restarts on every change instead of drifting out of step. */
+@keyframes slideProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

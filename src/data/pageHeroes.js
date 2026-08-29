@@ -129,6 +129,23 @@ export const pageHeroes = {
   contact: [P.handoverReviewing, P.intake, P.certificatesGroup, P.trainingRoom],
 }
 
+/**
+ * Photographs for the editorial split sections further down each page. Chosen
+ * so a section does not repeat its own page's hero imagery.
+ */
+export const sectionSliders = {
+  aboutWhoWeAre: [P.handoverCongrats, P.handoverOveralls, P.handoverRedShirt],
+  corporateInTheRoom: [P.trainingRoom, P.workshopTraining, P.angleGrinder],
+  corporateDelivery: [P.workshopFloor, P.bandsaw, P.steelBeam],
+  bbbee: [P.welding, P.bandsaw, P.plateHandling],
+  recruitmentProcess: [P.handoverRedShirt, P.handoverOveralls, P.handoverCongrats],
+  recruitmentYouth: [P.cohortOutside, P.certificatesCohort, P.workshopTraining],
+  growthPathways: [P.angleGrinder, P.steelBeam, P.workshopFloor],
+  officeRental: [P.trainingRoom, P.workshopTraining, P.certificatesCohort],
+  programmesLearnerships: [P.handoverOveralls, P.handoverRedShirt, P.certificatesCohort],
+  homeLearnerships: [P.handoverOveralls, P.handoverCongrats, P.clientSite],
+}
+
 /** Insight articles take their hero from the article's category. */
 export const articleHeroes = {
   Qualifications: [P.certificatesGroup, P.handoverOveralls, P.certificatesCohort],
