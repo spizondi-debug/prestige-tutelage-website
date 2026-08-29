@@ -61,6 +61,9 @@ export default function AssessmentCentre() {
   return (
     <>
       <PageHeader
+        image="certificates-cohort.jpg"
+        imageAlt="Prestige Tutelage learners holding their certificates of completion"
+        imagePosition="center 30%"
         eyebrow="Assessment Centre"
         title="Assessment built around quality, integrity and competence."
         lead="A certificate is only worth the process behind it. Prestige operates a professionally managed assessment capability — from candidate registration through moderation, results and records."

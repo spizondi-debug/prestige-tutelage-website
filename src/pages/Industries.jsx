@@ -12,6 +12,10 @@ export default function Industries() {
   return (
     <>
       <PageHeader
+        image="workshop-training.jpg"
+        imageAlt="A learner in full protective equipment working with an angle grinder during practical training"
+        imagePosition="center 30%"
+        badge="7 sectors"
         eyebrow="Industries"
         title="Training designed for the realities of your sector."
         lead="A supervisor on a poultry farm, a team leader on a production line and a manager in a professional firm face different problems. We design for each — and we know the difference."

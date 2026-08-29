@@ -15,6 +15,9 @@ export default function CorporateTraining() {
   return (
     <>
       <PageHeader
+        image="training-room.jpg"
+        imageAlt="A training room at Prestige Tutelage set up with a projector screen and boardroom seating"
+        imagePosition="center"
         eyebrow="Corporate training"
         title="Training built around your business."
         lead="Not a catalogue you choose from — a programme designed from your objectives, your operation and your people. Delivered where the work happens, administered properly, and measured against what actually changed."

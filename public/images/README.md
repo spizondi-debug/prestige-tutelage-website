@@ -37,8 +37,51 @@ navigation and the dark footer. Colours and artwork are unaltered.
 
 Everything is cropped to the aspect its slot uses (so CSS never re-crops),
 resized to 1100–1600px on the long edge and saved as progressive JPEG at
-quality 82–84. All are lazy-loaded except the homepage hero and the training
-room, which load eagerly.
+quality 82–84.
+
+## Formats
+
+Every `.jpg` has a `.webp` sibling at the same dimensions (quality 82). The
+`Photo` component serves WebP through `<picture>` with the JPEG as fallback,
+so nothing breaks on a browser that cannot read WebP. Across the library that
+is 2337KB down to 1452KB — 38% less to download.
+
+`Photo` also emits intrinsic `width`/`height` from `src/data/imageMeta.js`, so
+the browser reserves the right box and the page does not jump as photos load.
+Hero images load eagerly at high priority; everything else is lazy.
+
+Regenerate both the WebP files and the meta after adding or recropping an
+image:
+
+    npm run build:images
+
+## Page hero images
+
+Every interior page opens with a photograph beside its heading, assigned so it
+never repeats an image already used further down that same page:
+
+| Page | Hero image |
+|------|-----------|
+| About | `graduate-portrait-hero.jpg` |
+| Programmes | `graduates-group.jpg` |
+| Short Courses | `young-professional.jpg` |
+| Industries | `workshop-training.jpg` |
+| Growth Pathways | `graduate-celebrating.jpg` |
+| Corporate Training | `training-room.jpg` |
+| Services | `facilitator-session.jpg` |
+| Business Solutions | `learner-cohort.jpg` |
+| B-BBEE Consulting | `certificates-cohort.jpg` |
+| Recruitment | `young-professional.jpg` |
+| Office & Training Space | `facilitator-session.jpg` |
+| Assessment Centre | `certificates-cohort.jpg` |
+| Insights | `graduate-portrait-hero.jpg` |
+| Insight articles | by category — see `ARTICLE_HERO` in `InsightArticle.jsx` |
+| Contact | `bbbee-consultation.jpg` |
+
+There are 11 photographs for 15 hero slots, so four images appear on two pages
+each: `graduate-portrait-hero`, `young-professional`, `facilitator-session`
+and `certificates-cohort`. Four more genuine photographs would give every page
+its own. See the priority list below.
 
 ## Still worth adding
 

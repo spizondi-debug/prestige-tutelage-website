@@ -16,6 +16,9 @@ export default function BBBEEConsulting() {
   return (
     <>
       <PageHeader
+        image="certificates-cohort.jpg"
+        imageAlt="Prestige Tutelage learners holding their certificates of completion"
+        imagePosition="center 30%"
         eyebrow="B-BBEE skills development consulting"
         title="Turn skills development into measurable transformation value."
         lead="Prestige Tutelage helps organisations structure practical skills-development and workforce-development initiatives that support their broader B-BBEE objectives while creating genuine capability in the workplace."

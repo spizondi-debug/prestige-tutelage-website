@@ -23,6 +23,10 @@ export default function OfficeRental() {
   return (
     <>
       <PageHeader
+        image="facilitator-session.jpg"
+        imageAlt="A Prestige Tutelage facilitator leading a session with learners"
+        imagePosition="center 42%"
+        badge="Ferndale, Randburg"
         eyebrow="Office & training space"
         title="Professional space when you need it."
         lead={`Flexible professional space available through Prestige Tutelage in Ferndale, Randburg — for training, workshops, meetings, interviews, assessments and short-term office use.`}

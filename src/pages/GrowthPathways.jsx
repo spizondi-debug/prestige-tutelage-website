@@ -24,6 +24,9 @@ export default function GrowthPathways() {
   return (
     <>
       <PageHeader
+        image="graduate-celebrating.jpg"
+        imageAlt="A graduate celebrating after completing his qualification"
+        imagePosition="center 28%"
         eyebrow="A related Prestige solution"
         title="Prestige Growth Pathways"
         lead="One workforce. One development journey. Most organisations do not lack training — they lack the thread that connects a skills gap to a development plan, a development plan to learning, and learning to something you can actually measure. Growth Pathways is that thread."

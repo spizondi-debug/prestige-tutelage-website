@@ -95,6 +95,10 @@ export default function Contact() {
   return (
     <>
       <PageHeader
+        image="bbbee-consultation.jpg"
+        imageAlt="Two colleagues in conversation beside an office window"
+        imagePosition="center 40%"
+        badge="Ferndale, Randburg"
         eyebrow="Contact"
         title="Let’s talk about your workforce."
         lead="Tell us what your organisation is trying to achieve. We will come back with a practical, costed way forward — not a brochure."

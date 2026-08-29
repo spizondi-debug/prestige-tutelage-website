@@ -72,6 +72,9 @@ export default function BusinessSolutions() {
   return (
     <>
       <PageHeader
+        image="learner-cohort.jpg"
+        imageAlt="A Prestige Tutelage learner intake gathered outside the training venue"
+        imagePosition="center 40%"
         eyebrow="Business solutions"
         title="More than training. A complete workforce support partner."
         lead="Training is where Prestige started and it remains the core. But the work around it — advising on transformation strategy, finding the people, assessing the outcome and housing it all — is just as much a part of what we do."

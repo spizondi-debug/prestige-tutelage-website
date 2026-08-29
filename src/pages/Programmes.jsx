@@ -77,6 +77,10 @@ export default function Programmes() {
   return (
     <>
       <PageHeader
+        image="graduates-group.jpg"
+        imageAlt="A group of Prestige Tutelage graduates walking together after their ceremony"
+        imagePosition="center 38%"
+        badge="26 qualifications · NQF 2–6"
         eyebrow="Programmes & qualifications"
         title="Learning that maps onto real occupations."
         lead="Prestige Tutelage delivers qualifications across business and administration, manufacturing and production, engineering, agriculture and early childhood development — as full qualifications, through learnerships, or as part of a wider workforce plan."

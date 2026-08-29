@@ -50,6 +50,10 @@ export default function About() {
   return (
     <>
       <PageHeader
+        image="graduate-portrait-hero.jpg"
+        imageAlt="A Prestige Tutelage graduate in cap and gown on the steps after her graduation ceremony"
+        imagePosition="center 22%"
+        badge="Randburg, Johannesburg"
         eyebrow="About Prestige Tutelage"
         title="A South African training company built on credibility and care."
         lead="Prestige Tutelage is an accredited training and workforce development company based in Randburg, Johannesburg. We help organisations build capable, confident and future-ready teams — and we help people build working lives worth being proud of."

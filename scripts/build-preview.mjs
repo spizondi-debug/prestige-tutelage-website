@@ -16,7 +16,7 @@ const dist = path.join(root, 'dist')
 const outDir = path.join(root, 'preview')
 const outFile = path.join(outDir, 'prestige-tutelage-preview.html')
 
-const mime = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml' }
+const mime = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.webp': 'image/webp' }
 const fontMime = { '.woff2': 'font/woff2' }
 const dataUri = (file) =>
   `data:${mime[path.extname(file).toLowerCase()] ?? 'application/octet-stream'};base64,` +
