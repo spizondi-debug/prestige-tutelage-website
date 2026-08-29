@@ -13,8 +13,8 @@ const solutions = [
     lead: 'Help organisations structure skills-development initiatives that contribute towards transformation objectives.',
     to: '/bbbee-consulting',
     cta: 'Explore B-BBEE Consultation',
-    photo: 'bbbee-consultation.jpg',
-    photoAlt: 'Two colleagues in conversation beside an office window',
+    photo: 'learners-certificates-group.jpg',
+    photoAlt: 'Prestige Tutelage learners holding their certificates of completion',
     points: [
       'Skills development strategy and spend planning',
       'Employed and unemployed learnership planning',
@@ -27,8 +27,8 @@ const solutions = [
     lead: 'Workforce sourcing and recruitment support — including the learnership and youth intakes most agencies will not take on.',
     to: '/recruitment',
     cta: 'Explore Recruitment',
-    photo: 'recruitment-interview.jpg',
-    photoAlt: 'A candidate interview taking place over a video call',
+    photo: 'learner-intake-group.jpg',
+    photoAlt: 'A Prestige Tutelage learner intake outside the training premises',
     points: [
       'Candidate sourcing, screening and shortlisting',
       'Interview coordination and administration',

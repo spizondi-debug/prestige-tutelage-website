@@ -12,8 +12,8 @@ export default function LearnershipsSection() {
             <div className="absolute -left-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
             <div className="relative overflow-hidden">
               <Photo
-                src="graduate-celebrating.jpg"
-                alt="A graduate celebrating after completing his qualification"
+                src="certificate-handover-overalls.jpg"
+                alt="A Prestige Tutelage learner receiving his certificate of completion"
                 className="aspect-[5/4] w-full"
               />
             </div>

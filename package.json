@@ -9,7 +9,8 @@
     "build": "node scripts/build-sitemap.mjs && vite build",
     "preview": "vite preview",
     "build:preview": "node scripts/build-preview.mjs",
-    "build:images": "node scripts/build-image-meta.mjs"
+    "build:images": "node scripts/build-image-meta.mjs",
+    "validate:heroes": "node scripts/validate-heroes.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

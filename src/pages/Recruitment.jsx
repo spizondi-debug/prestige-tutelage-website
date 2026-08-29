@@ -73,8 +73,8 @@ export default function Recruitment() {
             </div>
             <div className="overflow-hidden">
               <Photo
-                src="recruitment-interview.jpg"
-                alt="A candidate interview taking place over a video call"
+                src="certificate-handover-red-shirt.jpg"
+                alt="A Prestige Tutelage learner receiving her certificate of completion"
                 className="aspect-[3/2] w-full"
               />
             </div>

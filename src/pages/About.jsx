@@ -80,8 +80,8 @@ export default function About() {
               <div className="absolute -right-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
               <div className="relative overflow-hidden">
                 <Photo
-                  src="graduates-group.jpg"
-                  alt="A group of graduates walking together after their ceremony"
+                  src="certificate-handover-congratulations.jpg"
+                  alt="A Prestige Tutelage learner being congratulated at a certificate handover"
                   className="aspect-[3/2] w-full"
                 />
               </div>

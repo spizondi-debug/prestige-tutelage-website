@@ -43,16 +43,6 @@ is 505x850, which is why they are cropped tightly in a landscape panel and
 carry a low `object-position`. **Originals at full resolution would be
 better**; ask for the camera files if they still exist.
 
-### Licensed stock
-
-| File | Used on |
-|------|---------|
-| `graduate-portrait-hero.jpg` | Homepage hero |
-| `graduate-celebrating.jpg` | Homepage learnerships · Programmes |
-| `graduates-group.jpg` | About |
-| `bbbee-consultation.jpg` | B-BBEE Consulting |
-| `recruitment-interview.jpg` | Recruitment |
-| `young-professional.jpg` | Growth Pathways |
 
 Everything is cropped to the aspect its slot uses (so CSS never re-crops),
 resized to 1100–1600px on the long edge and saved as progressive JPEG at
@@ -100,8 +90,15 @@ hero never shows a photograph that already appears further down that same
 page, and no two pages carry the same set. Both are worth re-checking after
 any swap.
 
-`facilitator-session.jpg` was removed from the library at the client's
-request. It is recoverable from git history if that changes.
+Every photograph on the site is now Prestige's own. The six licensed stock
+images the site used to carry — `bbbee-consultation`, `recruitment-interview`,
+`graduate-celebrating`, `graduate-portrait-hero`, `graduates-group` and
+`young-professional` — were removed at the client's request, along with
+`facilitator-session`. All are recoverable from git history.
+
+Run `npm run validate:heroes` after changing any slide set: it checks every
+referenced file exists, each set runs 3-5 slides, no hero repeats a photograph
+already used further down its own page, and no two pages share a set.
 
 ## Still worth adding
 

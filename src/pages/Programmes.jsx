@@ -206,8 +206,8 @@ export default function Programmes() {
             <div>
               <div className="overflow-hidden">
                 <Photo
-                  src="graduate-celebrating.jpg"
-                  alt="A graduate celebrating after completing his qualification"
+                  src="certificate-handover-overalls.jpg"
+                  alt="A Prestige Tutelage learner receiving his certificate of completion"
                   className="aspect-[5/4] w-full"
                 />
               </div>

@@ -63,8 +63,8 @@ export default function BBBEEConsulting() {
             </div>
             <div className="overflow-hidden">
               <Photo
-                src="bbbee-consultation.jpg"
-                alt="Two colleagues in conversation beside an office window"
+                src="learner-welding-workshop.jpg"
+                alt="A learner in welding gloves and visor working on a steel frame"
                 className="aspect-[3/2] w-full"
               />
             </div>

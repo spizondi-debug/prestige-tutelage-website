@@ -22,7 +22,7 @@ function upsert(selector, attrs) {
  * preview or staging host the page happens to be served from.
  */
 export function usePageMeta(title, description, options = {}) {
-  const { image = '/images/graduate-portrait-hero.jpg', type = 'website' } = options
+  const { image = '/images/learner-intake-group.jpg', type = 'website' } = options
 
   useEffect(() => {
     const fullTitle = title

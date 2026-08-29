@@ -1,8 +1,8 @@
 // Hero photograph sets, one per page.
 //
-// Each entry is a slide in that page's hero carousel. Everything here is a
-// real photograph already in public/images — Prestige's own wherever it
-// exists, licensed stock only where it does not.
+// Each entry is a slide in that page's hero carousel. Every photograph is
+// Prestige's own: the licensed stock the site used to carry has been removed
+// from the library entirely.
 //
 // `position` is the CSS object-position used to keep faces out of the crop
 // when a portrait source is shown in a landscape panel. Check it after
@@ -88,16 +88,6 @@ const P = {
     alt: 'A Prestige Tutelage learner intake gathered outside the training venue',
     position: 'center 40%',
   },
-  consultation: {
-    src: 'bbbee-consultation.jpg',
-    alt: 'Two colleagues in conversation beside an office window',
-    position: 'center 40%',
-  },
-  youngProfessional: {
-    src: 'young-professional.jpg',
-    alt: 'A young professional at the start of his working life',
-    position: 'center 28%',
-  },
   handoverCongrats: {
     src: 'certificate-handover-congratulations.jpg',
     alt: 'A Prestige Tutelage learner being congratulated at a certificate handover',
@@ -113,60 +103,39 @@ const P = {
     alt: 'Prestige Tutelage learners with their certificates of completion',
     position: 'center 28%',
   },
-  graduatesGroup: {
-    src: 'graduates-group.jpg',
-    alt: 'A group of graduates walking together after their ceremony',
-    position: 'center 36%',
-  },
-  graduateCelebrating: {
-    src: 'graduate-celebrating.jpg',
-    alt: 'A graduate celebrating after completing his qualification',
-    position: 'center 28%',
-  },
-  graduatePortrait: {
-    src: 'graduate-portrait-hero.jpg',
-    alt: 'A graduate in cap and gown on the steps after her graduation ceremony',
-    position: 'center 22%',
-  },
-  interview: {
-    src: 'recruitment-interview.jpg',
-    alt: 'A candidate interview taking place over a video call',
-    position: 'center 40%',
-  },
 }
 
 /** Sets are ordered — the first slide is the one that loads eagerly.
  *
- * Two rules hold here. A page's hero never shows a photograph that already
- * appears further down that same page, and no two pages carry the same set.
- * Check both when swapping anything in. */
+ * Every photograph here is Prestige's own. Three rules hold: a page's hero
+ * never shows a photograph that already appears further down that same page,
+ * no two pages carry the same set, and each set runs 3–5 slides. Re-check all
+ * three after any swap — scripts/validate-heroes.mjs does it in one command. */
 export const pageHeroes = {
-  // Home avoids every photograph already shown further down the homepage —
-  // the stories, the impact band, the solutions rail and the statement band.
-  home: [P.intake, P.plateHandling, P.certificatesGroup, P.angleGrinder, P.steelBeam],
+  home: [P.cohortOutside, P.angleGrinder, P.steelBeam, P.plateHandling, P.handoverRedShirt],
   about: [P.intake, P.certificatesGroup, P.cohortOutside, P.handoverReviewing],
   programmes: [P.angleGrinder, P.certificatesGroup, P.trainingRoom, P.cohortOutside],
   shortCourses: [P.trainingRoom, P.intake, P.cohortOutside, P.workshopTraining],
   industries: [P.steelBeam, P.workshopFloor, P.bandsaw, P.loading],
-  growthPathways: [P.handoverRedShirt, P.intake, P.graduateCelebrating, P.handoverCongrats],
+  growthPathways: [P.handoverRedShirt, P.intake, P.handoverCongrats, P.certificatesCohort],
   corporateTraining: [P.clientSite, P.plateHandling, P.loading, P.welding],
-  services: [P.consultation, P.interview, P.intake, P.trainingRoom],
-  businessSolutions: [P.intake, P.certificatesGroup, P.welding, P.clientSite],
-  bbbee: [P.certificatesGroup, P.intake, P.handoverOveralls, P.graduatesGroup],
-  recruitment: [P.intake, P.youngProfessional, P.clientSite, P.graduatePortrait],
-  officeRental: [P.cohortOutside, P.consultation, P.intake, P.interview],
+  services: [P.intake, P.trainingRoom, P.certificatesGroup, P.cohortOutside],
+  businessSolutions: [P.welding, P.clientSite, P.steelBeam, P.bandsaw],
+  bbbee: [P.certificatesGroup, P.intake, P.handoverOveralls, P.handoverCongrats],
+  recruitment: [P.intake, P.clientSite, P.certificatesGroup, P.handoverReviewing],
+  officeRental: [P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats],
   assessment: [P.certificatesGroup, P.handoverOveralls, P.handoverRedShirt, P.certificatesCohort],
-  insights: [P.consultation, P.welding, P.handoverReviewing, P.intake],
-  contact: [P.consultation, P.interview, P.handoverReviewing, P.intake],
+  insights: [P.intake, P.welding, P.handoverReviewing, P.cohortOutside],
+  contact: [P.handoverReviewing, P.intake, P.certificatesGroup, P.trainingRoom],
 }
 
 /** Insight articles take their hero from the article's category. */
 export const articleHeroes = {
-  Qualifications: [P.certificatesGroup, P.handoverOveralls, P.graduateCelebrating],
+  Qualifications: [P.certificatesGroup, P.handoverOveralls, P.certificatesCohort],
   Learnerships: [P.cohortOutside, P.intake, P.angleGrinder],
-  Leadership: [P.consultation, P.interview, P.handoverReviewing],
+  Leadership: [P.handoverReviewing, P.certificatesGroup, P.intake],
   Delivery: [P.trainingRoom, P.workshopTraining, P.plateHandling],
   Industries: [P.steelBeam, P.bandsaw, P.workshopFloor],
-  Planning: [P.trainingRoom, P.interview, P.consultation],
+  Planning: [P.trainingRoom, P.intake, P.certificatesGroup],
   default: [P.intake, P.certificatesGroup, P.cohortOutside],
 }

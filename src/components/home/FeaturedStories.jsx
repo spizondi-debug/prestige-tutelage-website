@@ -36,8 +36,8 @@ const stories = [
     eyebrow: 'Management',
     headline: 'Build the people who lead.',
     text: 'The administrative, HR, project and management roles organisations run on — and the first-line managers who carry the most people.',
-    photo: 'graduate-portrait-hero.jpg',
-    alt: 'A graduate in cap and gown on the steps after her graduation ceremony',
+    photo: 'certificate-handover-reviewing.jpg',
+    alt: 'A Prestige Tutelage learner and facilitator looking over a certificate together',
   },
 ]
 

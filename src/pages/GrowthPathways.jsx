@@ -74,8 +74,8 @@ export default function GrowthPathways() {
               <div className="absolute -left-4 -top-4 hidden h-full w-full bg-mist lg:block" aria-hidden="true" />
               <div className="relative overflow-hidden">
                 <Photo
-                  src="young-professional.jpg"
-                  alt="A young professional at the start of his working life"
+                  src="learner-angle-grinder.jpg"
+                  alt="A learner in full protective equipment using an angle grinder at a workbench"
                   className="aspect-[5/4] w-full"
                   position="35% 45%"
                 />
