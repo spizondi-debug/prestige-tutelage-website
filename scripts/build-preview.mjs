@@ -37,6 +37,15 @@ const walk = (dir, prefix = '') => {
   }
 }
 walk(path.join(dist, 'images'), 'images/')
+
+// Both a .jpg and a .webp exist for every photograph, and inlining both
+// doubles the file for no benefit — the <source> wins in every browser that
+// can open this preview. Drop the JPEG payloads here and alias the .jpg keys
+// to their WebP twin at runtime, so each image is stored once and the <img>
+// fallback still resolves rather than 404-ing.
+for (const key of Object.keys(assets)) {
+  if (key.endsWith('.jpg') && assets[key.replace(/\.jpg$/, '.webp')]) delete assets[key]
+}
 for (const name of ['prestige-tutelage-logo.png', 'favicon.png']) {
   const p = path.join(dist, name)
   if (fs.existsSync(p)) assets[name] = dataUri(p)
@@ -66,7 +75,11 @@ html = html.replace(/<link rel="icon"[^>]*>/, assets['favicon.png']
   ? `<link rel="icon" type="image/png" href="${assets['favicon.png']}" />` : '')
 html = html.replace(/<link rel="apple-touch-icon"[^>]*>/, '')
 html = html.replace(/\s*<link rel="preload"[^>]*as="font"[^>]*>/g, '')
-html = html.replace('</head>', `<script>window.__PT_ASSETS__=${JSON.stringify(assets)};</script></head>`)
+const aliasScript =
+  'window.__PT_ASSETS__=' + JSON.stringify(assets) + ';' +
+  'for(var k in window.__PT_ASSETS__){if(k.slice(-5)===".webp")' +
+  'window.__PT_ASSETS__[k.slice(0,-5)+".jpg"]=window.__PT_ASSETS__[k];}'
+html = html.replace('</head>', `<script>${aliasScript}</script></head>`)
 
 // The deployed <title> carries the SEO tagline; the preview is identified by
 // name alone so it reads cleanly as a browser tab.
