@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SectionHeading } from '../Section.jsx'
+import { SectionHeading, Accent } from '../Section.jsx'
 import Photo from '../Photo.jsx'
 import { learnerships } from '../../data/programmes.js'
 
@@ -22,7 +22,7 @@ export default function LearnershipsSection() {
           <div>
             <SectionHeading
               eyebrow="Learnerships"
-              title="Structured, work-based routes to real qualifications."
+              title={<>Structured, work-based routes to <Accent>real qualifications</Accent>.</>}
               lead={learnerships.intro}
             />
             <div className="mt-8 space-y-6">

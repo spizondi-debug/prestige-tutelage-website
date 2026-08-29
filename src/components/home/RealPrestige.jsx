@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import HeroMedia from '../HeroMedia.jsx'
 import Reveal from '../Reveal.jsx'
 import { realPrestigeMedia } from '../../data/media.js'
+import { Accent } from '../Section.jsx'
 
 /**
  * The statement band: the Prestige training room, with the headline over it at
@@ -14,7 +15,7 @@ import { realPrestigeMedia } from '../../data/media.js'
  */
 export default function RealPrestige() {
   return (
-    <section className="tex tex-grain tex-edge relative overflow-hidden bg-midnight py-24 text-white lg:py-36">
+    <section className="on-dark tex tex-grain tex-edge relative overflow-hidden bg-midnight py-24 text-white lg:py-36">
       <div className="absolute inset-0">
         <HeroMedia media={realPrestigeMedia} className="h-full w-full" />
         {/* Weighted hard so the statement reads at full strength over it. */}
@@ -28,7 +29,7 @@ export default function RealPrestige() {
         <Reveal>
           <p className="eyebrow-light">Real people. Real development.</p>
           <h2 className="mt-7 max-w-5xl font-display text-statement font-semibold text-white">
-            Training that leaves the classroom and enters the workplace.
+            Training that leaves the classroom and <Accent>enters the workplace</Accent>.
           </h2>
           <div className="mt-11 flex flex-wrap gap-3">
             <Link to="/corporate-training" className="btn btn-primary">

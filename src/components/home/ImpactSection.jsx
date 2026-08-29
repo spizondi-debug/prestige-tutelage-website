@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Photo from '../Photo.jsx'
 import Reveal from '../Reveal.jsx'
+import { Accent } from '../Section.jsx'
 
 // Impact framing without fabricated case studies or statistics: the outcomes
 // Prestige designs for. Verified client stories can replace/extend this later.
@@ -41,7 +42,7 @@ export default function ImpactSection() {
             <Reveal>
               <p className="eyebrow">Impact</p>
               <h2 className="mt-5 max-w-xl font-display text-editorial font-semibold text-ink">
-                We measure success where it matters: in the workplace.
+                We measure success where it matters: <Accent>in the workplace</Accent>.
               </h2>
 
               <div className="mt-10 max-w-xl divide-y divide-line border-y border-line">

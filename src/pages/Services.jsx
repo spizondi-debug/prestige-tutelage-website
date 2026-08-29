@@ -4,6 +4,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { serviceGroups } from '../data/services.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 export default function Services() {
   usePageMeta(
@@ -16,7 +17,7 @@ export default function Services() {
       <PageHeader
         images={pageHeroes.services}
         eyebrow="Services"
-        title="More than training. A complete workforce support partner."
+        title={<>More than training. A complete <Accent>workforce support partner</Accent>.</>}
         lead="Training is where Prestige started, and it remains the core. But the work around it — advising on strategy, finding the people, administering the programme, assessing the outcome and housing it all — is just as much a part of what we do."
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="Service groups">

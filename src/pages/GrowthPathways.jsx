@@ -5,6 +5,7 @@ import { SectionHeading } from '../components/Section.jsx'
 import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 const connects = [
   { t: 'Skills gaps', d: 'A clear, current view of the distance between the capability you have and the capability the work requires.' },
@@ -27,7 +28,7 @@ export default function GrowthPathways() {
       <PageHeader
         images={pageHeroes.growthPathways}
         eyebrow="A related Prestige solution"
-        title="Prestige Growth Pathways"
+        title={<>Prestige <Accent>Growth Pathways</Accent></>}
         lead="One workforce. One development journey. Most organisations do not lack training — they lack the thread that connects a skills gap to a development plan, a development plan to learning, and learning to something you can actually measure. Growth Pathways is that thread."
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

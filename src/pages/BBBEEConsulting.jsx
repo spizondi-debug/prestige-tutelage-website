@@ -7,6 +7,7 @@ import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import { bbbeeGroups, bbbeeProcess, SCOPE_STATEMENT, OUTCOME_QUALIFIER } from '../data/bbbee.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 export default function BBBEEConsulting() {
   usePageMeta(
@@ -19,7 +20,7 @@ export default function BBBEEConsulting() {
       <PageHeader
         images={pageHeroes.bbbee}
         eyebrow="B-BBEE skills development consulting"
-        title="Turn skills development into measurable transformation value."
+        title={<>Turn skills development into <Accent>measurable transformation value</Accent>.</>}
         lead="Prestige Tutelage helps organisations structure practical skills-development and workforce-development initiatives that support their broader B-BBEE objectives while creating genuine capability in the workplace."
       >
         <Link to="/contact?interest=B-BBEE%20Consultation" className="btn btn-primary mt-8">

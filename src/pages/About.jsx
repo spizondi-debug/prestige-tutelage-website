@@ -7,6 +7,7 @@ import CTABand from '../components/CTABand.jsx'
 import { whyPrestige } from '../components/home/WhyPrestige.jsx'
 import { brand, contact } from '../data/site.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 const philosophy = [
   {
@@ -54,7 +55,7 @@ export default function About() {
         images={pageHeroes.about}
         badge="Randburg, Johannesburg"
         eyebrow="About Prestige Tutelage"
-        title="A South African training company built on credibility and care."
+        title={<>A South African training company built on <Accent>credibility and care</Accent>.</>}
         lead="Prestige Tutelage is an accredited training and workforce development company based in Randburg, Johannesburg. We help organisations build capable, confident and future-ready teams — and we help people build working lives worth being proud of."
       />
 

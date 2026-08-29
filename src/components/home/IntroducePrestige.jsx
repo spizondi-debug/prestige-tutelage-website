@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal.jsx'
 import { useCountUp } from '../../lib/motion.js'
+import { Accent } from '../Section.jsx'
 
 /**
  * The handover from the cinematic hero into the editorial site.
@@ -48,7 +49,7 @@ export default function IntroducePrestige() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-24">
           <Reveal>
             <h2 className="font-display text-editorial font-semibold text-ink">
-              More than training.
+              More than <Accent>training</Accent>.
             </h2>
           </Reveal>
 

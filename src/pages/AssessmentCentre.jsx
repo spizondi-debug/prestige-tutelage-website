@@ -5,6 +5,7 @@ import { SectionHeading } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 // Scope is confirmed per engagement — no approval for specific qualifications
 // or assessment-centre scope is asserted anywhere on this page.
@@ -64,7 +65,7 @@ export default function AssessmentCentre() {
       <PageHeader
         images={pageHeroes.assessment}
         eyebrow="Assessment Centre"
-        title="Assessment built around quality, integrity and competence."
+        title={<>Assessment built around <Accent>quality, integrity and competence</Accent>.</>}
         lead="A certificate is only worth the process behind it. Prestige operates a professionally managed assessment capability — from candidate registration through moderation, results and records."
       >
         <Link to="/contact" className="btn btn-primary mt-8">Enquire About Assessment Services</Link>

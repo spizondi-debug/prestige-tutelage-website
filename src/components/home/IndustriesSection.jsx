@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Reveal from '../Reveal.jsx'
 import MediaRail, { RailTile } from '../MediaRail.jsx'
 import { industries } from '../../data/industries.js'
+import { Accent } from '../Section.jsx'
 
 /**
  * Industries, on White — the brightest surface in the homepage rhythm, sitting
@@ -20,7 +21,7 @@ export default function IndustriesSection() {
           <Reveal>
             <p className="eyebrow">Industries</p>
             <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-ink">
-              Grounded in the sectors that carry the economy.
+              Grounded in the sectors that <Accent>carry the economy</Accent>.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
               From the production line to the farm gate to the boardroom, Prestige designs

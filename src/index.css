@@ -102,6 +102,29 @@
     @apply border border-white/25 text-white hover:border-white/50 hover:bg-white/10;
   }
 
+  /* ── Headline accent ───────────────────────────────────────────────────
+     The logo green, used to lift one phrase out of a headline.
+
+     Heading sizes only. #2DA22F is 3.32:1 on White and 3.12:1 on Cloud —
+     which clears AA for large text (3.0:1) but fails the 4.5:1 needed at body
+     size, so this must never wrap ordinary copy. It is also 2.89:1 on Mist,
+     below even the large-text floor, so a headline carrying an accent should
+     not sit on a Mist surface.
+
+     Dark surfaces swap to Growth Green through the variable: the logo green
+     is 5.30:1 on Midnight but the lighter one is 7.00:1 and reads better
+     against a photograph. */
+  :root {
+    --hl-accent: #2DA22F;
+  }
+  .on-dark,
+  .hero-dark {
+    --hl-accent: #45B95C;
+  }
+  .hl-accent {
+    color: var(--hl-accent);
+  }
+
   /* ── Dark hero context ─────────────────────────────────────────────────
      Pages hand the hero their CTAs and in-page navigation already styled for
      a light background. Rather than edit every page, restyle those

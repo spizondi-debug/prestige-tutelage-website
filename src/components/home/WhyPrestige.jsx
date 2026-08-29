@@ -1,4 +1,4 @@
-import { SectionHeading } from '../Section.jsx'
+import { SectionHeading, Accent } from '../Section.jsx'
 
 export const whyPrestige = [
   { title: 'Practical', text: 'Training that translates into workplace capability.' },
@@ -16,7 +16,7 @@ export default function WhyPrestige() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <SectionHeading
             eyebrow="Why Prestige"
-            title="The way we work is the difference."
+            title={<>The way we work is <Accent>the difference</Accent>.</>}
             lead="Organisations keep working with Prestige because of how the work gets done — not just what is on the course list."
           />
           <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">

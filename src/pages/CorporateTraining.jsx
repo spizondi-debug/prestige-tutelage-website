@@ -6,6 +6,7 @@ import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { corporateProcess, corporateAudiences, deliveryFormats } from '../data/corporate.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 export default function CorporateTraining() {
   usePageMeta(
@@ -18,7 +19,7 @@ export default function CorporateTraining() {
       <PageHeader
         images={pageHeroes.corporateTraining}
         eyebrow="Corporate training"
-        title="Training built around your business."
+        title={<>Training built around <Accent>your business</Accent>.</>}
         lead="Not a catalogue you choose from — a programme designed from your objectives, your operation and your people. Delivered where the work happens, administered properly, and measured against what actually changed."
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

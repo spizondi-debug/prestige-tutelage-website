@@ -20,6 +20,7 @@ import {
 } from '../data/programmes.js'
 import { totalShortCourses } from '../data/shortCourses.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 const ALL = 'All'
 
@@ -81,7 +82,7 @@ export default function Programmes() {
         images={pageHeroes.programmes}
         badge="26 qualifications · NQF 2–6"
         eyebrow="Programmes & qualifications"
-        title="Learning that maps onto real occupations."
+        title={<>Learning that maps onto <Accent>real occupations</Accent>.</>}
         lead="Prestige Tutelage delivers qualifications across business and administration, manufacturing and production, engineering, agriculture and early childhood development — as full qualifications, through learnerships, or as part of a wider workforce plan."
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="On this page">

@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { industries } from '../data/industries.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 export default function Industries() {
   usePageMeta(
@@ -16,7 +17,7 @@ export default function Industries() {
         images={pageHeroes.industries}
         badge="7 sectors"
         eyebrow="Industries"
-        title="Training designed for the realities of your sector."
+        title={<>Training designed for the <Accent>realities of your sector</Accent>.</>}
         lead="A supervisor on a poultry farm, a team leader on a production line and a manager in a professional firm face different problems. We design for each — and we know the difference."
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="Industry sectors">

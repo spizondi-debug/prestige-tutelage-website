@@ -16,6 +16,7 @@ import {
   CHECKS_QUALIFIER,
 } from '../data/recruitment.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 export default function Recruitment() {
   usePageMeta(
@@ -32,7 +33,7 @@ export default function Recruitment() {
       <PageHeader
         images={pageHeroes.recruitment}
         eyebrow="Recruitment services"
-        title="Finding people who fit the role — and the organisation."
+        title={<>Finding people who <Accent>fit the role</Accent> — and the organisation.</>}
         lead="Recruitment is the other half of workforce development. Prestige sources, screens and shortlists candidates for employers — and brings particular strength to learnership and youth intakes, because we also run the programmes those learners go into."
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

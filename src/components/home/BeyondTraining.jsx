@@ -5,6 +5,7 @@ import Reveal from '../Reveal.jsx'
 import Disclaimer from '../Disclaimer.jsx'
 import MediaRail, { RailTile } from '../MediaRail.jsx'
 import { SCOPE_STATEMENT } from '../../data/bbbee.js'
+import { Accent } from '../Section.jsx'
 
 /**
  * The wider offer, as a picture-led rail rather than a text grid.
@@ -57,7 +58,7 @@ export default function BeyondTraining() {
           <Reveal>
             <p className="eyebrow">Beyond training</p>
             <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-ink">
-              A partner across the whole workforce journey.
+              A partner across the <Accent>whole workforce journey</Accent>.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
               Transformation strategy, recruitment, assessment and professional facilities —

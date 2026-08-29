@@ -10,6 +10,7 @@ import { useEnquiryForm } from '../lib/useEnquiryForm.js'
 import { spaceCategories, spaceFields, DETAILS_ON_ENQUIRY } from '../data/spaces.js'
 import { contact } from '../data/site.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 export default function OfficeRental() {
   usePageMeta(
@@ -27,7 +28,7 @@ export default function OfficeRental() {
         images={pageHeroes.officeRental}
         badge="Ferndale, Randburg"
         eyebrow="Office & training space"
-        title="Professional space when you need it."
+        title={<>Professional space <Accent>when you need it</Accent>.</>}
         lead={`Flexible professional space available through Prestige Tutelage in Ferndale, Randburg — for training, workshops, meetings, interviews, assessments and short-term office use.`}
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

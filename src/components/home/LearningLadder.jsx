@@ -3,6 +3,7 @@ import QualificationLattice from '../QualificationLattice.jsx'
 import Reveal from '../Reveal.jsx'
 import Disclaimer from '../Disclaimer.jsx'
 import { qualifications, nqfLevels, AVAILABILITY_DISCLAIMER } from '../../data/programmes.js'
+import { Accent } from '../Section.jsx'
 
 /**
  * The NQF ladder as the homepage's educational centrepiece.
@@ -19,7 +20,7 @@ export default function LearningLadder() {
   const high = Math.max(...nqfLevels)
 
   return (
-    <section className="tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital py-20 text-white lg:py-28">
+    <section className="on-dark tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital py-20 text-white lg:py-28">
       {/* Holds the type on a readable field where the gradient runs brightest. */}
       <div
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.9)_0%,rgba(7,26,43,0.62)_48%,rgba(7,26,43,0.3)_100%)]"
@@ -31,7 +32,7 @@ export default function LearningLadder() {
           <Reveal>
             <p className="eyebrow-light">The learning ladder</p>
             <h2 className="mt-5 font-display text-editorial font-semibold text-white">
-              Every qualification is a rung.
+              Every qualification is <Accent>a rung</Accent>.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
               South African qualifications are structured by NQF level — a national ladder from

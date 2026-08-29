@@ -28,6 +28,7 @@ import CredibilityStrip from '../components/home/CredibilityStrip.jsx'
 import InsightsPreview from '../components/home/InsightsPreview.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { Link } from 'react-router-dom'
+import { Accent } from '../components/Section.jsx'
 
 /**
  * The homepage arc: photographic opening → who Prestige is → what they deliver →
@@ -49,7 +50,7 @@ export default function Home() {
       <PageHeader
         images={pageHeroes.home}
         eyebrow="Accredited training & workforce development"
-        title="Building the workforce behind tomorrow."
+        title={<>Building the <Accent>workforce behind tomorrow</Accent>.</>}
         lead="Accredited learning, workforce development and business solutions that turn potential into capability."
       >
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">

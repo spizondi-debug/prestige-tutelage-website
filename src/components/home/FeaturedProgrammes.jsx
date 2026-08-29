@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal.jsx'
 import Disclaimer from '../Disclaimer.jsx'
+import { Accent } from '../Section.jsx'
 import {
   qualifications,
   populatedAreas,
@@ -31,7 +32,7 @@ export default function FeaturedProgrammes() {
           <Reveal>
             <p className="eyebrow">Qualifications</p>
             <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-ink">
-              Business, production, agriculture and community.
+              Business, production, <Accent>agriculture and community</Accent>.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">
               {qualifications.length} qualifications across {populatedAreas.length} training

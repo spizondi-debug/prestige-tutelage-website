@@ -4,6 +4,7 @@ import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { brand, contact } from '../data/site.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
 
 const interests = [
   'Accredited Qualification',
@@ -99,7 +100,7 @@ export default function Contact() {
         images={pageHeroes.contact}
         badge="Ferndale, Randburg"
         eyebrow="Contact"
-        title="Let’s talk about your workforce."
+        title={<>Let’s talk about <Accent>your workforce</Accent>.</>}
         lead="Tell us what your organisation is trying to achieve. We will come back with a practical, costed way forward — not a brochure."
       />
 

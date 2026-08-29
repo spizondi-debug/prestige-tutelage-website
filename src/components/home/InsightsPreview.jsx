@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SectionHeading } from '../Section.jsx'
+import { SectionHeading, Accent } from '../Section.jsx'
 import { insights } from '../../data/insights.js'
 
 export default function InsightsPreview() {
@@ -11,7 +11,7 @@ export default function InsightsPreview() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Insights"
-            title="Thinking on skills development, learnerships and workplace learning."
+            title={<>Thinking on <Accent>skills development</Accent>, learnerships and workplace learning.</>}
           />
           <Link to="/insights" className="btn btn-outline shrink-0">All Insights</Link>
         </div>

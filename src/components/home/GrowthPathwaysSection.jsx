@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import PrestigePath from '../PrestigePath.jsx'
 import Reveal from '../Reveal.jsx'
+import { Accent } from '../Section.jsx'
 
 const connects = [
   'Skills gaps',
@@ -18,7 +19,7 @@ export default function GrowthPathwaysSection() {
     // the homepage where the gradient appears at full strength, so it stays a
     // signature rather than a wash. The Path runs over it, dropping from blue
     // into green exactly where the copy talks about progression.
-    <section className="tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital py-20 text-white lg:py-28">
+    <section className="on-dark tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital py-20 text-white lg:py-28">
       <PrestigePath
         stage={2.6}
         intensity={0.38}
@@ -35,7 +36,7 @@ export default function GrowthPathwaysSection() {
           <Reveal>
             <p className="eyebrow-light">A related Prestige solution</p>
             <h2 className="mt-5 font-display text-section font-semibold leading-tight text-white">
-              Prestige Growth Pathways
+              Prestige <Accent>Growth Pathways</Accent>
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
               Growth Pathways joins the dots between where your workforce is and where your

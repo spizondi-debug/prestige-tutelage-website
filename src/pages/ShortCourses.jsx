@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
-import { SectionHeading } from '../components/Section.jsx'
+import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import {
@@ -40,7 +40,7 @@ export default function ShortCourses() {
       <PageHeader
         images={pageHeroes.shortCourses}
         eyebrow="Short courses & professional development"
-        title={shortCoursePositioning}
+        title={<>Practical learning for <Accent>immediate workplace impact</Accent>.</>}
         lead={`${totalShortCourses} focused courses that close specific gaps in days, not months — delivered for teams at your workplace, or arranged for individuals. Ideal alongside a qualification pathway, or on their own.`}
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
