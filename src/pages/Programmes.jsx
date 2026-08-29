@@ -201,7 +201,11 @@ export default function Programmes() {
                       <h3 className="font-display text-2xl font-semibold text-ink">{a}</h3>
                       <p className="max-w-3xl leading-relaxed text-body">{areaIntros[a]}</p>
                     </div>
-                    <div className="mt-6 grid gap-5">
+                    {/* One card per row on mobile, two on tablet, three on
+                        large desktops. `items-stretch` is the default here, so
+                        each card fills its row and finishes level with its
+                        neighbours. */}
+                    <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                       {items.map((q) => <ProgrammeCard key={q.saqaId} q={q} />)}
                     </div>
                   </div>

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Prestige Tutelage \u2014 accredited training and workforce development. Standalone marketing website (separate from Prestige Growth Pathways).",
+  "description": "Prestige Tutelage — accredited training and workforce development. Standalone marketing website (separate from Prestige Growth Pathways).",
   "scripts": {
     "dev": "vite",
     "build": "node scripts/build-sitemap.mjs && vite build",
@@ -13,6 +13,7 @@
     "validate:heroes": "node scripts/validate-heroes.mjs"
   },
   "dependencies": {
+    "lucide-react": "^1.37.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.18.2"

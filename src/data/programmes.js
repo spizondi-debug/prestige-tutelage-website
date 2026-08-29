@@ -42,6 +42,7 @@ export const qualifications = [
   {
     saqaId: '101876',
     name: 'Management Assistant',
+    icon: 'calendar',
     nqf: 5,
     credits: 316,
     type: 'Occupational Qualification',
@@ -52,6 +53,7 @@ export const qualifications = [
   {
     saqaId: '121150',
     name: 'Human Resource Management Administrator',
+    icon: 'people',
     nqf: 5,
     credits: 120,
     type: 'Occupational Qualification',
@@ -62,6 +64,7 @@ export const qualifications = [
   {
     saqaId: '121151',
     name: 'Human Resource Management Officer',
+    icon: 'badge',
     nqf: 6,
     credits: 134,
     type: 'Occupational Qualification',
@@ -72,6 +75,7 @@ export const qualifications = [
   {
     saqaId: '118740',
     name: 'Office Supervisor',
+    icon: 'office',
     nqf: 5,
     credits: 240,
     type: 'Occupational Qualification',
@@ -82,6 +86,7 @@ export const qualifications = [
   {
     saqaId: '118706',
     name: 'Marketing Coordinator',
+    icon: 'megaphone',
     nqf: 5,
     credits: 175,
     type: 'Occupational Qualification',
@@ -92,6 +97,7 @@ export const qualifications = [
   {
     saqaId: '101869',
     name: 'Project Manager',
+    icon: 'clipboard',
     nqf: 5,
     credits: 240,
     type: 'Occupational Qualification',
@@ -102,6 +108,7 @@ export const qualifications = [
   {
     saqaId: '97542',
     name: 'Early Childhood Development Practitioner',
+    icon: 'childhood',
     nqf: 4,
     credits: 131,
     type: 'Occupational Qualification',
@@ -114,6 +121,7 @@ export const qualifications = [
   {
     saqaId: '57712',
     name: 'Generic Management',
+    icon: 'leadership',
     nqf: 4,
     credits: 150,
     type: 'Qualification',
@@ -127,6 +135,7 @@ export const qualifications = [
   {
     saqaId: '115723',
     name: 'Production Supervisor',
+    icon: 'factory',
     nqf: 5,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -135,6 +144,7 @@ export const qualifications = [
   {
     saqaId: '120037',
     name: 'Production Operator',
+    icon: 'machine',
     nqf: 3,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -143,6 +153,7 @@ export const qualifications = [
   {
     saqaId: '102580',
     name: 'Production Process Machine Operator & Assembler',
+    icon: 'assembly',
     nqf: 3,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -151,6 +162,7 @@ export const qualifications = [
   {
     saqaId: '119977',
     name: 'Production Process Controller',
+    icon: 'controls',
     nqf: 4,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -159,6 +171,7 @@ export const qualifications = [
   {
     saqaId: '58781',
     name: 'Production Technology',
+    icon: 'technology',
     nqf: 2,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -168,6 +181,7 @@ export const qualifications = [
   {
     saqaId: '58785',
     name: 'Production Technology',
+    icon: 'technology',
     nqf: 3,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -177,6 +191,7 @@ export const qualifications = [
   {
     saqaId: '58779',
     name: 'Production Technology',
+    icon: 'technology',
     nqf: 4,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -186,6 +201,7 @@ export const qualifications = [
   {
     saqaId: '103156',
     name: 'Lathe Operator',
+    icon: 'lathe',
     nqf: 3,
     type: 'Qualification',
     area: 'Manufacturing & Production',
@@ -196,6 +212,7 @@ export const qualifications = [
   {
     saqaId: '104461',
     name: 'Engine Workshop Maintenance Mechanic',
+    icon: 'mechanic',
     nqf: 5,
     type: 'Qualification',
     area: 'Engineering & Technical',
@@ -204,6 +221,7 @@ export const qualifications = [
   {
     saqaId: '110318',
     name: 'Injection Moulding Machine Setter',
+    icon: 'settings',
     nqf: 5,
     type: 'Qualification',
     area: 'Engineering & Technical',
@@ -212,6 +230,7 @@ export const qualifications = [
   {
     saqaId: '103018',
     name: 'Manufacturing Workshop Assistant',
+    icon: 'workshop',
     nqf: 3,
     type: 'Qualification',
     area: 'Engineering & Technical',
@@ -220,6 +239,7 @@ export const qualifications = [
   {
     saqaId: '102159',
     name: 'Metal Manufacturing Melting & Refining Process Controller',
+    icon: 'furnace',
     nqf: 4,
     type: 'Qualification',
     area: 'Engineering & Technical',
@@ -230,6 +250,7 @@ export const qualifications = [
   {
     saqaId: '49578',
     name: 'Poultry Production',
+    icon: 'poultry',
     nqf: 3,
     type: 'Qualification',
     area: 'Agriculture & Agri-processing',
@@ -238,6 +259,7 @@ export const qualifications = [
   {
     saqaId: '49048',
     name: 'Animal Production',
+    icon: 'livestock',
     nqf: 3,
     type: 'Qualification',
     area: 'Agriculture & Agri-processing',
@@ -246,6 +268,7 @@ export const qualifications = [
   {
     saqaId: '48979',
     name: 'Animal Production',
+    icon: 'livestock',
     nqf: 4,
     type: 'Qualification',
     area: 'Agriculture & Agri-processing',
@@ -254,6 +277,7 @@ export const qualifications = [
   {
     saqaId: '48975',
     name: 'Plant Production',
+    icon: 'crops',
     nqf: 2,
     type: 'Qualification',
     area: 'Agriculture & Agri-processing',
@@ -262,6 +286,7 @@ export const qualifications = [
   {
     saqaId: '49009',
     name: 'Plant Production',
+    icon: 'crops',
     nqf: 4,
     type: 'Qualification',
     area: 'Agriculture & Agri-processing',
@@ -270,6 +295,7 @@ export const qualifications = [
   {
     saqaId: '66589',
     name: 'Horticulture',
+    icon: 'horticulture',
     nqf: 2,
     type: 'Qualification',
     area: 'Agriculture & Agri-processing',
