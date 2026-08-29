@@ -169,7 +169,7 @@ export default function Programmes() {
                       <h3 className="font-display text-2xl font-semibold text-ink">{a}</h3>
                       <p className="max-w-3xl leading-relaxed text-body">{areaIntros[a]}</p>
                     </div>
-                    <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    <div className="mt-6 grid gap-5">
                       {items.map((q) => <ProgrammeCard key={q.saqaId} q={q} />)}
                     </div>
                   </div>
