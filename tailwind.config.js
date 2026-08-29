@@ -62,17 +62,19 @@ export default {
         'prestige-midnight': 'linear-gradient(180deg, #061521 0%, #071A2B 55%, #0B2742 100%)',
       },
       fontFamily: {
-        display: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['"DM Sans"', 'Inter', 'Arial', 'sans-serif'],
+        // Poppins throughout. `display` and `sans` stay separate tokens so the
+        // two roles can diverge again later without touching every component.
+        display: ['Poppins', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        sans: ['Poppins', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       fontSize: {
-        hero: ['clamp(2.6rem, 5.2vw, 4.6rem)', { lineHeight: '1.05', letterSpacing: '-0.015em' }],
+        hero: ['clamp(2.5rem, 5vw, 4.4rem)', { lineHeight: '1.08', letterSpacing: '-0.035em' }],
         // Oversized statements for the cinematic sections
-        statement: ['clamp(2.2rem, 6.4vw, 5.5rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],
-        editorial: ['clamp(2rem, 4.4vw, 3.6rem)', { lineHeight: '1.08', letterSpacing: '-0.015em' }],
+        statement: ['clamp(2.1rem, 6vw, 5.2rem)', { lineHeight: '1.05', letterSpacing: '-0.04em' }],
+        editorial: ['clamp(1.95rem, 4.2vw, 3.4rem)', { lineHeight: '1.12', letterSpacing: '-0.03em' }],
         // Standard section title — a step up from body scale, bounded so it
         // still works for sub-sections on interior pages.
-        section: ['clamp(1.85rem, 3.2vw, 2.85rem)', { lineHeight: '1.12', letterSpacing: '-0.012em' }],
+        section: ['clamp(1.8rem, 3.1vw, 2.7rem)', { lineHeight: '1.16', letterSpacing: '-0.025em' }],
       },
       boxShadow: {
         // Premium, not heavy: tinted with the brand navy rather than black.

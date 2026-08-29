@@ -1,4 +1,42 @@
-/* Fonts are loaded via <link> in index.html so they do not block CSS parsing. */
+/* Poppins, self-hosted.
+ *
+ * Served from public/fonts rather than Google Fonts: it removes a third-party
+ * request from every page load, keeps the site rendering if that CDN is slow
+ * or blocked, and means the single-file preview works offline. Latin subset
+ * only — it already covers Afrikaans and South African diacritics — so all
+ * four weights together are about 31KB.
+ *
+ * font-display: swap so text paints immediately in the fallback and reflows
+ * once Poppins arrives, rather than sitting invisible. */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+
 
 @tailwind base;
 @tailwind components;

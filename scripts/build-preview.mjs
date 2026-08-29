@@ -17,6 +17,7 @@ const outDir = path.join(root, 'preview')
 const outFile = path.join(outDir, 'prestige-tutelage-preview.html')
 
 const mime = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml' }
+const fontMime = { '.woff2': 'font/woff2' }
 const dataUri = (file) =>
   `data:${mime[path.extname(file).toLowerCase()] ?? 'application/octet-stream'};base64,` +
   fs.readFileSync(file).toString('base64')
@@ -43,9 +44,20 @@ for (const name of ['prestige-tutelage-logo.png', 'favicon.png']) {
 
 let html = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
 
+// Self-hosted fonts are referenced by absolute URL from the CSS, which has no
+// server to resolve against once everything is one file — so they are inlined
+// into the stylesheet as data URIs before it is embedded.
+const inlineFonts = (css) =>
+  css.replace(/url\((['"]?)\/(fonts\/[^)'"]+)\1\)/g, (whole, _q, rel) => {
+    const file = path.join(dist, rel)
+    if (!fs.existsSync(file)) return whole
+    const type = fontMime[path.extname(file).toLowerCase()] ?? 'application/octet-stream'
+    return `url(data:${type};base64,${fs.readFileSync(file).toString('base64')})`
+  })
+
 // Inline the emitted CSS and JS, then drop their tags.
 html = html.replace(/<link rel="stylesheet"[^>]*href="\/(assets\/[^"]+)"[^>]*>/g, (_, href) =>
-  `<style>${fs.readFileSync(path.join(dist, href), 'utf8')}</style>`)
+  `<style>${inlineFonts(fs.readFileSync(path.join(dist, href), 'utf8'))}</style>`)
 html = html.replace(/<script type="module"[^>]*src="\/(assets\/[^"]+)"[^>]*><\/script>/g, (_, src) =>
   `<script type="module">${fs.readFileSync(path.join(dist, src), 'utf8')}</script>`)
 
@@ -53,6 +65,7 @@ html = html.replace(/<script type="module"[^>]*src="\/(assets\/[^"]+)"[^>]*><\/s
 html = html.replace(/<link rel="icon"[^>]*>/, assets['favicon.png']
   ? `<link rel="icon" type="image/png" href="${assets['favicon.png']}" />` : '')
 html = html.replace(/<link rel="apple-touch-icon"[^>]*>/, '')
+html = html.replace(/\s*<link rel="preload"[^>]*as="font"[^>]*>/g, '')
 html = html.replace('</head>', `<script>window.__PT_ASSETS__=${JSON.stringify(assets)};</script></head>`)
 
 // The deployed <title> carries the SEO tagline; the preview is identified by

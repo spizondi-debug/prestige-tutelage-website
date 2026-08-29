@@ -1,6 +1,6 @@
 /**
  * Interior page header. Carries the same language as the homepage: blueprint
- * grid on Cloud, wide-tracked micro-caps eyebrow, Fraunces title at the
+ * grid on Cloud, wide-tracked micro-caps eyebrow, Poppins title at the
  * editorial scale.
  *
  * The soft coloured blobs this used to carry were the old idiom — they read as

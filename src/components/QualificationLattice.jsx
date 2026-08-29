@@ -248,7 +248,7 @@ export default function QualificationLattice({ className = '' }) {
       // Level labels live in a fixed gutter down the left edge, and take their
       // y from the ring's centre (radius 0) rather than a point on the ring —
       // otherwise they swing with the rotation and collide with the nodes.
-      ctx.font = '600 11px "DM Sans", Inter, Arial, sans-serif'
+      ctx.font = '600 11px Poppins, Inter, Arial, sans-serif'
       ctx.textAlign = 'left'
       ctx.textBaseline = 'middle'
       const labelX = 4
