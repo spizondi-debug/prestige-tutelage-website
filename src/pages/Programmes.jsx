@@ -24,25 +24,46 @@ import { Accent } from '../components/Section.jsx'
 
 const ALL = 'All'
 
+/**
+ * One filter column. Options render as pills of equal height, so a long label
+ * like "Education & Community Development" wraps to its own row rather than
+ * stretching its neighbours.
+ *
+ * The whole pill is the button, and the selected one carries a teal check that
+ * sits proud of its top-right corner — a second signal beyond colour alone,
+ * which matters for anyone who cannot separate the blue fill from the white
+ * one. `aria-pressed` carries the same state for assistive tech.
+ */
 function FilterGroup({ label, options, value, onChange, formatter = (v) => v }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-wider text-muted">{label}</p>
-      <div className="mt-2.5 flex flex-wrap gap-2">
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">{label}</p>
+      <div className="mt-3.5 flex flex-wrap gap-2.5">
         {[ALL, ...options].map((opt) => {
           const active = value === opt
           return (
             <button
               key={opt}
+              type="button"
               onClick={() => onChange(opt)}
               aria-pressed={active}
-              className={`border px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`relative inline-flex h-11 items-center rounded-full border px-5 text-sm font-medium transition-all duration-200 ease-prestige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue ${
                 active
-                  ? 'border-prestige-blue bg-prestige-blue text-white'
-                  : 'border-line bg-paper text-ink hover:border-prestige-blue/50'
+                  ? 'border-prestige-blue bg-prestige-blue text-white shadow-premium'
+                  : 'border-prestige-blue/15 bg-paper text-ink hover:border-prestige-blue/45 hover:bg-prestige-blue/[0.04]'
               }`}
             >
               {opt === ALL ? ALL : formatter(opt)}
+              {active && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-prestige-green ring-2 ring-paper"
+                >
+                  <svg viewBox="0 0 12 12" fill="none" className="h-3 w-3">
+                    <path d="m3 6.2 2 2L9 4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              )}
             </button>
           )
         })}
@@ -119,7 +140,7 @@ export default function Programmes() {
       </section>
 
       {/* Catalogue with filters */}
-      <section id="catalogue" className="scroll-mt-28 py-16 lg:py-20">
+      <section id="catalogue" className="scroll-mt-28 bg-cloud py-16 lg:py-20">
         <div className="container-px">
           <SectionHeading
             eyebrow="Qualification catalogue"
@@ -127,23 +148,34 @@ export default function Programmes() {
             lead="Filter by what you need, the area you work in, or the NQF level you are targeting. Every qualification below shows the detail Prestige has verified."
           />
 
-          <div className="mt-10 grid gap-6 border-y border-line py-7 lg:grid-cols-3 lg:gap-10">
-            <FilterGroup label="Programme type" options={PROGRAMME_TYPES} value={type} onChange={setType} />
-            <FilterGroup label="Training area" options={populatedAreas} value={area} onChange={setArea}
-              formatter={(a) => a.replace(' & Agri-processing', '').replace(', Administration & Leadership', '')} />
-            <FilterGroup label="NQF level" options={nqfLevels} value={nqf} onChange={setNqf}
-              formatter={(n) => `NQF ${n}`} />
-          </div>
+          {/* One panel holds the three filter columns and the result row. */}
+          <div className="mt-10 overflow-hidden rounded-[20px] border border-line bg-paper shadow-premium">
+            {/* Brand hairline across the top edge. */}
+            <div className="h-[3px] w-full bg-[linear-gradient(to_right,#006FD8_0%,#0089E6_45%,#2DA22F_100%)]" aria-hidden="true" />
 
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-sm text-body" role="status" aria-live="polite">
-              Showing <span className="font-semibold text-ink">{filtered.length}</span> of {qualifications.length} qualifications
-            </p>
-            {filtersActive && (
-              <button onClick={reset} className="text-sm font-semibold text-prestige-blue hover:underline">
-                Clear filters
-              </button>
-            )}
+            <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-3 lg:gap-10">
+              <FilterGroup label="Programme type" options={PROGRAMME_TYPES} value={type} onChange={setType} />
+              <FilterGroup label="Training area" options={populatedAreas} value={area} onChange={setArea}
+                formatter={(a) => a.replace(' & Agri-processing', '').replace(', Administration & Leadership', '')} />
+              <FilterGroup label="NQF level" options={nqfLevels} value={nqf} onChange={setNqf}
+                formatter={(n) => `NQF ${n}`} />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line px-6 py-5 sm:px-8">
+              <p className="text-sm text-body" role="status" aria-live="polite">
+                Showing <span className="font-semibold text-ink">{filtered.length}</span>{' '}
+                {filtered.length === 1 ? 'programme' : 'programmes'}
+              </p>
+              {filtersActive && (
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="rounded-full px-3 py-1.5 text-sm font-semibold text-prestige-blue transition-colors hover:bg-prestige-blue/[0.06] hover:text-navy-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
           </div>
 
           {filtered.length === 0 ? (
