@@ -61,8 +61,8 @@ export default function CorporateTraining() {
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <div className="overflow-hidden">
               <Photo
-                src="facilitator-session.jpg"
-                alt="A Prestige Tutelage facilitator leading a session with learners"
+                src="training-room.jpg"
+                alt="A training room at Prestige Tutelage set up with a projector screen and boardroom seating"
                 className="aspect-[3/2] w-full"
               />
             </div>

@@ -18,7 +18,6 @@ navigation and the dark footer. Colours and artwork are unaltered.
 
 | File | Shows |
 |------|-------|
-| `facilitator-session.jpg` | A facilitator leading a session with learners |
 | `training-room.jpg` | A Prestige training room, Prestige slide on screen |
 | `workshop-training.jpg` | Practical training in full PPE, angle grinder |
 | `learner-cohort.jpg` | A learner intake outside the training venue |
@@ -88,20 +87,21 @@ never repeats an image already used further down that same page:
 | Industries | `workshop-training.jpg` |
 | Growth Pathways | `graduate-celebrating.jpg` |
 | Corporate Training | `training-room.jpg` |
-| Services | `facilitator-session.jpg` |
-| Business Solutions | `learner-cohort.jpg` |
+| Services | Business Solutions | `learner-cohort.jpg` |
 | B-BBEE Consulting | `certificates-cohort.jpg` |
 | Recruitment | `young-professional.jpg` |
-| Office & Training Space | `facilitator-session.jpg` |
-| Assessment Centre | `certificates-cohort.jpg` |
+| Office & Training Space | Assessment Centre | `certificates-cohort.jpg` |
 | Insights | `graduate-portrait-hero.jpg` |
 | Insight articles | by category — see `ARTICLE_HERO` in `InsightArticle.jsx` |
 | Contact | `bbbee-consultation.jpg` |
 
-There are 11 photographs for 15 hero slots, so four images appear on two pages
-each: `graduate-portrait-hero`, `young-professional`, `facilitator-session`
-and `certificates-cohort`. Four more genuine photographs would give every page
-its own. See the priority list below.
+Hero slide sets live in `src/data/pageHeroes.js`. Two rules hold: a page's
+hero never shows a photograph that already appears further down that same
+page, and no two pages carry the same set. Both are worth re-checking after
+any swap.
+
+`facilitator-session.jpg` was removed from the library at the client's
+request. It is recoverable from git history if that changes.
 
 ## Still worth adding
 

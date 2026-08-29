@@ -78,11 +78,6 @@ const P = {
     alt: 'A worker preparing steel plate on the floor of a large fabrication workshop',
     position: 'center 34%',
   },
-  facilitator: {
-    src: 'facilitator-session.jpg',
-    alt: 'A Prestige Tutelage facilitator leading a session with learners',
-    position: 'center 42%',
-  },
   trainingRoom: {
     src: 'training-room.jpg',
     alt: 'A training room at Prestige Tutelage set up with a projector screen and boardroom seating',
@@ -148,30 +143,30 @@ const P = {
 export const pageHeroes = {
   // Home avoids every photograph already shown further down the homepage —
   // the stories, the impact band, the solutions rail and the statement band.
-  home: [P.intake, P.facilitator, P.certificatesGroup, P.angleGrinder, P.steelBeam],
-  about: [P.intake, P.certificatesGroup, P.facilitator, P.handoverReviewing],
-  programmes: [P.facilitator, P.angleGrinder, P.certificatesGroup, P.trainingRoom],
-  shortCourses: [P.trainingRoom, P.facilitator, P.cohortOutside, P.workshopTraining],
+  home: [P.intake, P.plateHandling, P.certificatesGroup, P.angleGrinder, P.steelBeam],
+  about: [P.intake, P.certificatesGroup, P.cohortOutside, P.handoverReviewing],
+  programmes: [P.angleGrinder, P.certificatesGroup, P.trainingRoom, P.cohortOutside],
+  shortCourses: [P.trainingRoom, P.intake, P.cohortOutside, P.workshopTraining],
   industries: [P.steelBeam, P.workshopFloor, P.bandsaw, P.loading],
   growthPathways: [P.handoverRedShirt, P.intake, P.graduateCelebrating, P.handoverCongrats],
-  corporateTraining: [P.trainingRoom, P.clientSite, P.plateHandling, P.loading],
+  corporateTraining: [P.clientSite, P.plateHandling, P.loading, P.welding],
   services: [P.consultation, P.interview, P.intake, P.trainingRoom],
   businessSolutions: [P.intake, P.certificatesGroup, P.welding, P.clientSite],
   bbbee: [P.certificatesGroup, P.intake, P.handoverOveralls, P.graduatesGroup],
   recruitment: [P.intake, P.youngProfessional, P.clientSite, P.graduatePortrait],
-  officeRental: [P.facilitator, P.cohortOutside, P.consultation, P.intake],
+  officeRental: [P.cohortOutside, P.consultation, P.intake, P.interview],
   assessment: [P.certificatesGroup, P.handoverOveralls, P.handoverRedShirt, P.certificatesCohort],
   insights: [P.consultation, P.welding, P.handoverReviewing, P.intake],
-  contact: [P.consultation, P.interview, P.facilitator, P.intake],
+  contact: [P.consultation, P.interview, P.handoverReviewing, P.intake],
 }
 
 /** Insight articles take their hero from the article's category. */
 export const articleHeroes = {
   Qualifications: [P.certificatesGroup, P.handoverOveralls, P.graduateCelebrating],
   Learnerships: [P.cohortOutside, P.intake, P.angleGrinder],
-  Leadership: [P.consultation, P.facilitator, P.interview],
-  Delivery: [P.facilitator, P.trainingRoom, P.workshopTraining],
+  Leadership: [P.consultation, P.interview, P.handoverReviewing],
+  Delivery: [P.trainingRoom, P.workshopTraining, P.plateHandling],
   Industries: [P.steelBeam, P.bandsaw, P.workshopFloor],
   Planning: [P.trainingRoom, P.interview, P.consultation],
-  default: [P.intake, P.certificatesGroup, P.facilitator],
+  default: [P.intake, P.certificatesGroup, P.cohortOutside],
 }

@@ -12,7 +12,6 @@ export const imageMeta = {
   'certificate-handover-reviewing.jpg': { w: 960, h: 1232 },
   'certificates-cohort.jpg': { w: 1100, h: 1375 },
   'fabrication-workshop-floor.jpg': { w: 681, h: 830 },
-  'facilitator-session.jpg': { w: 1400, h: 933 },
   'graduate-celebrating.jpg': { w: 1400, h: 1120 },
   'graduate-portrait-hero.jpg': { w: 1200, h: 1500 },
   'graduates-group.jpg': { w: 1600, h: 1067 },
