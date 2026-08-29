@@ -1,68 +1,67 @@
 import HeroSlider from './HeroSlider.jsx'
 
 /**
- * The shared page hero. One component, used by every interior page.
+ * The shared page hero: copy on the left, a full-height photographic slider
+ * filling the right half and running to the edge of the viewport.
  *
- * With an `image` it renders the split layout: copy on the left, a photograph
- * panel on the right taking roughly 46% of the row. Below `lg` the grid
- * collapses to one column and the photograph sits under the text, which is
- * the order the markup is already in — no reordering needed.
+ * The bleed is done with `lg:mr-[calc(100%-50vw)]` on the image column. That
+ * margin is exactly the distance from the container's right edge to the
+ * viewport's, so the column ends flush with the screen while the copy stays
+ * on the same grid as every other section on the page — no full-width wrapper
+ * and no duplicated gutter maths.
+ *
+ * Below lg the grid collapses and the slider sits under the copy at a shorter
+ * height, which is the order the markup is already in.
  *
  * Props
- *   eyebrow        small wide-tracked label above the title
- *   title          the h1
- *   lead           supporting paragraph
- *   images         array of slides ({ src, alt, position }) for a carousel
- *   image          single filename, for a hero that does not need a carousel
- *   imageAlt       required whenever `image` is set
- *   imagePosition  CSS object-position, to keep faces out of the crop
- *   imageAspect    Tailwind aspect ratio for the panel
- *   badge          small factual label pinned to the photograph
- *   children       CTAs or in-page navigation, rendered under the lead
+ *   eyebrow   small wide-tracked label above the title
+ *   title     the h1
+ *   lead      supporting paragraph
+ *   images    slides ({ src, alt, position }); 3–5 reads best
+ *   badge     small factual label pinned to the image
+ *   children  CTAs or in-page navigation, rendered under the lead
  */
-export default function PageHeader({
-  eyebrow,
-  title,
-  lead,
-  images,
-  image,
-  imageAlt,
-  imagePosition = 'center',
-  imageAspect = 'aspect-[5/4]',
-  badge,
-  children,
-}) {
-  const slides = images?.length ? images : image ? [{ src: image, alt: imageAlt, position: imagePosition }] : []
+export default function PageHeader({ eyebrow, title, lead, images, badge, children }) {
+  const slides = images ?? []
   const hasImage = slides.length > 0
 
-  return (
-    <section className="tex tex-grid border-b border-line bg-cloud">
-      <div className="container-px">
-        <div
-          className={
-            hasImage
-              ? 'grid items-center gap-10 py-14 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:py-20'
-              : 'max-w-3xl py-16 lg:py-24'
-          }
-        >
-          <div className={hasImage ? 'max-w-2xl' : ''}>
+  if (!hasImage) {
+    return (
+      <section className="tex tex-grid border-b border-line bg-cloud">
+        <div className="container-px">
+          <div className="max-w-3xl py-16 lg:py-24">
             {eyebrow && <p className="eyebrow">{eyebrow}</p>}
             <h1 className="mt-5 font-display text-editorial font-semibold text-ink">{title}</h1>
             {lead && <p className="mt-6 text-lg leading-relaxed text-body">{lead}</p>}
             {children}
           </div>
+        </div>
+      </section>
+    )
+  }
 
-          {hasImage && (
-            <div className="relative">
-              <HeroSlider images={slides} aspect={imageAspect} />
-
-              {badge && (
-                <span className="absolute bottom-4 left-4 rounded-full bg-paper/95 px-4 py-2 text-xs font-semibold tracking-[0.02em] text-ink shadow-soft backdrop-blur">
-                  {badge}
-                </span>
-              )}
+  return (
+    <section className="tex tex-grid border-b border-line bg-cloud">
+      <div className="container-px">
+        <div className="grid items-stretch lg:grid-cols-2">
+          <div className="flex items-center py-14 lg:py-20 lg:pr-14 xl:pr-20">
+            <div className="w-full">
+              {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+              <h1 className="mt-5 font-display text-editorial font-semibold text-ink">{title}</h1>
+              {lead && <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">{lead}</p>}
+              {children}
             </div>
-          )}
+          </div>
+
+          {/* The image half, bled to the right edge of the viewport. */}
+          <div className="relative -mx-5 h-[22rem] sm:-mx-8 sm:h-[24rem] lg:mx-0 lg:ml-0 lg:h-auto lg:min-h-[42rem] lg:mr-[calc(100%-50vw)]">
+            <HeroSlider images={slides} />
+            {badge && (
+              <span className="absolute left-5 top-5 z-10 rounded-full bg-paper/95 px-4 py-2 text-xs font-semibold tracking-[0.02em] text-ink shadow-soft backdrop-blur">
+                {badge}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </section>

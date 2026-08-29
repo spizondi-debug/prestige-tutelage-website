@@ -103,6 +103,36 @@ const P = {
     alt: 'A young professional at the start of his working life',
     position: 'center 28%',
   },
+  handoverCongrats: {
+    src: 'certificate-handover-congratulations.jpg',
+    alt: 'A Prestige Tutelage learner being congratulated at a certificate handover',
+    position: 'center 26%',
+  },
+  workshopTraining: {
+    src: 'workshop-training.jpg',
+    alt: 'A learner in full protective equipment working with an angle grinder during practical training',
+    position: 'center 30%',
+  },
+  certificatesCohort: {
+    src: 'certificates-cohort.jpg',
+    alt: 'Prestige Tutelage learners with their certificates of completion',
+    position: 'center 28%',
+  },
+  graduatesGroup: {
+    src: 'graduates-group.jpg',
+    alt: 'A group of graduates walking together after their ceremony',
+    position: 'center 36%',
+  },
+  graduateCelebrating: {
+    src: 'graduate-celebrating.jpg',
+    alt: 'A graduate celebrating after completing his qualification',
+    position: 'center 28%',
+  },
+  graduatePortrait: {
+    src: 'graduate-portrait-hero.jpg',
+    alt: 'A graduate in cap and gown on the steps after her graduation ceremony',
+    position: 'center 22%',
+  },
   interview: {
     src: 'recruitment-interview.jpg',
     alt: 'A candidate interview taking place over a video call',
@@ -110,31 +140,35 @@ const P = {
   },
 }
 
-/** Sets are ordered — the first slide is the one that loads eagerly. */
+/** Sets are ordered — the first slide is the one that loads eagerly.
+ *
+ * Two rules hold here. A page's hero never shows a photograph that already
+ * appears further down that same page, and no two pages carry the same set.
+ * Check both when swapping anything in. */
 export const pageHeroes = {
-  about: [P.intake, P.certificatesGroup, P.facilitator],
-  programmes: [P.certificatesGroup, P.angleGrinder, P.handoverOveralls],
-  shortCourses: [P.facilitator, P.trainingRoom, P.cohortOutside],
-  industries: [P.steelBeam, P.workshopFloor, P.bandsaw],
-  growthPathways: [P.handoverRedShirt, P.intake, P.youngProfessional],
-  corporateTraining: [P.trainingRoom, P.clientSite, P.plateHandling],
-  services: [P.clientSite, P.trainingRoom, P.intake],
-  businessSolutions: [P.intake, P.certificatesGroup, P.welding],
-  bbbee: [P.certificatesGroup, P.intake, P.handoverOveralls],
-  recruitment: [P.intake, P.youngProfessional, P.clientSite],
-  officeRental: [P.facilitator, P.cohortOutside, P.loading],
-  assessment: [P.certificatesGroup, P.handoverOveralls, P.handoverRedShirt],
-  insights: [P.intake, P.welding, P.handoverReviewing],
-  contact: [P.consultation, P.intake, P.facilitator],
+  about: [P.intake, P.certificatesGroup, P.facilitator, P.handoverReviewing],
+  programmes: [P.facilitator, P.angleGrinder, P.certificatesGroup, P.trainingRoom],
+  shortCourses: [P.trainingRoom, P.facilitator, P.cohortOutside, P.workshopTraining],
+  industries: [P.steelBeam, P.workshopFloor, P.bandsaw, P.loading],
+  growthPathways: [P.handoverRedShirt, P.intake, P.graduateCelebrating, P.handoverCongrats],
+  corporateTraining: [P.trainingRoom, P.clientSite, P.plateHandling, P.loading],
+  services: [P.consultation, P.interview, P.intake, P.trainingRoom],
+  businessSolutions: [P.intake, P.certificatesGroup, P.welding, P.clientSite],
+  bbbee: [P.certificatesGroup, P.intake, P.handoverOveralls, P.graduatesGroup],
+  recruitment: [P.intake, P.youngProfessional, P.clientSite, P.graduatePortrait],
+  officeRental: [P.facilitator, P.cohortOutside, P.consultation, P.intake],
+  assessment: [P.certificatesGroup, P.handoverOveralls, P.handoverRedShirt, P.certificatesCohort],
+  insights: [P.consultation, P.welding, P.handoverReviewing, P.intake],
+  contact: [P.consultation, P.interview, P.facilitator, P.intake],
 }
 
 /** Insight articles take their hero from the article's category. */
 export const articleHeroes = {
-  Qualifications: [P.certificatesGroup, P.handoverOveralls],
+  Qualifications: [P.certificatesGroup, P.handoverOveralls, P.graduateCelebrating],
   Learnerships: [P.cohortOutside, P.intake, P.angleGrinder],
-  Leadership: [P.consultation, P.facilitator],
-  Delivery: [P.facilitator, P.trainingRoom],
+  Leadership: [P.consultation, P.facilitator, P.interview],
+  Delivery: [P.facilitator, P.trainingRoom, P.workshopTraining],
   Industries: [P.steelBeam, P.bandsaw, P.workshopFloor],
-  Planning: [P.trainingRoom, P.interview],
-  default: [P.intake, P.certificatesGroup],
+  Planning: [P.trainingRoom, P.interview, P.consultation],
+  default: [P.intake, P.certificatesGroup, P.facilitator],
 }
