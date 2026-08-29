@@ -102,6 +102,27 @@
     @apply border border-white/25 text-white hover:border-white/50 hover:bg-white/10;
   }
 
+  /* ── Dark hero context ─────────────────────────────────────────────────
+     Pages hand the hero their CTAs and in-page navigation already styled for
+     a light background. Rather than edit every page, restyle those
+     descendants here: an outline button in navy-on-transparent is invisible
+     over a photograph, and Prestige Blue link text is only 3.58:1 on
+     Midnight. */
+  .hero-dark .btn-outline {
+    @apply border-white/35 bg-transparent text-white hover:border-white/70 hover:bg-white/10;
+  }
+  .hero-dark a.text-prestige-blue,
+  .hero-dark .text-prestige-blue {
+    @apply text-white;
+  }
+  .hero-dark a.text-prestige-blue:hover {
+    @apply text-prestige-growth;
+  }
+  .hero-dark .text-muted,
+  .hero-dark .text-body {
+    @apply text-white/75;
+  }
+
   /* ── Micro label ───────────────────────────────────────────────────────
      The small wide-tracked caps that sit above every statement. */
   .eyebrow {

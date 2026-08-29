@@ -1,7 +1,8 @@
 import { usePageMeta } from '../lib/meta.js'
 
-// 01 — Cinematic Prestige Path hero
-import CinematicHero from '../components/home/CinematicHero.jsx'
+// 01 — Full-bleed photographic hero
+import PageHeader from '../components/PageHeader.jsx'
+import { pageHeroes } from '../data/pageHeroes.js'
 // 02/03 — More than training + proof points
 import IntroducePrestige from '../components/home/IntroducePrestige.jsx'
 // 04 — Programmes and the explorer
@@ -26,9 +27,10 @@ import CredibilityStrip from '../components/home/CredibilityStrip.jsx'
 // 12/13 — Insights and the closing CTA
 import InsightsPreview from '../components/home/InsightsPreview.jsx'
 import CTABand from '../components/CTABand.jsx'
+import { Link } from 'react-router-dom'
 
 /**
- * The homepage arc: cinematic opening → who Prestige is → what they deliver →
+ * The homepage arc: photographic opening → who Prestige is → what they deliver →
  * who they deliver it for → the wider ecosystem → the people behind it →
  * proof → what to do next.
  *
@@ -44,7 +46,17 @@ export default function Home() {
 
   return (
     <>
-      <CinematicHero />
+      <PageHeader
+        images={pageHeroes.home}
+        eyebrow="Accredited training & workforce development"
+        title="Building the workforce behind tomorrow."
+        lead="Accredited learning, workforce development and business solutions that turn potential into capability."
+      >
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <Link to="/programmes" className="btn btn-primary">Explore Our Programmes</Link>
+          <Link to="/contact" className="btn btn-outline">Partner With Prestige</Link>
+        </div>
+      </PageHeader>
       <IntroducePrestige />
 
       <FeaturedProgrammes />

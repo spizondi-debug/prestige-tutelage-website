@@ -146,6 +146,9 @@ const P = {
  * appears further down that same page, and no two pages carry the same set.
  * Check both when swapping anything in. */
 export const pageHeroes = {
+  // Home avoids every photograph already shown further down the homepage —
+  // the stories, the impact band, the solutions rail and the statement band.
+  home: [P.intake, P.facilitator, P.certificatesGroup, P.angleGrinder, P.steelBeam],
   about: [P.intake, P.certificatesGroup, P.facilitator, P.handoverReviewing],
   programmes: [P.facilitator, P.angleGrinder, P.certificatesGroup, P.trainingRoom],
   shortCourses: [P.trainingRoom, P.facilitator, P.cohortOutside, P.workshopTraining],

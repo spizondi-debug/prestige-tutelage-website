@@ -83,6 +83,7 @@ function ServicesMenu({ item, linkClass }) {
 }
 
 export default function Navbar() {
+  const headerRef = useRef(null)
   const [open, setOpen] = useState(false)
   // True while the navigation sits over a section marked [data-dark-hero],
   // so it can go transparent over the cinematic opening and solid afterwards.
@@ -90,6 +91,20 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   useEffect(() => setOpen(false), [pathname])
+
+  // Publish the header's real height as --nav-h so a hero can size itself to
+  // exactly the space left below it. Measured rather than hard-coded: the
+  // utility bar disappears below lg and the row height changes with it.
+  useEffect(() => {
+    const el = headerRef.current
+    if (!el) return undefined
+    const write = () =>
+      document.documentElement.style.setProperty('--nav-h', `${Math.round(el.offsetHeight)}px`)
+    write()
+    const ro = new ResizeObserver(write)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
 
   useEffect(() => {
     let frame = 0
@@ -125,6 +140,7 @@ export default function Navbar() {
   // here there is nothing. `.glass` remains for real overlays.
   return (
     <header
+      ref={headerRef}
       className={`sticky top-0 z-50 border-b transition-colors duration-500 ${
         dark ? 'border-white/10 bg-midnight' : 'border-line bg-cloud/95 backdrop-blur'
       }`}

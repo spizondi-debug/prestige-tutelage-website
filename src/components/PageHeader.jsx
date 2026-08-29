@@ -1,31 +1,36 @@
+import { useState } from 'react'
 import HeroSlider from './HeroSlider.jsx'
 
 /**
- * The shared page hero: copy on the left, a full-height photographic slider
- * filling the right half and running to the edge of the viewport.
+ * The shared page hero: a full-bleed photographic slider with the copy laid
+ * over it, left-aligned and vertically centred.
  *
- * The bleed is done with `lg:mr-[calc(100%-50vw)]` on the image column. That
- * margin is exactly the distance from the container's right edge to the
- * viewport's, so the column ends flush with the screen while the copy stays
- * on the same grid as every other section on the page — no full-width wrapper
- * and no duplicated gutter maths.
+ * Height is `calc(100svh - var(--nav-h))` — the navigation measures itself and
+ * publishes its height, so the hero fills exactly the screen below it at every
+ * breakpoint without hard-coded numbers. `svh` rather than `vh` because mobile
+ * browsers count `vh` against the viewport with the URL bar retracted, which
+ * pushes a "full screen" hero taller than the screen actually is.
  *
- * Below lg the grid collapses and the slider sits under the copy at a shorter
- * height, which is the order the markup is already in.
+ * `data-dark-hero` is what the navigation watches to switch itself to navy, so
+ * the logo and links stay legible over the photograph.
+ *
+ * Everything the pages pass as `children` — CTAs, in-page navigation — was
+ * written for a light background. Rather than edit fourteen pages, `.hero-dark`
+ * restyles those descendants in one place; see src/index.css.
  *
  * Props
  *   eyebrow   small wide-tracked label above the title
  *   title     the h1
  *   lead      supporting paragraph
  *   images    slides ({ src, alt, position }); 3–5 reads best
- *   badge     small factual label pinned to the image
+ *   badge     small factual label pinned over the photograph
  *   children  CTAs or in-page navigation, rendered under the lead
  */
 export default function PageHeader({ eyebrow, title, lead, images, badge, children }) {
+  const [hovered, setHovered] = useState(false)
   const slides = images ?? []
-  const hasImage = slides.length > 0
 
-  if (!hasImage) {
+  if (!slides.length) {
     return (
       <section className="tex tex-grid border-b border-line bg-cloud">
         <div className="container-px">
@@ -41,27 +46,28 @@ export default function PageHeader({ eyebrow, title, lead, images, badge, childr
   }
 
   return (
-    <section className="tex tex-grid border-b border-line bg-cloud">
-      <div className="container-px">
-        <div className="grid items-stretch lg:grid-cols-2">
-          <div className="flex items-center py-14 lg:py-20 lg:pr-14 xl:pr-20">
-            <div className="w-full">
-              {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-              <h1 className="mt-5 font-display text-editorial font-semibold text-ink">{title}</h1>
-              {lead && <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">{lead}</p>}
-              {children}
-            </div>
-          </div>
+    <section
+      data-dark-hero
+      className="hero-dark relative isolate flex min-h-[42rem] items-center overflow-hidden bg-midnight text-white sm:min-h-[44rem] lg:min-h-[calc(100svh-var(--nav-h,7.5rem))]"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <HeroSlider images={slides} hovered={hovered} />
 
-          {/* The image half, bled to the right edge of the viewport. */}
-          <div className="relative -mx-5 h-[22rem] sm:-mx-8 sm:h-[24rem] lg:mx-0 lg:ml-0 lg:h-auto lg:min-h-[42rem] lg:mr-[calc(100%-50vw)]">
-            <HeroSlider images={slides} />
-            {badge && (
-              <span className="absolute left-5 top-5 z-10 rounded-full bg-paper/95 px-4 py-2 text-xs font-semibold tracking-[0.02em] text-ink shadow-soft backdrop-blur">
-                {badge}
-              </span>
-            )}
-          </div>
+      {/* The copy sits above the slider, but must not swallow clicks meant
+          for the arrows at the screen edges — hence pointer-events-none here
+          and auto on the copy block itself. */}
+      <div className="container-px pointer-events-none relative z-10 w-full py-20 lg:py-24">
+        <div className="pointer-events-auto max-w-2xl">
+          {badge && (
+            <span className="mb-6 inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-[0.02em] text-white backdrop-blur">
+              {badge}
+            </span>
+          )}
+          {eyebrow && <p className="eyebrow-light">{eyebrow}</p>}
+          <h1 className="mt-5 font-display text-hero font-semibold text-white">{title}</h1>
+          {lead && <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">{lead}</p>}
+          {children}
         </div>
       </div>
     </section>
