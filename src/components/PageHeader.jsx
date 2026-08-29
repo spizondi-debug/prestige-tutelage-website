@@ -1,4 +1,4 @@
-import Photo from './Photo.jsx'
+import HeroSlider from './HeroSlider.jsx'
 
 /**
  * The shared page hero. One component, used by every interior page.
@@ -12,7 +12,8 @@ import Photo from './Photo.jsx'
  *   eyebrow        small wide-tracked label above the title
  *   title          the h1
  *   lead           supporting paragraph
- *   image          filename in public/images (omit for a text-only hero)
+ *   images         array of slides ({ src, alt, position }) for a carousel
+ *   image          single filename, for a hero that does not need a carousel
  *   imageAlt       required whenever `image` is set
  *   imagePosition  CSS object-position, to keep faces out of the crop
  *   imageAspect    Tailwind aspect ratio for the panel
@@ -23,14 +24,16 @@ export default function PageHeader({
   eyebrow,
   title,
   lead,
+  images,
   image,
   imageAlt,
   imagePosition = 'center',
-  imageAspect = 'aspect-[4/3]',
+  imageAspect = 'aspect-[5/4]',
   badge,
   children,
 }) {
-  const hasImage = Boolean(image)
+  const slides = images?.length ? images : image ? [{ src: image, alt: imageAlt, position: imagePosition }] : []
+  const hasImage = slides.length > 0
 
   return (
     <section className="tex tex-grid border-b border-line bg-cloud">
@@ -51,18 +54,7 @@ export default function PageHeader({
 
           {hasImage && (
             <div className="relative">
-              {/* A hairline of brand colour around the panel, drawn as a 1px
-                  gradient frame rather than a border so it can run blue into
-                  green without a second element. */}
-              <div className="rounded-2xl bg-[linear-gradient(140deg,rgba(0,111,216,0.45),rgba(0,111,216,0.06)_45%,rgba(45,162,47,0.42))] p-px shadow-premium">
-                <Photo
-                  src={image}
-                  alt={imageAlt}
-                  eager
-                  position={imagePosition}
-                  className={`${imageAspect} w-full rounded-[15px]`}
-                />
-              </div>
+              <HeroSlider images={slides} aspect={imageAspect} />
 
               {badge && (
                 <span className="absolute bottom-4 left-4 rounded-full bg-paper/95 px-4 py-2 text-xs font-semibold tracking-[0.02em] text-ink shadow-soft backdrop-blur">

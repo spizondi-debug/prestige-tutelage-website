@@ -16,13 +16,33 @@ navigation and the dark footer. Colours and artwork are unaltered.
 
 ### Prestige's own photographs
 
-| File | Used on | Shows |
-|------|---------|-------|
-| `facilitator-session.jpg` | Corporate Training | A facilitator leading a session with learners |
-| `training-room.jpg` | Office & Training Space Rental | A Prestige training room, Prestige slide on screen |
-| `workshop-training.jpg` | Corporate Training | Practical training in full PPE, angle grinder |
-| `learner-cohort.jpg` | Recruitment | A learner intake outside the training venue |
-| `certificates-cohort.jpg` | Homepage impact | Learners with Prestige certificates of completion |
+| File | Shows |
+|------|-------|
+| `facilitator-session.jpg` | A facilitator leading a session with learners |
+| `training-room.jpg` | A Prestige training room, Prestige slide on screen |
+| `workshop-training.jpg` | Practical training in full PPE, angle grinder |
+| `learner-cohort.jpg` | A learner intake outside the training venue |
+| `certificates-cohort.jpg` | Learners with Prestige certificates of completion |
+| `learner-intake-group.jpg` | A large intake outside the Randburg premises |
+| `learners-certificates-group.jpg` | A completing cohort holding their certificates |
+| `certificate-handover-overalls.jpg` | A learner receiving his certificate |
+| `certificate-handover-red-shirt.jpg` | A learner receiving her certificate |
+| `certificate-handover-reviewing.jpg` | A learner and facilitator reading a certificate |
+| `certificate-handover-congratulations.jpg` | A certificate handover |
+| `learner-carrying-steel-beam.jpg` | A learner carrying a steel section on a fabrication floor |
+| `learner-welding-workshop.jpg` | A learner welding in visor and gloves |
+| `learner-bandsaw-operator.jpg` | A learner operating a cutting machine |
+| `learners-plate-handling.jpg` | Three learners moving steel plate |
+| `learner-loading-components.jpg` | A learner loading fabricated components on site |
+| `learners-client-site.jpg` | Learners at a client site |
+| `learner-angle-grinder.jpg` | A learner using an angle grinder at a workbench |
+| `fabrication-workshop-floor.jpg` | A worker preparing plate in a large fabrication shop |
+
+Six of these arrived as social-media captures and were cropped inside the app
+chrome — search bar, caption and action rail — before use. Their usable area
+is 505x850, which is why they are cropped tightly in a landscape panel and
+carry a low `object-position`. **Originals at full resolution would be
+better**; ask for the camera files if they still exist.
 
 ### Licensed stock
 

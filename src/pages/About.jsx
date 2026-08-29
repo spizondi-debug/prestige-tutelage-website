@@ -6,6 +6,7 @@ import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { whyPrestige } from '../components/home/WhyPrestige.jsx'
 import { brand, contact } from '../data/site.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 const philosophy = [
   {
@@ -50,9 +51,7 @@ export default function About() {
   return (
     <>
       <PageHeader
-        image="graduate-portrait-hero.jpg"
-        imageAlt="A Prestige Tutelage graduate in cap and gown on the steps after her graduation ceremony"
-        imagePosition="center 22%"
+        images={pageHeroes.about}
         badge="Randburg, Johannesburg"
         eyebrow="About Prestige Tutelage"
         title="A South African training company built on credibility and care."

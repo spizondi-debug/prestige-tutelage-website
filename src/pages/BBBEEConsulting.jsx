@@ -6,6 +6,7 @@ import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import { bbbeeGroups, bbbeeProcess, SCOPE_STATEMENT, OUTCOME_QUALIFIER } from '../data/bbbee.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 export default function BBBEEConsulting() {
   usePageMeta(
@@ -16,9 +17,7 @@ export default function BBBEEConsulting() {
   return (
     <>
       <PageHeader
-        image="certificates-cohort.jpg"
-        imageAlt="Prestige Tutelage learners holding their certificates of completion"
-        imagePosition="center 30%"
+        images={pageHeroes.bbbee}
         eyebrow="B-BBEE skills development consulting"
         title="Turn skills development into measurable transformation value."
         lead="Prestige Tutelage helps organisations structure practical skills-development and workforce-development initiatives that support their broader B-BBEE objectives while creating genuine capability in the workplace."

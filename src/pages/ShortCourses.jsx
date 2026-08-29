@@ -14,6 +14,7 @@ import {
   STATUS_NOTE,
   CERTIFICATE_NOTE,
 } from '../data/shortCourses.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 function CourseList({ courses }) {
   return (
@@ -37,9 +38,7 @@ export default function ShortCourses() {
   return (
     <>
       <PageHeader
-        image="young-professional.jpg"
-        imageAlt="A young professional at the start of his working life"
-        imagePosition="center 28%"
+        images={pageHeroes.shortCourses}
         eyebrow="Short courses & professional development"
         title={shortCoursePositioning}
         lead={`${totalShortCourses} focused courses that close specific gaps in days, not months — delivered for teams at your workplace, or arranged for individuals. Ideal alongside a qualification pathway, or on their own.`}

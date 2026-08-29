@@ -1,51 +1,9 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import CTABand from '../components/CTABand.jsx'
-import Photo from '../components/Photo.jsx'
+import HeroSlider from '../components/HeroSlider.jsx'
+import { articleHeroes } from '../data/pageHeroes.js'
 import { insights } from '../data/insights.js'
-
-/**
- * Which photograph opens an article, by category. Every entry is a real
- * Prestige or licensed photograph already in the library; a category with no
- * entry falls back to the graduate portrait rather than rendering nothing.
- */
-const ARTICLE_HERO = {
-  Qualifications: {
-    src: 'certificates-cohort.jpg',
-    alt: 'Prestige Tutelage learners holding their certificates of completion',
-    position: 'center 30%',
-  },
-  Learnerships: {
-    src: 'learner-cohort.jpg',
-    alt: 'A Prestige Tutelage learner intake gathered outside the training venue',
-    position: 'center 40%',
-  },
-  Leadership: {
-    src: 'bbbee-consultation.jpg',
-    alt: 'Two colleagues in conversation beside an office window',
-    position: 'center 40%',
-  },
-  Delivery: {
-    src: 'facilitator-session.jpg',
-    alt: 'A Prestige Tutelage facilitator leading a session with learners',
-    position: 'center 42%',
-  },
-  Industries: {
-    src: 'workshop-training.jpg',
-    alt: 'A learner in full protective equipment working with an angle grinder during practical training',
-    position: 'center 30%',
-  },
-  Planning: {
-    src: 'training-room.jpg',
-    alt: 'A training room at Prestige Tutelage set up with a projector screen and boardroom seating',
-    position: 'center',
-  },
-  default: {
-    src: 'graduate-portrait-hero.jpg',
-    alt: 'A Prestige Tutelage graduate in cap and gown on the steps after her graduation ceremony',
-    position: 'center 22%',
-  },
-}
 
 export default function InsightArticle() {
   const { slug } = useParams()
@@ -56,7 +14,7 @@ export default function InsightArticle() {
 
   if (!article) return <Navigate to="/insights" replace />
 
-  const hero = ARTICLE_HERO[article.category] ?? ARTICLE_HERO.default
+  const heroSlides = articleHeroes[article.category] ?? articleHeroes.default
 
   return (
     <>
@@ -76,17 +34,7 @@ export default function InsightArticle() {
                 <p className="mt-5 text-sm text-muted">{article.minutes} min read</p>
               </div>
 
-              <div className="relative">
-                <div className="rounded-2xl bg-[linear-gradient(140deg,rgba(0,111,216,0.45),rgba(0,111,216,0.06)_45%,rgba(45,162,47,0.42))] p-px shadow-premium">
-                  <Photo
-                    src={hero.src}
-                    alt={hero.alt}
-                    eager
-                    position={hero.position}
-                    className="aspect-[4/3] w-full rounded-[15px]"
-                  />
-                </div>
-              </div>
+              <HeroSlider images={heroSlides} />
             </div>
           </div>
         </header>

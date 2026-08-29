@@ -3,6 +3,7 @@ import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { serviceGroups } from '../data/services.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 export default function Services() {
   usePageMeta(
@@ -13,9 +14,7 @@ export default function Services() {
   return (
     <>
       <PageHeader
-        image="facilitator-session.jpg"
-        imageAlt="A Prestige Tutelage facilitator leading a session with learners"
-        imagePosition="center 42%"
+        images={pageHeroes.services}
         eyebrow="Services"
         title="More than training. A complete workforce support partner."
         lead="Training is where Prestige started, and it remains the core. But the work around it — advising on strategy, finding the people, administering the programme, assessing the outcome and housing it all — is just as much a part of what we do."

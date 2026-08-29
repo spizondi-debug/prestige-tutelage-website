@@ -4,6 +4,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { SectionHeading } from '../components/Section.jsx'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 // Each solution has its own page — this is the way in, not a place to hide them.
 const solutions = [
@@ -72,9 +73,7 @@ export default function BusinessSolutions() {
   return (
     <>
       <PageHeader
-        image="learner-cohort.jpg"
-        imageAlt="A Prestige Tutelage learner intake gathered outside the training venue"
-        imagePosition="center 40%"
+        images={pageHeroes.businessSolutions}
         eyebrow="Business solutions"
         title="More than training. A complete workforce support partner."
         lead="Training is where Prestige started and it remains the core. But the work around it — advising on transformation strategy, finding the people, assessing the outcome and housing it all — is just as much a part of what we do."

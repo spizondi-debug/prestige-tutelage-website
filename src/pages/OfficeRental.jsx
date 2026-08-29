@@ -9,6 +9,7 @@ import EnquiryForm from '../components/EnquiryForm.jsx'
 import { useEnquiryForm } from '../lib/useEnquiryForm.js'
 import { spaceCategories, spaceFields, DETAILS_ON_ENQUIRY } from '../data/spaces.js'
 import { contact } from '../data/site.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 export default function OfficeRental() {
   usePageMeta(
@@ -23,9 +24,7 @@ export default function OfficeRental() {
   return (
     <>
       <PageHeader
-        image="facilitator-session.jpg"
-        imageAlt="A Prestige Tutelage facilitator leading a session with learners"
-        imagePosition="center 42%"
+        images={pageHeroes.officeRental}
         badge="Ferndale, Randburg"
         eyebrow="Office & training space"
         title="Professional space when you need it."

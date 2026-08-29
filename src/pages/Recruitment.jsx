@@ -15,6 +15,7 @@ import {
   vacancyFields,
   CHECKS_QUALIFIER,
 } from '../data/recruitment.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 export default function Recruitment() {
   usePageMeta(
@@ -29,9 +30,7 @@ export default function Recruitment() {
   return (
     <>
       <PageHeader
-        image="young-professional.jpg"
-        imageAlt="A young professional at the start of his working life"
-        imagePosition="center 28%"
+        images={pageHeroes.recruitment}
         eyebrow="Recruitment services"
         title="Finding people who fit the role — and the organisation."
         lead="Recruitment is the other half of workforce development. Prestige sources, screens and shortlists candidates for employers — and brings particular strength to learnership and youth intakes, because we also run the programmes those learners go into."

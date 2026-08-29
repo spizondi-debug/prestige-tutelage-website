@@ -19,6 +19,7 @@ import {
   customCorporate,
 } from '../data/programmes.js'
 import { totalShortCourses } from '../data/shortCourses.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 const ALL = 'All'
 
@@ -77,9 +78,7 @@ export default function Programmes() {
   return (
     <>
       <PageHeader
-        image="graduates-group.jpg"
-        imageAlt="A group of Prestige Tutelage graduates walking together after their ceremony"
-        imagePosition="center 38%"
+        images={pageHeroes.programmes}
         badge="26 qualifications · NQF 2–6"
         eyebrow="Programmes & qualifications"
         title="Learning that maps onto real occupations."

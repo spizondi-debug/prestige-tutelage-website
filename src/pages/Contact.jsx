@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { brand, contact } from '../data/site.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 const interests = [
   'Accredited Qualification',
@@ -95,9 +96,7 @@ export default function Contact() {
   return (
     <>
       <PageHeader
-        image="bbbee-consultation.jpg"
-        imageAlt="Two colleagues in conversation beside an office window"
-        imagePosition="center 40%"
+        images={pageHeroes.contact}
         badge="Ferndale, Randburg"
         eyebrow="Contact"
         title="Let’s talk about your workforce."

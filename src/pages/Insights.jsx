@@ -4,6 +4,7 @@ import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { insights, insightCategories } from '../data/insights.js'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 export default function Insights() {
   usePageMeta(
@@ -18,9 +19,7 @@ export default function Insights() {
   return (
     <>
       <PageHeader
-        image="graduate-portrait-hero.jpg"
-        imageAlt="A Prestige Tutelage graduate in cap and gown on the steps after her graduation ceremony"
-        imagePosition="center 22%"
+        images={pageHeroes.insights}
         eyebrow="Insights"
         title="Practical thinking on skills development."
         lead="Explainers and perspectives for employers, HR teams and skills development facilitators navigating qualifications, learnerships and workplace learning in South Africa."

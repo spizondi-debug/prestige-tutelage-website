@@ -4,6 +4,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Photo from '../components/Photo.jsx'
 import CTABand from '../components/CTABand.jsx'
+import { pageHeroes } from '../data/pageHeroes.js'
 
 const connects = [
   { t: 'Skills gaps', d: 'A clear, current view of the distance between the capability you have and the capability the work requires.' },
@@ -24,9 +25,7 @@ export default function GrowthPathways() {
   return (
     <>
       <PageHeader
-        image="graduate-celebrating.jpg"
-        imageAlt="A graduate celebrating after completing his qualification"
-        imagePosition="center 28%"
+        images={pageHeroes.growthPathways}
         eyebrow="A related Prestige solution"
         title="Prestige Growth Pathways"
         lead="One workforce. One development journey. Most organisations do not lack training — they lack the thread that connects a skills gap to a development plan, a development plan to learning, and learning to something you can actually measure. Growth Pathways is that thread."
