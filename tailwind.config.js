@@ -61,6 +61,11 @@ export default {
           'blue-logo-light': '#0089E6',
           electric: '#1585D8', // graphic accent only — lighting, strokes, glow
           green: '#2DA22F',    // exact logo green — growth, progression, success
+          // The logo green darkened on its own hue (121°, same saturation)
+          // until it clears 4.5:1 on White, Cloud and Mist. For green text
+          // below heading scale — a 20px card title is not "large text", so
+          // the logo green's 3.32:1 would fail there.
+          'green-deep': '#237D24',
           growth: '#45B95C',   // refined secondary green — highlights, hover, stats
         },
       },

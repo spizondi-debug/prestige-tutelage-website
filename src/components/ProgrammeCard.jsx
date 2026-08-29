@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
  * Every fact shown comes from verified data. Fields that were not supplied are
  * omitted entirely: there is deliberately no fallback rendering, so an absent
  * credit value produces no "Credits" row rather than a dash or "N/A".
+ *
+ * The title uses `green-deep` rather than the logo green: at 20px/600 it is
+ * not "large text" by WCAG, so it needs 4.5:1 and the logo green only gives
+ * 3.32:1 on white. `green-deep` is the same hue darkened until it passes.
  */
 export default function ProgrammeCard({ q }) {
   const facts = [
@@ -19,7 +23,9 @@ export default function ProgrammeCard({ q }) {
     <article className="flex flex-col border border-line bg-paper p-6 transition-colors hover:border-prestige-blue/40">
       <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue">{q.type}</p>
 
-      <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-ink">{q.name}</h3>
+      <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-prestige-green-deep">
+        {q.name}
+      </h3>
 
       <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-2 border-y border-line py-3">
         {facts.map((f) => (
