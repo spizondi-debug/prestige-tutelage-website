@@ -35,21 +35,30 @@ export default {
         paper: '#FFFFFF', // reserved for important content surfaces
 
         // ── Text ─────────────────────────────────────────────────────────
-        ink: '#102436',   // primary — softer than black
-        body: '#526575',  // body copy
-        // Muted was specified as #7C8C98, which is 3.25:1 on Cloud and fails
-        // AA. Darkened along its own hue to the first passing value so
-        // captions and metadata stay legible, per "do not make important
-        // information too light".
-        muted: '#63727E',
+        // Derived from the logo, not chosen alongside it. The wordmark is set
+        // in two blues and carries no grey at all: "PRESTIGE" is #0089E6 and
+        // "TUTELAGE" and the tagline are #006FD8, hue 209.2°. The text ramp
+        // sits on that same hue, dropping saturation and lightness as it goes
+        // paler, so body copy reads as the brand blue darkened rather than as
+        // neutral grey placed next to it.
+        //
+        // Each step is the palest value on that hue still clearing 4.5:1 on
+        // all three light surfaces — Cloud, Mist and White.
+        ink: '#10283F',   // 14.09:1 on Cloud — primary, softer than black
+        body: '#3E5B77',  //  6.63:1 — body copy
+        muted: '#546F89', //  4.91:1 on Cloud, 4.55:1 on Mist — the floor
 
         // ── Hairlines ────────────────────────────────────────────────────
         line: 'rgba(7, 26, 43, 0.10)',
         'line-dark': 'rgba(255, 255, 255, 0.10)',
 
         prestige: {
-          blue: '#006FD8',     // exact logo blue — knowledge, links, active states
+          blue: '#006FD8',     // exact logo blue ("TUTELAGE", tagline)
           'blue-bright': '#0877D8', // primary button hover; brightest blue still AA on white
+          // The logo's other blue, from the "PRESTIGE" wordmark. White on it
+          // is 3.67:1 and it is 3.44:1 on Cloud, so it is a graphic accent
+          // only — never text, never a fill behind white text.
+          'blue-logo-light': '#0089E6',
           electric: '#1585D8', // graphic accent only — lighting, strokes, glow
           green: '#2DA22F',    // exact logo green — growth, progression, success
           growth: '#45B95C',   // refined secondary green — highlights, hover, stats
