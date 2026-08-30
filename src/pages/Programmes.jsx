@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import { Award, Briefcase, GraduationCap, Presentation, ShieldCheck, Target } from 'lucide-react'
+import { GraduationCap, Presentation } from 'lucide-react'
 import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
@@ -155,13 +155,19 @@ export default function Programmes() {
               </div>
             </div>
 
-            {/* Qualifications */}
-            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-green bg-prestige-green-pale p-7 shadow-premium lg:p-8">
+            {/* Qualifications — same blue treatment as the short-courses card
+                rather than a paired blue/green scheme. Two cards in different
+                brand colours reads as a template choice ("card A is blue, card
+                B is green") rather than a considered distinction, and nothing
+                about a qualification is actually green: the site's own colour
+                notes reserve green for growth, progression and confirmation,
+                not for a second content card that happens to sit on the right. */}
+            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-blue bg-paper p-7 shadow-premium lg:p-8">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
                 Route 02 · SAQA &amp; NQF aligned
               </p>
               <div className="mt-4 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-paper text-prestige-green-deep">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-light text-prestige-blue-hover">
                   <GraduationCap size={22} strokeWidth={1.8} aria-hidden="true" />
                 </span>
                 <h2 className="font-display text-xl font-semibold leading-snug text-ink">
@@ -173,15 +179,18 @@ export default function Programmes() {
                 programmes, learnerships and focused skills programmes.
               </p>
 
-              <div className="mt-6 grid gap-5 border-t border-prestige-green/25 pt-6 sm:grid-cols-3">
+              {/* Plain text over a hairline, not a tile with its own icon per
+                  row — three small coloured badges here added visual noise
+                  without adding information; the heading already says what
+                  each one is. */}
+              <div className="mt-6 grid gap-5 border-t border-line pt-6 sm:grid-cols-3">
                 {[
-                  { icon: Award, t: 'Full qualifications', d: 'Structured learning toward a qualification, with formal assessment and moderation.' },
-                  { icon: Briefcase, t: 'Learnerships', d: 'Qualification-linked programmes combining classroom learning with structured workplace experience.' },
-                  { icon: Target, t: 'Skills programmes', d: 'Focused components for organisations that need targeted capability quickly.' },
+                  { t: 'Full qualifications', d: 'Structured learning toward a qualification, with formal assessment and moderation.' },
+                  { t: 'Learnerships', d: 'Qualification-linked programmes combining classroom learning with structured workplace experience.' },
+                  { t: 'Skills programmes', d: 'Focused components for organisations that need targeted capability quickly.' },
                 ].map((x) => (
-                  <div key={x.t} className="border-l-2 border-prestige-green/50 pl-4">
-                    <x.icon size={18} strokeWidth={1.8} aria-hidden="true" className="text-prestige-green-deep" />
-                    <h3 className="mt-2 font-sans text-sm font-semibold text-ink">{x.t}</h3>
+                  <div key={x.t}>
+                    <h3 className="font-sans text-sm font-semibold text-ink">{x.t}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-body">{x.d}</p>
                   </div>
                 ))}
@@ -193,10 +202,7 @@ export default function Programmes() {
                 </a>
               </div>
 
-              <p className="mt-7 flex items-start gap-3 rounded-xl bg-paper p-4 text-sm leading-relaxed text-body">
-                <ShieldCheck size={17} strokeWidth={1.9} aria-hidden="true" className="mt-0.5 shrink-0 text-prestige-green-deep" />
-                {AVAILABILITY_DISCLAIMER}
-              </p>
+              <Disclaimer className="mt-7">{AVAILABILITY_DISCLAIMER}</Disclaimer>
             </div>
           </div>
         </div>

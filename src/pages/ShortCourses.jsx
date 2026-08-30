@@ -16,7 +16,7 @@ import {
 } from '../data/shortCourses.js'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { CountIcon, iconForCategory } from '../data/shortCourseIcons.js'
-import { ArrowUpRight, GraduationCap, Info, Presentation, Route } from 'lucide-react'
+import { ArrowUpRight, GraduationCap, Presentation, Route } from 'lucide-react'
 
 /**
  * The eyebrow label — the leading half of the category title, so "Leadership &
@@ -113,19 +113,20 @@ export default function ShortCourses() {
                 </h3>
               </div>
               <p className="mt-5 leading-relaxed text-body">{STATUS_NOTE}</p>
-              <p className="mt-5 flex items-start gap-3 rounded-xl bg-prestige-blue-light p-4 text-sm leading-relaxed text-body">
-                <Info size={17} strokeWidth={1.9} aria-hidden="true" className="mt-0.5 shrink-0 text-prestige-blue-hover" />
-                {CERTIFICATE_NOTE}
-              </p>
+              <Disclaimer className="mt-5">{CERTIFICATE_NOTE}</Disclaimer>
             </div>
 
-            {/* Qualifications */}
-            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-green bg-prestige-green-pale p-7 shadow-premium lg:p-8">
+            {/* Qualifications — the same blue treatment as the short-courses
+                card, not a paired blue/green scheme. Two cards in different
+                brand colours reads as a template choice rather than a
+                considered distinction, and nothing about a qualification is
+                actually green. */}
+            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-blue bg-paper p-7 shadow-premium lg:p-8">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
                 Qualifications
               </p>
               <div className="mt-4 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-paper text-prestige-green-deep">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-light text-prestige-blue-hover">
                   <GraduationCap size={22} strokeWidth={1.8} aria-hidden="true" />
                 </span>
                 <h3 className="font-display text-xl font-semibold leading-snug text-ink">
