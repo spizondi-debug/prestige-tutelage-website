@@ -6,7 +6,7 @@ import CTABand from '../components/CTABand.jsx'
 import NotFound from './NotFound.jsx'
 import { iconFor } from '../data/programmeIcons.js'
 import { qualifications, AVAILABILITY_DISCLAIMER } from '../data/programmes.js'
-import { outlineFor, assessmentApproach, OUTLINE_NOTE, OUTLINE_ON_REQUEST } from '../data/courseOutlines.js'
+import { outlineFor, assessmentApproach, OUTLINE_NOTE, OUTLINE_DRAFT_NOTE, OUTLINE_ON_REQUEST, SUPPLIED } from '../data/courseOutlines.js'
 
 /**
  * CourseDetail — one qualification, in full.
@@ -127,7 +127,11 @@ export default function CourseDetail() {
             )}
           </div>
 
-          {outline && <Disclaimer className="mt-8">{OUTLINE_NOTE}</Disclaimer>}
+          {outline && (
+            <Disclaimer className="mt-8">
+              {outline.source === SUPPLIED ? OUTLINE_NOTE : OUTLINE_DRAFT_NOTE}
+            </Disclaimer>
+          )}
         </div>
       </section>
 
