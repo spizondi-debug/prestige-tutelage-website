@@ -5,9 +5,10 @@ without a suitable photograph are designed without one rather than filled.
 
 ## Logo
 
-`public/prestige-tutelage-logo.png` — the supplied original, trimmed of its
-white margin and given an alpha channel so it sits cleanly on the cream
-navigation and the dark footer. Colours and artwork are unaltered.
+`public/prestige-tutelage-logo.png` — rebuilt at 768 × 404 from the supplied
+1536px original, trimmed of its white margin and given an alpha channel so it
+sits cleanly on the navigation and footer. Colours and artwork are unaltered.
+The larger master stays crisp on high-density screens.
 **Do not redraw, recolour or substitute it.**
 
 `favicon.png` / `apple-touch-icon.png` are cropped from the logo's figure mark.

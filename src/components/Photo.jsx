@@ -24,7 +24,7 @@ export default function Photo({
 
   return (
     <div className={`overflow-hidden bg-mist ${className}`.trim()}>
-      <picture>
+      <picture className="block h-full w-full">
         <source srcSet={assetUrl(`images/${webp}`)} type="image/webp" />
         <img
           src={assetUrl(`images/${src}`)}
@@ -34,7 +34,7 @@ export default function Photo({
           loading={eager ? 'eager' : 'lazy'}
           decoding={eager ? 'sync' : 'async'}
           fetchPriority={eager ? 'high' : undefined}
-          className="h-full w-full object-cover"
+          className="block h-full w-full object-cover"
           style={{ objectPosition: position }}
         />
       </picture>

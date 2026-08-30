@@ -35,7 +35,7 @@ export const organisationNode = () => ({
   name: brand.legalName,
   alternateName: brand.name,
   url: ORIGIN,
-  logo: { '@type': 'ImageObject', url: LOGO_URL, width: 316, height: 168 },
+  logo: { '@type': 'ImageObject', url: LOGO_URL, width: 768, height: 404 },
   image: LOGO_URL,
   email: contact.email,
   telephone: '+27100650822',
