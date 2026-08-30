@@ -10,10 +10,10 @@ import { Accent } from '../Section.jsx'
 /**
  * The wider offer, as a picture-led rail rather than a text grid.
  *
- * Three of the four solutions have a genuine Prestige photograph. The
- * Assessment Centre does not yet, so it takes a Prestige Path panel — the
- * house graphic — rather than a stock invigilation shot. Drop a real
- * photograph in and set `photo` to replace it.
+ * All four solutions now carry a genuine Prestige photograph. The Assessment
+ * Centre card held the Prestige Path panel — the house graphic — while no
+ * assessment photography existed; the classroom photograph replaced it, which
+ * is the same image that leads the Assessment Centre page.
  */
 const solutions = [
   {
@@ -37,8 +37,8 @@ const solutions = [
     title: 'Assessment Centre',
     text: 'Professional assessment, moderation and invigilation services.',
     to: '/assessment-centre',
-    photo: null, // no assessment photography exists yet — see public/images/README.md
-    stage: 1.6,
+    photo: 'facilitator-session.jpg',
+    alt: 'Prestige Tutelage learners working at desks while a facilitator leads the session',
   },
   {
     n: '04',

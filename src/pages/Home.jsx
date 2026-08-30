@@ -5,6 +5,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { pageHeroes } from '../data/pageHeroes.js'
 // 02/03 — More than training + proof points
 import IntroducePrestige from '../components/home/IntroducePrestige.jsx'
+import ClientStrip from '../components/home/ClientStrip.jsx'
 // 04 — Programmes and the explorer
 import FeaturedProgrammes from '../components/home/FeaturedProgrammes.jsx'
 import TrainingFinder from '../components/home/TrainingFinder.jsx'
@@ -59,6 +60,7 @@ export default function Home() {
         </div>
       </PageHeader>
       <IntroducePrestige />
+      <ClientStrip />
 
       <FeaturedProgrammes />
       <TrainingFinder />

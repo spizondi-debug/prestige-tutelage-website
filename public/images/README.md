@@ -140,3 +140,25 @@ request and now leads the Assessment Centre hero.
 
 It shows several identifiable learners at close range. Publication consent for
 the people in it must be confirmed before the site goes to a public domain.
+
+## Client logos — public/images/clients/
+
+Six client marks, supplied by Prestige as screenshots rather than brand assets.
+Each was flattened onto white, flood-filled from the corners to remove the
+off-white plate its file was saved on, trimmed to the mark and upscaled with
+Lanczos. iBridge needed more: its source carried dark banding at two corners
+and a mottled background, so it was cropped in and given a hard white point.
+
+None was recoloured, greyscaled, redrawn or stretched — the strip uses
+object-contain and the rendered aspect matches the source to within 0.002.
+
+Two things to settle before this goes public:
+
+  * PERMISSION. Displaying a third party's trademark normally needs that
+    organisation's agreement. Confirm consent for all six.
+  * The red roundel is published without a name, at the client's request,
+    because the company was not confirmed. Its alt text is "Client logo".
+    Add the real name to src/data/clients.js once known.
+
+Original vector or high-resolution files would be better than any of these
+screenshots; ask the clients for their logo packs.
