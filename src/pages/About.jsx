@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
+import Photo from '../components/Photo.jsx'
 import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { whyPrestige } from '../components/home/WhyPrestige.jsx'
@@ -85,12 +86,36 @@ export default function About() {
         </div>
       </section>
 
-      {/* Purpose */}
-      <section className="border-y border-line bg-prestige-blue-hover py-16 lg:py-20">
-        <div className="container-px">
+      {/* Purpose — a photograph carries the statement rather than flat colour.
+          The blue base sits under the photo so the band is never a pale gap
+          while the file loads, and the type never lands on bare photograph.
+
+          The overlay is measured, not guessed. From lg up the text occupies
+          the left ~60%, so the blue thins towards the right and the room
+          reads through. Below lg the text spans almost the full width, and
+          that same falloff put its lightest backdrop pixel at 2.99:1 — under
+          the 3.0 that 24px type needs — so narrow screens get a near-even
+          overlay instead. Re-measure against the rendered band, not the flat
+          token, if either stop moves. */}
+      <section className="relative isolate overflow-hidden border-y border-line bg-prestige-blue-deep">
+        {/* Not the 42% this photograph carries in pageHeroes: that crop suits
+            a tall hero panel, and in a band this wide and short it cuts the
+            facilitator off at the neck. Empty alt — the statement is the
+            content here and the photograph adds nothing a reader needs. */}
+        <Photo
+          src="facilitator-session.jpg"
+          alt=""
+          position="center 10%"
+          className="absolute inset-0 h-full w-full"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(5,89,168,0.94)_0%,rgba(5,89,168,0.86)_100%)] lg:bg-[linear-gradient(to_right,rgba(5,89,168,0.94)_0%,rgba(5,89,168,0.90)_46%,rgba(5,89,168,0.78)_72%,rgba(6,109,206,0.60)_100%)]"
+          aria-hidden="true"
+        />
+        <div className="container-px relative py-20 lg:py-24">
           <div className="max-w-3xl">
-            <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />
-            <p className="font-display text-2xl font-semibold leading-relaxed text-white sm:text-3xl">
+            <span className="mb-7 block h-1 w-14 rounded-full bg-prestige-green" aria-hidden="true" />
+            <p className="font-display text-2xl font-medium leading-relaxed text-white sm:text-3xl lg:text-[2.125rem] lg:leading-[1.45]">
               Our purpose is in our name on the door: developing people, strengthening organisations —
               so that skills development in South Africa means real capability, real dignity and real
               opportunity.
