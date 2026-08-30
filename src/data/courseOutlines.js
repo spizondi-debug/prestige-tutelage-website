@@ -233,6 +233,16 @@ export const courseOutlines = {
           'Managing own workload, deadlines and development',
         ],
       },
+      {
+        title: 'Business Technology and Digital Tools',
+        text: 'The software an office professional is expected to be fluent in.',
+        topics: [
+          'Word processing, spreadsheets and presentation software',
+          'Shared drives, collaboration tools and version control',
+          'Digital calendars, task tools and workflow',
+          'Producing professional documents and templates',
+        ],
+      },
     ],
   },
 
@@ -298,6 +308,26 @@ export const courseOutlines = {
           'Yield, losses and slag management',
           'Refractory life and furnace availability',
           'Shift reporting and production records',
+        ],
+      },
+      {
+        title: 'Refractory and Furnace Maintenance',
+        text: 'Looking after the vessel that holds the melt.',
+        topics: [
+          'Refractory materials, wear and inspection',
+          'Patching, repair and relining decisions',
+          'Furnace availability and campaign life',
+          'Planning maintenance around the production schedule',
+        ],
+      },
+      {
+        title: 'Casting, Cooling and Product Handling',
+        text: 'What happens after the tap.',
+        topics: [
+          'Pouring, casting and mould preparation',
+          'Controlled cooling and solidification',
+          'Handling, marking and storing cast product',
+          'Defects introduced after the melt',
         ],
       },
     ],
@@ -367,6 +397,26 @@ export const courseOutlines = {
           'Escalation and maintenance handover',
         ],
       },
+      {
+        title: 'Changeovers and Set-up Efficiency',
+        text: 'Losing as little production as possible between jobs.',
+        topics: [
+          'Planning and preparing for a changeover',
+          'Sequencing set-up tasks to reduce downtime',
+          'Verifying the first-off before running',
+          'Recording changeover times and problems',
+        ],
+      },
+      {
+        title: 'Packaging, Labelling and Dispatch Readiness',
+        text: 'Finishing the job properly.',
+        topics: [
+          'Packing to specification and protecting product',
+          'Labelling, identification and batch marking',
+          'Preparing finished goods for stores or dispatch',
+          'Documentation that travels with the product',
+        ],
+      },
     ],
   },
 
@@ -432,6 +482,26 @@ export const courseOutlines = {
           'Checking your own work before passing it on',
           'Recognising and reporting defects',
           'Reducing waste and rework',
+        ],
+      },
+      {
+        title: 'Basic Measurement and Marking Out',
+        text: 'Working to a size rather than by eye.',
+        topics: [
+          'Reading a tape, rule and basic measuring tools',
+          'Units, conversions and reading a simple drawing',
+          'Marking out to size on material',
+          'Checking your measurement before cutting',
+        ],
+      },
+      {
+        title: 'Working Effectively in a Team',
+        text: 'Being someone the workshop can rely on.',
+        topics: [
+          'Following instructions and confirming understanding',
+          'Communicating with tradespeople and supervisors',
+          'Timekeeping, attendance and workplace conduct',
+          'Asking for help at the right moment',
         ],
       },
     ],
@@ -511,6 +581,16 @@ export const courseOutlines = {
           'Reporting faults and supporting maintenance',
         ],
       },
+      {
+        title: 'Materials, Cutting Fluids and Tool Life',
+        text: 'Choosing the right conditions for the material in the chuck.',
+        topics: [
+          'Common engineering materials and how they machine',
+          'Selecting cutting speeds and feeds for the material',
+          'Cutting fluids: purpose, selection and handling',
+          'Recognising and extending tool life',
+        ],
+      },
     ],
   },
 
@@ -576,6 +656,26 @@ export const courseOutlines = {
           'Personal protective equipment: selection, use and care',
           'Machine guarding, lock-out and safe isolation',
           'Incident reporting, emergency procedures and housekeeping',
+        ],
+      },
+      {
+        title: 'Workshop Tools, Equipment and Measurement',
+        text: 'The instruments an engine job depends on.',
+        topics: [
+          'Hand tools, special tools and their correct use',
+          'Micrometers, bore gauges and dial indicators',
+          'Presses, lifting equipment and engine stands',
+          'Calibration, care and storage of instruments',
+        ],
+      },
+      {
+        title: 'Job Records, Costing and Customer Communication',
+        text: 'The business side of the workshop.',
+        topics: [
+          'Job cards, work records and time recording',
+          'Parts identification, ordering and costing',
+          'Quoting and explaining work to a customer',
+          'Warranty, liability and documentation',
         ],
       },
     ],
@@ -655,6 +755,16 @@ export const courseOutlines = {
           'Coordinating with the toolroom and maintenance',
         ],
       },
+      {
+        title: 'Materials, Colour and Additives',
+        text: 'Getting the material side of the process right.',
+        topics: [
+          'Polymer grades and their processing windows',
+          'Drying requirements and moisture problems',
+          'Masterbatch, colour changes and purging',
+          'Regrind: when it can be used and at what ratio',
+        ],
+      },
     ],
   },
 
@@ -720,6 +830,26 @@ export const courseOutlines = {
           'Basic lean and continuous improvement tools',
           'Production records, reports and data accuracy',
           'Presenting shift performance to management',
+        ],
+      },
+      {
+        title: 'Cost, Waste and Productivity',
+        text: 'Running the shift economically, not just on time.',
+        topics: [
+          'Labour, material and energy cost on a shift',
+          'Identifying and costing waste and rework',
+          'Productivity measures and how to move them',
+          'Balancing output, cost and quality decisions',
+        ],
+      },
+      {
+        title: 'Maintenance Liaison and Equipment Availability',
+        text: 'Keeping the plant running.',
+        topics: [
+          'Planned maintenance and its effect on the schedule',
+          'Reporting breakdowns with useful detail',
+          'Prioritising repairs against production demand',
+          'Autonomous maintenance by the production team',
         ],
       },
     ],
@@ -789,6 +919,26 @@ export const courseOutlines = {
           'Recommending improvements for the next cycle',
         ],
       },
+      {
+        title: 'Budgets, Suppliers and Procurement',
+        text: 'Running marketing spend properly.',
+        topics: [
+          'Building and tracking a campaign budget',
+          'Briefing agencies, printers and suppliers',
+          'Quotations, purchase orders and invoice reconciliation',
+          'Managing supplier performance and deadlines',
+        ],
+      },
+      {
+        title: 'Brand Governance and Compliance',
+        text: 'Protecting the brand and staying inside the rules.',
+        topics: [
+          'Applying brand guidelines and asset libraries',
+          'Approval workflows and sign-off',
+          'Advertising standards and consumer protection basics',
+          'Permissions, image rights and data protection in marketing',
+        ],
+      },
     ],
   },
 
@@ -854,6 +1004,26 @@ export const courseOutlines = {
           'Managing complaints and difficult interactions',
           'Coordinating across departments and suppliers',
           'Reporting on service performance',
+        ],
+      },
+      {
+        title: 'Meetings, Reporting and Communication',
+        text: 'Keeping the office and its managers informed.',
+        topics: [
+          'Planning and chairing operational meetings',
+          'Producing management and status reports',
+          'Communicating decisions and changes to the team',
+          'Written and verbal communication standards',
+        ],
+      },
+      {
+        title: 'Improving Office Operations',
+        text: 'Making the function work better over time.',
+        topics: [
+          'Identifying bottlenecks and duplicated effort',
+          'Simplifying and documenting procedures',
+          'Introducing and embedding a change of process',
+          'Measuring whether an improvement worked',
         ],
       },
     ],
@@ -923,6 +1093,26 @@ export const courseOutlines = {
           'Production reporting and shift documentation',
         ],
       },
+      {
+        title: 'Utilities, Services and Process Support',
+        text: 'The services the process cannot run without.',
+        topics: [
+          'Steam, air, water and power in the process',
+          'Monitoring utility supply and consumption',
+          'Recognising a services fault versus a process fault',
+          'Coordinating with engineering and utilities staff',
+        ],
+      },
+      {
+        title: 'Shift Coordination and Handover',
+        text: 'Passing a live process safely between shifts.',
+        topics: [
+          'Structured handover of a running process',
+          'Communicating deviations and interventions made',
+          'Coordinating with laboratory, stores and maintenance',
+          'Keeping the shift log complete and accurate',
+        ],
+      },
     ],
   },
 
@@ -990,6 +1180,26 @@ export const courseOutlines = {
           'Supporting planned maintenance activity',
         ],
       },
+      {
+        title: 'Teamwork and Communication on the Line',
+        text: 'Working with the people around you.',
+        topics: [
+          'Communicating clearly during a running shift',
+          'Shift handover and passing on problems',
+          'Supporting new operators on the line',
+          'Workplace conduct, attendance and reliability',
+        ],
+      },
+      {
+        title: 'Waste, Efficiency and Improvement',
+        text: 'Producing more with less.',
+        topics: [
+          'Recognising the main sources of waste at your station',
+          'Reducing scrap, rework and material loss',
+          'Suggesting and testing small improvements',
+          'Understanding your effect on the whole line',
+        ],
+      },
     ],
   },
 
@@ -1055,6 +1265,26 @@ export const courseOutlines = {
           'Learner records, evidence files and certification',
           'Supporting workplace skills planning and reporting',
           'Working with providers, SETAs and funding processes',
+        ],
+      },
+      {
+        title: 'HR Systems and Digital Tools',
+        text: 'Working accurately inside the systems HR runs on.',
+        topics: [
+          'HR information systems and self-service portals',
+          'Data capture accuracy and validation',
+          'Producing standard HR reports and extracts',
+          'Document management and electronic filing',
+        ],
+      },
+      {
+        title: 'Employee Support and Service',
+        text: 'Being the first point of contact for the workforce.',
+        topics: [
+          'Handling employee queries professionally',
+          'Explaining policy and procedure clearly',
+          'Escalating sensitive matters appropriately',
+          'Supporting wellness and employee assistance administration',
         ],
       },
     ],
@@ -1134,6 +1364,16 @@ export const courseOutlines = {
           'Recommending and evaluating HR interventions',
         ],
       },
+      {
+        title: 'Organisational Development and Change',
+        text: 'Supporting the business through structural and cultural change.',
+        topics: [
+          'Organisational structure, job design and role clarity',
+          'Supporting restructuring and change processes',
+          'Culture, engagement and employee voice',
+          'Consultation and communication during change',
+        ],
+      },
     ],
   },
 
@@ -1199,6 +1439,26 @@ export const courseOutlines = {
           'Safe handling and storage of chemicals and medicines',
           'Machinery, vehicle and equipment safety',
           'Environmental care, waste and water responsibility',
+        ],
+      },
+      {
+        title: 'Farm Equipment and Implements',
+        text: 'Using and looking after the tools of the job.',
+        topics: [
+          'Hand tools and implements used in crop work',
+          'Safe operation of equipment under instruction',
+          'Daily checks, cleaning and storage',
+          'Reporting damage and faults',
+        ],
+      },
+      {
+        title: 'Working Effectively on a Farm Team',
+        text: 'Being a reliable member of a crop crew.',
+        topics: [
+          'Following instructions accurately',
+          'Communicating with the team and supervisor',
+          'Timekeeping, attendance and conduct',
+          'Working safely alongside machinery and others',
         ],
       },
     ],
@@ -1268,6 +1528,26 @@ export const courseOutlines = {
           'Environmental care, waste and water responsibility',
         ],
       },
+      {
+        title: 'Marketing and Enterprise Economics',
+        text: 'Selling the product and knowing what it cost.',
+        topics: [
+          'Market channels, timing and price factors',
+          'Preparing and presenting animals for market',
+          'Production costs, margins and gross profit',
+          'Basic enterprise budgets and decisions',
+        ],
+      },
+      {
+        title: 'Infrastructure, Equipment and Farm Maintenance',
+        text: 'Keeping the enterprise\'s assets working.',
+        topics: [
+          'Planning and supervising infrastructure maintenance',
+          'Water systems, fencing and handling facilities',
+          'Equipment servicing schedules and records',
+          'Managing contractors and maintenance spend',
+        ],
+      },
     ],
   },
 
@@ -1333,6 +1613,26 @@ export const courseOutlines = {
           'Safe handling and storage of chemicals and medicines',
           'Machinery, vehicle and equipment safety',
           'Environmental care, waste and water responsibility',
+        ],
+      },
+      {
+        title: 'Mechanisation and Equipment Management',
+        text: 'Running the machinery a crop unit depends on.',
+        topics: [
+          'Selecting implements for the operation',
+          'Calibration of planters, sprayers and spreaders',
+          'Maintenance planning and equipment records',
+          'Operator supervision and safe practice',
+        ],
+      },
+      {
+        title: 'Farm Records, Costing and Compliance',
+        text: 'The paperwork behind a production unit.',
+        topics: [
+          'Production, input and application records',
+          'Enterprise costing and gross margin analysis',
+          'Traceability and food safety requirements',
+          'Regulatory and certification record-keeping',
         ],
       },
     ],
@@ -1402,6 +1702,26 @@ export const courseOutlines = {
           'Environmental care, waste and water responsibility',
         ],
       },
+      {
+        title: 'Grazing and Camp Management',
+        text: 'Managing the land the animals live on.',
+        topics: [
+          'Camps, rotation and rest periods',
+          'Recognising over-grazing and veld condition',
+          'Water points, licks and supplementary feeding sites',
+          'Moving stock between camps safely',
+        ],
+      },
+      {
+        title: 'Farm Equipment and Vehicles',
+        text: 'Using the equipment the job requires.',
+        topics: [
+          'Common farm implements and their use',
+          'Safe operation of vehicles and tractors on a farm',
+          'Daily checks and basic maintenance',
+          'Reporting faults and damage',
+        ],
+      },
     ],
   },
 
@@ -1469,6 +1789,26 @@ export const courseOutlines = {
           'Environmental care, waste and water responsibility',
         ],
       },
+      {
+        title: 'Shed Preparation and Turnaround',
+        text: 'Getting the house ready for the next placement.',
+        topics: [
+          'Cleaning, washing and disinfecting between cycles',
+          'Litter removal, replacement and preparation',
+          'Equipment checks, repair and calibration',
+          'Downtime, rest periods and placement readiness',
+        ],
+      },
+      {
+        title: 'Catching, Loading and Depletion',
+        text: 'Moving birds without losing condition or welfare.',
+        topics: [
+          'Preparing a flock for catching',
+          'Humane catching and handling techniques',
+          'Loading, crating and transport preparation',
+          'Records, weights and reconciliation at depletion',
+        ],
+      },
     ],
   },
 
@@ -1534,6 +1874,26 @@ export const courseOutlines = {
           'Preparing and monitoring a unit budget',
           'Cost awareness and resource efficiency',
           'Reporting operational results to management',
+        ],
+      },
+      {
+        title: 'Managing Change and Improvement',
+        text: 'Leading a team through a change in how the work is done.',
+        topics: [
+          'Why change is resisted and how to reduce it',
+          'Introducing a change to a working team',
+          'Involving the team in improving the work',
+          'Sustaining a change once the attention moves on',
+        ],
+      },
+      {
+        title: 'Ethics, Governance and Compliance',
+        text: 'Managing inside the rules the organisation is bound by.',
+        topics: [
+          'Ethical conduct and conflict of interest',
+          'Organisational policy, procedure and delegation',
+          'Legislative obligations relevant to a junior manager',
+          'Recognising and reporting misconduct',
         ],
       },
     ],
@@ -1613,6 +1973,16 @@ export const courseOutlines = {
           'Reporting to the supervisor with useful detail',
         ],
       },
+      {
+        title: 'Quality Systems and Standards',
+        text: 'Working inside a formal quality system.',
+        topics: [
+          'Quality management systems in a production plant',
+          'Procedures, work instructions and controlled documents',
+          'Internal audits and non-conformance reporting',
+          'Traceability and evidence of conformity',
+        ],
+      },
     ],
   },
 
@@ -1678,6 +2048,26 @@ export const courseOutlines = {
           'Communication on the production floor',
           'Timekeeping, attendance and workplace conduct',
           'Working safely alongside others',
+        ],
+      },
+      {
+        title: 'Calculations for Production Work',
+        text: 'The arithmetic the job actually needs.',
+        topics: [
+          'Units, conversions and measurement in practice',
+          'Length, area, volume and mass calculations',
+          'Ratios, percentages and simple proportions',
+          'Checking a calculation before you cut or mix',
+        ],
+      },
+      {
+        title: 'Preparing and Finishing Work',
+        text: 'The steps either side of the main operation.',
+        topics: [
+          'Preparing material and work surfaces',
+          'Cutting, filing, drilling and deburring',
+          'Cleaning, protecting and finishing a component',
+          'Presenting completed work for inspection',
         ],
       },
     ],
@@ -1747,6 +2137,26 @@ export const courseOutlines = {
           'Handover documentation between shifts',
         ],
       },
+      {
+        title: 'Machine Set-up and Operation',
+        text: 'Setting a machine up and running it to target.',
+        topics: [
+          'Interpreting a job card and setting requirements',
+          'Machine set-up, adjustment and first-off',
+          'Operating to rate without losing quality',
+          'Changeover and end-of-run procedures',
+        ],
+      },
+      {
+        title: 'Working to Production Targets',
+        text: 'Meeting the number the shift is asked for.',
+        topics: [
+          'Understanding output targets and how they are set',
+          'Monitoring your own rate through a shift',
+          'Identifying what is slowing the job down',
+          'Raising problems early enough to matter',
+        ],
+      },
     ],
   },
 
@@ -1814,6 +2224,26 @@ export const courseOutlines = {
           'Environmental care, waste and water responsibility',
         ],
       },
+      {
+        title: 'Growing Environments and Structures',
+        text: 'Controlling the conditions plants grow in.',
+        topics: [
+          'Tunnels, shade houses and greenhouse basics',
+          'Irrigation systems in a nursery setting',
+          'Light, temperature and ventilation control',
+          'Maintaining structures and growing areas',
+        ],
+      },
+      {
+        title: 'Plant Knowledge and Customer Advice',
+        text: 'Knowing the plants well enough to advise on them.',
+        topics: [
+          'Plant identification and naming conventions',
+          'Growth habits, seasons and site requirements',
+          'Advising on planting, care and aftercare',
+          'Presenting and merchandising plants',
+        ],
+      },
     ],
   },
 
@@ -1879,6 +2309,26 @@ export const courseOutlines = {
           'Involving families in a child\'s learning',
           'Community resources and referral networks',
           'Record-keeping, reporting and professional conduct',
+        ],
+      },
+      {
+        title: 'Inclusive Practice and Diversity',
+        text: 'Making sure every child in the room is included.',
+        topics: [
+          'Barriers to learning and how to reduce them',
+          'Adapting activities for children with disabilities',
+          'Language diversity and multilingual settings',
+          'Culture, identity and belonging in early learning',
+        ],
+      },
+      {
+        title: 'Running an Early Learning Programme',
+        text: 'The administration behind a well-run ECD site.',
+        topics: [
+          'Daily registers, records and child files',
+          'Reporting on children\'s progress to parents',
+          'Site requirements, registration and compliance basics',
+          'Working as part of an ECD team',
         ],
       },
     ],
