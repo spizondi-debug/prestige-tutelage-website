@@ -90,7 +90,18 @@ for (const id of Object.keys(courseOutlines)) {
     problems.push(`outline ${id} has no matching qualification`)
 }
 
-// 6. robots.txt points at the sitemap and blocks nothing important.
+// 6. Canonical host. www is the decided host, so a bare-domain URL anywhere
+//    in the emitted output is a split-signal bug, not a style choice.
+const APEX = 'https://prestigetutelage.co.za'
+for (const l of locs) if (l.startsWith(APEX)) problems.push(`sitemap uses the apex host: ${l}`)
+const html = fs.readFileSync('index.html', 'utf8')
+for (const m of html.matchAll(/https:\/\/prestigetutelage\.co\.za[^"'\s<]*/g))
+  problems.push(`index.html uses the apex host: ${m[0]}`)
+const redirects = fs.readFileSync('public/_redirects', 'utf8')
+if (!redirects.includes('https://prestigetutelage.co.za/*'))
+  problems.push('public/_redirects does not redirect the apex domain to www')
+
+// 7. robots.txt points at the sitemap and blocks nothing important.
 const robots = fs.readFileSync('public/robots.txt', 'utf8')
 if (!robots.includes(`${ORIGIN}/sitemap.xml`)) problems.push('robots.txt does not reference the sitemap')
 for (const bad of ['Disallow: /', 'Disallow: /programmes', 'Disallow: /assets']) {

@@ -6,12 +6,14 @@ import { coursePath } from './slug.js'
 /**
  * One source of truth for everything a search engine reads.
  *
- * ORIGIN keeps the www host the rest of the site already canonicalises to —
- * robots.txt, the sitemap and the JSON-LD all use it. The brief gives the
- * domain without www; switching would need a host redirect this project cannot
- * verify, so it is listed as an open item rather than changed silently. Mixing
- * the two is the one thing that would actually hurt: it splits ranking signals
- * across two addresses.
+ * ORIGIN is the canonical host, confirmed with the client as www. Everything
+ * that names the site — canonical tags, the sitemap, robots.txt, Open Graph
+ * and the JSON-LD — is generated from this constant, so there is one place to
+ * change it and no way for two of them to disagree.
+ *
+ * The apex domain is redirected to www in public/_redirects. That redirect is
+ * the half that makes this real: without it the same 49 URLs are reachable at
+ * two hosts, and the ranking signals split between them.
  */
 export const ORIGIN = 'https://www.prestigetutelage.co.za'
 export const SITE_NAME = brand.name
