@@ -46,6 +46,13 @@ export default {
           // white. This is the same hue at the same saturation, dark enough
           // to clear 4.5:1 on White, Cloud and Mist.
           'green-deep': '#1E7A2E',
+          // The far end of the green card gradient on /industries. White is
+          // 7.89:1 here and 5.41:1 on green-deep, so type clears AA across the
+          // whole sweep rather than only at the dark end.
+          'green-deeper': '#175E24',
+          // The green counterpart to blue-light, for tiles on the green cards.
+          // Body #3E5B77 is 6.41:1 on it.
+          'green-pale': '#EAF7EE',
           // Lifted green for accents sitting on blue.
           'green-light': '#8FE3A1',
         },
