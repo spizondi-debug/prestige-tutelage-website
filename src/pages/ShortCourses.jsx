@@ -16,7 +16,7 @@ import {
 } from '../data/shortCourses.js'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { CountIcon, iconForCategory } from '../data/shortCourseIcons.js'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, GraduationCap, Info, Presentation, Route } from 'lucide-react'
 
 /**
  * The eyebrow label — the leading half of the category title, so "Leadership &
@@ -78,24 +78,72 @@ export default function ShortCourses() {
         </div>
       </PageHeader>
 
-      {/* What these are — stated plainly and early */}
-      <section className="border-b border-line bg-paper py-12">
+      {/* What these are — stated plainly and early, as the choice a visitor is
+          actually making. The two routes are given equal weight: a short course
+          is not a lesser qualification, it is a different thing, and the page
+          should not read as though one is a consolation for the other.
+
+          The compliance wording is unchanged. STATUS_NOTE and CERTIFICATE_NOTE
+          are rendered verbatim from the data — CERTIFICATE_NOTE sits in the
+          callout because "this is not a national qualification certificate" is
+          the sentence a visitor most needs to not miss. Nothing here
+          paraphrases or softens either. */}
+      <section className="border-b border-line bg-mist/50 py-14 lg:py-16">
         <div className="container-px">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
-            <div className="border-l-2 border-prestige-blue/60 pl-5">
-              <h2 className="font-sans font-semibold text-ink">Professional development short courses</h2>
-              <p className="mt-2 leading-relaxed text-body">{STATUS_NOTE}</p>
-              <p className="mt-3 leading-relaxed text-body">{CERTIFICATE_NOTE}</p>
+          <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-prestige-green-deep">
+            <Route size={17} strokeWidth={1.9} aria-hidden="true" className="shrink-0" />
+            Choose the right learning route
+          </p>
+          <h2 className="mt-4 font-display text-section font-semibold text-prestige-green-deep">
+            Professional development or a formal qualification?
+          </h2>
+
+          <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
+            {/* Short courses */}
+            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-blue bg-paper p-7 shadow-premium lg:p-8">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                Short courses
+              </p>
+              <div className="mt-4 flex items-start gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-light text-prestige-blue-hover">
+                  <Presentation size={22} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <h3 className="font-display text-xl font-semibold leading-snug text-ink">
+                  Professional development interventions
+                </h3>
+              </div>
+              <p className="mt-5 leading-relaxed text-body">{STATUS_NOTE}</p>
+              <p className="mt-5 flex items-start gap-3 rounded-xl bg-prestige-blue-light p-4 text-sm leading-relaxed text-body">
+                <Info size={17} strokeWidth={1.9} aria-hidden="true" className="mt-0.5 shrink-0 text-prestige-blue-hover" />
+                {CERTIFICATE_NOTE}
+              </p>
             </div>
-            <div className="border-l-2 border-prestige-green/60 pl-5">
-              <h2 className="font-sans font-semibold text-ink">Looking for a qualification instead?</h2>
-              <p className="mt-2 leading-relaxed text-body">
+
+            {/* Qualifications */}
+            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-green bg-prestige-green-pale p-7 shadow-premium lg:p-8">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                Qualifications
+              </p>
+              <div className="mt-4 flex items-start gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-paper text-prestige-green-deep">
+                  <GraduationCap size={22} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <h3 className="font-display text-xl font-semibold leading-snug text-ink">
+                  Looking for a qualification instead?
+                </h3>
+              </div>
+              <p className="mt-5 leading-relaxed text-body">
                 Prestige also delivers qualifications with stated SAQA IDs and NQF levels, through
                 full programmes or learnerships.
               </p>
-              <Link to="/programmes" className="mt-3 inline-block text-sm font-semibold text-prestige-blue-hover hover:underline">
-                See programmes &amp; qualifications →
-              </Link>
+              <div className="mt-auto pt-7">
+                <Link to="/programmes" className="btn btn-primary w-full sm:w-auto">
+                  See programmes &amp; qualifications
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-4 w-4">
+                    <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
