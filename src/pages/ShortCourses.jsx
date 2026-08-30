@@ -4,6 +4,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
+import LearningRoutes from '../components/LearningRoutes.jsx'
 import {
   shortCourseCategories,
   shortCoursePositioning,
@@ -16,7 +17,7 @@ import {
 } from '../data/shortCourses.js'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { CountIcon, iconForCategory } from '../data/shortCourseIcons.js'
-import { ArrowUpRight, GraduationCap, Presentation, Route } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 /**
  * The eyebrow label — the leading half of the category title, so "Leadership &
@@ -58,25 +59,6 @@ function CourseList({ courses }) {
   )
 }
 
-/**
- * RouteLink — a plain text link with a trailing arrow, not a button. Matches
- * the CTA on the mirror of this section on Programmes, which previously used
- * a filled pill this side didn't.
- */
-function RouteLink({ children, ...props }) {
-  return (
-    <Link
-      {...props}
-      className="group inline-flex items-center gap-2 font-sans font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
-    >
-      {children}
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform duration-200 ease-prestige group-hover:translate-x-0.5">
-        <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </Link>
-  )
-}
-
 export default function ShortCourses() {
   usePageMeta(
     'Short Courses',
@@ -97,74 +79,20 @@ export default function ShortCourses() {
         </div>
       </PageHeader>
 
-      {/* What these are — stated plainly and early, as the choice a visitor is
-          actually making. The two routes are given equal weight: a short course
-          is not a lesser qualification, it is a different thing, and the page
-          should not read as though one is a consolation for the other.
-
-          The compliance wording is unchanged. STATUS_NOTE and CERTIFICATE_NOTE
-          are rendered verbatim from the data — CERTIFICATE_NOTE sits in the
-          callout because "this is not a national qualification certificate" is
-          the sentence a visitor most needs to not miss. Nothing here
-          paraphrases or softens either. */}
-      <section className="border-b border-line bg-mist/50 py-14 lg:py-16">
-        <div className="container-px">
-          <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-prestige-green-deep">
-            <Route size={17} strokeWidth={1.9} aria-hidden="true" className="shrink-0" />
-            Choose the right learning route
-          </p>
-          <h2 className="mt-4 font-display text-section font-semibold text-prestige-green-deep">
-            Professional development or a formal qualification?
-          </h2>
-
-          {/* One card, not two — the same shared-border treatment used on
-              the Programmes page's mirror of this section, so the site's two
-              "which route" moments read as one design rather than two. */}
-          <div className="mt-10 overflow-hidden rounded-lg border border-line bg-paper">
-            <div className="h-[3px] w-full bg-prestige-blue" aria-hidden="true" />
-            <div className="grid lg:grid-cols-2 lg:divide-x lg:divide-line">
-              {/* Short courses */}
-              <div className="flex flex-col border-b border-line p-7 lg:border-b-0 lg:p-9">
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-prestige-blue-hover">
-                  Short courses
-                </p>
-                <div className="mt-4 flex items-center gap-3">
-                  <Presentation size={28} strokeWidth={1.6} aria-hidden="true" className="shrink-0 text-prestige-blue-hover" />
-                  <h3 className="font-display text-xl font-semibold leading-snug text-ink">
-                    Professional development interventions
-                  </h3>
-                </div>
-                <p className="mt-5 leading-relaxed text-body">{STATUS_NOTE}</p>
-                <Disclaimer className="mt-5">{CERTIFICATE_NOTE}</Disclaimer>
-              </div>
-
-              {/* Qualifications — the same blue treatment as the short-courses
-                  side, not a paired blue/green scheme. Two halves in
-                  different brand colours reads as a template choice rather
-                  than a considered distinction, and nothing about a
-                  qualification is actually green. */}
-              <div className="flex flex-col p-7 lg:p-9">
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-prestige-blue-hover">
-                  Qualifications
-                </p>
-                <div className="mt-4 flex items-center gap-3">
-                  <GraduationCap size={28} strokeWidth={1.6} aria-hidden="true" className="shrink-0 text-prestige-blue-hover" />
-                  <h3 className="font-display text-xl font-semibold leading-snug text-ink">
-                    Looking for a qualification instead?
-                  </h3>
-                </div>
-                <p className="mt-5 leading-relaxed text-body">
-                  Prestige also delivers qualifications with stated SAQA IDs and NQF levels, through
-                  full programmes or learnerships.
-                </p>
-                <div className="mt-auto pt-7">
-                  <RouteLink to="/programmes">See programmes &amp; qualifications</RouteLink>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LearningRoutes
+        route1={{
+          badge: 'Short courses',
+          title: 'Professional short courses',
+          lead: 'Focused, practical courses for immediate workplace impact.',
+          detail: [STATUS_NOTE, CERTIFICATE_NOTE],
+        }}
+        route2={{
+          badge: 'Qualifications',
+          title: 'Qualifications & accredited programmes',
+          lead: 'Structured programmes and learnerships that combine guided learning, workplace experience and formal assessment.',
+          cta: { label: 'See programmes & qualifications', to: '/programmes' },
+        }}
+      />
 
       {/* Category quick-nav */}
       <section className="border-b border-line py-8">
