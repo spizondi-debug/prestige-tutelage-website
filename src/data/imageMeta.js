@@ -12,6 +12,7 @@ export const imageMeta = {
   'certificates-cohort.jpg': { w: 1920, h: 2400 },
   'fabrication-workshop-floor.jpg': { w: 1920, h: 2341 },
   'facilitator-session.jpg': { w: 1920, h: 1280 },
+  'growth-pathways-video-poster.jpg': { w: 1600, h: 900 },
   'learner-angle-grinder.jpg': { w: 1920, h: 2549 },
   'learner-bandsaw-operator.jpg': { w: 1920, h: 3231 },
   'learner-carrying-steel-beam.jpg': { w: 1920, h: 3231 },

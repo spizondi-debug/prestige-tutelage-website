@@ -15,6 +15,10 @@ export default function Reveal({ children, delay = 0, as: Tag = 'div', className
   return (
     <Tag
       ref={ref}
+      // Lets the print stylesheet force the finished state. Without it a page
+      // sent to the printer before a section was scrolled to prints blank:
+      // the opacity below is inline, so only a targeted !important beats it.
+      data-reveal=""
       className={className}
       style={{
         opacity: on ? 1 : 0,

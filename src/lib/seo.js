@@ -98,7 +98,7 @@ export const pageSeo = {
   '/growth-pathways': {
     title: 'Prestige Growth Pathways',
     description:
-      'One workforce, one development journey. Growth Pathways connects skills planning, learning delivery and progression into a single view for employers.',
+      'One workforce, one connected development journey. Growth Pathways links skills gaps, development planning, learning and progression to measurable outcomes.',
   },
   '/insights': {
     title: 'Skills Development Insights and Guides',

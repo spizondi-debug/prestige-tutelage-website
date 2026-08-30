@@ -391,6 +391,13 @@
   [role='region'] > div { overflow: visible !important; }
   [aria-expanded] svg { display: none !important; }
 
+  /* Reveal fades its content in on scroll, via inline opacity/transform. A
+     section that was never scrolled to is still at opacity 0 when the page is
+     printed, so the finished state has to be forced here or it prints blank.
+     Scoped to [data-reveal] rather than every element carrying an inline
+     opacity, which would also flatten the hero slider's stacked slides. */
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+
   a[href]::after { content: '' !important; }
 
   * {
