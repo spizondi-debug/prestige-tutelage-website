@@ -34,6 +34,8 @@ function ServicesMenu({ item, linkClass }) {
     }
   }, [open])
 
+  const solutions = item.children.filter((c) => c.to !== item.to)
+
   return (
     <div
       ref={wrap}
@@ -63,19 +65,42 @@ function ServicesMenu({ item, linkClass }) {
       </NavLink>
 
       {open && (
-        <div className="absolute left-1/2 top-full z-50 w-[22rem] -translate-x-1/2 pt-3">
-          <ul className="overflow-hidden rounded-lg border border-line bg-paper shadow-premium">
-            {item.children.map((c, i) => (
-              <li key={c.to} className={i ? 'border-t border-line' : ''}>
-                <Link to={c.to} className="group block px-5 py-3.5 transition-colors hover:bg-mist/60">
-                  <span className="block font-sans text-[0.95rem] font-semibold text-ink transition-colors group-hover:text-prestige-blue-hover">
-                    {c.label}
-                  </span>
-                  <span className="mt-0.5 block text-sm text-muted">{c.description}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        // Right-aligned to the trigger rather than centred: Business Solutions
+        // sits well to the right of the nav bar, and a ~34rem panel centred
+        // under it would run off the right edge of the screen at 1280px, the
+        // narrowest width this menu appears at (the `xl` breakpoint below
+        // which the whole desktop nav — trigger included — is hidden).
+        //
+        // The index link ("All Business Solutions") is deliberately not
+        // repeated in the grid: the trigger word itself is a real link to
+        // /business-solutions, so listing it again inside the panel would be
+        // the same destination twice.
+        <div className="absolute right-0 top-full z-50 w-[34rem] pt-3">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-prestige-blue-hover shadow-lifted">
+            <div className="px-7 pb-5 pt-6">
+              <h2 className="font-display text-xl font-semibold text-white">Business Solutions</h2>
+              <p className="mt-1.5 text-sm text-white">Practical support for stronger teams and organisations.</p>
+            </div>
+            <ul className="grid border-t border-white/15 sm:grid-cols-2">
+              {solutions.map((c, i) => (
+                <li
+                  key={c.to}
+                  className={[
+                    i === 0 ? '' : i === 1 ? 'border-t border-white/15 sm:border-t-0' : 'border-t border-white/15',
+                    i % 2 === 0 ? 'sm:border-r sm:border-white/15' : '',
+                  ].join(' ')}
+                >
+                  <Link
+                    to={c.to}
+                    className="group block px-6 py-4 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
+                  >
+                    <span className="block font-sans text-[0.95rem] font-semibold text-white">{c.label}</span>
+                    <span className="mt-1 block text-sm text-white">{c.description}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
