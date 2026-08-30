@@ -58,6 +58,25 @@ function CourseList({ courses }) {
   )
 }
 
+/**
+ * RouteLink — a plain text link with a trailing arrow, not a button. Matches
+ * the CTA on the mirror of this section on Programmes, which previously used
+ * a filled pill this side didn't.
+ */
+function RouteLink({ children, ...props }) {
+  return (
+    <Link
+      {...props}
+      className="group inline-flex items-center gap-2 font-sans font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
+    >
+      {children}
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform duration-200 ease-prestige group-hover:translate-x-0.5">
+        <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </Link>
+  )
+}
+
 export default function ShortCourses() {
   usePageMeta(
     'Short Courses',
@@ -98,52 +117,49 @@ export default function ShortCourses() {
             Professional development or a formal qualification?
           </h2>
 
-          <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
-            {/* Short courses */}
-            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-blue bg-paper p-7 shadow-premium lg:p-8">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                Short courses
-              </p>
-              <div className="mt-4 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-light text-prestige-blue-hover">
-                  <Presentation size={22} strokeWidth={1.8} aria-hidden="true" />
-                </span>
-                <h3 className="font-display text-xl font-semibold leading-snug text-ink">
-                  Professional development interventions
-                </h3>
+          {/* One card, not two — the same shared-border treatment used on
+              the Programmes page's mirror of this section, so the site's two
+              "which route" moments read as one design rather than two. */}
+          <div className="mt-10 overflow-hidden rounded-lg border border-line bg-paper">
+            <div className="h-[3px] w-full bg-prestige-blue" aria-hidden="true" />
+            <div className="grid lg:grid-cols-2 lg:divide-x lg:divide-line">
+              {/* Short courses */}
+              <div className="flex flex-col border-b border-line p-7 lg:border-b-0 lg:p-9">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-prestige-blue-hover">
+                  Short courses
+                </p>
+                <div className="mt-4 flex items-center gap-3">
+                  <Presentation size={28} strokeWidth={1.6} aria-hidden="true" className="shrink-0 text-prestige-blue-hover" />
+                  <h3 className="font-display text-xl font-semibold leading-snug text-ink">
+                    Professional development interventions
+                  </h3>
+                </div>
+                <p className="mt-5 leading-relaxed text-body">{STATUS_NOTE}</p>
+                <Disclaimer className="mt-5">{CERTIFICATE_NOTE}</Disclaimer>
               </div>
-              <p className="mt-5 leading-relaxed text-body">{STATUS_NOTE}</p>
-              <Disclaimer className="mt-5">{CERTIFICATE_NOTE}</Disclaimer>
-            </div>
 
-            {/* Qualifications — the same blue treatment as the short-courses
-                card, not a paired blue/green scheme. Two cards in different
-                brand colours reads as a template choice rather than a
-                considered distinction, and nothing about a qualification is
-                actually green. */}
-            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-blue bg-paper p-7 shadow-premium lg:p-8">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                Qualifications
-              </p>
-              <div className="mt-4 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-light text-prestige-blue-hover">
-                  <GraduationCap size={22} strokeWidth={1.8} aria-hidden="true" />
-                </span>
-                <h3 className="font-display text-xl font-semibold leading-snug text-ink">
-                  Looking for a qualification instead?
-                </h3>
-              </div>
-              <p className="mt-5 leading-relaxed text-body">
-                Prestige also delivers qualifications with stated SAQA IDs and NQF levels, through
-                full programmes or learnerships.
-              </p>
-              <div className="mt-auto pt-7">
-                <Link to="/programmes" className="btn btn-primary w-full sm:w-auto">
-                  See programmes &amp; qualifications
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-4 w-4">
-                    <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
+              {/* Qualifications — the same blue treatment as the short-courses
+                  side, not a paired blue/green scheme. Two halves in
+                  different brand colours reads as a template choice rather
+                  than a considered distinction, and nothing about a
+                  qualification is actually green. */}
+              <div className="flex flex-col p-7 lg:p-9">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-prestige-blue-hover">
+                  Qualifications
+                </p>
+                <div className="mt-4 flex items-center gap-3">
+                  <GraduationCap size={28} strokeWidth={1.6} aria-hidden="true" className="shrink-0 text-prestige-blue-hover" />
+                  <h3 className="font-display text-xl font-semibold leading-snug text-ink">
+                    Looking for a qualification instead?
+                  </h3>
+                </div>
+                <p className="mt-5 leading-relaxed text-body">
+                  Prestige also delivers qualifications with stated SAQA IDs and NQF levels, through
+                  full programmes or learnerships.
+                </p>
+                <div className="mt-auto pt-7">
+                  <RouteLink to="/programmes">See programmes &amp; qualifications</RouteLink>
+                </div>
               </div>
             </div>
           </div>

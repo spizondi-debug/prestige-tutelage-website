@@ -73,6 +73,26 @@ function FilterGroup({ label, options, value, onChange, formatter = (v) => v }) 
   )
 }
 
+/**
+ * RouteLink — a plain text link with a trailing arrow, not a button. Both
+ * CTAs in the section above use it; previously one was an outline pill and
+ * the other a filled pill, two different weights of emphasis neither route
+ * actually needed.
+ */
+function RouteLink({ as: Tag = Link, children, ...props }) {
+  return (
+    <Tag
+      {...props}
+      className="group inline-flex items-center gap-2 font-sans font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
+    >
+      {children}
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform duration-200 ease-prestige group-hover:translate-x-0.5">
+        <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </Tag>
+  )
+}
+
 export default function Programmes() {
   usePageMeta(
     'Programmes & Qualifications',
@@ -127,83 +147,85 @@ export default function Programmes() {
           below, which lists qualifications only. */}
       <section className="border-b border-line bg-mist/50 py-14 lg:py-16">
         <div className="container-px">
-          <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
-            {/* Short courses */}
-            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-blue bg-paper p-7 shadow-premium lg:p-8">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                Route 01 · Non-credit-bearing
-              </p>
-              <div className="mt-4 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-light text-prestige-blue-hover">
-                  <Presentation size={22} strokeWidth={1.8} aria-hidden="true" />
-                </span>
-                <h2 className="font-display text-xl font-semibold leading-snug text-ink">
-                  Professional short courses
-                </h2>
+          {/* One card, not two. A shared border down the middle says "these
+              are the two halves of one choice" more plainly than two separate
+              boxes with their own shadows sitting side by side ever could —
+              and it is one fewer shadow, one fewer rounded corner, one fewer
+              thing on the page competing for the same kind of attention. */}
+          <div className="overflow-hidden rounded-lg border border-line bg-paper">
+            <div className="h-[3px] w-full bg-prestige-blue" aria-hidden="true" />
+            <div className="grid lg:grid-cols-2 lg:divide-x lg:divide-line">
+              {/* Short courses */}
+              <div className="border-b border-line p-7 lg:border-b-0 lg:p-9">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-prestige-blue-hover">
+                  Route 01 · Non-credit-bearing
+                </p>
+                <div className="mt-4 flex items-center gap-3">
+                  <Presentation size={28} strokeWidth={1.6} aria-hidden="true" className="shrink-0 text-prestige-blue-hover" />
+                  <h2 className="font-display text-xl font-semibold leading-snug text-ink">
+                    Professional short courses
+                  </h2>
+                </div>
+                <p className="mt-5 leading-relaxed text-body">
+                  Focused, practical courses for immediate workplace impact — non-NQF and non-credit-bearing
+                  unless a specific course has been confirmed otherwise in writing.
+                </p>
+                <div className="mt-7">
+                  <RouteLink to="/short-courses">Explore short courses</RouteLink>
+                </div>
               </div>
-              <p className="mt-5 leading-relaxed text-body">
-                Focused, practical courses for immediate workplace impact — non-NQF and non-credit-bearing
-                unless a specific course has been confirmed otherwise in writing.
-              </p>
-              <div className="pt-7">
-                <Link to="/short-courses" className="btn btn-outline w-full sm:w-auto">
-                  Explore short courses
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-4 w-4">
-                    <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
+
+              {/* Qualifications — same blue treatment as the short-courses side
+                  rather than a paired blue/green scheme. Two halves in
+                  different brand colours reads as a template choice ("side A
+                  is blue, side B is green") rather than a considered
+                  distinction, and nothing about a qualification is actually
+                  green. */}
+              <div className="p-7 lg:p-9">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-prestige-blue-hover">
+                  Route 02 · SAQA &amp; NQF aligned
+                </p>
+                <div className="mt-4 flex items-center gap-3">
+                  <GraduationCap size={28} strokeWidth={1.6} aria-hidden="true" className="shrink-0 text-prestige-blue-hover" />
+                  <h2 className="font-display text-xl font-semibold leading-snug text-ink">
+                    Qualifications &amp; accredited programmes
+                  </h2>
+                </div>
+                <p className="mt-5 leading-relaxed text-body">
+                  Prestige delivers qualifications with stated SAQA IDs and NQF levels through structured
+                  programmes, learnerships and focused skills programmes.
+                </p>
+
+                {/* Plain text over a hairline, not a tile with its own icon per
+                    row — three small coloured badges here added visual noise
+                    without adding information; the heading already says what
+                    each one is. */}
+                <div className="mt-6 grid gap-5 border-t border-line pt-6 sm:grid-cols-3 sm:divide-x sm:divide-line">
+                  {[
+                    { t: 'Full qualifications', d: 'Structured learning toward a qualification, with formal assessment and moderation.' },
+                    { t: 'Learnerships', d: 'Qualification-linked programmes combining classroom learning with structured workplace experience.' },
+                    { t: 'Skills programmes', d: 'Focused components for organisations that need targeted capability quickly.' },
+                  ].map((x) => (
+                    <div key={x.t} className="sm:px-5 sm:first:pl-0">
+                      <h3 className="font-sans text-sm font-semibold text-ink">{x.t}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-body">{x.d}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7">
+                  <RouteLink as="a" href="#catalogue">View the qualification catalogue</RouteLink>
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Qualifications — same blue treatment as the short-courses card
-                rather than a paired blue/green scheme. Two cards in different
-                brand colours reads as a template choice ("card A is blue, card
-                B is green") rather than a considered distinction, and nothing
-                about a qualification is actually green: the site's own colour
-                notes reserve green for growth, progression and confirmation,
-                not for a second content card that happens to sit on the right. */}
-            <div className="flex flex-col rounded-2xl border-l-4 border-prestige-blue bg-paper p-7 shadow-premium lg:p-8">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted">
-                Route 02 · SAQA &amp; NQF aligned
-              </p>
-              <div className="mt-4 flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-light text-prestige-blue-hover">
-                  <GraduationCap size={22} strokeWidth={1.8} aria-hidden="true" />
-                </span>
-                <h2 className="font-display text-xl font-semibold leading-snug text-ink">
-                  Qualifications &amp; accredited programmes
-                </h2>
-              </div>
-              <p className="mt-5 leading-relaxed text-body">
-                Prestige delivers qualifications with stated SAQA IDs and NQF levels through structured
-                programmes, learnerships and focused skills programmes.
-              </p>
-
-              {/* Plain text over a hairline, not a tile with its own icon per
-                  row — three small coloured badges here added visual noise
-                  without adding information; the heading already says what
-                  each one is. */}
-              <div className="mt-6 grid gap-5 border-t border-line pt-6 sm:grid-cols-3">
-                {[
-                  { t: 'Full qualifications', d: 'Structured learning toward a qualification, with formal assessment and moderation.' },
-                  { t: 'Learnerships', d: 'Qualification-linked programmes combining classroom learning with structured workplace experience.' },
-                  { t: 'Skills programmes', d: 'Focused components for organisations that need targeted capability quickly.' },
-                ].map((x) => (
-                  <div key={x.t}>
-                    <h3 className="font-sans text-sm font-semibold text-ink">{x.t}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-body">{x.d}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-7">
-                <a href="#catalogue" className="btn btn-primary w-full sm:w-auto">
-                  View the qualification catalogue
-                </a>
-              </div>
-
-              <Disclaimer className="mt-7">{AVAILABILITY_DISCLAIMER}</Disclaimer>
-            </div>
+          {/* Below the card rather than inside it: this now reads as one
+              note for the whole section, not a caveat attached to only the
+              qualifications half. Text unchanged — AVAILABILITY_DISCLAIMER is
+              marked "do not reword without sign-off" and renders verbatim. */}
+          <div className="mt-10 border-t-2 border-prestige-blue pt-6">
+            <p className="max-w-4xl text-sm leading-relaxed text-muted">{AVAILABILITY_DISCLAIMER}</p>
           </div>
         </div>
       </section>
