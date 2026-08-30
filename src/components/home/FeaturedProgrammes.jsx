@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { coursePath } from '../../lib/slug.js'
 import Reveal from '../Reveal.jsx'
 import Disclaimer from '../Disclaimer.jsx'
 import { Accent } from '../Section.jsx'
@@ -46,7 +47,7 @@ export default function FeaturedProgrammes() {
           {featured.map((q) => (
             <li key={q.saqaId}>
               <Link
-                to={`/programmes/${q.saqaId}`}
+                to={coursePath(q)}
                 className="group flex items-center justify-between gap-6 border-b border-line py-6 transition-colors hover:bg-cloud lg:px-2"
               >
                 <span className="min-w-0">

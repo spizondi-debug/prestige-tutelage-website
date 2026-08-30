@@ -47,6 +47,24 @@ export const OUTLINE_NOTE =
 export const OUTLINE_DRAFT_NOTE =
   'This module breakdown describes the subject areas this qualification covers and how Prestige Tutelage structures its delivery. It is not a reproduction of the registered curriculum: the registered unit standards, exit level outcomes and assessment criteria are confirmed in writing when your programme is scoped.'
 
+/**
+ * Entry requirements.
+ *
+ * Deliberately NOT per-course. A qualification's registered entry requirements
+ * are a regulated attribute set by the QCTO or the relevant quality council,
+ * and this project cannot reach the registry to read them. Writing a plausible
+ * "NQF 4 or equivalent" per course would be inventing a regulated fact, which
+ * is the one thing the whole data layer is arranged to prevent. What is stated
+ * here is true of every Prestige programme and commits to confirming the rest
+ * in writing.
+ */
+export const ENTRY_REQUIREMENTS = [
+  'Entry requirements are set by the qualification itself, and Prestige confirms them against the registered requirements for each learner before enrolment.',
+  'Employed learners are usually nominated by their employer as part of a workplace skills plan; unemployed learners are recruited into a funded or sponsored intake.',
+  'Where a qualification requires a workplace component, Prestige confirms the workplace, the mentor and the logbook arrangements with the employer before the programme starts.',
+  'Recognition of Prior Learning may be available depending on the qualification and the learner’s evidence. Ask us and we will tell you whether it applies here.',
+]
+
 /** Shown instead of modules where Prestige has not supplied a breakdown. */
 export const OUTLINE_ON_REQUEST =
   'A full module breakdown for this qualification is available on request. We will send the outline, the delivery schedule and the assessment arrangements once we understand who you are training and where.'
@@ -75,6 +93,13 @@ export const courseOutlines = {
     fullName: 'Occupational Certificate: Project Manager',
     source: SUPPLIED,
     durationMonths: 12,
+    purpose: 'Prepare project practitioners to plan, run and close projects to scope, time and cost — and to lead the people and stakeholders a project depends on.',
+    outcomes: [
+      'Project manager or project coordinator',
+      'Project administrator or project office support',
+      'Team leader running delivery projects',
+      'Progression toward programme or portfolio roles',
+    ],
     modules: [
       {
         title: 'Project Management Foundations',
@@ -162,6 +187,13 @@ export const courseOutlines = {
   101876: {
     fullName: 'Occupational Certificate: Management Assistant',
     source: DRAFTED,
+    purpose: 'Prepare experienced administrators to carry senior management support — running an executive\'s diary, correspondence, records and finances to a standard the business can rely on without supervision.',
+    outcomes: [
+      'Executive or personal assistant to a senior manager',
+      'Senior administrator in a corporate or public-sector office',
+      'Office coordinator with responsibility for systems and records',
+      'Progression into office supervision or operations support',
+    ],
     modules: [
       {
         title: 'Business Communication and Correspondence',
@@ -249,6 +281,13 @@ export const courseOutlines = {
   102159: {
     fullName: 'Occupational Certificate: Metal Manufacturing Melting and Refining Process Controller',
     source: DRAFTED,
+    purpose: 'Prepare controllers to run a melting and refining operation — charge, furnace, chemistry and safety — in one of the most demanding environments in manufacturing.',
+    outcomes: [
+      'Melting and refining process controller',
+      'Furnace operator in a foundry or smelter',
+      'Metallurgical process operator',
+      'Progression toward furnace or plant supervision',
+    ],
     modules: [
       {
         title: 'Melting and Refining Fundamentals',
@@ -336,6 +375,13 @@ export const courseOutlines = {
   102580: {
     fullName: 'Occupational Certificate: Production Process Machine Operator and Assembler',
     source: DRAFTED,
+    purpose: 'Prepare operators to set up and run a production machine and to assemble product to specification, repeatably and to tolerance.',
+    outcomes: [
+      'Machine operator in a production plant',
+      'Assembly operative or line assembler',
+      'Set-up and changeover operator',
+      'Progression toward machine setting or line leading',
+    ],
     modules: [
       {
         title: 'Machine Operation Fundamentals',
@@ -423,6 +469,13 @@ export const courseOutlines = {
   103018: {
     fullName: 'Occupational Certificate: Manufacturing Workshop Assistant',
     source: DRAFTED,
+    purpose: 'Build a reliable workshop assistant: someone who handles material safely, uses tools correctly and supports the trades without needing to be watched.',
+    outcomes: [
+      'Manufacturing workshop assistant',
+      'Fabrication or workshop general worker',
+      'Stores and materials assistant',
+      'Progression toward trade assistant or operator roles',
+    ],
     modules: [
       {
         title: 'Working in a Manufacturing Workshop',
@@ -510,6 +563,13 @@ export const courseOutlines = {
   103156: {
     fullName: 'Occupational Certificate: Lathe Operator',
     source: DRAFTED,
+    purpose: 'Prepare turners to set up a lathe, machine components to drawing and tolerance, and prove the work with proper measurement.',
+    outcomes: [
+      'Lathe operator or turner',
+      'Machine shop operative',
+      'Toolroom support',
+      'Progression toward machinist or setter-operator',
+    ],
     modules: [
       {
         title: 'Turning Fundamentals',
@@ -597,6 +657,13 @@ export const courseOutlines = {
   104461: {
     fullName: 'Occupational Certificate: Engine Workshop Maintenance Mechanic',
     source: DRAFTED,
+    purpose: 'Prepare mechanics to diagnose, strip, recondition and rebuild engines to manufacturer specification, and to stand behind the result.',
+    outcomes: [
+      'Engine workshop mechanic',
+      'Reconditioning and rebuild technician',
+      'Diesel or petrol engine fitter',
+      'Progression toward workshop foreman',
+    ],
     modules: [
       {
         title: 'Engine Systems and Operating Principles',
@@ -684,6 +751,13 @@ export const courseOutlines = {
   110318: {
     fullName: 'Occupational Certificate: Injection Moulding Machine Setter',
     source: DRAFTED,
+    purpose: 'Prepare setters to change moulds, dial in an injection moulding process and read a defective part back to the parameter that caused it.',
+    outcomes: [
+      'Injection moulding machine setter',
+      'Process setter in a plastics plant',
+      'Tooling and changeover technician',
+      'Progression toward moulding supervision',
+    ],
     modules: [
       {
         title: 'Injection Moulding Principles',
@@ -771,6 +845,13 @@ export const courseOutlines = {
   115723: {
     fullName: 'Occupational Certificate: Production Supervisor',
     source: DRAFTED,
+    purpose: 'Prepare supervisors to own a production shift — its output, quality, cost, safety and the people on the floor — and to keep it running when it does not go to plan.',
+    outcomes: [
+      'Production supervisor or shift supervisor',
+      'Line leader in a manufacturing plant',
+      'Production team leader',
+      'Progression toward production or plant management',
+    ],
     modules: [
       {
         title: 'The Production Supervisor\'s Role',
@@ -858,6 +939,13 @@ export const courseOutlines = {
   118706: {
     fullName: 'Occupational Certificate: Marketing Coordinator',
     source: DRAFTED,
+    purpose: 'Prepare marketing coordinators to run campaigns end to end — research, planning, content, suppliers and measurement — and to report honestly on what the activity achieved.',
+    outcomes: [
+      'Marketing coordinator or marketing assistant',
+      'Campaign and content coordinator',
+      'Events and promotions coordinator',
+      'Progression toward marketing officer or brand coordinator',
+    ],
     modules: [
       {
         title: 'Marketing Foundations',
@@ -945,6 +1033,13 @@ export const courseOutlines = {
   118740: {
     fullName: 'Occupational Certificate: Office Supervisor',
     source: DRAFTED,
+    purpose: 'Move capable administrators into supervision: owning an office\'s workflow, budget, records and service standards, and getting the work done through a team rather than alone.',
+    outcomes: [
+      'Office supervisor or office manager',
+      'Administration team leader',
+      'Operations or facilities coordinator',
+      'Progression into business or branch administration management',
+    ],
     modules: [
       {
         title: 'Supervising an Office Function',
@@ -1032,6 +1127,13 @@ export const courseOutlines = {
   119977: {
     fullName: 'Occupational Certificate: Production Process Controller',
     source: DRAFTED,
+    purpose: 'Prepare controllers to hold a production process inside its operating window — reading its data, correcting drift and proving the product meets specification.',
+    outcomes: [
+      'Production process controller',
+      'Process operator on a controlled plant',
+      'Quality and process monitoring role',
+      'Progression toward process supervision',
+    ],
     modules: [
       {
         title: 'Controlling a Production Process',
@@ -1119,6 +1221,13 @@ export const courseOutlines = {
   120037: {
     fullName: 'Occupational Certificate: Production Operator',
     source: DRAFTED,
+    purpose: 'Build a competent production operator: someone who runs equipment to procedure, catches quality problems early and works safely alongside a team.',
+    outcomes: [
+      'Production operator or machine operator',
+      'Manufacturing line operative',
+      'Packing and finishing operator',
+      'Progression toward senior operator or setter',
+    ],
     modules: [
       {
         title: 'Working in a Production Environment',
@@ -1206,6 +1315,13 @@ export const courseOutlines = {
   121150: {
     fullName: 'Occupational Certificate: Human Resource Management Administrator',
     source: DRAFTED,
+    purpose: 'Build a working foundation in human resource administration: the records, payroll input, recruitment support and statutory paperwork that keep an HR function accurate and compliant.',
+    outcomes: [
+      'HR administrator or HR assistant',
+      'Payroll and benefits administrator',
+      'Recruitment and onboarding coordinator',
+      'Training and skills-development administrator',
+    ],
     modules: [
       {
         title: 'Human Resource Administration Foundations',
@@ -1293,6 +1409,13 @@ export const courseOutlines = {
   121151: {
     fullName: 'Occupational Certificate: Human Resource Management Officer',
     source: DRAFTED,
+    purpose: 'Equip HR practitioners to run the operational HR function — resourcing, employee relations, performance and statutory reporting — and to advise line managers with evidence rather than opinion.',
+    outcomes: [
+      'HR officer or HR generalist',
+      'Employee relations practitioner',
+      'Recruitment and talent officer',
+      'Progression toward HR business partner or HR manager',
+    ],
     modules: [
       {
         title: 'The HR Officer Role and Operating Context',
@@ -1380,6 +1503,13 @@ export const courseOutlines = {
   48975: {
     fullName: 'National Certificate: Plant Production',
     source: DRAFTED,
+    purpose: 'Give entry-level crop workers the basics of plant production: soil preparation, planting, crop care and safe chemical handling.',
+    outcomes: [
+      'Crop or farm worker',
+      'Planting and harvesting team member',
+      'Irrigation assistant',
+      'Progression toward senior farm worker',
+    ],
     modules: [
       {
         title: 'Plant Production Basics',
@@ -1467,6 +1597,13 @@ export const courseOutlines = {
   48979: {
     fullName: 'National Certificate: Animal Production',
     source: DRAFTED,
+    purpose: 'Prepare experienced livestock staff to manage a herd or flock — nutrition, breeding, herd health and the records that drive the decisions.',
+    outcomes: [
+      'Livestock supervisor or herd manager',
+      'Emerging farmer running a livestock enterprise',
+      'Farm section leader',
+      'Progression toward farm management',
+    ],
     modules: [
       {
         title: 'Managing a Livestock Enterprise',
@@ -1554,6 +1691,13 @@ export const courseOutlines = {
   49009: {
     fullName: 'National Certificate: Plant Production',
     source: DRAFTED,
+    purpose: 'Prepare senior crop staff to manage a production unit — soil, water, crop protection, harvest and the costing behind it.',
+    outcomes: [
+      'Crop production supervisor',
+      'Section leader on a commercial farm',
+      'Emerging grower managing production areas',
+      'Progression toward farm or production management',
+    ],
     modules: [
       {
         title: 'Managing a Crop Production Unit',
@@ -1641,6 +1785,13 @@ export const courseOutlines = {
   49048: {
     fullName: 'National Certificate: Animal Production',
     source: DRAFTED,
+    purpose: 'Build a competent livestock worker: daily husbandry, feeding, health checks and handling, done safely and recorded properly.',
+    outcomes: [
+      'Livestock attendant or stockperson',
+      'General farm worker on a livestock enterprise',
+      'Herd or flock assistant',
+      'Progression toward senior stockperson',
+    ],
     modules: [
       {
         title: 'Livestock Production Basics',
@@ -1728,6 +1879,13 @@ export const courseOutlines = {
   49578: {
     fullName: 'National Certificate: Poultry Production',
     source: DRAFTED,
+    purpose: 'Prepare poultry staff to run a house properly: environment, feed, water, flock health and the records that show how the flock is performing.',
+    outcomes: [
+      'Poultry house attendant or stockperson',
+      'Broiler or layer unit worker',
+      'Poultry farm supervisor in training',
+      'Progression toward unit or farm supervision',
+    ],
     modules: [
       {
         title: 'Poultry Production Systems',
@@ -1815,6 +1973,13 @@ export const courseOutlines = {
   57712: {
     fullName: 'Further Education and Training Certificate: Generic Management',
     source: DRAFTED,
+    purpose: 'Give first-line and junior managers the core of the job: planning work, leading a team, managing performance and understanding the numbers behind their unit.',
+    outcomes: [
+      'Team leader or first-line manager',
+      'Supervisor across office, retail or operational settings',
+      'Section or unit head',
+      'Progression toward middle management',
+    ],
     modules: [
       {
         title: 'The Role of the Junior Manager',
@@ -1902,6 +2067,13 @@ export const courseOutlines = {
   58779: {
     fullName: 'National Certificate: Production Technology',
     source: DRAFTED,
+    purpose: 'Prepare experienced production staff to take responsibility for process performance, quality systems and the people working alongside them.',
+    outcomes: [
+      'Senior production operator',
+      'Production team leader',
+      'Quality and process improvement support',
+      'Progression toward production supervision',
+    ],
     modules: [
       {
         title: 'Production Technology Foundations',
@@ -1989,6 +2161,13 @@ export const courseOutlines = {
   58781: {
     fullName: 'National Certificate: Production Technology',
     source: DRAFTED,
+    purpose: 'Give new entrants the working basics of a production environment: measurement, tools, quality and safe conduct on a manufacturing floor.',
+    outcomes: [
+      'Production assistant or general worker',
+      'Entry-level machine operative',
+      'Assembly and finishing assistant',
+      'Progression toward operator roles',
+    ],
     modules: [
       {
         title: 'Production Technology Foundations',
@@ -2076,6 +2255,13 @@ export const courseOutlines = {
   58785: {
     fullName: 'National Certificate: Production Technology',
     source: DRAFTED,
+    purpose: 'Build a production worker who can set up and run equipment to target, keep the records the plant depends on and work to a quality standard.',
+    outcomes: [
+      'Production operator',
+      'Machine setter-operator',
+      'Production recorder or line administrator',
+      'Progression toward senior operator',
+    ],
     modules: [
       {
         title: 'Production Technology Foundations',
@@ -2163,6 +2349,13 @@ export const courseOutlines = {
   66589: {
     fullName: 'National Certificate: Horticulture',
     source: DRAFTED,
+    purpose: 'Prepare horticultural staff to propagate, grow and maintain plants to a saleable standard, in a nursery or on a landscape site.',
+    outcomes: [
+      'Nursery worker or horticultural assistant',
+      'Propagation and growing-on staff',
+      'Landscape planting and maintenance staff',
+      'Progression toward nursery or grounds supervision',
+    ],
     modules: [
       {
         title: 'Horticultural Foundations',
@@ -2250,6 +2443,13 @@ export const courseOutlines = {
   97542: {
     fullName: 'Further Education and Training Certificate: Early Childhood Development',
     source: DRAFTED,
+    purpose: 'Prepare practitioners to plan and facilitate early learning for young children, and to keep them safe, healthy and developing while they do it.',
+    outcomes: [
+      'Early childhood development practitioner',
+      'Pre-school or crèche facilitator',
+      'Playgroup or day-mother practitioner',
+      'Progression toward ECD site supervision or management',
+    ],
     modules: [
       {
         title: 'Child Development and How Children Learn',

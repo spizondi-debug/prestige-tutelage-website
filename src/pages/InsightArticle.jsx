@@ -10,7 +10,14 @@ export default function InsightArticle() {
   const article = insights.find((a) => a.slug === slug)
   const related = insights.filter((a) => a.slug !== slug).slice(0, 3)
 
-  usePageMeta(article?.title ?? 'Insight', article?.excerpt)
+  // The excerpt alone lands around 110 characters, short of what a result
+  // snippet will show. The category and publisher are appended only while
+  // there is room, so a longer excerpt is never truncated to make space.
+  const seoDescription = article
+    ? [`${article.excerpt}`, `A Prestige Tutelage guide for South African employers on ${article.category.toLowerCase()}.`]
+        .reduce((acc, part) => (acc && (acc + ' ' + part).length > 158 ? acc : acc ? acc + ' ' + part : part), '')
+    : undefined
+  usePageMeta(article?.title ?? 'Insight', seoDescription, { type: 'article' })
 
   if (!article) return <Navigate to="/insights" replace />
 

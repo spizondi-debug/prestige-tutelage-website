@@ -1,40 +1,84 @@
-import { Link, useParams } from 'react-router-dom'
+import { useMemo } from 'react'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import ModuleAccordion from '../components/ModuleAccordion.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import CTABand from '../components/CTABand.jsx'
+import Breadcrumbs from '../components/Breadcrumbs.jsx'
+import StructuredData, {
+  graphOf, organisationNode, websiteNode, breadcrumbNode, webPageNode, faqNode, courseNode,
+} from '../components/StructuredData.jsx'
 import NotFound from './NotFound.jsx'
 import { iconFor } from '../data/programmeIcons.js'
-import { qualifications, AVAILABILITY_DISCLAIMER } from '../data/programmes.js'
-import { outlineFor, assessmentApproach, OUTLINE_NOTE, OUTLINE_DRAFT_NOTE, OUTLINE_ON_REQUEST, SUPPLIED } from '../data/courseOutlines.js'
+import { AVAILABILITY_DISCLAIMER } from '../data/programmes.js'
+import {
+  outlineFor, assessmentApproach, ENTRY_REQUIREMENTS,
+  OUTLINE_NOTE, OUTLINE_DRAFT_NOTE, OUTLINE_ON_REQUEST, SUPPLIED,
+} from '../data/courseOutlines.js'
+import { resolveCourse, coursePath } from '../lib/slug.js'
+import { courseSeo, courseFaqs, relatedCourses } from '../lib/seo.js'
 
 /**
- * CourseDetail — one qualification, in full.
+ * CourseDetail — one qualification, in full, at its own indexable URL.
  *
  * A single template for all 26 qualifications rather than a page each: the
- * facts come from programmes.js and the module breakdown, where Prestige has
- * supplied one, from courseOutlines.js. Adding a course outline is a data
- * change; it never needs a new component or a new route.
+ * facts come from programmes.js, the module breakdown from courseOutlines.js
+ * and the metadata, FAQs and structured data are generated from both. Adding a
+ * course is a data change; it never needs a component or a route.
  *
- * A qualification without a supplied outline still gets a real page. It shows
- * every verified fact and says the breakdown is available on request, rather
- * than generating plausible-looking modules from the qualification's name —
- * which is the one thing this page must never do.
+ * The route accepts a SAQA ID as well as a slug so that /programmes/101869,
+ * which shipped before slugs existed, still resolves — but it redirects rather
+ * than rendering, so the same content is never served at two URLs. That is a
+ * duplicate-content problem, not a cosmetic one.
+ *
+ * Headings: one H1 (the qualification), H2 per section, H3 per item inside a
+ * section. Nothing here is a heading for visual weight alone.
  */
 export default function CourseDetail() {
-  const { saqaId } = useParams()
-  const q = qualifications.find((x) => x.saqaId === saqaId)
+  const { slug } = useParams()
+  const hit = resolveCourse(slug)
+  const q = hit?.q
 
-  usePageMeta(
-    q ? `${q.name} — NQF ${q.nqf}` : 'Programme not found',
-    q
-      ? `${q.name}, SAQA ID ${q.saqaId}, NQF Level ${q.nqf}${q.credits ? `, ${q.credits} credits` : ''}. ${q.forWho}`
-      : undefined,
+  const seo = q ? courseSeo(q) : { title: 'Programme not found' }
+  // noindex when the slug does not resolve. This page renders <NotFound/>,
+  // whose own usePageMeta runs FIRST — a child effect fires before its
+  // parent's — so without this the parent would immediately overwrite the
+  // child's noindex and every mistyped course URL would be indexable.
+  usePageMeta(seo.title, seo.description, { type: 'article', noindex: !q })
+
+  const outline = q ? outlineFor(q.saqaId) : null
+  const faqs = useMemo(() => (q ? courseFaqs(q) : []), [q])
+  const related = useMemo(() => (q ? relatedCourses(q) : []), [q])
+
+  const path = q ? coursePath(q) : ''
+  const trail = q
+    ? [
+        { name: 'Home', path: '/' },
+        { name: 'Programmes', path: '/programmes' },
+        { name: q.name, path },
+      ]
+    : []
+
+  const graph = useMemo(
+    () =>
+      q
+        ? graphOf(
+            organisationNode(),
+            websiteNode(),
+            webPageNode(path, seo.title, seo.description),
+            breadcrumbNode(trail),
+            courseNode(q, outline, path),
+            faqNode(faqs),
+          )
+        : null,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [q, outline, faqs, path, seo.title, seo.description],
   )
 
-  if (!q) return <NotFound />
+  if (!hit) return <NotFound />
+  // A SAQA ID resolves, but only the slug is canonical.
+  if (!hit.canonical) return <Navigate to={path} replace />
 
-  const outline = outlineFor(q.saqaId)
   const Icon = iconFor(q)
   const enquiry = `/contact?programme=${encodeURIComponent(`${q.name} (SAQA ID ${q.saqaId})`)}`
 
@@ -49,19 +93,12 @@ export default function CourseDetail() {
 
   return (
     <>
+      <StructuredData graph={graph} id={`ld-course-${q.saqaId}`} />
+
       {/* Course header */}
-      <section className="border-b border-line bg-paper">
-        <div className="container-px py-10 lg:py-14">
-          <Link
-            to="/programmes#catalogue"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
-          >
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"
-                 className="h-4 w-4 transition-transform duration-300 ease-prestige group-hover:-translate-x-1">
-              <path d="M19 12H6M11 18l-6-6 6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Back to Programmes
-          </Link>
+      <section className="border-b border-line bg-paper" aria-labelledby="course-title">
+        <div className="container-px py-8 lg:py-12">
+          <Breadcrumbs trail={trail} />
 
           <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <div className="max-w-3xl">
@@ -74,16 +111,27 @@ export default function CourseDetail() {
                 </p>
               </div>
 
-              <h1 className="mt-6 font-display text-editorial font-semibold leading-tight text-prestige-green-deep">
+              <h1 id="course-title" className="mt-6 font-display text-editorial font-semibold leading-tight text-prestige-green-deep">
                 {outline?.fullName ?? q.name}
               </h1>
-              <p className="mt-5 text-lg leading-relaxed text-body">{q.forWho}</p>
-              <p className="mt-4 text-sm font-medium text-muted">{q.area}</p>
+              {outline?.purpose && (
+                <p className="mt-5 text-lg leading-relaxed text-body">{outline.purpose}</p>
+              )}
+              <p className="mt-4 text-sm font-medium text-muted">
+                {q.area} · Accredited delivery from Prestige Tutelage, Randburg, Johannesburg
+              </p>
             </div>
 
             <div className="no-print flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col">
-              <Link to={enquiry} className="btn btn-primary">Enquire About This Course</Link>
-              <button type="button" onClick={() => window.print()} className="btn btn-outline">
+              <Link to={enquiry} className="btn btn-primary" data-analytics="course-enquiry">
+                Enquire About This Course
+              </Link>
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="btn btn-outline"
+                data-analytics="course-outline-download"
+              >
                 Download Course Outline
               </button>
             </div>
@@ -104,11 +152,74 @@ export default function CourseDetail() {
         </div>
       </section>
 
+      {/* Who it suits + accreditation */}
+      <section className="py-14 lg:py-16" aria-labelledby="course-suitability">
+        <div className="container-px">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h2 id="course-suitability" className="font-display text-section font-semibold text-prestige-green-deep">
+                Who this qualification suits
+              </h2>
+              <p className="mt-4 leading-relaxed text-body">{q.forWho}</p>
+
+              {outline?.outcomes && (
+                <>
+                  <h3 className="mt-8 font-display text-lg font-semibold text-ink">
+                    Where it leads in the workplace
+                  </h3>
+                  <ul className="mt-4 grid border-t border-line">
+                    {outline.outcomes.map((o) => (
+                      <li key={o} className="flex items-start gap-3 border-b border-line py-2.5 leading-relaxed text-body">
+                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                        {o}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+
+            <div>
+              <h2 className="font-display text-section font-semibold text-prestige-green-deep">
+                Accreditation and entry
+              </h2>
+              <p className="mt-4 leading-relaxed text-body">
+                Prestige Tutelage delivers this qualification with formal assessment, moderation and
+                quality assurance behind every result. Availability is subject to current qualification
+                registration, our applicable accreditation or approved delivery route, and the relevant
+                assessment and certification arrangements — all confirmed in writing when we scope your
+                intervention. Read more about{' '}
+                <Link to="/about" className="font-semibold text-prestige-blue-hover underline underline-offset-4">
+                  how Prestige is accredited
+                </Link>{' '}
+                or about our{' '}
+                <Link to="/assessment-centre" className="font-semibold text-prestige-blue-hover underline underline-offset-4">
+                  assessment and moderation capability
+                </Link>
+                .
+              </p>
+
+              <h3 className="mt-8 font-display text-lg font-semibold text-ink">Entry requirements</h3>
+              <ul className="mt-4 grid border-t border-line">
+                {ENTRY_REQUIREMENTS.map((e) => (
+                  <li key={e} className="flex items-start gap-3 border-b border-line py-2.5 leading-relaxed text-body">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-blue" aria-hidden="true" />
+                    {e}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Course outline */}
-      <section className="py-16 lg:py-20">
+      <section className="border-t border-line bg-cloud py-16 lg:py-20" aria-labelledby="course-outline">
         <div className="container-px">
           <div className="max-w-3xl">
-            <h2 className="font-display text-section font-semibold text-prestige-green-deep">Course Outline</h2>
+            <h2 id="course-outline" className="font-display text-section font-semibold text-prestige-green-deep">
+              Course Outline
+            </h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
               {outline
                 ? 'Select a module to view the key learning areas covered in this qualification.'
@@ -136,9 +247,11 @@ export default function CourseDetail() {
       </section>
 
       {/* Assessment approach */}
-      <section className="border-y border-line bg-cloud py-16 lg:py-20">
+      <section className="border-y border-line py-16 lg:py-20" aria-labelledby="course-assessment">
         <div className="container-px">
-          <h2 className="font-display text-section font-semibold text-prestige-green-deep">Assessment Approach</h2>
+          <h2 id="course-assessment" className="font-display text-section font-semibold text-prestige-green-deep">
+            Assessment Approach
+          </h2>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {assessmentApproach.map((a) => (
               <div key={a.name} className="rounded-2xl border border-line bg-paper p-7 shadow-premium sm:p-8">
@@ -151,6 +264,60 @@ export default function CourseDetail() {
           <Disclaimer className="mt-8">{AVAILABILITY_DISCLAIMER}</Disclaimer>
         </div>
       </section>
+
+      {/* FAQs — every answer here is the one the structured data carries. */}
+      <section className="bg-cloud py-16 lg:py-20" aria-labelledby="course-faqs">
+        <div className="container-px">
+          <h2 id="course-faqs" className="font-display text-section font-semibold text-prestige-green-deep">
+            Frequently asked questions
+          </h2>
+          <dl className="mt-10 max-w-4xl divide-y divide-line border-y border-line">
+            {faqs.map((f) => (
+              <div key={f.question} className="py-6">
+                <dt className="font-display text-lg font-semibold leading-snug text-ink">{f.question}</dt>
+                <dd className="mt-2 leading-relaxed text-body">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Related programmes — internal links with descriptive anchors. */}
+      {related.length > 0 && (
+        <section className="border-t border-line py-16 lg:py-20" aria-labelledby="course-related">
+          <div className="container-px">
+            <h2 id="course-related" className="font-display text-section font-semibold text-prestige-green-deep">
+              Related qualifications
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-body">
+              Other accredited programmes Prestige Tutelage delivers in {q.area.toLowerCase()} and at
+              similar NQF levels.
+            </p>
+            <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((r) => (
+                <li key={r.saqaId}>
+                  <Link
+                    to={coursePath(r)}
+                    className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-6 shadow-premium transition duration-300 ease-prestige hover:-translate-y-1 hover:border-prestige-green/60 hover:shadow-lifted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
+                  >
+                    <h3 className="font-display text-lg font-semibold leading-snug text-ink group-hover:text-prestige-blue-hover">
+                      {r.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-muted">
+                      NQF Level {r.nqf} · SAQA ID {r.saqaId}
+                      {r.credits ? ` · ${r.credits} credits` : ''}
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-body">{r.forWho}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link to="/programmes#catalogue" className="btn btn-outline mt-10">
+              Browse all accredited qualifications
+            </Link>
+          </div>
+        </section>
+      )}
 
       <CTABand
         title={`Talk to us about ${q.name}.`}

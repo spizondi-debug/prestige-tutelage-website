@@ -38,6 +38,8 @@ export default function ClientStrip() {
               <img
                 src={assetUrl(`images/clients/${c.file}`)}
                 alt={c.alt}
+                width={c.w}
+                height={c.h}
                 loading="lazy"
                 decoding="async"
                 className="max-h-14 w-auto max-w-full object-contain sm:max-h-16"

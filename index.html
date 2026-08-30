@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FAF8F4" />
+    <meta name="theme-color" content="#066DCE" />
+    <meta name="color-scheme" content="light" />
     <title>Prestige Tutelage — Accredited Training &amp; Workforce Development</title>
     <meta
       name="description"
       content="Prestige Tutelage delivers accredited learning, workforce development, short courses, workplace training and tailored skills solutions that help South African organisations build capable, confident and future-ready teams."
     />
     <link rel="canonical" href="https://www.prestigetutelage.co.za/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="geo.region" content="ZA-GP" />
+    <meta name="geo.placename" content="Randburg, Johannesburg" />
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -23,24 +27,56 @@
     />
     <meta property="og:url" content="https://www.prestigetutelage.co.za/" />
     <meta property="og:locale" content="en_ZA" />
+    <meta property="og:image" content="https://www.prestigetutelage.co.za/images/learner-intake-group.jpg" />
+    <meta property="og:image:alt" content="Prestige Tutelage learners outside the training premises in Randburg" />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <!-- Emitted here as well as at runtime so a crawler that does not execute
+         JavaScript still sees the organisation. Values match src/lib/seo.js. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "Prestige Tutelage (Pty) Ltd",
-        "url": "https://www.prestigetutelage.co.za",
-        "email": "info@prestigetutelage.co.za",
-        "telephone": "+27100650822",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "64 Hill Street, Ferndale",
-          "addressLocality": "Randburg",
-          "postalCode": "2194",
-          "addressCountry": "ZA"
-        },
-        "description": "Accredited training and workforce development provider delivering learnerships, short courses, corporate training and assessment services in South Africa."
+        "@graph": [
+          {
+            "@type": ["EducationalOrganization", "LocalBusiness"],
+            "@id": "https://www.prestigetutelage.co.za/#organisation",
+            "name": "Prestige Tutelage (Pty) Ltd",
+            "alternateName": "Prestige Tutelage",
+            "url": "https://www.prestigetutelage.co.za",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.prestigetutelage.co.za/prestige-tutelage-logo.png",
+              "width": 316,
+              "height": 168
+            },
+            "image": "https://www.prestigetutelage.co.za/prestige-tutelage-logo.png",
+            "email": "info@prestigetutelage.co.za",
+            "telephone": "+27100650822",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "64 Hill Street, Ferndale",
+              "addressLocality": "Randburg",
+              "addressRegion": "Gauteng",
+              "postalCode": "2194",
+              "addressCountry": "ZA"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Johannesburg" },
+              { "@type": "City", "name": "Randburg" },
+              { "@type": "AdministrativeArea", "name": "Gauteng" },
+              { "@type": "Country", "name": "South Africa" }
+            ],
+            "description": "Accredited training and workforce development provider delivering learnerships, occupational qualifications, short courses, corporate training and assessment services across South Africa."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.prestigetutelage.co.za/#website",
+            "url": "https://www.prestigetutelage.co.za",
+            "name": "Prestige Tutelage",
+            "inLanguage": "en-ZA",
+            "publisher": { "@id": "https://www.prestigetutelage.co.za/#organisation" }
+          }
+        ]
       }
     </script>
       <!-- The two weights that carry the first paint: body copy and headlines. -->

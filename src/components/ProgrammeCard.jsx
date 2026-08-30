@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { iconFor } from '../data/programmeIcons.js'
+import { coursePath } from '../lib/slug.js'
 
 /**
  * ProgrammeCard — one qualification, as a portrait card in a 3-up grid.
@@ -27,7 +28,7 @@ import { iconFor } from '../data/programmeIcons.js'
 export default function ProgrammeCard({ q }) {
   const Icon = iconFor(q)
 
-  const course = `/programmes/${q.saqaId}`
+  const course = coursePath(q)
 
   const facts = [
     { label: 'NQF Level', value: q.nqf },

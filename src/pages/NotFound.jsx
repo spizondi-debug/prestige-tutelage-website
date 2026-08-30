@@ -3,7 +3,9 @@ import { usePageMeta } from '../lib/meta.js'
 import { allPages } from '../data/site.js'
 
 export default function NotFound() {
-  usePageMeta('Page not found', 'The page you were looking for could not be found on the Prestige Tutelage website.')
+  // A 404 must not be indexed: otherwise every mistyped or retired URL becomes
+  // a thin page competing with the real ones in the index.
+  usePageMeta('Page not found', 'The page you were looking for is not here. Browse Prestige Tutelage’s accredited programmes, short courses and business solutions instead.', { noindex: true })
 
   return (
     <section className="py-20 lg:py-28">

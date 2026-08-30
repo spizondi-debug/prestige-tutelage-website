@@ -19,14 +19,34 @@ const pages = [...site.matchAll(/to:\s*'(\/[^']*)'/g)]
   .map((m) => m[1])
   .filter((p) => !p.includes('#'))
 
+// Course pages, from the qualification list and the same slug rule the app
+// uses. Regex rather than an import so the script stays dependency-free and
+// cannot pull JSX into node; validate-seo.mjs checks the two agree.
+const programmes = read('src/data/programmes.js')
+const slugLib = read('src/lib/slug.js')
+const overrides = Object.fromEntries(
+  [...slugLib.matchAll(/(\d{5,6}):\s*'([^']+)'/g)].map((m) => [m[1], m[2]]),
+)
+const kebab = (str) =>
+  str.toLowerCase().replace(/&/g, 'and').replace(/[’']/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+const courses = [...programmes.matchAll(/saqaId:\s*'(\d+)',\s*\n\s*name:\s*'([^']+)',(?:\s*\n\s*icon:[^\n]*)?\s*\n\s*nqf:\s*(\d+)/g)]
+  .map(([, id, name, nqf]) => `/programmes/${overrides[id] ?? `${kebab(name)}-nqf-${nqf}`}`)
+
 // Insight articles, from their slugs.
 const insights = read('src/data/insights.js')
 const slugs = [...insights.matchAll(/slug:\s*'([^']+)'/g)].map((m) => `/insights/${m[1]}`)
 
-const urls = [...new Set([...pages, ...slugs])].sort()
+const urls = [...new Set([...pages, ...courses, ...slugs])]
+  .filter((u) => !u.includes('#'))
+  .sort()
 
 const priority = (u) =>
-  u === '/' ? '1.0' : u.startsWith('/insights/') ? '0.5' : u.split('/').length > 2 ? '0.6' : '0.8'
+  u === '/' ? '1.0'
+  : u === '/programmes' ? '0.9'
+  : u.startsWith('/programmes/') ? '0.7'
+  : u.startsWith('/insights/') ? '0.5'
+  : '0.8'
 
 const today = new Date().toISOString().slice(0, 10)
 

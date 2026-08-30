@@ -14,6 +14,11 @@
 //     normally something that organisation must agree to. Confirm consent for
 //     each of these before the site goes to a public domain.
 //
+// `w`/`h` are the files' intrinsic pixel sizes, rendered on the <img> so the
+// browser reserves each logo's box before the file arrives. Without them the
+// strip collapses to zero height and pushes the page down as the logos load —
+// a cumulative layout shift on the homepage, where it is measured.
+//
 // `scale` is optical, not layout: a square roundel set to the same box height
 // as a long wordmark reads as much bigger than it is, so the square marks are
 // stepped down until the row looks even. It never distorts a logo — the box
@@ -23,30 +28,40 @@ export const clients = [
   {
     name: 'voestalpine',
     file: 'voestalpine.png',
+    w: 801,
+    h: 168,
     alt: 'voestalpine',
     scale: 1,
   },
   {
     name: 'DRICONEQ',
     file: 'driconeq.png',
+    w: 801,
+    h: 144,
     alt: 'DRICONEQ',
     scale: 1,
   },
   {
     name: 'iBridge',
     file: 'ibridge.png',
+    w: 756,
+    h: 393,
     alt: 'iBridge',
     scale: 0.95,
   },
   {
     name: 'am2pm consulting',
     file: 'am2pm.png',
+    w: 564,
+    h: 504,
     alt: 'am2pm consulting',
     scale: 0.88,
   },
   {
     name: 'Zanokuhle Intellectuals Academy',
     file: 'zanokuhle.png',
+    w: 258,
+    h: 246,
     alt: 'Zanokuhle Intellectuals Academy',
     scale: 0.92,
   },
@@ -56,6 +71,8 @@ export const clients = [
     // Add `name` and a real `alt` once it is confirmed.
     name: null,
     file: 'client-g.png',
+    w: 783,
+    h: 789,
     alt: 'Client logo',
     scale: 0.8,
   },
