@@ -36,10 +36,19 @@ export const realPrestigeMedia = {
  * the page says so beside the player — nothing in it should be read as a
  * measured result.
  *
- * `captions` is unset: no WebVTT file has been supplied. Every point in the
- * film appears as on-screen text and the page covers the same ground in HTML,
- * but that is not a substitute for captions if the soundtrack carries
- * narration. Point this at a .vtt in public/ once one exists.
+ * `captions` is unset, and measured rather than assumed: the soundtrack was
+ * analysed and carries no narration. Across 401 quarter-second windows the
+ * level spans 13.6 dB with 3.2% falling well below the median — continuous
+ * music. Speech shows 25 dB or more and 15-30% quiet windows for the pauses
+ * between words and sentences. Nothing is spoken, so there is nothing for
+ * captions to carry.
+ *
+ * The real access gap is the other way round: every point in the film is made
+ * visually, as on-screen text, which a blind visitor gets nothing from. The
+ * page carries the same ground in HTML and says so beside the player, which is
+ * the text alternative WCAG asks for. Keep that line if the film is re-cut.
+ *
+ * If a version with narration is ever supplied, point `captions` at a .vtt.
  */
 export const growthPathwaysMedia = {
   src: 'growth-pathways/prestige-growth-pathways',

@@ -51,10 +51,9 @@ export default function VideoFeature({ media, className = '' }) {
         {media.sources.map((s) => (
           <source key={s.ext} src={assetUrl(`videos/${media.src}.${s.ext}`)} type={s.type} />
         ))}
-        {/* Every word in this film is on screen as text, and the page below
-            covers the same ground in HTML — but that is not a substitute for
-            captions if the soundtrack carries narration. Add a WebVTT track
-            here once one exists. */}
+        {/* Rendered only when a caption file exists. The Growth Pathways film
+            has none because its soundtrack was measured and carries no speech
+            — see src/data/media.js. A film with narration sets `captions`. */}
         {media.captions && (
           <track kind="captions" src={assetUrl(media.captions)} srcLang="en" label="English" default />
         )}

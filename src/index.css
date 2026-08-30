@@ -119,7 +119,13 @@
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5
            text-[0.95rem] font-semibold tracking-[0.01em]
-           transition-all duration-200 ease-prestige
+           /* Named properties rather than `all`. With `all`, the focus ring is
+              a transitioned property too, so it grew from 0 to 2px over 150ms
+              and a keyboard user tabbing quickly saw it lag behind them. The
+              hover colour, shadow and lift still animate; the outline is
+              instant. */
+           transition-[color,background-color,border-color,box-shadow,transform]
+           duration-200 ease-prestige
            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
            focus-visible:outline-prestige-blue-deep
            disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none;

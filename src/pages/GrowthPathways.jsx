@@ -207,9 +207,20 @@ export default function GrowthPathways() {
                 Growth Pathways sits alongside the training Prestige delivers: the same facilitators
                 and the same standards, applied to the planning layer rather than only the classroom.
               </p>
+              {/* Two notes the film needs and cannot make itself. The first
+                  keeps its sample figures from reading as claims. The second is
+                  the text alternative: the film makes every point visually, as
+                  on-screen text, so a visitor who cannot see it needs to know
+                  the same ground is covered in words on this page. Its
+                  soundtrack is music with no narration, so there is nothing for
+                  captions to carry — see src/data/media.js. */}
               <p className="mt-6 border-l-2 border-prestige-blue/30 pl-5 text-sm leading-relaxed text-muted">
                 The interface, figures and employee names in the film are a product demonstration.
                 They illustrate how the view works and are not client data or measured results.
+              </p>
+              <p className="mt-3 border-l-2 border-prestige-blue/30 pl-5 text-sm leading-relaxed text-muted">
+                The film has no narration, and everything it covers is written out on this page —
+                the seven stages above, and the three steps and outcomes below.
               </p>
             </div>
           </div>
