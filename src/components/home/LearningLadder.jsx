@@ -23,7 +23,7 @@ export default function LearningLadder() {
     <section className="on-dark on-photo tex tex-grain tex-edge relative overflow-hidden bg-shadow py-20 text-white lg:py-28">
       {/* Holds the type on a readable field where the gradient runs brightest. */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.9)_0%,rgba(7,26,43,0.62)_48%,rgba(7,26,43,0.3)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.72)_0%,rgba(7,26,43,0.50)_48%,rgba(7,26,43,0.24)_100%)]"
         aria-hidden="true"
       />
 

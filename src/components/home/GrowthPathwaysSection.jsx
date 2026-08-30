@@ -27,7 +27,7 @@ export default function GrowthPathwaysSection() {
       />
       {/* Keeps type legible where the gradient runs brightest. */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.86)_0%,rgba(7,26,43,0.55)_55%,rgba(7,26,43,0.35)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.69)_0%,rgba(7,26,43,0.44)_55%,rgba(7,26,43,0.28)_100%)]"
         aria-hidden="true"
       />
 

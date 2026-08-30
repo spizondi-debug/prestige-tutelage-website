@@ -20,7 +20,7 @@ export default function RealPrestige() {
         <HeroMedia media={realPrestigeMedia} className="h-full w-full" />
         {/* Weighted hard so the statement reads at full strength over it. */}
         <div
-          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.95)_0%,rgba(7,26,43,0.86)_45%,rgba(7,26,43,0.68)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.76)_0%,rgba(7,26,43,0.69)_45%,rgba(7,26,43,0.54)_100%)]"
           aria-hidden="true"
         />
       </div>

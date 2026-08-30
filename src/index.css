@@ -67,42 +67,25 @@
      photograph blue: skin, PPE and workshop colour all shift, which is what
      the client saw on the welding slide. This dark scrim seats the type just
      as well and leaves the photograph its own colours. It is a scrim over an
-     image, not a brand surface — the site's blue system is unchanged. */
+     image, not a brand surface — the site's blue system is unchanged.
+
+     Every stop was then taken down 20% (x0.8) on request so more of the
+     photograph reads through. That is paid for in contrast on the type above
+     it, so the accent below was re-measured against the rendered backdrop of
+     all 17 hero slides rather than against the flat colour. */
   --prestige-hero-overlay: linear-gradient(
     to right,
-    rgba(7, 26, 43, 0.90) 0%,
-    rgba(7, 26, 43, 0.78) 32%,
-    rgba(7, 26, 43, 0.50) 62%,
-    rgba(7, 26, 43, 0.34) 100%
+    rgba(7, 26, 43, 0.72) 0%,
+    rgba(7, 26, 43, 0.62) 32%,
+    rgba(7, 26, 43, 0.40) 62%,
+    rgba(7, 26, 43, 0.27) 100%
   );
   --prestige-hero-overlay-y: linear-gradient(
     to bottom,
-    rgba(7, 26, 43, 0.45) 0%,
+    rgba(7, 26, 43, 0.36) 0%,
     transparent 28%,
     transparent 62%,
-    rgba(7, 26, 43, 0.55) 100%
-  );
-
-  /* The blue photographic overlay, still used by the in-page photo bands so
-     their treatment stays identical to each other. Blue and transparent, and
-     it clears to nothing on the right so the photograph stays visible. */
-  --prestige-photo-overlay: linear-gradient(
-    90deg,
-    rgba(5, 89, 168, 0.96) 0%,
-    rgba(5, 89, 168, 0.92) 38%,
-    rgba(6, 109, 206, 0.70) 56%,
-    rgba(8, 123, 232, 0.22) 80%,
-    rgba(8, 123, 232, 0) 100%
-  );
-
-  /* Vertical companion: seats the headline and keeps slider controls legible
-     at the top and bottom edges without lightening the middle of the frame. */
-  --prestige-photo-overlay-y: linear-gradient(
-    to bottom,
-    rgba(5, 89, 168, 0.42) 0%,
-    transparent 26%,
-    transparent 60%,
-    rgba(5, 89, 168, 0.55) 100%
+    rgba(7, 26, 43, 0.44) 100%
   );
 }
 
@@ -205,13 +188,15 @@
   .on-dark {
     --hl-accent: #9AE4A8;
   }
-  /* A dark photo scrim is a different problem: the hardest backdrop across
-     all 17 hero slides measures rgb(69,79,87), where the site's growth green
-     is 3.9:1 and the brand green itself is 3.22:1. Type over a photograph
-     therefore gets the saturated green back. */
+  /* A dark photo scrim is a different problem, and taking the scrim down 20%
+     changed the answer. The hardest backdrop across all 17 hero slides went
+     from rgb(69,79,87) to rgb(97,104,107), and at that lightness #45B95C
+     falls to 2.26:1 — under the 3.0:1 floor for display type. #72D985 is
+     3.24:1 there and is the deepest green in the ramp that still clears it.
+     White is unaffected at 5.67:1. */
   .hero-dark,
   .on-photo {
-    --hl-accent: #45B95C;
+    --hl-accent: #72D985;
   }
   .hl-accent {
     color: var(--hl-accent);

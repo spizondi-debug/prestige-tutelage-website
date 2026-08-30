@@ -86,7 +86,7 @@ export default function BeyondTraining() {
                   )}
                   {/* Scrim: the index must stay legible over a bright photo. */}
                   <span
-                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(7,26,43,0.55),transparent)]"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(7,26,43,0.44),transparent)]"
                     aria-hidden="true"
                   />
                   <span className="absolute left-5 top-4 font-display text-sm font-semibold text-white">
