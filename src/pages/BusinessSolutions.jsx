@@ -48,6 +48,19 @@ const solutions = [
       'Invigilation and evidence management',
       'Results processing, appeals and records',
     ],
+    // Assessment Centre is the one solution here with no photograph — replaces
+    // the empty second column that left with a panel showing the same four
+    // facts above, in the order they actually happen rather than the order
+    // they're listed. Nothing here is new information.
+    process: {
+      eyebrow: 'Assessment Centre services',
+      heading: 'A clear process from registration to results.',
+      steps: [
+        'Register candidates and schedule assessments',
+        'Assess, invigilate and manage evidence',
+        'Moderate decisions and process results',
+      ],
+    },
   },
   {
     title: 'Office & Training Venue Rental',
@@ -64,6 +77,50 @@ const solutions = [
     ],
   },
 ]
+
+/**
+ * ProcessPanel — the "how it runs" card standing in for a photograph on the
+ * one solution here that never had one.
+ *
+ * Solid Prestige blue, not a gradient: the rest of this session's work moved
+ * away from decorative flourish on cards like this, and a flat fill reads as
+ * more considered than a glow. The oversized number behind the content is
+ * decorative and aria-hidden — the real step numbers are the small white
+ * circles, which are what a screen reader and a sighted reader both use to
+ * follow the sequence.
+ */
+function ProcessPanel({ index, process }) {
+  return (
+    <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-prestige-blue-hover p-8 text-white shadow-premium lg:p-10">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-6 -right-2 font-display text-[9rem] font-bold leading-none text-white/10"
+      >
+        {String(index + 1).padStart(2, '0')}
+      </span>
+
+      <div className="relative">
+        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white">
+          {process.eyebrow}
+        </p>
+        <h3 className="mt-3 font-display text-2xl font-semibold leading-snug text-white">
+          {process.heading}
+        </h3>
+      </div>
+
+      <ol className="relative mt-6 border-t border-white/20">
+        {process.steps.map((step, i) => (
+          <li key={step} className={`flex items-start gap-4 py-4 ${i ? 'border-t border-white/20' : ''}`}>
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-prestige-blue-hover">
+              {i + 1}
+            </span>
+            <span className="pt-0.5 font-sans font-semibold text-white">{step}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
 
 export default function BusinessSolutions() {
   usePageMeta(
@@ -94,8 +151,12 @@ export default function BusinessSolutions() {
           className={`py-14 lg:py-20 ${i % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
         >
           <div className="container-px">
-            <div className={`grid items-center gap-10 lg:gap-20 ${s.photo ? 'lg:grid-cols-2' : ''}`}>
-              <div className={s.photo && i % 2 === 1 ? 'lg:order-last' : ''}>
+            <div
+              className={`grid gap-10 lg:gap-20 ${(s.photo || s.process) ? 'lg:grid-cols-2' : ''} ${
+                s.process ? 'items-stretch' : 'items-center'
+              }`}
+            >
+              <div className={(s.photo || s.process) && i % 2 === 1 ? 'lg:order-last' : ''}>
                 <div className="mb-4 flex items-center gap-3">
                   <span className="h-px w-10 bg-prestige-green" />
                   <span className="text-sm font-semibold tracking-wide text-prestige-blue-hover">
@@ -124,6 +185,7 @@ export default function BusinessSolutions() {
                   <Photo src={s.photo} alt={s.photoAlt} className="aspect-[3/2] w-full" />
                 </div>
               )}
+              {s.process && <ProcessPanel index={i} process={s.process} />}
             </div>
           </div>
         </section>
