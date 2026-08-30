@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Programmes from './pages/Programmes.jsx'
+import CourseDetail from './pages/CourseDetail.jsx'
 import ShortCourses from './pages/ShortCourses.jsx'
 import CorporateTraining from './pages/CorporateTraining.jsx'
 import Services from './pages/Services.jsx'
@@ -31,6 +32,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/programmes" element={<Programmes />} />
+          {/* One template for all 26 qualifications, keyed by SAQA ID because
+              names repeat across NQF levels. */}
+          <Route path="/programmes/:saqaId" element={<CourseDetail />} />
           <Route path="/short-courses" element={<ShortCourses />} />
           <Route path="/corporate-training" element={<CorporateTraining />} />
           <Route path="/services" element={<Services />} />

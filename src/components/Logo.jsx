@@ -12,7 +12,7 @@ export default function Logo({ className = 'h-11' }) {
     <Link to="/" className="inline-flex items-center" aria-label="Prestige Tutelage — home">
       <img
         src={assetUrl('prestige-tutelage-logo.png')}
-        alt="Prestige Tutelage"
+        alt="Prestige Tutelage – Passion for training"
         width="316"
         height="168"
         className={`${className} w-auto`}

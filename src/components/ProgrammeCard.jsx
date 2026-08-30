@@ -27,6 +27,8 @@ import { iconFor } from '../data/programmeIcons.js'
 export default function ProgrammeCard({ q }) {
   const Icon = iconFor(q)
 
+  const course = `/programmes/${q.saqaId}`
+
   const facts = [
     { label: 'NQF Level', value: q.nqf },
     { label: 'SAQA ID', value: q.saqaId },
@@ -35,7 +37,7 @@ export default function ProgrammeCard({ q }) {
   ]
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-paper shadow-premium transition duration-300 ease-prestige hover:-translate-y-1 hover:border-prestige-green/60 hover:shadow-lifted">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-paper shadow-premium transition duration-300 ease-prestige hover:-translate-y-1 hover:border-prestige-green/60 hover:shadow-lifted focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-prestige-blue-deep">
       {/* Blue header: white icon, white type label. */}
       <div className="flex items-center gap-4 bg-prestige-blue-hover px-6 py-5 text-white">
         <Icon size={40} strokeWidth={1.6} aria-hidden="true" className="shrink-0" />
@@ -43,7 +45,14 @@ export default function ProgrammeCard({ q }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-xl font-semibold leading-tight text-ink">{q.name}</h3>
+        <h3 className="font-display text-xl font-semibold leading-tight text-ink">
+          <Link
+            to={course}
+            className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none group-focus-within:underline group-hover:text-prestige-blue-hover"
+          >
+            {q.name}
+          </Link>
+        </h3>
 
         <dl className="mt-5 grid divide-y divide-prestige-blue/20 rounded-xl bg-prestige-blue-light px-4 py-3 sm:grid-flow-col sm:auto-cols-fr sm:divide-x sm:divide-y-0">
           {facts.map((f) => (
@@ -65,17 +74,16 @@ export default function ProgrammeCard({ q }) {
           </p>
         )}
 
+        {/* Visual affordance only — the whole card is already the link, so
+            this is a span rather than a second anchor. */}
         <div className="mt-auto pt-6">
-          <Link
-            to={`/contact?programme=${encodeURIComponent(`${q.name} (SAQA ID ${q.saqaId})`)}`}
-            className="flex w-full items-center justify-between gap-3 rounded-xl bg-prestige-blue-hover px-5 py-4 font-semibold text-white transition-colors hover:bg-prestige-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
-          >
-            Enquire About This Programme
+          <span className="flex w-full items-center justify-between gap-3 rounded-xl bg-prestige-blue-hover px-5 py-4 font-semibold text-white transition-colors group-hover:bg-prestige-blue-deep">
+            View Course Outline
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"
                  className="h-5 w-5 shrink-0 transition-transform duration-300 ease-prestige group-hover:translate-x-1">
               <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </Link>
+          </span>
         </div>
       </div>
     </article>

@@ -369,3 +369,36 @@
     transform: none;
   }
 }
+
+/* ── Print ───────────────────────────────────────────────────────────────
+   "Download Course Outline" calls window.print(), so print has to produce a
+   real document rather than a screenshot of the page: navigation, footer,
+   CTA bands and the buttons themselves come out, every accordion panel is
+   forced open regardless of its grid-template-rows, and colour is dropped to
+   ink on white so it stays legible on a mono printer. */
+@media print {
+  header, footer, .no-print { display: none !important; }
+
+  body { background: #fff !important; }
+
+  /* Every module panel, open or not. The accordion animates on
+     grid-template-rows, so both the row size and the overflow clip have to be
+     released or a closed panel prints as a sliver. */
+  [role='region'] {
+    display: block !important;
+    grid-template-rows: 1fr !important;
+  }
+  [role='region'] > div { overflow: visible !important; }
+  [aria-expanded] svg { display: none !important; }
+
+  a[href]::after { content: '' !important; }
+
+  * {
+    color: #172B3D !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .shadow-premium, .shadow-lifted { border: 1px solid #d5dde5 !important; }
+}

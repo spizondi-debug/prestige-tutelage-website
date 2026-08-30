@@ -46,7 +46,7 @@ export default function FeaturedProgrammes() {
           {featured.map((q) => (
             <li key={q.saqaId}>
               <Link
-                to="/programmes#catalogue"
+                to={`/programmes/${q.saqaId}`}
                 className="group flex items-center justify-between gap-6 border-b border-line py-6 transition-colors hover:bg-cloud lg:px-2"
               >
                 <span className="min-w-0">
