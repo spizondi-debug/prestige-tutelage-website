@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
+import ContactPanel from '../components/ContactPanel.jsx'
 import PageHeader from '../components/PageHeader.jsx'
-import { brand, contact } from '../data/site.js'
+import { contact } from '../data/site.js'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
@@ -108,7 +109,7 @@ export default function Contact() {
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
             {/* Form */}
             <div>
-              <h2 className="font-display text-2xl font-semibold text-prestige-green-deep">Request a proposal</h2>
+              <h2 id="enquiry" className="scroll-mt-28 font-display text-2xl font-semibold text-prestige-green-deep">Request a proposal</h2>
               <p className="mt-2 leading-relaxed text-body">
                 Fields marked <span aria-hidden="true">*</span> are required.
               </p>
@@ -201,40 +202,7 @@ export default function Contact() {
 
             {/* Details */}
             <aside className="lg:pt-1">
-              <div className="rounded-lg border border-line bg-paper p-7">
-                <h2 className="font-display text-xl font-semibold text-ink">{brand.legalName}</h2>
-
-                <div className="mt-6 space-y-5 text-body">
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Office</h3>
-                    <address className="mt-1.5 not-italic leading-relaxed">
-                      {contact.addressLines.map((l) => <span key={l} className="block">{l}</span>)}
-                    </address>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Telephone</h3>
-                    <p className="mt-1.5">
-                      <a href={contact.phoneHref} className="hover:text-prestige-blue-hover">{contact.phone}</a>
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Email</h3>
-                    <p className="mt-1.5">
-                      <a href={contact.emailHref} className="hover:text-prestige-blue-hover">{contact.email}</a>
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Website</h3>
-                    <p className="mt-1.5">
-                      <a href={contact.websiteHref} className="hover:text-prestige-blue-hover">{contact.website}</a>
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-7 border-t border-line pt-5 text-sm text-muted">
-                  {brand.credibility.join(' • ')}
-                </p>
-              </div>
+              <ContactPanel />
 
               <div className="mt-6 border-l-2 border-prestige-green/60 pl-5">
                 <h3 className="font-sans font-semibold text-ink">For procurement teams</h3>
