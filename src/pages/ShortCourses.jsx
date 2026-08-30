@@ -300,7 +300,7 @@ export default function ShortCourses() {
                   <span className="font-display text-lg font-semibold text-prestige-blue-hover">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="mt-2 font-sans font-semibold text-ink">{s.t}</h3>
+                  <h3 className="mt-2 font-sans font-semibold text-prestige-blue-hover">{s.t}</h3>
                   <p className="mt-1.5 leading-relaxed text-body">{s.d}</p>
                 </li>
               ))}

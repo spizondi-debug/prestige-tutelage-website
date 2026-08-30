@@ -117,7 +117,7 @@ export default function OfficeRental() {
                 { t: 'One conversation', d: 'Booking, access and arrangements handled by the same team that answers the phone.' },
               ].map((x) => (
                 <div key={x.t} className="border-b border-line py-5">
-                  <h3 className="font-display text-lg font-semibold text-ink">{x.t}</h3>
+                  <h3 className="font-display text-lg font-semibold text-prestige-blue-hover">{x.t}</h3>
                   <p className="mt-1.5 leading-relaxed text-body">{x.d}</p>
                 </div>
               ))}

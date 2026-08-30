@@ -88,7 +88,7 @@ export default function CorporateTraining() {
             <dl className="grid content-start border-t border-line">
               {corporateAudiences.map((a) => (
                 <div key={a.role} className="grid gap-1 border-b border-line py-4 sm:grid-cols-[0.4fr_0.6fr] sm:gap-6">
-                  <dt className="font-sans font-semibold text-ink">{a.role}</dt>
+                  <dt className="font-sans font-semibold text-prestige-blue-hover">{a.role}</dt>
                   <dd className="leading-relaxed text-body">{a.need}</dd>
                 </div>
               ))}
@@ -117,7 +117,7 @@ export default function CorporateTraining() {
             <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
               {deliveryFormats.map((f) => (
                 <div key={f.name} className="border-b border-line py-5">
-                  <dt className="font-display text-lg font-semibold text-ink">{f.name}</dt>
+                  <dt className="font-display text-lg font-semibold text-prestige-blue-hover">{f.name}</dt>
                   <dd className="mt-1.5 leading-relaxed text-body">{f.text}</dd>
                 </div>
               ))}
@@ -143,7 +143,7 @@ export default function CorporateTraining() {
               { t: 'Reporting that means something', d: 'Progress, completion and workplace application — reported in language the business uses.' },
             ].map((x) => (
               <div key={x.t} className="border-b border-line py-5 lg:pr-6">
-                <h3 className="font-display text-lg font-semibold text-ink">{x.t}</h3>
+                <h3 className="font-display text-lg font-semibold text-prestige-blue-hover">{x.t}</h3>
                 <p className="mt-1.5 leading-relaxed text-body">{x.d}</p>
               </div>
             ))}

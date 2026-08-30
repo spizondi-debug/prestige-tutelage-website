@@ -118,7 +118,7 @@ export default function BBBEEConsulting() {
               <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
                 {group.services.map((s) => (
                   <div key={s.name} className="border-b border-line py-5">
-                    <dt className="font-sans font-semibold text-ink">{s.name}</dt>
+                    <dt className="font-sans font-semibold text-prestige-blue-hover">{s.name}</dt>
                     <dd className="mt-1.5 leading-relaxed text-body">{s.text}</dd>
                   </div>
                 ))}

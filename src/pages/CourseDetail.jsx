@@ -274,7 +274,7 @@ export default function CourseDetail() {
           <dl className="mt-10 max-w-4xl divide-y divide-line border-y border-line">
             {faqs.map((f) => (
               <div key={f.question} className="py-6">
-                <dt className="font-display text-lg font-semibold leading-snug text-ink">{f.question}</dt>
+                <dt className="font-display text-lg font-semibold leading-snug text-prestige-blue-hover">{f.question}</dt>
                 <dd className="mt-2 leading-relaxed text-body">{f.answer}</dd>
               </div>
             ))}

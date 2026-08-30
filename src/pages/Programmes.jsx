@@ -207,7 +207,7 @@ export default function Programmes() {
                     { t: 'Skills programmes', d: 'Focused components for organisations that need targeted capability quickly.' },
                   ].map((x) => (
                     <div key={x.t} className="sm:px-5 sm:first:pl-0">
-                      <h3 className="font-sans text-sm font-semibold text-ink">{x.t}</h3>
+                      <h3 className="font-sans text-sm font-semibold text-prestige-blue-hover">{x.t}</h3>
                       <p className="mt-1.5 text-sm leading-relaxed text-body">{x.d}</p>
                     </div>
                   ))}
@@ -322,7 +322,7 @@ export default function Programmes() {
               <div className="mt-8 space-y-6">
                 {[learnerships.employed, learnerships.unemployed].map((l) => (
                   <div key={l.title} className="border-l-2 border-prestige-green/60 pl-5">
-                    <h3 className="font-sans font-semibold text-ink">{l.title}</h3>
+                    <h3 className="font-sans font-semibold text-prestige-blue-hover">{l.title}</h3>
                     <p className="mt-1.5 leading-relaxed text-body">{l.text}</p>
                   </div>
                 ))}

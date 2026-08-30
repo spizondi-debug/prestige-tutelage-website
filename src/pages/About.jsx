@@ -135,7 +135,7 @@ export default function About() {
             <div className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
               {philosophy.map((p) => (
                 <div key={p.title} className="border-b border-line py-6">
-                  <h3 className="font-display text-lg font-semibold text-ink">{p.title}</h3>
+                  <h3 className="font-display text-lg font-semibold text-prestige-blue-hover">{p.title}</h3>
                   <p className="mt-2 leading-relaxed text-body">{p.text}</p>
                 </div>
               ))}
@@ -207,7 +207,7 @@ export default function About() {
                 <span className="absolute left-0 top-1 h-full w-px bg-line" aria-hidden="true" />
                 <span className="absolute -left-[3px] top-1 h-2 w-2 rounded-full bg-prestige-green" aria-hidden="true" />
                 <p className="text-sm font-semibold uppercase tracking-wider text-muted">Chapter {i + 1}</p>
-                <h3 className="mt-2 font-display text-xl font-semibold text-ink">{j.stage}</h3>
+                <h3 className="mt-2 font-display text-xl font-semibold text-prestige-blue-hover">{j.stage}</h3>
                 <p className="mt-2 leading-relaxed text-body">{j.text}</p>
               </li>
             ))}
@@ -226,7 +226,7 @@ export default function About() {
             <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
               {whyPrestige.map((w) => (
                 <div key={w.title} className="border-b border-line py-5">
-                  <dt className="font-display text-lg font-semibold text-ink">{w.title}</dt>
+                  <dt className="font-display text-lg font-semibold text-prestige-blue-hover">{w.title}</dt>
                   <dd className="mt-1.5 leading-relaxed text-body">{w.text}</dd>
                 </div>
               ))}

@@ -96,7 +96,7 @@ export default function AssessmentCentre() {
           <dl className="mt-12 grid gap-x-12 border-t border-line sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((c) => (
               <div key={c.name} className="border-b border-line py-5 lg:pr-6">
-                <dt className="font-sans font-semibold text-ink">{c.name}</dt>
+                <dt className="font-sans font-semibold text-prestige-blue-hover">{c.name}</dt>
                 <dd className="mt-1.5 leading-relaxed text-body">{c.text}</dd>
               </div>
             ))}

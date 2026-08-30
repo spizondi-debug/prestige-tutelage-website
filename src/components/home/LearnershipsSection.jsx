@@ -26,7 +26,7 @@ export default function LearnershipsSection() {
             <div className="mt-8 space-y-6">
               {[learnerships.employed, learnerships.unemployed].map((l) => (
                 <div key={l.title} className="border-l-2 border-prestige-green/60 pl-5">
-                  <h3 className="font-sans font-semibold text-ink">{l.title}</h3>
+                  <h3 className="font-sans font-semibold text-prestige-blue-hover">{l.title}</h3>
                   <p className="mt-1.5 leading-relaxed text-body">{l.text}</p>
                 </div>
               ))}

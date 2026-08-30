@@ -51,7 +51,7 @@ function JourneyRail() {
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-prestige-blue-hover">
               Stage {i + 1}
             </p>
-            <h3 className="mt-1.5 font-sans font-semibold text-ink">{title}</h3>
+            <h3 className="mt-1.5 font-sans font-semibold text-prestige-blue-hover">{title}</h3>
             <p className="mt-2 text-[0.95rem] leading-relaxed text-body">{text}</p>
           </div>
         </Reveal>
@@ -245,7 +245,7 @@ export default function GrowthPathways() {
               <dl className="mt-8 divide-y divide-line border-y border-line">
                 {audiences.map((a) => (
                   <div key={a.who} className="grid gap-1 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-                    <dt className="font-sans font-semibold text-ink">{a.who}</dt>
+                    <dt className="font-sans font-semibold text-prestige-blue-hover">{a.who}</dt>
                     <dd className="leading-relaxed text-body">{a.text}</dd>
                   </div>
                 ))}
@@ -300,7 +300,7 @@ export default function GrowthPathways() {
           <ul className="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {outcomes.map((o, i) => (
               <Reveal as="li" key={o.title} delay={i * 60} className="border-t-2 border-prestige-green/50 pt-5">
-                <h3 className="font-sans font-semibold text-ink">{o.title}</h3>
+                <h3 className="font-sans font-semibold text-prestige-blue-hover">{o.title}</h3>
                 <p className="mt-2 leading-relaxed text-body">{o.text}</p>
               </Reveal>
             ))}

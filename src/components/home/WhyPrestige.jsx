@@ -23,7 +23,7 @@ export default function WhyPrestige() {
           <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
             {whyPrestige.map((w) => (
               <div key={w.title} className="border-b border-line py-5">
-                <dt className="font-display text-lg font-semibold text-ink">{w.title}</dt>
+                <dt className="font-display text-lg font-semibold text-prestige-blue-hover">{w.title}</dt>
                 <dd className="mt-1.5 leading-relaxed text-body">{w.text}</dd>
               </div>
             ))}
