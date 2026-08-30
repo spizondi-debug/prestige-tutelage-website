@@ -101,7 +101,6 @@ export default function Programmes() {
     <>
       <PageHeader
         images={pageHeroes.programmes}
-        badge="26 qualifications · NQF 2–6"
         eyebrow="Programmes & qualifications"
         title={<>Learning that maps onto <Accent>real occupations</Accent>.</>}
         lead="Prestige Tutelage delivers qualifications across business and administration, manufacturing and production, engineering, agriculture and early childhood development — as full qualifications, through learnerships, or as part of a wider workforce plan."

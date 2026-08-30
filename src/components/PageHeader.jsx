@@ -23,10 +23,9 @@ import HeroSlider from './HeroSlider.jsx'
  *   title     the h1
  *   lead      supporting paragraph
  *   images    slides ({ src, alt, position }); 3–5 reads best
- *   badge     small factual label pinned over the photograph
  *   children  CTAs or in-page navigation, rendered under the lead
  */
-export default function PageHeader({ eyebrow, title, lead, images, badge, children }) {
+export default function PageHeader({ eyebrow, title, lead, images, children }) {
   const [hovered, setHovered] = useState(false)
   const slides = images ?? []
 
@@ -59,11 +58,6 @@ export default function PageHeader({ eyebrow, title, lead, images, badge, childr
           and auto on the copy block itself. */}
       <div className="container-px pointer-events-none relative z-10 w-full py-20 lg:py-24">
         <div className="pointer-events-auto max-w-2xl">
-          {badge && (
-            <span className="mb-6 inline-flex rounded-full border border-white/50 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-[0.02em] text-white backdrop-blur">
-              {badge}
-            </span>
-          )}
           {eyebrow && <p className="eyebrow-light">{eyebrow}</p>}
           <h1 className="mt-5 font-display text-hero font-semibold text-white">{title}</h1>
           {lead && <p className="mt-6 max-w-xl text-lg leading-relaxed text-white">{lead}</p>}

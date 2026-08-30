@@ -26,7 +26,6 @@ export default function OfficeRental() {
     <>
       <PageHeader
         images={pageHeroes.officeRental}
-        badge="Ferndale, Randburg"
         eyebrow="Office & training space"
         title={<>Professional space <Accent>when you need it</Accent>.</>}
         lead={`Flexible professional space available through Prestige Tutelage in Ferndale, Randburg — for training, workshops, meetings, interviews, assessments and short-term office use.`}

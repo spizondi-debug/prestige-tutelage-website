@@ -98,7 +98,6 @@ export default function Contact() {
     <>
       <PageHeader
         images={pageHeroes.contact}
-        badge="Ferndale, Randburg"
         eyebrow="Contact"
         title={<>Let’s talk about <Accent>your workforce</Accent>.</>}
         lead="Tell us what your organisation is trying to achieve. We will come back with a practical, costed way forward — not a brochure."

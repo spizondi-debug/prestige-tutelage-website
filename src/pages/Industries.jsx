@@ -15,7 +15,6 @@ export default function Industries() {
     <>
       <PageHeader
         images={pageHeroes.industries}
-        badge="7 sectors"
         eyebrow="Industries"
         title={<>Training designed for the <Accent>realities of your sector</Accent>.</>}
         lead="A supervisor on a poultry farm, a team leader on a production line and a manager in a professional firm face different problems. We design for each — and we know the difference."
