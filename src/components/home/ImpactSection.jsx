@@ -41,7 +41,7 @@ export default function ImpactSection() {
           <div className="w-full px-5 py-16 sm:px-8 lg:py-24 lg:pl-16 lg:pr-12 xl:pl-20 xl:pr-24">
             <Reveal>
               <p className="eyebrow">Impact</p>
-              <h2 className="mt-5 max-w-xl font-display text-editorial font-semibold text-ink">
+              <h2 className="mt-5 max-w-xl font-display text-editorial font-semibold text-prestige-green-deep">
                 We measure success where it matters: <Accent>in the workplace</Accent>.
               </h2>
 

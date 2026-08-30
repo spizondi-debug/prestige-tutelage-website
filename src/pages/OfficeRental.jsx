@@ -66,7 +66,6 @@ export default function OfficeRental() {
             <SectionHeading
               eyebrow="What the space is used for"
               title="Four kinds of booking."
-              tone="green"
               lead="Tell us what you are running and we will advise on the right room. Room options, capacity, facilities and pricing are confirmed when you enquire."
             />
           </div>

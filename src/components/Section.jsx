@@ -18,22 +18,31 @@ export function Eyebrow({ children, light = false }) {
   return <p className={light ? 'eyebrow-light' : 'eyebrow'}>{children}</p>
 }
 
-export function SectionHeading({ eyebrow, title, lead, light = false, center = false, tone }) {
+export function SectionHeading({ eyebrow, title, lead, light = false, center = false, tone = 'green' }) {
+  const colour = light
+    ? 'text-white'
+    : tone === 'blue'
+      ? 'text-prestige-blue-hover'
+      : tone === 'ink'
+        ? 'text-ink'
+        : 'text-prestige-green-deep'
+
   return (
     <div className={`max-w-3xl ${center ? 'mx-auto text-center' : ''}`}>
       {eyebrow && <Eyebrow light={light}>{eyebrow}</Eyebrow>}
-      {/* `tone="green"` puts the whole heading in the logo green — the deeper
-          shade, not #2DA22F. Same hue and saturation, darker: #2DA22F measures
-          3.32:1 on White, 3.12:1 on Cloud and 2.98:1 on the mist/60 bands, so
-          it fails outright on Mist and clears large-text AA elsewhere with no
-          headroom. #237D24 holds 4.53:1 or better on every light surface the
-          site uses, which keeps the heading legal wherever a section moves and
-          even if it later drops below the large-text size. #2DA22F stays for
-          <Accent> spans and graphic rules. */}
+      {/* Section headings are the logo green by default, across the whole site.
+          Not the bright green though: #31B84A measures 2.60:1 on white, which
+          fails even the 3.0:1 floor for display type. `green-deep` #1E7A2E is
+          the same hue at the same saturation, dark enough to hold 5.41:1 on
+          White, 5.08:1 on Cloud and 4.80:1 on Mist — so it stays legal wherever
+          a section moves, and even if the heading later drops below display
+          size. The bright green stays for <Accent> spans and graphic rules.
+
+          `tone="blue"` and `tone="ink"` are the escape hatches; `light` keeps
+          headings white on the blue and photographic surfaces, where green is
+          unusable (the brand green is 1.61:1 on the brand blue). */}
       <h2
-        className={`font-display text-section font-semibold ${eyebrow ? 'mt-5' : ''} ${
-          light ? 'text-white' : tone === 'green' ? 'text-prestige-green-deep' : 'text-ink'
-        }`}
+        className={`font-display text-section font-semibold ${eyebrow ? 'mt-5' : ''} ${colour}`}
       >
         {title}
       </h2>

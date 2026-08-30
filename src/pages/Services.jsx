@@ -48,7 +48,7 @@ export default function Services() {
                     {String(gi + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h2 className="font-display text-2xl font-semibold leading-tight text-ink sm:text-3xl">
+                <h2 className="font-display text-2xl font-semibold leading-tight text-prestige-green-deep sm:text-3xl">
                   {group.title}
                 </h2>
                 <p className="mt-3 leading-relaxed text-body">{group.lead}</p>

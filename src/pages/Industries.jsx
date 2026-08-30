@@ -48,7 +48,7 @@ export default function Industries() {
                   </span>
                   <span className="h-px flex-1 bg-line" aria-hidden="true" />
                 </div>
-                <h2 className="font-display text-2xl font-semibold leading-tight text-ink sm:text-3xl">
+                <h2 className="font-display text-2xl font-semibold leading-tight text-prestige-green-deep sm:text-3xl">
                   {ind.title}
                 </h2>
                 <p className="mt-4 leading-relaxed text-body">{ind.summary}</p>

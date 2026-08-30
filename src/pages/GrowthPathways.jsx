@@ -81,7 +81,6 @@ export default function GrowthPathways() {
               <SectionHeading
                 eyebrow="Why it matters"
                 title="Development that people can see themselves in."
-                tone="green"
               />
               <p className="mt-5 leading-relaxed text-body">
                 When an employee understands where they stand, what they are working toward and what

@@ -49,7 +49,6 @@ export default function BBBEEConsulting() {
               <SectionHeading
                 eyebrow="The problem we solve"
                 title="Spend that satisfies a scorecard but changes nothing is wasted twice."
-                tone="green"
               />
               <p className="mt-5 leading-relaxed text-body">
                 Plenty of organisations meet their skills-development obligations on paper and see no
@@ -111,7 +110,7 @@ export default function BBBEEConsulting() {
                     {String(gi + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h2 className="font-display text-2xl font-semibold leading-tight text-ink sm:text-3xl">
+                <h2 className="font-display text-2xl font-semibold leading-tight text-prestige-green-deep sm:text-3xl">
                   {group.title}
                 </h2>
                 <p className="mt-3 leading-relaxed text-body">{group.lead}</p>

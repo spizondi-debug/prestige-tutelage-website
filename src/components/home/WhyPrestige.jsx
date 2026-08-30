@@ -17,6 +17,7 @@ export default function WhyPrestige() {
           <SectionHeading
             eyebrow="Why Prestige"
             title={<>The way we work is <Accent>the difference</Accent>.</>}
+            tone="blue"
             lead="Organisations keep working with Prestige because of how the work gets done — not just what is on the course list."
           />
           <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">

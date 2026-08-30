@@ -31,7 +31,7 @@ export default function FeaturedProgrammes() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>
             <p className="eyebrow">Qualifications</p>
-            <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-ink">
+            <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-prestige-green-deep">
               Business, production, <Accent>agriculture and community</Accent>.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">

@@ -226,7 +226,6 @@ export default function Programmes() {
               <SectionHeading
                 eyebrow="Learnerships"
                 title="Work-based learning, managed properly."
-                tone="green"
                 lead={learnerships.intro}
               />
               <div className="mt-8 space-y-6">

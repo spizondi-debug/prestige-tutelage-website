@@ -20,6 +20,7 @@ export default function LearnershipsSection() {
             <SectionHeading
               eyebrow="Learnerships"
               title={<>Structured, work-based routes to <Accent>real qualifications</Accent>.</>}
+            tone="blue"
               lead={learnerships.intro}
             />
             <div className="mt-8 space-y-6">

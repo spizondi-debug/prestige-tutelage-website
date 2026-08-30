@@ -20,7 +20,7 @@ export default function IndustriesSection() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>
             <p className="eyebrow">Industries</p>
-            <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-ink">
+            <h2 className="mt-5 max-w-2xl font-display text-editorial font-semibold text-prestige-green-deep">
               Grounded in the sectors that <Accent>carry the economy</Accent>.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-body">

@@ -12,6 +12,7 @@ export default function InsightsPreview() {
           <SectionHeading
             eyebrow="Insights"
             title={<>Thinking on <Accent>skills development</Accent>, learnerships and workplace learning.</>}
+            tone="blue"
           />
           <Link to="/insights" className="btn btn-outline shrink-0">All Insights</Link>
         </div>

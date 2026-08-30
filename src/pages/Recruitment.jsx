@@ -64,7 +64,6 @@ export default function Recruitment() {
               <SectionHeading
                 eyebrow="What we do"
                 title="From first advert to first day."
-                tone="green"
                 lead="Take the whole process, or the part you do not have capacity for."
               />
               <p className="mt-5 leading-relaxed text-body">
@@ -119,7 +118,6 @@ export default function Recruitment() {
               <SectionHeading
                 eyebrow="Where we are strongest"
                 title="Learnership & youth recruitment."
-                tone="green"
                 lead={learnerRecruitment.lead}
               />
               <ul className="mt-8 grid gap-x-10 border-t border-line sm:grid-cols-2">

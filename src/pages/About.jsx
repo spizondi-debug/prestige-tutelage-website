@@ -67,7 +67,6 @@ export default function About() {
               <SectionHeading
                 eyebrow="Who we are"
                 title="Serious about training. Human about how it happens."
-                tone="green"
                 lead="We deliver accredited programmes, learnerships, short courses and workplace training for employers across South Africa — backed by our own assessment centre and disciplined learner administration."
               />
               <p className="mt-5 leading-relaxed text-body">

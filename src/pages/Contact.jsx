@@ -109,7 +109,7 @@ export default function Contact() {
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
             {/* Form */}
             <div>
-              <h2 className="font-display text-2xl font-semibold text-ink">Request a proposal</h2>
+              <h2 className="font-display text-2xl font-semibold text-prestige-green-deep">Request a proposal</h2>
               <p className="mt-2 leading-relaxed text-body">
                 Fields marked <span aria-hidden="true">*</span> are required.
               </p>

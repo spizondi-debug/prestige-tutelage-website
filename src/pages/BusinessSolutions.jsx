@@ -102,7 +102,7 @@ export default function BusinessSolutions() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h2 className="font-display text-2xl font-semibold leading-tight text-ink sm:text-3xl">
+                <h2 className="font-display text-2xl font-semibold leading-tight text-prestige-green-deep sm:text-3xl">
                   {s.title}
                 </h2>
                 <p className="mt-3 max-w-2xl leading-relaxed text-body">{s.lead}</p>

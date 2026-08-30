@@ -48,7 +48,7 @@ export default function IntroducePrestige() {
       <div className="container-px">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-24">
           <Reveal>
-            <h2 className="font-display text-editorial font-semibold text-ink">
+            <h2 className="font-display text-editorial font-semibold text-prestige-green-deep">
               More than <Accent>training</Accent>.
             </h2>
           </Reveal>

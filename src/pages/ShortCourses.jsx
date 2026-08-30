@@ -103,7 +103,7 @@ export default function ShortCourses() {
                       <span className="font-display text-2xl font-semibold text-prestige-blue-hover/80">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <h2 className="font-display text-2xl font-semibold leading-tight text-ink">
+                      <h2 className="font-display text-2xl font-semibold leading-tight text-prestige-green-deep">
                         {cat.title}
                       </h2>
                     </div>

@@ -69,7 +69,6 @@ export default function CorporateTraining() {
               <SectionHeading
                 eyebrow="In the room"
                 title="Facilitators who earn the room."
-                tone="green"
                 lead="Training only transfers when the person at the front has industry credibility, reads the group, and can hold a mixed room of people with very different starting points."
               />
               <p className="mt-5 leading-relaxed text-body">
@@ -106,7 +105,6 @@ export default function CorporateTraining() {
               <SectionHeading
                 eyebrow="Delivery formats"
                 title="Delivered the way your organisation actually runs."
-                tone="green"
                 lead="Shift patterns, production pressure and dispersed sites are normal. We plan around them rather than asking you to plan around us."
               />
               <ContentSlider
