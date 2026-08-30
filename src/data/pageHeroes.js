@@ -93,6 +93,11 @@ const P = {
     alt: 'A Prestige Tutelage learner being congratulated at a certificate handover',
     position: 'center 26%',
   },
+  facilitatorSession: {
+    src: 'facilitator-session.jpg',
+    alt: 'Prestige Tutelage learners working at desks while a facilitator leads the session',
+    position: 'center 42%',
+  },
   workshopTraining: {
     src: 'workshop-training.jpg',
     alt: 'A learner in full protective equipment working with an angle grinder during practical training',
@@ -124,7 +129,7 @@ export const pageHeroes = {
   bbbee: [P.certificatesGroup, P.intake, P.handoverOveralls, P.handoverCongrats],
   recruitment: [P.intake, P.clientSite, P.certificatesGroup, P.handoverReviewing],
   officeRental: [P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats],
-  assessment: [P.certificatesGroup, P.handoverOveralls, P.handoverRedShirt, P.certificatesCohort],
+  assessment: [P.facilitatorSession, P.trainingRoom, P.handoverReviewing, P.certificatesCohort],
   insights: [P.intake, P.welding, P.handoverReviewing, P.cohortOutside],
   contact: [P.handoverReviewing, P.intake, P.certificatesGroup, P.trainingRoom],
 }

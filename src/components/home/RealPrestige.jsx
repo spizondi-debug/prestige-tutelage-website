@@ -15,12 +15,12 @@ import { Accent } from '../Section.jsx'
  */
 export default function RealPrestige() {
   return (
-    <section className="on-dark tex tex-grain tex-edge relative overflow-hidden bg-prestige-blue-hover py-24 text-white lg:py-36">
+    <section className="on-dark on-photo tex tex-grain tex-edge relative overflow-hidden bg-shadow py-24 text-white lg:py-36">
       <div className="absolute inset-0">
         <HeroMedia media={realPrestigeMedia} className="h-full w-full" />
         {/* Weighted hard so the statement reads at full strength over it. */}
         <div
-          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(5,89,168,0.95)_0%,rgba(6,109,206,0.86)_45%,rgba(8,123,232,0.62)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.95)_0%,rgba(7,26,43,0.86)_45%,rgba(7,26,43,0.68)_100%)]"
           aria-hidden="true"
         />
       </div>

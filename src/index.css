@@ -62,10 +62,30 @@
   --prestige-white: #FFFFFF;
   --prestige-text: #172B3D;
 
-  /* The photographic overlay, used by every slider and every photo band so
-     the treatment is identical site-wide. Blue and transparent — never
-     navy, black, purple, cyan or teal — and it clears to nothing on the
-     right so the photograph stays visible. */
+  /* THE HERO SCRIM — restored to the original dark treatment on request.
+     A blue overlay strong enough to seat white type also tints the whole
+     photograph blue: skin, PPE and workshop colour all shift, which is what
+     the client saw on the welding slide. This dark scrim seats the type just
+     as well and leaves the photograph its own colours. It is a scrim over an
+     image, not a brand surface — the site's blue system is unchanged. */
+  --prestige-hero-overlay: linear-gradient(
+    to right,
+    rgba(7, 26, 43, 0.90) 0%,
+    rgba(7, 26, 43, 0.78) 32%,
+    rgba(7, 26, 43, 0.50) 62%,
+    rgba(7, 26, 43, 0.34) 100%
+  );
+  --prestige-hero-overlay-y: linear-gradient(
+    to bottom,
+    rgba(7, 26, 43, 0.45) 0%,
+    transparent 28%,
+    transparent 62%,
+    rgba(7, 26, 43, 0.55) 100%
+  );
+
+  /* The blue photographic overlay, still used by the in-page photo bands so
+     their treatment stays identical to each other. Blue and transparent, and
+     it clears to nothing on the right so the photograph stays visible. */
   --prestige-photo-overlay: linear-gradient(
     90deg,
     rgba(5, 89, 168, 0.96) 0%,
@@ -180,9 +200,18 @@
   :root {
     --hl-accent: #1E7A2E;
   }
-  .on-dark,
-  .hero-dark {
+  /* Flat blue surfaces still need the lifted green — measured 3.25:1 on
+     #066DCE, where anything more saturated fails. */
+  .on-dark {
     --hl-accent: #9AE4A8;
+  }
+  /* A dark photo scrim is a different problem: the hardest backdrop across
+     all 17 hero slides measures rgb(69,79,87), where the site's growth green
+     is 3.9:1 and the brand green itself is 3.22:1. Type over a photograph
+     therefore gets the saturated green back. */
+  .hero-dark,
+  .on-photo {
+    --hl-accent: #45B95C;
   }
   .hl-accent {
     color: var(--hl-accent);

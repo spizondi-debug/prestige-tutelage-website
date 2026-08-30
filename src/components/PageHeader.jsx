@@ -48,7 +48,7 @@ export default function PageHeader({ eyebrow, title, lead, images, badge, childr
   return (
     <section
       data-dark-hero
-      className="hero-dark relative isolate flex min-h-[42rem] items-center overflow-hidden bg-prestige-blue-deep text-white sm:min-h-[44rem] lg:min-h-[calc(100svh-var(--nav-h,7.5rem))]"
+      className="hero-dark relative isolate flex min-h-[42rem] items-center overflow-hidden bg-shadow text-white sm:min-h-[44rem] lg:min-h-[calc(100svh-var(--nav-h,7.5rem))]"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -60,7 +60,7 @@ export default function PageHeader({ eyebrow, title, lead, images, badge, childr
       <div className="container-px pointer-events-none relative z-10 w-full py-20 lg:py-24">
         <div className="pointer-events-auto max-w-2xl">
           {badge && (
-            <span className="mb-6 inline-flex rounded-full border border-white/50 bg-prestige-blue-deep/70 px-4 py-1.5 text-xs font-semibold tracking-[0.02em] text-white backdrop-blur">
+            <span className="mb-6 inline-flex rounded-full border border-white/50 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-[0.02em] text-white backdrop-blur">
               {badge}
             </span>
           )}

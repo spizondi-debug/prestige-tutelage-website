@@ -20,10 +20,10 @@ export default function LearningLadder() {
   const high = Math.max(...nqfLevels)
 
   return (
-    <section className="on-dark tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital py-20 text-white lg:py-28">
+    <section className="on-dark on-photo tex tex-grain tex-edge relative overflow-hidden bg-shadow py-20 text-white lg:py-28">
       {/* Holds the type on a readable field where the gradient runs brightest. */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(5,89,168,0.90)_0%,rgba(6,109,206,0.60)_48%,rgba(8,123,232,0.25)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.9)_0%,rgba(7,26,43,0.62)_48%,rgba(7,26,43,0.3)_100%)]"
         aria-hidden="true"
       />
 
@@ -61,7 +61,7 @@ export default function LearningLadder() {
 
           <div className="relative">
             <QualificationLattice className="h-[26rem] w-full sm:h-[32rem] lg:h-[36rem]" />
-            <p className="mt-2 text-center text-xs text-white/45 lg:mt-0">
+            <p className="mt-2 text-center text-xs text-white/70 lg:mt-0">
               <span className="lg:hidden">Tap</span>
               <span className="hidden lg:inline">Hover</span> a point to see the qualification
             </p>

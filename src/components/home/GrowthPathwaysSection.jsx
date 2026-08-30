@@ -19,7 +19,7 @@ export default function GrowthPathwaysSection() {
     // the homepage where the gradient appears at full strength, so it stays a
     // signature rather than a wash. The Path runs over it, dropping from blue
     // into green exactly where the copy talks about progression.
-    <section className="on-dark tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital py-20 text-white lg:py-28">
+    <section className="on-dark on-photo tex tex-grain tex-edge relative overflow-hidden bg-shadow py-20 text-white lg:py-28">
       <PrestigePath
         stage={2.6}
         intensity={0.38}
@@ -27,7 +27,7 @@ export default function GrowthPathwaysSection() {
       />
       {/* Keeps type legible where the gradient runs brightest. */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(5,89,168,0.88)_0%,rgba(6,109,206,0.58)_55%,rgba(8,123,232,0.28)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.86)_0%,rgba(7,26,43,0.55)_55%,rgba(7,26,43,0.35)_100%)]"
         aria-hidden="true"
       />
 

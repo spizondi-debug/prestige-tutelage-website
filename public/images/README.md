@@ -131,3 +131,12 @@ the work, in priority order:
 
 Phone screenshots of social posts are not usable — they carry app UI. Upload
 the original photograph instead.
+
+## facilitator-session.jpg — restored 30 Aug 2026
+
+This classroom photograph was withdrawn once, at the client's request, and
+removed from the library in commit 66a1816. It has since been reinstated on
+request and now leads the Assessment Centre hero.
+
+It shows several identifiable learners at close range. Publication consent for
+the people in it must be confirmed before the site goes to a public domain.

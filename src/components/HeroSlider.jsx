@@ -68,8 +68,8 @@ export default function HeroSlider({
 
   const arrow =
     'pointer-events-auto flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border ' +
-    'border-white/35 bg-prestige-blue-deep/90 text-white backdrop-blur transition-colors duration-200 ' +
-    'hover:border-white/80 hover:bg-prestige-blue-deep/85 focus-visible:outline focus-visible:outline-2 ' +
+    'border-white/35 bg-shadow/60 text-white backdrop-blur transition-colors duration-200 ' +
+    'hover:border-white/80 hover:bg-shadow/85 focus-visible:outline focus-visible:outline-2 ' +
     'focus-visible:outline-offset-2 focus-visible:outline-white'
 
   return (
@@ -106,11 +106,11 @@ export default function HeroSlider({
           out to the right so the photograph is still clearly a photograph. A
           second vertical pass seats the navigation and the controls. */}
       <div
-        className="pointer-events-none absolute inset-0 [background-image:var(--prestige-photo-overlay)]"
+        className="pointer-events-none absolute inset-0 [background-image:var(--prestige-hero-overlay)]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-0 [background-image:var(--prestige-photo-overlay-y)]"
+        className="pointer-events-none absolute inset-0 [background-image:var(--prestige-hero-overlay-y)]"
         aria-hidden="true"
       />
 
@@ -126,7 +126,7 @@ export default function HeroSlider({
           </div>
 
           <div className="absolute inset-x-0 bottom-7 flex justify-center sm:bottom-9">
-            <div className="flex items-center gap-2.5 rounded-full bg-prestige-blue-deep/85 px-4 py-3 backdrop-blur">
+            <div className="flex items-center gap-2.5 rounded-full bg-shadow/70 px-4 py-3 backdrop-blur">
               {images.map((img, i) => (
                 <button
                   key={img.src}

@@ -53,7 +53,7 @@ export default {
         // ── Photo scrims only ────────────────────────────────────────────
         // Not brand surfaces. Used behind or over photographs, where a blue
         // tint would shift the colour of the image itself.
-        shadow: '#0B1B28',
+        shadow: '#071A2B',
 
         // ── Light surfaces ───────────────────────────────────────────────
         cloud: '#F5F8FA',

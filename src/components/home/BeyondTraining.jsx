@@ -76,7 +76,7 @@ export default function BeyondTraining() {
                   {s.photo ? (
                     <Photo src={s.photo} alt={s.alt} className="aspect-[3/4] w-full" />
                   ) : (
-                    <div className="relative aspect-[3/4] w-full bg-prestige-blue-hover">
+                    <div className="relative aspect-[3/4] w-full bg-shadow">
                       <PrestigePath
                         stage={s.stage}
                         intensity={0.5}
@@ -86,7 +86,7 @@ export default function BeyondTraining() {
                   )}
                   {/* Scrim: the index must stay legible over a bright photo. */}
                   <span
-                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(5,89,168,0.60),transparent)]"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(7,26,43,0.55),transparent)]"
                     aria-hidden="true"
                   />
                   <span className="absolute left-5 top-4 font-display text-sm font-semibold text-white">

@@ -10,6 +10,7 @@ export const imageMeta = {
   'certificate-handover-red-shirt.jpg': { w: 1464, h: 1920 },
   'certificate-handover-reviewing.jpg': { w: 1496, h: 1920 },
   'certificates-cohort.jpg': { w: 1536, h: 1920 },
+  'facilitator-session.jpg': { w: 1400, h: 933 },
   'fabrication-workshop-floor.jpg': { w: 1575, h: 1920 },
   'learner-angle-grinder.jpg': { w: 1446, h: 1920 },
   'learner-bandsaw-operator.jpg': { w: 1141, h: 1920 },

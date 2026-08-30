@@ -59,7 +59,7 @@ export default function FeaturedStories() {
                 {s.photo ? (
                   <Photo src={s.photo} alt={s.alt} className="absolute inset-0 h-full w-full" />
                 ) : (
-                  <div className="absolute inset-0 bg-prestige-blue-hover">
+                  <div className="absolute inset-0 bg-shadow">
                     <PrestigePath
                       stage={s.stage}
                       intensity={0.55}
