@@ -60,6 +60,11 @@ export const allPages = [
   { label: 'Recruitment Services', to: '/recruitment' },
   { label: 'Office & Training Space Rental', to: '/office-rental' },
   { label: 'Assessment Centre', to: '/assessment-centre' },
+  // One of the five Business Solutions the desktop dropdown lists — without
+  // this, a mobile visitor has no way to reach it at all. Not linked to a
+  // page of its own; it opens Services scrolled to the workforce-advisory
+  // section, the same destination the dropdown uses.
+  { label: 'Skills Development Consulting', to: '/services#workforce-advisory' },
   { label: 'Industries', to: '/industries' },
   { label: 'Prestige Growth Pathways', to: '/growth-pathways' },
   { label: 'Insights', to: '/insights' },
