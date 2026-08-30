@@ -64,7 +64,7 @@ export default function ShortCourses() {
                 Prestige also delivers qualifications with stated SAQA IDs and NQF levels, through
                 full programmes or learnerships.
               </p>
-              <Link to="/programmes" className="mt-3 inline-block text-sm font-semibold text-prestige-blue hover:underline">
+              <Link to="/programmes" className="mt-3 inline-block text-sm font-semibold text-prestige-blue-hover hover:underline">
                 See programmes &amp; qualifications →
               </Link>
             </div>
@@ -81,7 +81,7 @@ export default function ShortCourses() {
               <a
                 key={c.slug}
                 href={`#${c.slug}`}
-                className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
+                className="text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover"
               >
                 {c.title}
                 <span className="ml-1.5 font-normal text-muted">{coursesOf(c).length}</span>
@@ -100,7 +100,7 @@ export default function ShortCourses() {
                 <div className="flex flex-col gap-6 border-t border-line pt-8 lg:flex-row lg:gap-16">
                   <div className="lg:w-[22rem] lg:shrink-0">
                     <div className="flex items-baseline gap-4">
-                      <span className="font-display text-2xl font-semibold text-prestige-blue/80">
+                      <span className="font-display text-2xl font-semibold text-prestige-blue-hover/80">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <h2 className="font-display text-2xl font-semibold leading-tight text-ink">
@@ -194,7 +194,7 @@ export default function ShortCourses() {
                 { t: 'You get a clear record', d: 'Attendance, certificates and facilitator feedback, properly documented.' },
               ].map((s, i) => (
                 <li key={s.t} className="border-b border-line py-5">
-                  <span className="font-display text-lg font-semibold text-prestige-blue">
+                  <span className="font-display text-lg font-semibold text-prestige-blue-hover">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="mt-2 font-sans font-semibold text-ink">{s.t}</h3>

@@ -25,7 +25,7 @@ export default function Services() {
             <a
               key={g.slug}
               href={`#${g.slug}`}
-              className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
+              className="text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover"
             >
               {g.title}
             </a>
@@ -44,7 +44,7 @@ export default function Services() {
               <div className="lg:sticky lg:top-32 lg:self-start">
                 <div className="mb-4 flex items-center gap-3">
                   <span className="h-px w-10 bg-prestige-green" />
-                  <span className="text-sm font-semibold tracking-wide text-prestige-blue">
+                  <span className="text-sm font-semibold tracking-wide text-prestige-blue-hover">
                     {String(gi + 1).padStart(2, '0')}
                   </span>
                 </div>
@@ -55,7 +55,7 @@ export default function Services() {
                 {group.to && (
                   <Link
                     to={group.to}
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover"
                   >
                     {group.toLabel}
                     <span aria-hidden="true">→</span>
@@ -68,7 +68,7 @@ export default function Services() {
                   <div key={s.name} className="border-b border-line py-5">
                     <dt className="font-sans font-semibold text-ink">
                       {s.to ? (
-                        <Link to={s.to} className="transition-colors hover:text-prestige-blue">
+                        <Link to={s.to} className="transition-colors hover:text-prestige-blue-hover">
                           {s.name}
                         </Link>
                       ) : (

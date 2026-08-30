@@ -42,6 +42,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Prestige brand variables ────────────────────────────────────────────
+   The single source of truth for brand colour. Tailwind's tokens are
+   generated from the same values in tailwind.config.js; anything outside
+   Tailwind's reach (raw gradients, canvas drawing) reads them from here, so
+   there is one place to change the brand.
+
+   CONTRAST, measured: white on --prestige-blue is 4.19:1 — enough for large
+   text (3.0:1), short of normal text (4.5:1). --prestige-blue-hover is
+   5.14:1 and clears both, so surfaces that carry small white text (the
+   utility bar, footer body copy, buttons) use it rather than the brighter
+   blue. */
+:root {
+  --prestige-blue: #087BE8;
+  --prestige-blue-hover: #066DCE;
+  --prestige-blue-deep: #0559A8;
+  --prestige-blue-light: #EAF4FF;
+  --prestige-green: #31B84A;
+  --prestige-white: #FFFFFF;
+  --prestige-text: #172B3D;
+
+  /* The photographic overlay, used by every slider and every photo band so
+     the treatment is identical site-wide. Blue and transparent — never
+     navy, black, purple, cyan or teal — and it clears to nothing on the
+     right so the photograph stays visible. */
+  --prestige-photo-overlay: linear-gradient(
+    90deg,
+    rgba(5, 89, 168, 0.96) 0%,
+    rgba(5, 89, 168, 0.92) 38%,
+    rgba(6, 109, 206, 0.70) 56%,
+    rgba(8, 123, 232, 0.22) 80%,
+    rgba(8, 123, 232, 0) 100%
+  );
+
+  /* Vertical companion: seats the headline and keeps slider controls legible
+     at the top and bottom edges without lightening the middle of the frame. */
+  --prestige-photo-overlay-y: linear-gradient(
+    to bottom,
+    rgba(5, 89, 168, 0.42) 0%,
+    transparent 26%,
+    transparent 60%,
+    rgba(5, 89, 168, 0.55) 100%
+  );
+}
+
 @layer base {
   * {
     -webkit-font-smoothing: antialiased;
@@ -72,29 +116,38 @@
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5
            text-[0.95rem] font-semibold tracking-[0.01em]
-           transition-all duration-200 ease-prestige;
+           transition-all duration-200 ease-prestige
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+           focus-visible:outline-prestige-blue-deep
+           disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none;
+  }
+  /* On a blue or photographic surface the deep-blue ring disappears; white
+     is the only ring that reads on both. */
+  .on-dark .btn,
+  .hero-dark .btn {
+    @apply focus-visible:outline-white;
   }
 
   /* Primary — the default action. Brightens and lifts on hover. */
   .btn-primary {
-    @apply bg-prestige-blue text-white hover:bg-prestige-blue-bright hover:shadow-premium;
+    @apply bg-prestige-blue-hover text-white hover:bg-prestige-blue-deep hover:shadow-premium;
   }
 
   /* Growth — reserved for starting, progressing, enrolling. Not a general
      alternative to primary: green earns its meaning by being rare. */
   .btn-green {
-    @apply bg-prestige-green text-midnight hover:bg-prestige-growth hover:shadow-premium;
+    @apply bg-prestige-green text-ink hover:bg-prestige-green-light hover:shadow-premium;
   }
 
   /* Dark — for light backgrounds that already carry a blue accent. */
   .btn-dark {
-    @apply bg-midnight text-white hover:bg-navy hover:shadow-premium;
+    @apply bg-prestige-blue text-white hover:bg-prestige-blue hover:shadow-premium;
   }
 
   /* Outline — quiet secondary. Fills softly rather than inverting hard. */
   .btn-outline {
-    @apply border border-navy/25 bg-transparent text-navy
-           hover:border-navy/40 hover:bg-navy/[0.06];
+    @apply border border-prestige-blue/40 bg-transparent text-prestige-blue-hover
+           hover:border-prestige-blue hover:bg-prestige-blue-light;
   }
 
   /* Outline on dark surfaces. */
@@ -114,12 +167,22 @@
      Dark surfaces swap to Growth Green through the variable: the logo green
      is 5.30:1 on Midnight but the lighter one is 7.00:1 and reads better
      against a photograph. */
+  /* Neither surface can carry the raw brand green as text.
+     On white it has to be darkened: #31B84A is 2.60:1 there, so green text
+     on light uses #1E7A2E (5.41:1).
+     On blue it has to be lightened: #31B84A on #087BE8 is 1.61:1, because
+     the two are almost the same luminance. #9AE4A8 was picked by sampling
+     the actual rendered backdrop behind the headline on all 17 hero slides —
+     the hardest is rgb(39,116,189) on a bright photo, where it measures
+     3.25:1, over the 3.0:1 floor for display type. The brand green manages
+     2.23:1 on that same backdrop, and no saturated green clears the floor
+     there at all, which is why this one is lifted so far. */
   :root {
-    --hl-accent: #2DA22F;
+    --hl-accent: #1E7A2E;
   }
   .on-dark,
   .hero-dark {
-    --hl-accent: #45B95C;
+    --hl-accent: #9AE4A8;
   }
   .hl-accent {
     color: var(--hl-accent);
@@ -128,31 +191,34 @@
   /* ── Dark hero context ─────────────────────────────────────────────────
      Pages hand the hero their CTAs and in-page navigation already styled for
      a light background. Rather than edit every page, restyle those
-     descendants here: an outline button in navy-on-transparent is invisible
+     descendants here: an outline button in blue-on-transparent is invisible
      over a photograph, and Prestige Blue link text is only 3.58:1 on
      Midnight. */
   .hero-dark .btn-outline {
     @apply border-white/35 bg-transparent text-white hover:border-white/70 hover:bg-white/10;
   }
-  .hero-dark a.text-prestige-blue,
-  .hero-dark .text-prestige-blue {
+  .hero-dark a.text-prestige-blue-hover,
+  .hero-dark .text-prestige-blue-hover {
     @apply text-white;
   }
-  .hero-dark a.text-prestige-blue:hover {
-    @apply text-prestige-growth;
+  .hero-dark a.text-prestige-blue-hover:hover {
+    @apply text-prestige-green-light;
   }
   .hero-dark .text-muted,
   .hero-dark .text-body {
-    @apply text-white/75;
+    @apply text-white/90;
   }
 
   /* ── Micro label ───────────────────────────────────────────────────────
      The small wide-tracked caps that sit above every statement. */
   .eyebrow {
-    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-prestige-blue;
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-prestige-blue-hover;
   }
+  /* On blue, the eyebrow is white. At 11.2px it needs 4.5:1, and the brand
+     green manages 1.61:1 on the brand blue — the two are nearly the same
+     luminance. Green does its accenting here as rules and markers instead. */
   .eyebrow-light {
-    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-prestige-growth;
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-white;
   }
 
   /* ── Chevron link ──────────────────────────────────────────────────────
@@ -185,7 +251,7 @@
   /* ── Glass ─────────────────────────────────────────────────────────────
      For navigation and floating overlays only. Never for ordinary cards. */
   .glass {
-    background: rgba(11, 39, 66, 0.72);
+    background: rgba(5, 89, 168, 0.72);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid rgba(255, 255, 255, 0.10);
@@ -200,7 +266,7 @@
      opacity, bloom on ::before at full opacity with alpha baked into the
      gradient stops. Putting both on one layer means any opacity that tames
      the grain also kills the bloom — which is exactly how the first attempt
-     washed the midnight hero out to grey.
+     washed the blue hero out to grey.
 
      Keep these values low. Texture you consciously notice is too strong. */
 
@@ -240,8 +306,8 @@
   /* Blueprint grid — for light surfaces. Reads as precision, not decoration. */
   .tex-grid::after {
     background-image:
-      linear-gradient(to right, rgba(7, 26, 43, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(7, 26, 43, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(23, 43, 61, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(23, 43, 61, 0.05) 1px, transparent 1px);
     background-size: 76px 76px;
     /* Fade the grid out downward so it frames the top of a section rather
        than tiling the whole thing. */
@@ -251,7 +317,7 @@
 
   /* Dot matrix — a quieter alternative to the grid. */
   .tex-dots::after {
-    background-image: radial-gradient(rgba(7, 26, 43, 0.11) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(23, 43, 61, 0.11) 1px, transparent 1px);
     background-size: 28px 28px;
     -webkit-mask-image: radial-gradient(90% 75% at 50% 40%, #000 0%, transparent 74%);
     mask-image: radial-gradient(90% 75% at 50% 40%, #000 0%, transparent 74%);

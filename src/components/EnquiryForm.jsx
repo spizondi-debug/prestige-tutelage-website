@@ -64,7 +64,7 @@ export default function EnquiryForm({ fields, form, submitLabel, note }) {
         <button type="submit" className="btn btn-primary">{submitLabel}</button>
         <p className="text-sm text-muted">
           Or email us directly at{' '}
-          <a href={contact.emailHref} className="font-semibold text-prestige-blue hover:underline">
+          <a href={contact.emailHref} className="font-semibold text-prestige-blue-hover hover:underline">
             {contact.email}
           </a>
         </p>
@@ -76,7 +76,7 @@ export default function EnquiryForm({ fields, form, submitLabel, note }) {
         <p role="status" className="rounded-lg border border-prestige-green/40 bg-prestige-green/5 px-4 py-3 text-body">
           Your email application should have opened with the enquiry ready to send. If it did not,
           please email{' '}
-          <a href={contact.emailHref} className="font-semibold text-prestige-blue hover:underline">
+          <a href={contact.emailHref} className="font-semibold text-prestige-blue-hover hover:underline">
             {contact.email}
           </a>{' '}
           directly.

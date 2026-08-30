@@ -27,7 +27,7 @@ export default function GrowthPathwaysSection() {
       />
       {/* Keeps type legible where the gradient runs brightest. */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.86)_0%,rgba(7,26,43,0.55)_55%,rgba(7,26,43,0.35)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(5,89,168,0.88)_0%,rgba(6,109,206,0.58)_55%,rgba(8,123,232,0.28)_100%)]"
         aria-hidden="true"
       />
 
@@ -38,7 +38,7 @@ export default function GrowthPathwaysSection() {
             <h2 className="mt-5 font-display text-section font-semibold leading-tight text-white">
               Prestige <Accent>Growth Pathways</Accent>
             </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/90">
               Growth Pathways joins the dots between where your workforce is and where your
               organisation needs it to be — connecting skills gaps to development plans, learning to
               workplace readiness, and individual growth to outcomes you can actually measure.
@@ -49,7 +49,7 @@ export default function GrowthPathwaysSection() {
           </Reveal>
 
           <div className="border-l border-line-dark pl-8 lg:pl-12">
-            <p className="text-sm font-semibold uppercase tracking-wider text-white/60">
+            <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
               One connected pathway
             </p>
             <ul className="mt-4 space-y-2.5">
@@ -57,7 +57,7 @@ export default function GrowthPathwaysSection() {
                 <li key={c} className="flex items-center gap-3 text-white/85">
                   <span
                     className={`h-1.5 w-1.5 shrink-0 rounded-full ${
-                      i % 2 ? 'bg-prestige-electric' : 'bg-prestige-growth'
+                      i % 2 ? 'bg-prestige-blue-hover' : 'bg-prestige-green'
                     }`}
                     aria-hidden="true"
                   />

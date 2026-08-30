@@ -53,7 +53,7 @@ export default function GrowthPathways() {
             <ol className="grid content-start border-t border-line">
               {connects.map((c, i) => (
                 <li key={c.t} className="grid gap-2 border-b border-line py-5 sm:grid-cols-[auto_1fr] sm:gap-6">
-                  <span className="font-display text-lg font-semibold text-prestige-blue">
+                  <span className="font-display text-lg font-semibold text-prestige-blue-hover">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span>

@@ -88,7 +88,7 @@ export default function About() {
       </section>
 
       {/* Purpose */}
-      <section className="border-y border-line bg-navy py-16 lg:py-20">
+      <section className="border-y border-line bg-prestige-blue-hover py-16 lg:py-20">
         <div className="container-px">
           <div className="max-w-3xl">
             <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />

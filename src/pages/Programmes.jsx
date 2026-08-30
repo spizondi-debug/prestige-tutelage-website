@@ -47,9 +47,9 @@ function FilterGroup({ label, options, value, onChange, formatter = (v) => v }) 
               type="button"
               onClick={() => onChange(opt)}
               aria-pressed={active}
-              className={`relative inline-flex h-11 items-center rounded-full border px-5 text-sm font-medium transition-all duration-200 ease-prestige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue ${
+              className={`relative inline-flex h-11 items-center rounded-full border px-5 text-sm font-medium transition-all duration-200 ease-prestige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep ${
                 active
-                  ? 'border-prestige-blue bg-prestige-blue text-white shadow-premium'
+                  ? 'border-prestige-blue-hover bg-prestige-blue-hover text-white shadow-premium'
                   : 'border-prestige-blue/15 bg-paper text-ink hover:border-prestige-blue/45 hover:bg-prestige-blue/[0.04]'
               }`}
             >
@@ -113,7 +113,7 @@ export default function Programmes() {
             ['#technical', 'Technical interventions'],
             ['#custom', 'Custom corporate'],
           ].map(([href, label]) => (
-            <a key={href} href={href} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift">
+            <a key={href} href={href} className="text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover">
               {label}
             </a>
           ))}
@@ -170,7 +170,7 @@ export default function Programmes() {
                 <button
                   type="button"
                   onClick={reset}
-                  className="rounded-full px-3 py-1.5 text-sm font-semibold text-prestige-blue transition-colors hover:bg-prestige-blue/[0.06] hover:text-navy-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue"
+                  className="rounded-full px-3 py-1.5 text-sm font-semibold text-prestige-blue-hover transition-colors hover:bg-prestige-blue/[0.06] hover:text-prestige-blue-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
                 >
                   Clear filters
                 </button>

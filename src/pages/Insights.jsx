@@ -35,7 +35,7 @@ export default function Insights() {
                 onClick={() => setCategory(c)}
                 aria-pressed={category === c}
                 className={`text-sm font-semibold transition-colors ${
-                  category === c ? 'text-prestige-blue' : 'text-body hover:text-prestige-blue'
+                  category === c ? 'text-prestige-blue-hover' : 'text-body hover:text-prestige-blue-hover'
                 }`}
               >
                 {c}
@@ -51,10 +51,10 @@ export default function Insights() {
               <article className="border-b border-line py-10">
                 <Link to={`/insights/${lead.slug}`} className="group grid gap-6 lg:grid-cols-[0.55fr_0.45fr] lg:gap-16">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue-hover">
                       {lead.category}
                     </p>
-                    <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-ink transition-colors group-hover:text-prestige-blue sm:text-4xl">
+                    <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-ink transition-colors group-hover:text-prestige-blue-hover sm:text-4xl">
                       {lead.title}
                     </h2>
                   </div>
@@ -70,10 +70,10 @@ export default function Insights() {
                 {rest.map((a) => (
                   <article key={a.slug} className="border-b border-line py-7">
                     <Link to={`/insights/${a.slug}`} className="group block">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue-hover">
                         {a.category}
                       </p>
-                      <h2 className="mt-2 font-display text-xl font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue">
+                      <h2 className="mt-2 font-display text-xl font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue-hover">
                         {a.title}
                       </h2>
                       <p className="mt-2 leading-relaxed text-body">{a.excerpt}</p>

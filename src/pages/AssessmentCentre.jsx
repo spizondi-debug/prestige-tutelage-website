@@ -133,7 +133,7 @@ export default function AssessmentCentre() {
 
                 <Link
                   to={p.cta.to}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover"
                 >
                   {p.cta.label}
                   <span aria-hidden="true">→</span>

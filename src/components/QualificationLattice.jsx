@@ -324,11 +324,11 @@ export default function QualificationLattice({ className = '' }) {
 
       {hover && (
         <div
-          className="pointer-events-none absolute z-10 max-w-[15rem] -translate-x-1/2 -translate-y-full rounded-lg border border-white/15 bg-midnight/95 px-3.5 py-2.5 shadow-premium backdrop-blur"
+          className="pointer-events-none absolute z-10 max-w-[15rem] -translate-x-1/2 -translate-y-full rounded-lg border border-white/15 bg-prestige-blue-deep/95 px-3.5 py-2.5 shadow-premium backdrop-blur"
           style={{ left: hover.x, top: hover.y - 14 }}
         >
           <p className="font-display text-sm font-semibold leading-snug text-white">{hover.q.name}</p>
-          <p className="mt-1 text-[0.7rem] text-white/60">
+          <p className="mt-1 text-[0.7rem] text-white/90">
             SAQA ID {hover.q.saqaId} · NQF {hover.q.nqf}
             {hover.q.credits ? ` · ${hover.q.credits} credits` : ''}
           </p>

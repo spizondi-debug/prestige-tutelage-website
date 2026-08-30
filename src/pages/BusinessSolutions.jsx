@@ -81,7 +81,7 @@ export default function BusinessSolutions() {
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="Business solutions">
           {solutions.map((s) => (
-            <Link key={s.to} to={s.to} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift">
+            <Link key={s.to} to={s.to} className="text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover">
               {s.title}
             </Link>
           ))}
@@ -98,7 +98,7 @@ export default function BusinessSolutions() {
               <div className={s.photo && i % 2 === 1 ? 'lg:order-last' : ''}>
                 <div className="mb-4 flex items-center gap-3">
                   <span className="h-px w-10 bg-prestige-green" />
-                  <span className="text-sm font-semibold tracking-wide text-prestige-blue">
+                  <span className="text-sm font-semibold tracking-wide text-prestige-blue-hover">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>

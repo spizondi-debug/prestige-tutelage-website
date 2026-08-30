@@ -38,7 +38,7 @@ export default function IndustriesSection() {
                 to={`/industries#${ind.slug}`}
                 className="group flex h-full flex-col border-t border-line pt-5 transition-colors hover:border-prestige-green"
               >
-                <span className="font-display text-sm font-semibold text-prestige-blue">
+                <span className="font-display text-sm font-semibold text-prestige-blue-hover">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h3 className="mt-4 font-display text-2xl font-semibold leading-snug text-ink">
@@ -47,7 +47,7 @@ export default function IndustriesSection() {
                 <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-body">
                   {ind.offerings[0]}
                 </p>
-                <span className="chev mt-6 text-prestige-blue">
+                <span className="chev mt-6 text-prestige-blue-hover">
                   <span className="chev-label">Sector detail</span>
                   <span aria-hidden="true" className="transition-transform duration-500 ease-prestige group-hover:translate-x-1">›</span>
                 </span>

@@ -185,7 +185,7 @@ export default function Contact() {
                   <button type="submit" className="btn btn-primary">Request a Proposal</button>
                   <p className="text-sm text-muted">
                     Or email us directly at{' '}
-                    <a href={contact.emailHref} className="font-semibold text-prestige-blue hover:underline">
+                    <a href={contact.emailHref} className="font-semibold text-prestige-blue-hover hover:underline">
                       {contact.email}
                     </a>
                   </p>
@@ -194,7 +194,7 @@ export default function Contact() {
                 {sent && (
                   <p role="status" className="rounded-lg border border-prestige-green/40 bg-prestige-green/5 px-4 py-3 text-body">
                     Your email application should have opened with the enquiry ready to send. If it did
-                    not, please email <a href={contact.emailHref} className="font-semibold text-prestige-blue hover:underline">{contact.email}</a> directly.
+                    not, please email <a href={contact.emailHref} className="font-semibold text-prestige-blue-hover hover:underline">{contact.email}</a> directly.
                   </p>
                 )}
               </form>
@@ -215,19 +215,19 @@ export default function Contact() {
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Telephone</h3>
                     <p className="mt-1.5">
-                      <a href={contact.phoneHref} className="hover:text-prestige-blue">{contact.phone}</a>
+                      <a href={contact.phoneHref} className="hover:text-prestige-blue-hover">{contact.phone}</a>
                     </p>
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Email</h3>
                     <p className="mt-1.5">
-                      <a href={contact.emailHref} className="hover:text-prestige-blue">{contact.email}</a>
+                      <a href={contact.emailHref} className="hover:text-prestige-blue-hover">{contact.email}</a>
                     </p>
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">Website</h3>
                     <p className="mt-1.5">
-                      <a href={contact.websiteHref} className="hover:text-prestige-blue">{contact.website}</a>
+                      <a href={contact.websiteHref} className="hover:text-prestige-blue-hover">{contact.website}</a>
                     </p>
                   </div>
                 </div>

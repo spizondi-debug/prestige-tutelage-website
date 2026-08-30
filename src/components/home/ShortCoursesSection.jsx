@@ -32,7 +32,7 @@ export default function ShortCoursesSection() {
             {shortCourseCategories.map((c) => (
               <li key={c.slug} className="border-b border-line py-4">
                 <Link to={`/short-courses#${c.slug}`} className="group flex items-baseline justify-between gap-4">
-                  <span className="font-sans font-semibold text-ink transition-colors group-hover:text-prestige-blue">
+                  <span className="font-sans font-semibold text-ink transition-colors group-hover:text-prestige-blue-hover">
                     {c.title}
                   </span>
                   <span className="shrink-0 text-sm text-muted">{coursesOf(c).length}</span>

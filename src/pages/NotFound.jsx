@@ -24,7 +24,7 @@ export default function NotFound() {
               <Link
                 key={p.to}
                 to={p.to}
-                className="border-b border-line py-3 font-medium text-ink transition-colors hover:text-prestige-blue"
+                className="border-b border-line py-3 font-medium text-ink transition-colors hover:text-prestige-blue-hover"
               >
                 {p.label}
               </Link>

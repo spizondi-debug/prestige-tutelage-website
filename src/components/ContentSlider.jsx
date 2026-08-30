@@ -58,8 +58,8 @@ export default function ContentSlider({
   if (!count) return null
 
   const arrow =
-    'flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-midnight/40 ' +
-    'text-white backdrop-blur transition-colors duration-200 hover:border-white/80 hover:bg-midnight/70 ' +
+    'flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-prestige-blue-deep/90 ' +
+    'text-white backdrop-blur transition-colors duration-200 hover:border-white/80 hover:bg-prestige-blue-deep/85 ' +
     'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
 
   return (
@@ -94,7 +94,7 @@ export default function ContentSlider({
               library has a pale floor or wall at the bottom of the frame.
               Without this scrim they disappear on exactly those slides. */}
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-midnight/70 via-midnight/25 to-transparent"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-shadow/70 via-shadow/25 to-transparent"
             aria-hidden="true"
           />
 

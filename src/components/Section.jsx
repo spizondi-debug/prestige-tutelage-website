@@ -38,7 +38,7 @@ export function SectionHeading({ eyebrow, title, lead, light = false, center = f
         {title}
       </h2>
       {lead && (
-        <p className={`mt-5 text-lg leading-relaxed ${light ? 'text-white/75' : 'text-body'}`}>
+        <p className={`mt-5 text-lg leading-relaxed ${light ? 'text-white/90' : 'text-body'}`}>
           {lead}
         </p>
       )}

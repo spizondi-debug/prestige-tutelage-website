@@ -144,16 +144,16 @@ export default function TrainingFinder() {
     // The programme explorer sits on Deep Navy — the one interactive
     // instrument on the homepage, given its own surface so it reads as a tool
     // rather than another content band.
-    <section id="training-finder" className="tex tex-deep tex-edge bg-midnight py-16 lg:py-24">
+    <section id="training-finder" className="tex tex-deep tex-edge bg-prestige-blue-hover py-16 lg:py-24">
       <div className="container-px">
-        <div className="overflow-hidden rounded-lg border border-line-dark bg-navy">
+        <div className="overflow-hidden rounded-lg border border-line-dark bg-prestige-blue-deep">
           <div className="grid lg:grid-cols-[1fr_1fr]">
             <div className="p-8 sm:p-10 lg:p-12">
               <p className="eyebrow-light">Training finder</p>
               <h2 className="mt-5 font-display text-section font-semibold leading-tight text-white">
                 Find the right training solution.
               </h2>
-              <p className="mt-3 leading-relaxed text-white/70">What are you trying to achieve?</p>
+              <p className="mt-3 leading-relaxed text-white/90">What are you trying to achieve?</p>
 
               <div className="mt-7 flex flex-wrap gap-2.5" role="group" aria-label="Select your goal">
                 {goals.map((g) => (
@@ -163,7 +163,7 @@ export default function TrainingFinder() {
                     aria-pressed={selected === g.id}
                     className={`rounded-lg border px-4 py-2.5 text-left text-sm font-medium transition-colors duration-200 ${
                       selected === g.id
-                        ? 'border-prestige-blue bg-prestige-blue text-white'
+                        ? 'border-white bg-white text-prestige-blue-hover'
                         : 'border-line-dark bg-white/[0.04] text-white/85 hover:border-white/30 hover:bg-white/10'
                     }`}
                   >
@@ -176,11 +176,11 @@ export default function TrainingFinder() {
             <div className="flex flex-col justify-start border-t border-line-dark bg-white/[0.03] p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
               {active ? (
                 <div aria-live="polite">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-prestige-growth">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-white">
                     Recommended route · {active.route}
                   </p>
                   <h3 className="mt-3 font-display text-2xl font-semibold text-white">{active.title}</h3>
-                  <p className="mt-3 leading-relaxed text-white/75">{active.text}</p>
+                  <p className="mt-3 leading-relaxed text-white/90">{active.text}</p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     {active.links.map((l, i) => (
                       <Link
@@ -195,13 +195,13 @@ export default function TrainingFinder() {
                 </div>
               ) : (
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-wider text-white/60">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
                     How this works
                   </p>
                   <p className="mt-3 font-display text-2xl font-semibold text-white">
                     Select a goal to see our recommendation.
                   </p>
-                  <p className="mt-3 leading-relaxed text-white/75">
+                  <p className="mt-3 leading-relaxed text-white/90">
                     We will point you to the most relevant Prestige route — a qualification,
                     learnership, short course, corporate programme, assessment service or a custom
                     intervention designed around your need.
@@ -212,8 +212,8 @@ export default function TrainingFinder() {
                       'See the route and programmes we would recommend.',
                       'Talk to us — we confirm availability and scope it properly.',
                     ].map((s, i) => (
-                      <li key={s} className="flex items-start gap-3 text-[0.95rem] text-white/75">
-                        <span className="font-display font-semibold text-prestige-growth">
+                      <li key={s} className="flex items-start gap-3 text-[0.95rem] text-white/90">
+                        <span className="font-display font-semibold text-white">
                           {String(i + 1).padStart(2, '0')}
                         </span>
                         {s}

@@ -50,7 +50,7 @@ export default function FeaturedProgrammes() {
                 className="group flex items-center justify-between gap-6 border-b border-line py-6 transition-colors hover:bg-cloud lg:px-2"
               >
                 <span className="min-w-0">
-                  <h3 className="font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue sm:text-xl">
+                  <h3 className="font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue-hover sm:text-xl">
                     {q.name}
                   </h3>
                   <span className="mt-1.5 block text-sm text-muted">
@@ -59,12 +59,12 @@ export default function FeaturedProgrammes() {
                   </span>
                 </span>
                 <span className="flex shrink-0 items-center gap-4">
-                  <span className="rounded-full border border-prestige-blue/25 px-3.5 py-1 font-sans text-sm font-semibold text-prestige-blue">
+                  <span className="rounded-full border border-prestige-blue/25 px-3.5 py-1 font-sans text-sm font-semibold text-prestige-blue-hover">
                     NQF {q.nqf}
                   </span>
                   <span
                     aria-hidden="true"
-                    className="text-lg text-muted transition-all duration-500 ease-prestige group-hover:translate-x-1 group-hover:text-prestige-blue"
+                    className="text-lg text-muted transition-all duration-500 ease-prestige group-hover:translate-x-1 group-hover:text-prestige-blue-hover"
                   >
                     ›
                   </span>

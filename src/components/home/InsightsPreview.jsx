@@ -19,8 +19,8 @@ export default function InsightsPreview() {
         <div className="mt-10 grid gap-x-10 border-t border-line lg:grid-cols-3">
           {featured.map((a) => (
             <Link key={a.slug} to={`/insights/${a.slug}`} className="group border-b border-line py-6 lg:pr-6">
-              <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue">{a.category}</p>
-              <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue">
+              <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue-hover">{a.category}</p>
+              <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue-hover">
                 {a.title}
               </h3>
               <p className="mt-2 text-[0.95rem] leading-relaxed text-body">{a.excerpt}</p>

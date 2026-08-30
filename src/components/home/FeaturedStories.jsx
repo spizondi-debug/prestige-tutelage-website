@@ -59,7 +59,7 @@ export default function FeaturedStories() {
                 {s.photo ? (
                   <Photo src={s.photo} alt={s.alt} className="absolute inset-0 h-full w-full" />
                 ) : (
-                  <div className="absolute inset-0 bg-midnight">
+                  <div className="absolute inset-0 bg-prestige-blue-hover">
                     <PrestigePath
                       stage={s.stage}
                       intensity={0.55}
@@ -91,7 +91,7 @@ export default function FeaturedStories() {
                     )}
                     <Link
                       to="/programmes#catalogue"
-                      className="chev group mt-8 text-prestige-blue hover:text-navy-lift"
+                      className="chev group mt-8 text-prestige-blue-hover hover:text-prestige-blue-hover"
                     >
                       <span className="chev-label">Explore {s.eyebrow} programmes</span>
                       <span

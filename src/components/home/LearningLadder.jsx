@@ -23,7 +23,7 @@ export default function LearningLadder() {
     <section className="on-dark tex tex-grain tex-edge relative overflow-hidden bg-prestige-digital py-20 text-white lg:py-28">
       {/* Holds the type on a readable field where the gradient runs brightest. */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(7,26,43,0.9)_0%,rgba(7,26,43,0.62)_48%,rgba(7,26,43,0.3)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(5,89,168,0.90)_0%,rgba(6,109,206,0.60)_48%,rgba(8,123,232,0.25)_100%)]"
         aria-hidden="true"
       />
 
@@ -34,13 +34,13 @@ export default function LearningLadder() {
             <h2 className="mt-5 font-display text-editorial font-semibold text-white">
               Every qualification is <Accent>a rung</Accent>.
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90">
               South African qualifications are structured by NQF level — a national ladder from
               entry-level competence up to professional practice. Prestige delivers{' '}
               {qualifications.length} qualifications across NQF {low} to {high}, so a person can
               start where they are and keep climbing.
             </p>
-            <p className="mt-4 max-w-xl leading-relaxed text-white/60">
+            <p className="mt-4 max-w-xl leading-relaxed text-white/90">
               Explore the structure beside this — each point is a real qualification, on the level
               it actually sits at.
             </p>

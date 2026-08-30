@@ -68,7 +68,7 @@ function ServicesMenu({ item, linkClass }) {
             {item.children.map((c, i) => (
               <li key={c.to} className={i ? 'border-t border-line' : ''}>
                 <Link to={c.to} className="group block px-5 py-3.5 transition-colors hover:bg-mist/60">
-                  <span className="block font-sans text-[0.95rem] font-semibold text-ink transition-colors group-hover:text-prestige-blue">
+                  <span className="block font-sans text-[0.95rem] font-semibold text-ink transition-colors group-hover:text-prestige-blue-hover">
                     {c.label}
                   </span>
                   <span className="mt-0.5 block text-sm text-muted">{c.description}</span>
@@ -85,9 +85,6 @@ function ServicesMenu({ item, linkClass }) {
 export default function Navbar() {
   const headerRef = useRef(null)
   const [open, setOpen] = useState(false)
-  // True while the navigation sits over a section marked [data-dark-hero],
-  // so it can go transparent over the cinematic opening and solid afterwards.
-  const [onDark, setOnDark] = useState(false)
   const { pathname } = useLocation()
 
   useEffect(() => setOpen(false), [pathname])
@@ -106,52 +103,42 @@ export default function Navbar() {
     return () => ro.disconnect()
   }, [])
 
-  useEffect(() => {
-    let frame = 0
-    const measure = () => {
-      frame = 0
-      const hero = document.querySelector('[data-dark-hero]')
-      setOnDark(Boolean(hero) && hero.getBoundingClientRect().bottom > 120)
-    }
-    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure) }
-    measure()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-    return () => {
-      if (frame) cancelAnimationFrame(frame)
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [pathname])
-
-  const dark = onDark && !open
-
+  // Nav labels stay white and green does the accenting as a rule under the
+  // label, not as the label's colour. Measured: at 14.8px these links need
+  // 4.5:1, and no green reaches that on blue — the brand green is 1.98:1 on
+  // this bar and even the lifted `green-light` is 3.35:1. As an underline it
+  // is a non-text UI component, which needs 3:1, so it passes there.
   const linkClass = ({ isActive }) =>
-    `text-[0.925rem] font-medium transition-colors ${
-      dark
-        ? isActive ? 'text-white' : 'text-white/75 hover:text-white'
-        : isActive ? 'text-prestige-blue' : 'text-ink/80 hover:text-prestige-blue'
-    }`
+    `relative text-[0.925rem] font-medium text-white transition-colors
+     after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-full
+     after:origin-left after:bg-prestige-green-light after:transition-transform
+     after:duration-300 after:ease-prestige hover:after:scale-x-100 ${
+       isActive ? 'after:scale-x-100' : 'after:scale-x-0'
+     }`
 
-  // The dark state is opaque Midnight, not glass. The header is stacked above
-  // the hero rather than overlaying it, so a translucent fill composites over
-  // the Cloud body behind the page — which painted the bar rgb(76,97,118) and
+  // Opaque blue, never glass. The header is stacked above the hero rather
+  // than overlaying it, so a translucent fill composites over the Cloud body
+  // behind the page — which is what once painted the bar rgb(76,97,118) and
   // dropped the nav labels to 2.0:1. Glass needs something dark behind it;
   // here there is nothing. `.glass` remains for real overlays.
+  //
+  // Both bars are blue, so there is no strip of another colour anywhere in
+  // the header, above the nav or below it. Neither is #087BE8: white on it is
+  // 4.19:1, which is fine for a headline but not for a 14.8px nav label. The
+  // nav takes #066DCE (5.14:1) and the utility bar above it #0559A8 (7.00:1),
+  // which also gives the two bars a readable edge without a border colour.
   return (
     <header
       ref={headerRef}
-      className={`sticky top-0 z-50 border-b transition-colors duration-500 ${
-        dark ? 'border-white/10 bg-midnight' : 'border-line bg-cloud/95 backdrop-blur'
-      }`}
+      className="sticky top-0 z-50 border-b border-white/15 bg-prestige-blue-hover"
     >
       {/* Utility bar — contact + secondary destinations */}
-      <div className={`hidden border-b lg:block ${dark ? 'border-white/10 bg-white/[0.03]' : 'border-line/70 bg-mist/50'}`}>
+      <div className="hidden border-b border-white/15 bg-prestige-blue-deep lg:block">
         <div className="container-px">
-          <div className={`flex items-center justify-between py-1.5 text-[0.8rem] ${dark ? 'text-white/70' : 'text-body'}`}>
+          <div className="flex items-center justify-between py-1.5 text-[0.8rem] text-white">
             <div className="flex items-center gap-5">
-              <a href={contact.phoneHref} className={`transition-colors ${dark ? 'hover:text-white' : 'hover:text-prestige-blue'}`}>{contact.phone}</a>
-              <a href={contact.emailHref} className={`transition-colors ${dark ? 'hover:text-white' : 'hover:text-prestige-blue'}`}>{contact.email}</a>
+              <a href={contact.phoneHref} className="decoration-prestige-green-light underline-offset-4 hover:underline">{contact.phone}</a>
+              <a href={contact.emailHref} className="decoration-prestige-green-light underline-offset-4 hover:underline">{contact.email}</a>
             </div>
             <div className="flex items-center gap-5">
               {utilityNav.map((item) => (
@@ -159,7 +146,7 @@ export default function Navbar() {
                   key={item.to}
                   to={item.to}
                   className={({ isActive }) =>
-                    `font-medium transition-colors ${dark ? 'hover:text-white' : 'hover:text-prestige-blue'} ${isActive ? (dark ? 'text-white' : 'text-prestige-blue') : ''}`
+                    `font-medium decoration-prestige-green-light underline-offset-4 hover:underline ${isActive ? 'underline' : ''}`
                   }
                 >
                   {item.label}
@@ -172,7 +159,9 @@ export default function Navbar() {
 
       <div className="container-px">
         <nav className="flex items-center justify-between gap-4 py-3" aria-label="Main">
-          <span className={dark ? '[&_img]:brightness-0 [&_img]:invert' : ''}><Logo className="h-12 sm:h-14" /></span>
+          {/* Full colour on white; on blue the logo is knocked out to solid
+              white so both the mark and the wordmark stay visible. */}
+          <span className="[&_img]:brightness-0 [&_img]:invert"><Logo className="h-12 sm:h-14" /></span>
 
           <ul className="hidden items-center gap-6 xl:flex">
             {nav.map((item) => (
@@ -187,37 +176,43 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden xl:block">
-            <Link to="/contact" className="btn btn-primary px-5 py-2.5 text-sm">
+            <Link
+              to="/contact"
+              className="btn bg-white px-5 py-2.5 text-sm text-prestige-blue-hover hover:bg-prestige-blue-light focus-visible:outline-white"
+            >
               Let’s Talk
             </Link>
           </div>
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className={`inline-flex h-11 w-11 items-center justify-center rounded-lg border xl:hidden ${dark ? 'border-white/25 text-white' : 'border-line text-ink'}`}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/40 text-white xl:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
             <span className="relative block h-4 w-5">
-              <span className={`absolute left-0 top-0 h-0.5 w-5 ${dark ? 'bg-white' : 'bg-ink'} transition-transform ${open ? 'translate-y-2 rotate-45' : ''}`} />
-              <span className={`absolute left-0 top-[7px] h-0.5 w-5 ${dark ? 'bg-white' : 'bg-ink'} transition-opacity ${open ? 'opacity-0' : ''}`} />
-              <span className={`absolute bottom-0 left-0 h-0.5 w-5 ${dark ? 'bg-white' : 'bg-ink'} transition-transform ${open ? '-translate-y-2 -rotate-45' : ''}`} />
+              <span className={`absolute left-0 top-0 h-0.5 w-5 bg-white transition-transform ${open ? 'translate-y-2 rotate-45' : ''}`} />
+              <span className={`absolute left-0 top-[7px] h-0.5 w-5 bg-white transition-opacity ${open ? 'opacity-0' : ''}`} />
+              <span className={`absolute bottom-0 left-0 h-0.5 w-5 bg-white transition-transform ${open ? '-translate-y-2 -rotate-45' : ''}`} />
             </span>
           </button>
         </nav>
       </div>
 
+      {/* Mobile navigation takes the deeper blue for the same reason the
+          utility bar does: these are 16px links, and white on #087BE8 is
+          4.19:1. On #066DCE they are 5.14:1. */}
       {open && (
-        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-cloud xl:hidden">
+        <div className="on-dark max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-white/15 bg-prestige-blue-deep xl:hidden">
           <div className="container-px py-4">
-            <ul className="flex flex-col divide-y divide-line">
+            <ul className="flex flex-col divide-y divide-white/15">
               {allPages.map((item) => (
                 <li key={item.to}>
                   <NavLink
                     to={item.to}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `block py-3 text-base font-medium hover:text-prestige-blue ${isActive ? 'text-prestige-blue' : 'text-ink'}`
+                      `block border-l-2 py-3 pl-3 text-base font-medium text-white transition-colors ${isActive ? 'border-prestige-green-light' : 'border-transparent hover:border-white/50'}`
                     }
                   >
                     {item.label}
@@ -225,13 +220,17 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn btn-primary mt-4 w-full">
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="btn mt-4 w-full bg-white text-prestige-blue-hover hover:bg-prestige-blue-light"
+            >
               Request a Proposal
             </Link>
-            <p className="mt-4 text-sm text-muted">
-              <a href={contact.phoneHref} className="hover:text-prestige-blue">{contact.phone}</a>
+            <p className="mt-4 text-sm text-white/85">
+              <a href={contact.phoneHref} className="transition-colors hover:text-prestige-green-light">{contact.phone}</a>
               {' · '}
-              <a href={contact.emailHref} className="hover:text-prestige-blue">{contact.email}</a>
+              <a href={contact.emailHref} className="transition-colors hover:text-prestige-green-light">{contact.email}</a>
             </p>
           </div>
         </div>

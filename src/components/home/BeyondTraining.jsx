@@ -76,7 +76,7 @@ export default function BeyondTraining() {
                   {s.photo ? (
                     <Photo src={s.photo} alt={s.alt} className="aspect-[3/4] w-full" />
                   ) : (
-                    <div className="relative aspect-[3/4] w-full bg-midnight">
+                    <div className="relative aspect-[3/4] w-full bg-prestige-blue-hover">
                       <PrestigePath
                         stage={s.stage}
                         intensity={0.5}
@@ -86,7 +86,7 @@ export default function BeyondTraining() {
                   )}
                   {/* Scrim: the index must stay legible over a bright photo. */}
                   <span
-                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(7,26,43,0.55),transparent)]"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,rgba(5,89,168,0.60),transparent)]"
                     aria-hidden="true"
                   />
                   <span className="absolute left-5 top-4 font-display text-sm font-semibold text-white">
@@ -94,11 +94,11 @@ export default function BeyondTraining() {
                   </span>
                 </div>
 
-                <h3 className="mt-5 font-display text-xl font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue">
+                <h3 className="mt-5 font-display text-xl font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue-hover">
                   {s.title}
                 </h3>
                 <p className="mt-2 text-[0.95rem] leading-relaxed text-body">{s.text}</p>
-                <span className="chev mt-4 text-prestige-blue">
+                <span className="chev mt-4 text-prestige-blue-hover">
                   <span className="chev-label">Learn more</span>
                   <span aria-hidden="true" className="transition-transform duration-500 ease-prestige group-hover:translate-x-1">›</span>
                 </span>

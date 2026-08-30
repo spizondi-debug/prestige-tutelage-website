@@ -75,7 +75,7 @@ export default function OfficeRental() {
             {spaceCategories.map((cat, i) => (
               <article key={cat.slug} id={cat.slug} className="scroll-mt-28 border border-line bg-paper p-7">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-display text-2xl font-semibold text-prestige-blue/80">
+                  <span className="font-display text-2xl font-semibold text-prestige-blue-hover/80">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="font-display text-2xl font-semibold leading-tight text-ink">
@@ -140,12 +140,12 @@ export default function OfficeRental() {
               />
               <div className="mt-7 space-y-2 text-body">
                 <p>
-                  <a href={contact.phoneHref} className="font-semibold text-prestige-blue hover:underline">
+                  <a href={contact.phoneHref} className="font-semibold text-prestige-blue-hover hover:underline">
                     {contact.phone}
                   </a>
                 </p>
                 <p>
-                  <a href={contact.emailHref} className="font-semibold text-prestige-blue hover:underline">
+                  <a href={contact.emailHref} className="font-semibold text-prestige-blue-hover hover:underline">
                     {contact.email}
                   </a>
                 </p>

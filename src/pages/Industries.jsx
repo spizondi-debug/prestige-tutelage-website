@@ -25,7 +25,7 @@ export default function Industries() {
             <a
               key={i.slug}
               href={`#${i.slug}`}
-              className="text-sm font-semibold text-prestige-blue transition-colors hover:text-navy-lift"
+              className="text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover"
             >
               {i.title}
             </a>
@@ -43,7 +43,7 @@ export default function Industries() {
             <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
               <div>
                 <div className="mb-4 flex items-baseline gap-4">
-                  <span className="font-display text-3xl font-semibold text-prestige-blue/80">
+                  <span className="font-display text-3xl font-semibold text-prestige-blue-hover/80">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span className="h-px flex-1 bg-line" aria-hidden="true" />

@@ -2,78 +2,79 @@
 
 // PRESTIGE COLOUR SYSTEM
 //
-// The two brand colours are sampled from the official logo artwork, not
-// approximated: #006FD8 and #2DA22F. Do not substitute "close enough" values,
-// and do not recolour the logo itself.
+// Prestige blue is the primary colour of the site. Navy is no longer a brand
+// surface anywhere: navigation, footer, CTA bands, card headers, buttons and
+// every photographic overlay are blue. The only dark neutral left is `shadow`,
+// used behind or over photographs where a blue tint would recolour the image.
 //
-// Every pairing below has been checked for WCAG AA (4.5:1) at body size.
-// Three results shape the whole system and must not be quietly undone:
+// Values match the brand variables in src/index.css. Change them in both.
 //
-//   * White on Prestige Green is 3.32:1 — it FAILS. Green buttons therefore
-//     carry Midnight text, never white.
-//   * White on Electric Blue is 3.90:1 — it FAILS. Electric Blue is a
-//     graphic accent (lighting, strokes, glow), never a text or fill colour
-//     behind white text.
-//   * Prestige Blue on Midnight is 3.58:1 — it FAILS. On dark surfaces
-//     interactive text is white, brightening to Growth Green on hover.
+// Every pairing has been checked for WCAG AA. Four results shape the system
+// and must not be quietly undone:
+//
+//   * White on Prestige Blue #087BE8 is 4.19:1 — enough for LARGE text
+//     (3.0:1), short of normal text (4.5:1). Surfaces carrying small white
+//     text use `blue-hover` #066DCE instead, which is 5.14:1.
+//   * White on Prestige Green #31B84A is 2.60:1 — it FAILS. Green buttons
+//     carry ink text, never white.
+//   * Prestige Green on Prestige Blue is 1.61:1 — the two are almost the same
+//     luminance. Green can never be text on blue; `green-light` #8FE3A1 is
+//     the accent that reads there.
+//   * Prestige Green on white is 2.60:1 — it FAILS. Green text on light
+//     surfaces uses `green-deep` #1E7A2E.
+
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        // ── Dark foundation ──────────────────────────────────────────────
-        // Never pure black: the darkest value on the site is #061521.
-        'midnight-deep': '#061521', // top of the cinematic hero gradient only
-        midnight: '#071A2B',        // the main dark foundation
-        navy: '#0B2742',            // secondary dark sections, cards on dark
-        'navy-lift': '#0D4F81',     // gradient midpoint; link hover on light
+        // ── Prestige blue foundation ─────────────────────────────────────
+        // The site's primary colour. Navy is no longer a brand surface; the
+        // only dark neutrals left are photo scrims, where tinting the shadow
+        // blue would recolour the photograph underneath.
+        //
+        // CONTRAST — read before using any of these behind text. White on
+        // #087BE8 is 4.19:1: it clears AA for large text (3.0:1) but not for
+        // normal text (4.5:1). `blue-hover` #066DCE is 5.14:1 and clears both.
+        prestige: {
+          blue: '#087BE8',          // --prestige-blue
+          'blue-hover': '#066DCE',  // --prestige-blue-hover
+          'blue-deep': '#0559A8',   // gradient depth, focus rings, pressed
+          'blue-light': '#EAF4FF',  // --prestige-blue-light, pale metadata
+          green: '#31B84A',         // --prestige-green — accent, never text on white
+          // Green text has to be darkened to be legible: #31B84A is 2.60:1 on
+          // white. This is the same hue at the same saturation, dark enough
+          // to clear 4.5:1 on White, Cloud and Mist.
+          'green-deep': '#1E7A2E',
+          // Lifted green for accents sitting on blue.
+          'green-light': '#8FE3A1',
+        },
+
+        // ── Photo scrims only ────────────────────────────────────────────
+        // Not brand surfaces. Used behind or over photographs, where a blue
+        // tint would shift the colour of the image itself.
+        shadow: '#0B1B28',
 
         // ── Light surfaces ───────────────────────────────────────────────
-        // Never stark white everywhere: Cloud is the default light section.
         cloud: '#F5F8FA',
-        mist: '#EAF0F4',
-        paper: '#FFFFFF', // reserved for important content surfaces
+        mist: '#EDF2F6',   // 3 points lighter than before, so the blue label
+                           // colour clears 4.5:1 on it (4.56 vs 4.47)
+        paper: '#FFFFFF',
 
         // ── Text ─────────────────────────────────────────────────────────
-        // Derived from the logo, not chosen alongside it. The wordmark is set
-        // in two blues and carries no grey at all: "PRESTIGE" is #0089E6 and
-        // "TUTELAGE" and the tagline are #006FD8, hue 209.2°. The text ramp
-        // sits on that same hue, dropping saturation and lightness as it goes
-        // paler, so body copy reads as the brand blue darkened rather than as
-        // neutral grey placed next to it.
-        //
-        // Each step is the palest value on that hue still clearing 4.5:1 on
-        // all three light surfaces — Cloud, Mist and White.
-        ink: '#10283F',   // 14.09:1 on Cloud — primary, softer than black
-        body: '#3E5B77',  //  6.63:1 — body copy
+        ink: '#172B3D',   // --prestige-text — 14.49:1 on white
+        body: '#3E5B77',  //  6.63:1 — longer body copy
         muted: '#546F89', //  4.91:1 on Cloud, 4.55:1 on Mist — the floor
 
         // ── Hairlines ────────────────────────────────────────────────────
-        line: 'rgba(7, 26, 43, 0.10)',
-        'line-dark': 'rgba(255, 255, 255, 0.10)',
-
-        prestige: {
-          blue: '#006FD8',     // exact logo blue ("TUTELAGE", tagline)
-          'blue-bright': '#0877D8', // primary button hover; brightest blue still AA on white
-          // The logo's other blue, from the "PRESTIGE" wordmark. White on it
-          // is 3.67:1 and it is 3.44:1 on Cloud, so it is a graphic accent
-          // only — never text, never a fill behind white text.
-          'blue-logo-light': '#0089E6',
-          electric: '#1585D8', // graphic accent only — lighting, strokes, glow
-          green: '#2DA22F',    // exact logo green — growth, progression, success
-          // The logo green darkened on its own hue (121°, same saturation)
-          // until it clears 4.5:1 on White, Cloud and Mist. For green text
-          // below heading scale — a 20px card title is not "large text", so
-          // the logo green's 3.32:1 would fail there.
-          'green-deep': '#237D24',
-          growth: '#45B95C',   // refined secondary green — highlights, hover, stats
-        },
+        line: 'rgba(23, 43, 61, 0.10)',
+        'line-dark': 'rgba(255, 255, 255, 0.18)',
       },
       backgroundImage: {
         // Signature gradients. Used selectively — never as a page-wide wash.
-        'prestige-digital': 'linear-gradient(135deg, #0B2742 0%, #0D4F81 48%, #1585D8 100%)',
-        'prestige-growth': 'linear-gradient(135deg, #0D4F81 0%, #1585D8 48%, #45B95C 100%)',
-        'prestige-midnight': 'linear-gradient(180deg, #061521 0%, #071A2B 55%, #0B2742 100%)',
+        'prestige-digital': 'linear-gradient(135deg, #0559A8 0%, #066DCE 48%, #087BE8 100%)',
+        'prestige-growth': 'linear-gradient(135deg, #066DCE 0%, #087BE8 55%, #31B84A 100%)',
+        'prestige-deep': 'linear-gradient(180deg, #0559A8 0%, #066DCE 55%, #087BE8 100%)',
       },
       fontFamily: {
         // Poppins throughout. `display` and `sans` stay separate tokens so the
@@ -91,10 +92,10 @@ export default {
         section: ['clamp(1.8rem, 3.1vw, 2.7rem)', { lineHeight: '1.16', letterSpacing: '-0.025em' }],
       },
       boxShadow: {
-        // Premium, not heavy: tinted with the brand navy rather than black.
-        soft: '0 2px 8px rgba(7, 26, 43, 0.05)',
-        premium: '0 16px 50px rgba(7, 26, 43, 0.12)',
-        lifted: '0 22px 60px rgba(7, 26, 43, 0.18)',
+        // Premium, not heavy: tinted with the brand text colour rather than black.
+        soft: '0 2px 8px rgba(23, 43, 61, 0.06)',
+        premium: '0 16px 50px rgba(23, 43, 61, 0.13)',
+        lifted: '0 22px 60px rgba(23, 43, 61, 0.18)',
       },
       transitionTimingFunction: {
         // Restrained, premium easing — no bounce.
