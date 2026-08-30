@@ -9,6 +9,12 @@ import { Accent } from '../Section.jsx'
  * Proof points are limited to what Prestige has verified — B-BBEE level,
  * ownership, accredited delivery and national capability. No invented figures,
  * no learner counts, no percentages we cannot stand behind.
+ *
+ * The figures are Prestige blue. #066DCE rather than the brighter #087BE8:
+ * both are legal at this size — these are 36-48px, so the 3.0:1 large-text
+ * floor applies and #087BE8 clears it at 3.93:1 on Cloud — but #066DCE is the
+ * blue every other piece of text on the site uses, and at 4.82:1 it stays
+ * legal if this strip is ever moved or the figures set smaller.
  */
 
 const proof = [
@@ -23,7 +29,7 @@ function Counter({ item }) {
   if (item.value == null) {
     return (
       <>
-        <span className="block font-display text-4xl font-semibold text-ink sm:text-5xl">
+        <span className="block font-display text-4xl font-semibold text-prestige-blue-hover sm:text-5xl">
           {item.label}
         </span>
         <span className="mt-2 block text-body">{item.sub}</span>
@@ -32,7 +38,7 @@ function Counter({ item }) {
   }
   return (
     <>
-      <span ref={ref} className="block font-display text-4xl font-semibold text-ink sm:text-5xl">
+      <span ref={ref} className="block font-display text-4xl font-semibold text-prestige-blue-hover sm:text-5xl">
         {item.prefix}
         <span className="tabular-nums">{n}</span>
         {item.suffix}
