@@ -15,14 +15,43 @@ import {
   CERTIFICATE_NOTE,
 } from '../data/shortCourses.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import { CountIcon, iconForCategory } from '../data/shortCourseIcons.js'
+import { ArrowUpRight } from 'lucide-react'
 
+/**
+ * The eyebrow label — the leading half of the category title, so "Leadership &
+ * Management" numbers as "01 · LEADERSHIP" without a second field in the data
+ * to keep in step with the title. Titles without an ampersand are already
+ * short enough to use whole.
+ */
+const shortLabel = (title) => title.split(' & ')[0]
+
+/**
+ * One course in the catalogue, as a link to a prefilled enquiry.
+ *
+ * The arrow is not decoration. Short courses have no detail page — the
+ * catalogue is the detail — so the only honest destination for a course is
+ * the enquiry form with that course already filled in. Contact reads ?course=
+ * and sets the interest to "Short Course" with the name in the message, so a
+ * visitor who clicks "Report Writing" does not have to retype it.
+ */
 function CourseList({ courses }) {
   return (
-    <ul className="grid gap-x-10 sm:grid-cols-2 xl:grid-cols-3">
+    <ul className="grid gap-x-8 sm:grid-cols-2 xl:grid-cols-3">
       {courses.map((c) => (
-        <li key={c} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
-          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
-          {c}
+        <li key={c} className="border-b border-line">
+          <Link
+            to={`/contact?course=${encodeURIComponent(c)}`}
+            className="group/course flex items-start gap-3 py-3 text-[0.95rem] text-body transition-colors hover:text-prestige-blue-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
+          >
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+            <span className="flex-1">{c}</span>
+            <ArrowUpRight
+              size={15}
+              aria-hidden="true"
+              className="mt-1 shrink-0 text-prestige-blue-hover/50 transition-all duration-200 group-hover/course:text-prestige-blue-hover group-hover/course:translate-x-0.5 group-hover/course:-translate-y-0.5"
+            />
+          </Link>
         </li>
       ))}
     </ul>
@@ -94,47 +123,56 @@ export default function ShortCourses() {
       {/* Catalogue */}
       <section id="catalogue" className="scroll-mt-28 py-16 lg:py-20">
         <div className="container-px">
-          <div className="space-y-14">
-            {shortCourseCategories.map((cat, i) => (
-              <div key={cat.slug} id={cat.slug} className="scroll-mt-28">
-                <div className="flex flex-col gap-6 border-t border-line pt-8 lg:flex-row lg:gap-16">
-                  <div className="lg:w-[22rem] lg:shrink-0">
-                    <div className="flex items-baseline gap-4">
-                      <span className="font-display text-2xl font-semibold text-prestige-blue-hover/80">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <h2 className="font-display text-2xl font-semibold leading-tight text-prestige-green-deep">
+          <div className="space-y-8">
+            {shortCourseCategories.map((cat, i) => {
+              const Icon = iconForCategory(cat.slug)
+              return (
+                <article
+                  key={cat.slug}
+                  id={cat.slug}
+                  className="scroll-mt-28 overflow-hidden rounded-2xl border border-line bg-paper shadow-premium"
+                >
+                  <div className="border-l-4 border-prestige-blue lg:grid lg:grid-cols-[20rem_1fr]">
+                    {/* Category */}
+                    <div className="bg-prestige-blue-light p-7 lg:p-8">
+                      <p className="flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-prestige-blue-hover">
+                        <Icon size={17} strokeWidth={1.9} aria-hidden="true" className="shrink-0" />
+                        {String(i + 1).padStart(2, '0')} · {shortLabel(cat.title)}
+                      </p>
+                      <h2 className="mt-3 font-display text-2xl font-semibold leading-tight text-prestige-green-deep">
                         {cat.title}
                       </h2>
+                      <p className="mt-3 leading-relaxed text-body">{cat.blurb}</p>
+                      <p className="mt-5 flex items-center gap-2.5 text-sm font-semibold text-prestige-green-deep">
+                        <CountIcon size={16} strokeWidth={1.9} aria-hidden="true" className="shrink-0" />
+                        {coursesOf(cat).length} courses
+                      </p>
+                      {cat.note && <Disclaimer className="mt-5">{cat.note}</Disclaimer>}
                     </div>
-                    <p className="mt-3 leading-relaxed text-body">{cat.blurb}</p>
-                    <p className="mt-3 text-sm text-muted">
-                      {coursesOf(cat).length} courses
-                    </p>
-                    {cat.note && <Disclaimer className="mt-4">{cat.note}</Disclaimer>}
-                  </div>
 
-                  <div className="flex-1">
-                    {cat.groups ? (
-                      <div className="space-y-8">
-                        {cat.groups.map((g) => (
-                          <div key={g.name}>
-                            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">
-                              {g.name}
-                            </h3>
-                            <div className="mt-3">
-                              <CourseList courses={g.courses} />
+                    {/* Courses */}
+                    <div className="p-7 lg:p-8">
+                      {cat.groups ? (
+                        <div className="space-y-8">
+                          {cat.groups.map((g) => (
+                            <div key={g.name}>
+                              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">
+                                {g.name}
+                              </h3>
+                              <div className="mt-3">
+                                <CourseList courses={g.courses} />
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <CourseList courses={cat.courses} />
-                    )}
+                          ))}
+                        </div>
+                      ) : (
+                        <CourseList courses={cat.courses} />
+                      )}
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </article>
+              )
+            })}
           </div>
 
           <Disclaimer className="mt-12">{STATUS_NOTE}</Disclaimer>

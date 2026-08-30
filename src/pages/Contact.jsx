@@ -34,6 +34,10 @@ export default function Contact() {
   // the enquiry so the visitor does not retype what they just clicked.
   const [params] = useSearchParams()
   const programme = params.get('programme')
+  // ?course= comes from the short course catalogue, where every course links
+  // here. It is separate from ?programme= because the two set a different
+  // interest: a short course is not an accredited qualification.
+  const course = params.get('course')
   // ?service= is accepted as an alias so older service links keep working.
   const interest = params.get('interest') ?? params.get('service')
 
@@ -43,6 +47,13 @@ export default function Contact() {
         ...empty,
         interest: 'Accredited Qualification',
         message: `I would like to enquire about ${programme}.\n\n`,
+      }
+    }
+    if (course) {
+      return {
+        ...empty,
+        interest: 'Short Course',
+        message: `I would like to enquire about the ${course} short course.\n\n`,
       }
     }
     if (interest && interests.includes(interest)) {
