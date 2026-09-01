@@ -19,22 +19,11 @@ import { assetUrl } from '../../lib/asset.js'
  */
 
 const proof = [
-  { value: 1, prefix: 'Level ', label: 'B-BBEE contributor', ring: 'blue' },
-  { value: 100, suffix: '%', label: 'Black owned', ring: 'green' },
-  { label: 'Accredited', sub: 'learning programmes', ring: 'blue' },
-  { label: 'National', sub: 'delivery capability', ring: 'green' },
+  { value: 1, prefix: 'Level ', label: 'B-BBEE contributor' },
+  { value: 100, suffix: '%', label: 'Black owned' },
+  { label: 'Accredited', sub: 'learning programmes' },
+  { label: 'National', sub: 'delivery capability' },
 ]
-
-// Full concentric-circle dot rings (as opposed to the section's corner-fan
-// arcs) — a quiet bullseye tucked into a corner, mostly cropped by the
-// panel or card's own rounded edge, positioned wherever that surface has
-// the most open space so it never sits under the text.
-const ringStyle = (color, position, size) => ({
-  backgroundImage: `url(${assetUrl(`images/dots-rings-${color}.svg`)})`,
-  backgroundPosition: position,
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: size,
-})
 
 function BigValue({ item }) {
   const [ref, n] = useCountUp(item.value ?? 0)
@@ -81,11 +70,8 @@ export default function IntroducePrestige() {
         aria-hidden="true"
       />
       <div className="container-px relative">
-        <div
-          className="relative overflow-hidden rounded-3xl border border-line bg-paper p-8 shadow-premium sm:p-10 lg:p-14"
-          style={ringStyle('blue', 'bottom left', '340px 340px')}
-        >
-          <div className="relative grid gap-10 lg:grid-cols-[0.85fr_auto_1fr] lg:items-center lg:gap-14">
+        <div className="rounded-3xl border border-line bg-paper p-8 shadow-premium sm:p-10 lg:p-14">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_auto_1fr] lg:items-center lg:gap-14">
             <Reveal>
               <h2 className="font-display text-editorial font-semibold text-prestige-green-deep">
                 More than training.
@@ -110,15 +96,12 @@ export default function IntroducePrestige() {
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4">
           {proof.map((item, i) => (
             <Reveal key={item.label} delay={i * 90}>
-              <div
-                className="relative h-full overflow-hidden rounded-2xl border border-line bg-paper p-6 shadow-premium"
-                style={ringStyle(item.ring, 'bottom right', '200px 200px')}
-              >
-                <div className="relative flex items-start justify-between">
+              <div className="h-full rounded-2xl border border-line bg-paper p-6 shadow-premium">
+                <div className="flex items-start justify-between">
                   <span className="block h-0.5 w-8 rounded-full bg-prestige-green" aria-hidden="true" />
                   <Grip size={16} strokeWidth={2} className="text-line" aria-hidden="true" />
                 </div>
-                <div className="relative mt-5">
+                <div className="mt-5">
                   <BigValue item={item} />
                   <span className="mt-2 block text-body">{item.value == null ? item.sub : item.label}</span>
                 </div>
