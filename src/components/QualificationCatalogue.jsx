@@ -47,11 +47,14 @@ function CatalogueHeaderArcs() {
  * Shared between the Programmes page and the Home page's qualifications
  * section so both stay visually and functionally identical — `id` and
  * `className` let each caller control the outer section's anchor and
- * background/spacing without touching the markup itself.
+ * background/spacing without touching the markup itself. `limit` caps how
+ * many rows render after filtering — for a homepage teaser that points to
+ * the full list elsewhere rather than reproducing it in full.
  */
-export default function QualificationCatalogue({ id, className = '' }) {
+export default function QualificationCatalogue({ id, className = '', limit }) {
   const [activeArea, setActiveArea] = useState(null)
-  const shownQualifications = activeArea ? qualifications.filter((q) => q.area === activeArea) : qualifications
+  const filteredQualifications = activeArea ? qualifications.filter((q) => q.area === activeArea) : qualifications
+  const shownQualifications = limit ? filteredQualifications.slice(0, limit) : filteredQualifications
 
   return (
     <section id={id} className={`relative overflow-hidden ${className}`.trim()}>
