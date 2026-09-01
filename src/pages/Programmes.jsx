@@ -23,7 +23,7 @@ import { totalShortCourses } from '../data/shortCourses.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 import CornerSwirl from '../components/CornerSwirl.jsx'
-import { FileText, User, Target, Briefcase, CheckCircle2 } from 'lucide-react'
+import { FileText, User, Target, Briefcase, CheckCircle2, Shield } from 'lucide-react'
 
 const ALL = 'All'
 
@@ -278,8 +278,18 @@ export default function Programmes() {
       </section>
 
       {/* Customised technical interventions */}
-      <section id="technical" className="scroll-mt-28 py-16 lg:py-20">
-        <div className="container-px">
+      <section id="technical" className="relative scroll-mt-28 overflow-hidden py-16 lg:py-20">
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(8,123,232,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(8,123,232,0.08) 1px, transparent 1px)',
+            backgroundSize: '42px 42px',
+          }}
+        />
+        <CornerSwirl size="sm" opacity={0.35} />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -287,16 +297,29 @@ export default function Programmes() {
                 title="Customised technical training for your plant."
                 lead={technicalInterventions.lead}
               />
-              <Disclaimer className="mt-6">{technicalInterventions.note}</Disclaimer>
+              <div className="mt-6 flex items-start gap-3 rounded-xl border border-line bg-prestige-blue-light/40 p-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-prestige-blue-light text-prestige-blue-hover">
+                  <Shield size={16} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <p className="text-sm leading-relaxed text-body">{technicalInterventions.note}</p>
+              </div>
             </div>
-            <ul className="grid content-start gap-x-10 border-t border-line sm:grid-cols-2">
-              {technicalInterventions.items.map((i) => (
-                <li key={i} className="flex items-center gap-3 border-b border-line py-3 text-body">
-                  <CheckCircle2 size={17} strokeWidth={1.8} className="shrink-0 text-prestige-green-deep" aria-hidden="true" />
-                  {i}
-                </li>
-              ))}
-            </ul>
+            <div className="rounded-2xl border border-line bg-paper p-8 shadow-premium sm:p-10">
+              <ul className="grid gap-x-10 sm:grid-cols-2">
+                {technicalInterventions.items.map((i, idx) => {
+                  const isLastRow = idx >= technicalInterventions.items.length - 2
+                  return (
+                    <li
+                      key={i}
+                      className={`flex items-center gap-3 py-3 text-body ${isLastRow ? '' : 'border-b border-line'} ${idx % 2 === 1 ? 'sm:border-l sm:border-line sm:pl-8' : ''}`}
+                    >
+                      <CheckCircle2 size={17} strokeWidth={1.8} className="shrink-0 text-prestige-green-deep" aria-hidden="true" />
+                      {i}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
