@@ -1,10 +1,10 @@
 // Hero photograph sets, one per page.
 //
-// Each entry is a slide in that page's hero carousel. Most photographs are
-// Prestige's own; the `stock*` entries are licensed stock, confirmed with
-// Prestige, reintroduced to widen the homepage rotation. Keep the two
-// visually distinguishable in this file (the `stock` prefix) so a future
-// edit doesn't mistake one for the other.
+// Each entry is a slide in that page's hero carousel. Every hero now draws
+// only on the `stock*` entries — licensed stock, confirmed with Prestige.
+// Prestige's own photographs are still used extensively below the hero, in
+// sectionSliders and articleHeroes further down this file. Keep the `stock`
+// prefix so a future edit doesn't mix the two libraries up.
 //
 // `position` is the CSS object-position used to keep faces out of the crop
 // when a portrait source is shown in a landscape panel. Check it after
@@ -155,10 +155,14 @@ const P = {
 
 /** Sets are ordered — the first slide is the one that loads eagerly.
  *
- * Every photograph here is Prestige's own. Three rules hold: a page's hero
- * never shows a photograph that already appears further down that same page,
- * no two pages carry the same set, and each set runs 3–6 slides. Re-check all
- * three after any swap — scripts/validate-heroes.mjs does it in one command. */
+ * Every hero here draws only on the licensed stock photography — Prestige's
+ * own photographs stay in the body sections further down each page
+ * (sectionSliders / articleHeroes below), not in the hero. With only seven
+ * stock photographs to cover thirteen pages, the same photo does recur
+ * across different pages, but each page draws a different combination and
+ * order so no two heroes feel interchangeable. Two rules hold: no two pages
+ * carry the exact same set, and each set runs 3–6 slides. Re-check both
+ * after any swap — scripts/validate-heroes.mjs does it in one command. */
 export const pageHeroes = {
   home: [
     P.stockConstructionWorker,
@@ -166,20 +170,20 @@ export const pageHeroes = {
     P.stockBoardroomMeeting,
     P.stockPresentationAudience,
     P.stockNotetakingAudience,
-    P.welding,
+    P.stockRemoteProfessional,
   ],
-  about: [P.stockWorkplaceTeam, P.cohortOutside, P.intake, P.certificatesGroup, P.handoverReviewing, P.workshopFloor],
-  programmes: [P.stockNotetakingAudience, P.angleGrinder, P.workshopTraining, P.trainingRoom, P.cohortOutside, P.plateHandling],
-  shortCourses: [P.stockPresentationAudience, P.trainingRoom, P.intake, P.cohortOutside, P.handoverOveralls, P.bandsaw],
-  industries: [P.stockConstructionWorker, P.steelBeam, P.workshopFloor, P.bandsaw, P.loading, P.welding],
-  growthPathways: [P.stockBoardroomMeeting, P.facilitatorSession, P.handoverCongrats, P.certificatesCohort, P.stockRemoteProfessional],
-  services: [P.stockBoardroomMeeting, P.trainingRoom, P.cohortOutside, P.handoverReviewing, P.angleGrinder, P.certificatesCohort],
-  businessSolutions: [P.stockPresentationAudience, P.handoverReviewing, P.clientSite, P.steelBeam, P.handoverCongrats],
-  bbbee: [P.stockPresentationAudience, P.handoverOveralls, P.certificatesGroup, P.intake, P.handoverCongrats, P.handoverRedShirt],
-  recruitment: [P.stockRemoteProfessional, P.intake, P.clientSite, P.certificatesGroup, P.handoverReviewing, P.steelBeam],
-  officeRental: [P.stockRemoteProfessional, P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats, P.handoverRedShirt],
-  assessment: [P.stockNotetakingAudience, P.facilitatorSession, P.trainingRoom, P.handoverReviewing, P.certificatesCohort, P.workshopFloor],
-  insights: [P.stockRemoteProfessional, P.intake, P.handoverRedShirt, P.handoverReviewing, P.cohortOutside, P.certificatesGroup],
+  about: [P.stockWorkplaceTeam, P.stockNotetakingAudience, P.stockSeminarAudience, P.stockConstructionWorker],
+  programmes: [P.stockNotetakingAudience, P.stockRemoteProfessional, P.stockConstructionWorker, P.stockPresentationAudience],
+  shortCourses: [P.stockPresentationAudience, P.stockRemoteProfessional, P.stockSeminarAudience, P.stockWorkplaceTeam],
+  industries: [P.stockConstructionWorker, P.stockBoardroomMeeting, P.stockNotetakingAudience, P.stockSeminarAudience, P.stockWorkplaceTeam],
+  growthPathways: [P.stockBoardroomMeeting, P.stockRemoteProfessional, P.stockPresentationAudience, P.stockConstructionWorker],
+  services: [P.stockBoardroomMeeting, P.stockWorkplaceTeam, P.stockNotetakingAudience, P.stockRemoteProfessional],
+  businessSolutions: [P.stockPresentationAudience, P.stockSeminarAudience, P.stockBoardroomMeeting],
+  bbbee: [P.stockPresentationAudience, P.stockConstructionWorker, P.stockRemoteProfessional, P.stockWorkplaceTeam],
+  recruitment: [P.stockRemoteProfessional, P.stockNotetakingAudience, P.stockBoardroomMeeting, P.stockSeminarAudience],
+  officeRental: [P.stockRemoteProfessional, P.stockPresentationAudience, P.stockWorkplaceTeam],
+  assessment: [P.stockNotetakingAudience, P.stockConstructionWorker, P.stockSeminarAudience, P.stockBoardroomMeeting, P.stockRemoteProfessional],
+  insights: [P.stockRemoteProfessional, P.stockWorkplaceTeam, P.stockPresentationAudience, P.stockNotetakingAudience],
 }
 
 /**
