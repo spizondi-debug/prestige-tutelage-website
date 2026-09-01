@@ -9,6 +9,7 @@ import { whyPrestige } from '../components/home/WhyPrestige.jsx'
 import { brand, contact } from '../data/site.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 const philosophy = [
   {
@@ -125,8 +126,9 @@ export default function About() {
       </section>
 
       {/* Philosophy */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               eyebrow="Training philosophy"

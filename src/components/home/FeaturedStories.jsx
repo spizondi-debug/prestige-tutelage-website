@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Photo from '../Photo.jsx'
 import PrestigePath from '../PrestigePath.jsx'
 import Reveal from '../Reveal.jsx'
+import CornerSwirl from '../CornerSwirl.jsx'
 import { qualificationsIn } from '../../data/programmes.js'
 
 /**
@@ -43,7 +44,8 @@ const stories = [
 
 export default function FeaturedStories() {
   return (
-    <section className="bg-cloud">
+    <section className="relative overflow-hidden bg-cloud">
+      <CornerSwirl size="sm" />
       {stories.map((s, i) => {
         const count = qualificationsIn(s.area).length
         const flip = i % 2 === 1

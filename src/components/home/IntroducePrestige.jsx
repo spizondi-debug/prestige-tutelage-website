@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Grip } from 'lucide-react'
 import Reveal from '../Reveal.jsx'
 import { useCountUp } from '../../lib/motion.js'
-import { assetUrl } from '../../lib/asset.js'
+import CornerSwirl from '../CornerSwirl.jsx'
 
 /**
  * The handover from the cinematic hero into the editorial site.
@@ -46,29 +46,7 @@ function BigValue({ item }) {
 export default function IntroducePrestige() {
   return (
     <section className="relative overflow-hidden bg-cloud py-24 lg:py-32">
-      {/* Concentric dot-arc swirls, matching the approved reference — blue
-          fanning in from the top-right corner, green from the bottom-left.
-          Two independent square images, each anchored to its own corner,
-          rather than one image stretched to the section: a single stretched
-          image distorts (and its "reach" as a fraction of the canvas stops
-          short) whenever the section's own proportions differ from the
-          image's — full-bleed-wide on desktop, narrow and very tall once
-          the cards stack on mobile. A fixed square keeps each swirl's own
-          proportions correct at every width. Sized large enough that their
-          outer arcs meet around the panel rather than reading as two
-          disconnected corner accents — a single continuous sweep, not two
-          separate stamps — while the clamp() floor still scales both down
-          gracefully on small screens. Decoration only; aria-hidden. */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: `url(${assetUrl('images/bg-dots-blue.svg')}), url(${assetUrl('images/bg-dots-green.svg')})`,
-          backgroundPosition: 'top right, bottom left',
-          backgroundRepeat: 'no-repeat, no-repeat',
-          backgroundSize: 'clamp(320px, 62vw, 940px) clamp(320px, 62vw, 940px), clamp(300px, 58vw, 880px) clamp(300px, 58vw, 880px)',
-        }}
-        aria-hidden="true"
-      />
+      <CornerSwirl size="md" />
       <div className="container-px relative">
         <div className="rounded-3xl border border-line bg-paper p-8 shadow-premium sm:p-10 lg:p-14">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_auto_1fr] lg:items-center lg:gap-14">

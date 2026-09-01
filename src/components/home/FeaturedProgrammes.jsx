@@ -3,6 +3,7 @@ import { coursePath } from '../../lib/slug.js'
 import Reveal from '../Reveal.jsx'
 import Disclaimer from '../Disclaimer.jsx'
 import { Accent } from '../Section.jsx'
+import CornerSwirl from '../CornerSwirl.jsx'
 import {
   qualifications,
   populatedAreas,
@@ -27,8 +28,9 @@ export default function FeaturedProgrammes() {
     .filter(Boolean)
 
   return (
-    <section className="tex tex-grid border-t border-line bg-paper py-20 lg:py-28">
-      <div className="container-px">
+    <section className="relative overflow-hidden border-t border-line bg-paper py-20 lg:py-28">
+      <CornerSwirl size="sm" />
+      <div className="container-px relative">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>
             <p className="eyebrow">Qualifications</p>
