@@ -1,7 +1,6 @@
 import { assetUrl } from '../../lib/asset.js'
 import { clients, CLIENTS_LEAD } from '../../data/clients.js'
 import { Eyebrow } from '../Section.jsx'
-import CornerSwirl from '../CornerSwirl.jsx'
 
 /**
  * ClientStrip — the organisations Prestige works with, as their own logos.
@@ -23,9 +22,8 @@ import CornerSwirl from '../CornerSwirl.jsx'
  */
 export default function ClientStrip() {
   return (
-    <section className="relative overflow-hidden border-y border-line bg-paper py-14 lg:py-16">
-      <CornerSwirl size="sm" />
-      <div className="container-px relative">
+    <section className="border-y border-line bg-paper py-14 lg:py-16">
+      <div className="container-px">
         <div className="max-w-3xl">
           <Eyebrow>Clients</Eyebrow>
           <h2 className="mt-4 font-display text-section font-semibold text-prestige-green-deep">

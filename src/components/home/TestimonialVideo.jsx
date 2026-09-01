@@ -3,7 +3,6 @@ import VideoFeature from '../VideoFeature.jsx'
 import Reveal from '../Reveal.jsx'
 import { testimonialMedia } from '../../data/media.js'
 import { Accent } from '../Section.jsx'
-import CornerSwirl from '../CornerSwirl.jsx'
 
 /**
  * Short pieces to camera, supplied by Prestige — real speech, so each gets
@@ -19,9 +18,8 @@ import CornerSwirl from '../CornerSwirl.jsx'
  */
 export default function TestimonialVideo() {
   return (
-    <section className="relative overflow-hidden bg-paper py-20 lg:py-28">
-      <CornerSwirl size="sm" />
-      <div className="container-px relative">
+    <section className="bg-paper py-20 lg:py-28">
+      <div className="container-px">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">In their own words</p>
           <h2 className="mt-5 font-display text-section font-semibold leading-tight text-ink">
