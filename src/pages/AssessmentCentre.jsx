@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
-import { BadgeCheck, ShieldCheck, Target } from 'lucide-react'
+import { BadgeCheck, ShieldCheck, Target, Users, GraduationCap, User, Building2, ChevronDown, Info } from 'lucide-react'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
-import Disclaimer from '../components/Disclaimer.jsx'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
@@ -13,21 +12,47 @@ import { Accent } from '../components/Section.jsx'
 const SCOPE_NOTE =
   'Scope of assessment, the applicable qualifications and the relevant quality-assurance arrangements are confirmed in writing per engagement.'
 
+/** Colour treatment per pathway card — alternating green/blue, same rhythm as LearningRoutes. */
+const TONE = {
+  green: {
+    edge: 'bg-prestige-green',
+    iconBg: 'bg-prestige-green-pale',
+    iconText: 'text-prestige-green-deep',
+    label: 'text-prestige-green-deep',
+    dot: 'bg-prestige-green',
+    link: 'text-prestige-green-deep hover:text-prestige-green-deeper',
+  },
+  blue: {
+    edge: 'bg-prestige-blue',
+    iconBg: 'bg-prestige-blue-light',
+    iconText: 'text-prestige-blue-hover',
+    label: 'text-prestige-blue-hover',
+    dot: 'bg-prestige-blue',
+    link: 'text-prestige-blue-hover hover:text-prestige-blue-deep',
+  },
+}
+
 const pathways = [
   {
     who: 'Employers',
+    icon: Users,
+    tone: 'green',
     text: 'Confirming competence across teams — for qualifications, learnerships or internal standards — with records that survive audit.',
     needs: ['Assessment planning for a cohort', 'Moderation of internal assessment decisions', 'Evidence and record management', 'Results and reporting'],
     cta: { label: 'Discuss an Employer Assessment', to: '/contact?interest=Assessment%20Centre' },
   },
   {
     who: 'Training Providers',
+    icon: GraduationCap,
+    tone: 'blue',
     text: 'Independent assessment and moderation capacity when your own is stretched, or when a separation of duties is required.',
     needs: ['External moderation', 'Assessor capacity', 'Invigilation services', 'Assessment centre facilities'],
     cta: { label: 'Discuss Provider Support', to: '/contact?interest=Assessment%20Centre' },
   },
   {
     who: 'Candidates',
+    icon: User,
+    tone: 'green',
     text: 'A fair, well-run assessment with clear expectations, proper support and a transparent appeals route.',
     needs: ['Registration and scheduling', 'What to expect on the day', 'Results processing', 'Queries and appeals'],
     cta: { label: 'Candidate Enquiry', to: '/contact?interest=Assessment%20Centre' },
@@ -113,40 +138,76 @@ export default function AssessmentCentre() {
         <div className="container-px">
           <SectionHeading
             eyebrow="Who we assess for"
-            title="Three routes in — employers, providers and candidates."
+            title={<>Three routes in — <Accent>employers, providers and candidates</Accent>.</>}
             lead="Each comes to the assessment centre with different needs. Find yours below."
+            tone="ink"
+            center
           />
 
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {pathways.map((p) => (
-              <article key={p.who} className="flex flex-col border border-line bg-paper p-7">
-                <h3 className="font-display text-2xl font-semibold text-ink">{p.who}</h3>
-                <p className="mt-3 leading-relaxed text-body">{p.text}</p>
-
-                <h4 className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted">
-                  Typically needing
-                </h4>
-                <ul className="mt-3 flex-1 border-t border-line">
-                  {p.needs.map((n) => (
-                    <li key={n} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
-                      {n}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  to={p.cta.to}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover"
-                >
-                  {p.cta.label}
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </article>
-            ))}
+          {/* Hub-and-spoke connector — desktop only, aligned to the card
+              grid below via matching grid-cols-3 so the arms always land on
+              the outer cards' centres regardless of container width. */}
+          <div className="relative mt-10 hidden lg:grid lg:grid-cols-3" aria-hidden="true">
+            <div className="relative h-16">
+              <span className="absolute inset-y-1/2 left-1/2 right-0 border-t border-dashed border-prestige-blue/40" />
+              <ChevronDown size={16} strokeWidth={2} className="absolute left-1/2 top-1/2 mt-1 -translate-x-1/2 text-prestige-blue/50" />
+            </div>
+            <div className="flex items-center justify-center">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-prestige-blue-light text-prestige-blue-hover shadow-premium">
+                <Building2 size={26} strokeWidth={1.8} aria-hidden="true" />
+              </span>
+            </div>
+            <div className="relative h-16">
+              <span className="absolute inset-y-1/2 left-0 right-1/2 border-t border-dashed border-prestige-blue/40" />
+              <ChevronDown size={16} strokeWidth={2} className="absolute left-1/2 top-1/2 mt-1 -translate-x-1/2 text-prestige-blue/50" />
+            </div>
           </div>
 
-          <Disclaimer className="mt-10">{SCOPE_NOTE}</Disclaimer>
+          <div className="mt-4 grid gap-5 lg:mt-0 lg:grid-cols-3">
+            {pathways.map((p) => {
+              const tone = TONE[p.tone]
+              const Icon = p.icon
+              return (
+                <article key={p.who} className="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper p-7 shadow-premium">
+                  <span className={`absolute inset-x-0 top-0 h-1 ${tone.edge}`} aria-hidden="true" />
+                  <div className="flex items-center gap-4">
+                    <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${tone.iconBg} ${tone.iconText}`}>
+                      <Icon size={24} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    <h3 className="font-display text-2xl font-semibold text-ink">{p.who}</h3>
+                  </div>
+                  <p className="mt-4 leading-relaxed text-body">{p.text}</p>
+
+                  <h4 className={`mt-6 text-xs font-semibold uppercase tracking-wider ${tone.label}`}>
+                    Typically needing
+                  </h4>
+                  <ul className="mt-3 flex-1 border-t border-line">
+                    {p.needs.map((n) => (
+                      <li key={n} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
+                        <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${tone.dot}`} aria-hidden="true" />
+                        {n}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    to={p.cta.to}
+                    className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold transition-colors ${tone.link}`}
+                  >
+                    {p.cta.label}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="mt-10 flex items-start gap-3 rounded-2xl bg-prestige-blue-light/60 p-5">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-paper text-prestige-blue-hover">
+              <Info size={16} strokeWidth={1.8} aria-hidden="true" />
+            </span>
+            <p className="text-sm leading-relaxed text-body">{SCOPE_NOTE}</p>
+          </div>
         </div>
       </section>
 
