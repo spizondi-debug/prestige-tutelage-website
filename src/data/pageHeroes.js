@@ -151,6 +151,26 @@ const P = {
     alt: 'A professional working on a laptop in a plant-filled space',
     position: 'center 30%',
   },
+  stockSiteWorkerPhone: {
+    src: 'stock-site-worker-phone.jpg',
+    alt: 'A site worker in a hard hat checking a phone on site',
+    position: 'center 12%',
+  },
+  stockColleaguesPhone: {
+    src: 'stock-colleagues-checking-phone.jpg',
+    alt: 'Two colleagues checking a phone together in an office setting',
+    position: '38% center',
+  },
+  stockProfessionalDesk: {
+    src: 'stock-professional-at-desk.jpg',
+    alt: 'A professional at a desk checking a phone beside a laptop',
+    position: '62% center',
+  },
+  stockExecutivePhone: {
+    src: 'stock-executive-checking-phone.jpg',
+    alt: 'A professional in a suit checking a phone',
+    position: 'center 8%',
+  },
 }
 
 /** Sets are ordered — the first slide is the one that loads eagerly.
@@ -197,7 +217,11 @@ export const sectionSliders = {
   bbbee: [P.welding, P.bandsaw, P.plateHandling],
   recruitmentProcess: [P.handoverRedShirt, P.handoverOveralls, P.handoverCongrats],
   recruitmentYouth: [P.cohortOutside, P.certificatesCohort, P.workshopTraining],
-  growthPathways: [P.angleGrinder, P.steelBeam, P.workshopFloor],
+  // The one section slider that draws on licensed stock rather than Prestige's
+  // own photography — a deliberate exception, chosen to show the audience
+  // (employee, manager, HR/skills team, leadership) rather than the workshop
+  // floor already shown elsewhere on this page.
+  growthPathways: [P.stockSiteWorkerPhone, P.stockColleaguesPhone, P.stockProfessionalDesk, P.stockExecutivePhone],
   officeRental: [P.trainingRoom, P.workshopTraining, P.certificatesCohort],
   programmesLearnerships: [P.handoverOveralls, P.handoverRedShirt, P.certificatesCohort],
   homeLearnerships: [P.handoverOveralls, P.handoverCongrats, P.clientSite],
