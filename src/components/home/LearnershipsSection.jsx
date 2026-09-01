@@ -14,7 +14,7 @@ export default function LearnershipsSection() {
           <ContentSlider
             images={sectionSliders.homeLearnerships}
             aspect="aspect-[5/4]"
-            label="Prestige Tutelage learnership completions"
+            label="Prestige Tutelage learnerships and workplace training"
             className="order-last lg:order-first"
           />
 
