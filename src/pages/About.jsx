@@ -80,7 +80,7 @@ export default function About() {
             <ContentSlider
               images={sectionSliders.aboutWhoWeAre}
               aspect="aspect-[4/3]"
-              label="Prestige Tutelage certificate handovers"
+              label="Prestige Tutelage training and workplace culture"
             />
           </div>
         </div>

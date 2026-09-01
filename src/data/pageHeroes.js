@@ -171,6 +171,21 @@ const P = {
     alt: 'A professional in a suit checking a phone',
     position: 'center 8%',
   },
+  stockSiteCraftsman: {
+    src: 'stock-site-craftsman.jpg',
+    alt: 'A tradesperson using power tools at a timber worksite',
+    position: '75% center',
+  },
+  stockTeamOnsite: {
+    src: 'stock-team-onsite.jpg',
+    alt: 'Two colleagues in workwear and safety gear standing together on site',
+    position: 'center center',
+  },
+  stockTrainingNotes: {
+    src: 'stock-training-notes.jpg',
+    alt: 'A course participant taking notes during a training session',
+    position: 'center center',
+  },
 }
 
 /** Sets are ordered — the first slide is the one that loads eagerly.
@@ -211,7 +226,7 @@ export const pageHeroes = {
  * so a section does not repeat its own page's hero imagery.
  */
 export const sectionSliders = {
-  aboutWhoWeAre: [P.handoverCongrats, P.handoverOveralls, P.handoverRedShirt],
+  aboutWhoWeAre: [P.stockSiteCraftsman, P.stockTeamOnsite, P.stockTrainingNotes],
   corporateInTheRoom: [P.trainingRoom, P.workshopTraining, P.angleGrinder, P.stockSeminarAudience],
   corporateDelivery: [P.workshopFloor, P.bandsaw, P.steelBeam],
   bbbee: [P.welding, P.bandsaw, P.plateHandling],
