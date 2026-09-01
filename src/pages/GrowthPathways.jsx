@@ -147,9 +147,8 @@ export default function GrowthPathways() {
       </PageHeader>
 
       {/* The connected journey */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading
             eyebrow="The connected journey"
             title="Seven stages that usually live in seven different places."
@@ -190,9 +189,8 @@ export default function GrowthPathways() {
 
       {/* Watch — the product film. Nothing downloads until play is pressed;
           see VideoFeature. */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
             <VideoFeature
               media={growthPathwaysMedia}
@@ -232,9 +230,8 @@ export default function GrowthPathways() {
       </section>
 
       {/* Why it matters */}
-      <section className="relative overflow-hidden border-y border-line bg-paper py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line bg-paper py-16 lg:py-24">
+        <div className="container-px">
           <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <ContentSlider
               images={sectionSliders.growthPathways}

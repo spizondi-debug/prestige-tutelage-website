@@ -224,9 +224,8 @@ export default function Programmes() {
       </section>
 
       {/* Learnerships */}
-      <section id="learnerships" className="relative scroll-mt-28 overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section id="learnerships" className="scroll-mt-28 border-y border-line bg-mist/60 py-16 lg:py-24">
+        <div className="container-px">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading

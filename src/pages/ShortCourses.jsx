@@ -96,9 +96,8 @@ export default function ShortCourses() {
       />
 
       {/* Category quick-nav */}
-      <section className="relative overflow-hidden border-b border-line py-8">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-b border-line py-8">
+        <div className="container-px">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted">Jump to a category</p>
           <nav className="mt-3 flex flex-wrap gap-x-6 gap-y-2" aria-label="Short course categories">
             {shortCourseCategories.map((c) => (
@@ -176,9 +175,8 @@ export default function ShortCourses() {
       </section>
 
       {/* Delivery */}
-      <section className="relative overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line bg-mist/60 py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeading

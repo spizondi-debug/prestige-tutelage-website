@@ -127,30 +127,61 @@ export default function About() {
       </section>
 
       {/* Philosophy */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <SectionHeading
-              eyebrow="Training philosophy"
-              title="Four convictions shape every programme we run."
-            />
-            <div className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
-              {philosophy.map((p) => (
-                <div key={p.title} className="border-b border-line py-6">
-                  <h3 className="font-display text-lg font-semibold text-prestige-blue-hover">{p.title}</h3>
-                  <p className="mt-2 leading-relaxed text-body">{p.text}</p>
-                </div>
-              ))}
+            <div>
+              <SectionHeading
+                eyebrow="Training philosophy"
+                title="Four convictions shape every programme we run."
+              />
+              <span className="mt-7 block h-1 w-14 rounded-full bg-prestige-green" aria-hidden="true" />
+            </div>
+            <div className="relative">
+              {/* Connecting trace between the four badges — decorative,
+                  desktop only. Coordinates are percentages of this box, tuned
+                  to land on the badge centres in the two-column card grid
+                  below; re-tune alongside the badge offsets if either moves. */}
+              <svg
+                className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path d="M -4 8 H 82" fill="none" stroke="#0A5FB8" strokeWidth="0.5" strokeLinecap="round" />
+                <path
+                  d="M 21 8 V 46 Q 21 58 31 58 H 69 Q 79 58 79 46 V 22"
+                  fill="none"
+                  stroke="#0A5FB8"
+                  strokeWidth="0.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="relative grid gap-x-10 gap-y-10 sm:grid-cols-2">
+                {philosophy.map((p, i) => (
+                  <div
+                    key={p.title}
+                    className="relative rounded-2xl border border-line bg-paper p-6 pt-9 shadow-premium lg:p-7 lg:pt-10"
+                  >
+                    <span
+                      className="absolute -top-4 left-6 flex h-9 w-9 items-center justify-center rounded-full bg-prestige-green text-sm font-bold text-white lg:left-7"
+                      aria-hidden="true"
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="font-display text-lg font-semibold text-prestige-blue-hover">{p.title}</h3>
+                    <p className="mt-2 leading-relaxed text-body">{p.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Approach + accreditation */}
-      <section className="relative overflow-hidden border-y border-line bg-paper py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line bg-paper py-16 lg:py-24">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeading
@@ -221,9 +252,8 @@ export default function About() {
       </section>
 
       {/* Why partner */}
-      <section className="relative overflow-hidden border-t border-line bg-mist/60 py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-t border-line bg-mist/60 py-16 lg:py-24">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               eyebrow="Why organisations partner with Prestige"
