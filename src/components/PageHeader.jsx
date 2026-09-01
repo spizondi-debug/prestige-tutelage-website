@@ -22,7 +22,7 @@ import HeroSlider from './HeroSlider.jsx'
  *   eyebrow   small wide-tracked label above the title
  *   title     the h1
  *   lead      supporting paragraph
- *   images    slides ({ src, alt, position }); 3–5 reads best
+ *   images    slides ({ src, alt, position }); 3–6 reads best
  *   children  CTAs or in-page navigation, rendered under the lead
  */
 export default function PageHeader({ eyebrow, title, lead, images, children }) {

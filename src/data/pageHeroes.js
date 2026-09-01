@@ -157,7 +157,7 @@ const P = {
  *
  * Every photograph here is Prestige's own. Three rules hold: a page's hero
  * never shows a photograph that already appears further down that same page,
- * no two pages carry the same set, and each set runs 3–5 slides. Re-check all
+ * no two pages carry the same set, and each set runs 3–6 slides. Re-check all
  * three after any swap — scripts/validate-heroes.mjs does it in one command. */
 export const pageHeroes = {
   home: [
@@ -166,19 +166,20 @@ export const pageHeroes = {
     P.stockBoardroomMeeting,
     P.stockPresentationAudience,
     P.stockNotetakingAudience,
+    P.welding,
   ],
-  about: [P.stockWorkplaceTeam, P.cohortOutside, P.intake, P.certificatesGroup, P.handoverReviewing],
-  programmes: [P.stockNotetakingAudience, P.angleGrinder, P.workshopTraining, P.trainingRoom, P.cohortOutside],
-  shortCourses: [P.stockPresentationAudience, P.trainingRoom, P.intake, P.cohortOutside, P.handoverOveralls],
-  industries: [P.stockConstructionWorker, P.steelBeam, P.workshopFloor, P.bandsaw, P.loading],
-  growthPathways: [P.stockBoardroomMeeting, P.facilitatorSession, P.handoverCongrats, P.certificatesCohort],
-  services: [P.stockBoardroomMeeting, P.trainingRoom, P.cohortOutside, P.handoverReviewing, P.angleGrinder],
-  businessSolutions: [P.stockPresentationAudience, P.handoverReviewing, P.clientSite, P.steelBeam],
-  bbbee: [P.stockPresentationAudience, P.handoverOveralls, P.certificatesGroup, P.intake, P.handoverCongrats],
-  recruitment: [P.stockRemoteProfessional, P.intake, P.clientSite, P.certificatesGroup, P.handoverReviewing],
-  officeRental: [P.stockRemoteProfessional, P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats],
-  assessment: [P.stockNotetakingAudience, P.facilitatorSession, P.trainingRoom, P.handoverReviewing, P.certificatesCohort],
-  insights: [P.stockRemoteProfessional, P.intake, P.handoverRedShirt, P.handoverReviewing, P.cohortOutside],
+  about: [P.stockWorkplaceTeam, P.cohortOutside, P.intake, P.certificatesGroup, P.handoverReviewing, P.workshopFloor],
+  programmes: [P.stockNotetakingAudience, P.angleGrinder, P.workshopTraining, P.trainingRoom, P.cohortOutside, P.plateHandling],
+  shortCourses: [P.stockPresentationAudience, P.trainingRoom, P.intake, P.cohortOutside, P.handoverOveralls, P.bandsaw],
+  industries: [P.stockConstructionWorker, P.steelBeam, P.workshopFloor, P.bandsaw, P.loading, P.welding],
+  growthPathways: [P.stockBoardroomMeeting, P.facilitatorSession, P.handoverCongrats, P.certificatesCohort, P.stockRemoteProfessional],
+  services: [P.stockBoardroomMeeting, P.trainingRoom, P.cohortOutside, P.handoverReviewing, P.angleGrinder, P.certificatesCohort],
+  businessSolutions: [P.stockPresentationAudience, P.handoverReviewing, P.clientSite, P.steelBeam, P.handoverCongrats],
+  bbbee: [P.stockPresentationAudience, P.handoverOveralls, P.certificatesGroup, P.intake, P.handoverCongrats, P.handoverRedShirt],
+  recruitment: [P.stockRemoteProfessional, P.intake, P.clientSite, P.certificatesGroup, P.handoverReviewing, P.steelBeam],
+  officeRental: [P.stockRemoteProfessional, P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats, P.handoverRedShirt],
+  assessment: [P.stockNotetakingAudience, P.facilitatorSession, P.trainingRoom, P.handoverReviewing, P.certificatesCohort, P.workshopFloor],
+  insights: [P.stockRemoteProfessional, P.intake, P.handoverRedShirt, P.handoverReviewing, P.cohortOutside, P.certificatesGroup],
 }
 
 /**

@@ -5,7 +5,7 @@
  *
  * Three rules, all easy to break by hand and none visible in a build error:
  *   1. Every referenced photograph exists in public/images.
- *   2. Each set runs 3–5 slides.
+ *   2. Each set runs 3–6 slides.
  *   3. A page's hero never repeats a photograph already used further down
  *      that same page, and no two pages carry the same set. Body imagery now
  *      lives partly in sectionSliders, so those are resolved back to the page
@@ -68,7 +68,7 @@ for (const key of Object.keys(PAGE_FILES)) bodyCache.set(key, bodyImagesFor(key)
 const seen = new Map()
 for (const [key, set] of Object.entries(pageHeroes)) {
   for (const s of set) if (!images.has(s.src)) problems.push(`${key}: missing file ${s.src}`)
-  if (set.length < 3 || set.length > 5) problems.push(`${key}: ${set.length} slides (want 3-5)`)
+  if (set.length < 3 || set.length > 6) problems.push(`${key}: ${set.length} slides (want 3-6)`)
 
   const body = bodyCache.get(key) ?? bodyImagesFor(key)
   for (const s of set) if (body.has(s.src)) problems.push(`${key}: hero repeats ${s.src} from its own page`)
