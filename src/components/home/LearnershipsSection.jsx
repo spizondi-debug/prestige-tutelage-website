@@ -8,7 +8,7 @@ import CornerSwirl from '../CornerSwirl.jsx'
 export default function LearnershipsSection() {
   return (
     <section className="relative overflow-hidden border-t border-line bg-paper py-20 lg:py-28">
-      <CornerSwirl size="sm" opacity={0.4} />
+      <CornerSwirl size="sm" opacity={0.18} />
       <div className="container-px relative">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
           <ContentSlider
