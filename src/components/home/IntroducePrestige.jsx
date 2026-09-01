@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Grip } from 'lucide-react'
 import Reveal from '../Reveal.jsx'
 import { useCountUp } from '../../lib/motion.js'
+import { assetUrl } from '../../lib/asset.js'
 
 /**
  * The handover from the cinematic hero into the editorial site.
@@ -45,17 +46,17 @@ function BigValue({ item }) {
 export default function IntroducePrestige() {
   return (
     <section className="relative overflow-hidden bg-cloud py-24 lg:py-32">
-      {/* Soft corner glow + dot texture, matching the approved reference —
-          restrained blue top-right, restrained green bottom-left, a faint
-          dot matrix throughout. Decoration only; aria-hidden. */}
+      {/* Concentric dot-arc swirls, matching the approved reference — blue
+          fanning in from the top-right corner, green from the bottom-left.
+          A generated SVG (public/images/bg-corner-dots.svg) rather than a
+          plain radial gradient, since the reference's texture is arcs of
+          dots, not a blur. Decoration only; aria-hidden. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage:
-            'radial-gradient(640px 460px at 94% -8%, rgba(8, 123, 232, 0.12), transparent 62%),' +
-            'radial-gradient(560px 420px at 2% 106%, rgba(49, 184, 74, 0.09), transparent 60%),' +
-            'radial-gradient(rgba(23, 43, 61, 0.10) 1px, transparent 1px)',
-          backgroundSize: 'auto, auto, 26px 26px',
+          backgroundImage: `url(${assetUrl('images/bg-corner-dots.svg')})`,
+          backgroundSize: '100% 100%',
+          backgroundRepeat: 'no-repeat',
         }}
         aria-hidden="true"
       />
