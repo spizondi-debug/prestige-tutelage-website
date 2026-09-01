@@ -54,16 +54,18 @@ export default function IntroducePrestige() {
           short) whenever the section's own proportions differ from the
           image's — full-bleed-wide on desktop, narrow and very tall once
           the cards stack on mobile. A fixed square keeps each swirl's own
-          proportions correct at every width, clamped so it scales down
-          gracefully on small screens rather than overflowing. Decoration
-          only; aria-hidden. */}
+          proportions correct at every width. Sized large enough that their
+          outer arcs meet around the panel rather than reading as two
+          disconnected corner accents — a single continuous sweep, not two
+          separate stamps — while the clamp() floor still scales both down
+          gracefully on small screens. Decoration only; aria-hidden. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage: `url(${assetUrl('images/bg-dots-blue.svg')}), url(${assetUrl('images/bg-dots-green.svg')})`,
           backgroundPosition: 'top right, bottom left',
           backgroundRepeat: 'no-repeat, no-repeat',
-          backgroundSize: 'clamp(260px, 42vw, 620px) clamp(260px, 42vw, 620px), clamp(240px, 38vw, 560px) clamp(240px, 38vw, 560px)',
+          backgroundSize: 'clamp(320px, 62vw, 940px) clamp(320px, 62vw, 940px), clamp(300px, 58vw, 880px) clamp(300px, 58vw, 880px)',
         }}
         aria-hidden="true"
       />
