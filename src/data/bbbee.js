@@ -25,7 +25,7 @@ export const bbbeeGroups = [
       { name: 'B-BBEE Skills Development Advisory', text: 'Guidance on structuring skills-development initiatives that align with your transformation objectives.' },
       { name: 'Skills Development Strategy', text: 'A considered plan connecting business needs, workforce gaps and development priorities.' },
       { name: 'Skills Spend Planning', text: 'Planning how development budget is allocated across interventions, cohorts and years.' },
-      { name: 'Training Intervention Planning', text: 'Designing the portfolio of interventions that balances impact, capacity and obligation.' },
+      { name: 'Skills Planning', text: 'Designing the portfolio of interventions that balances impact, capacity and obligation.' },
       { name: 'Transformation-aligned Workforce Development', text: 'Development planning that serves transformation objectives and real capability at the same time.' },
     ],
   },

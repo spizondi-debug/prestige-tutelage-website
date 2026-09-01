@@ -97,39 +97,53 @@ export default function BBBEEConsulting() {
       </section>
 
       {/* Services */}
-      {bbbeeGroups.map((group, gi) => (
-        <section
-          key={group.slug}
-          id={group.slug}
-          className={`relative scroll-mt-28 overflow-hidden py-14 lg:py-16 ${gi % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
-        >
-          {gi % 2 === 1 && <CornerSwirl size="sm" />}
-          <div className="container-px relative">
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-              <div>
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="h-px w-10 bg-prestige-green" />
-                  <span className="text-sm font-semibold tracking-wide text-prestige-blue-hover">
-                    {String(gi + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <h2 className="font-display text-2xl font-semibold leading-tight text-prestige-green-deep sm:text-3xl">
-                  {group.title}
-                </h2>
-                <p className="mt-3 leading-relaxed text-body">{group.lead}</p>
-              </div>
-              <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
-                {group.services.map((s) => (
-                  <div key={s.name} className="border-b border-line py-5">
-                    <dt className="font-sans font-semibold text-prestige-blue-hover">{s.name}</dt>
-                    <dd className="mt-1.5 leading-relaxed text-body">{s.text}</dd>
-                  </div>
-                ))}
-              </dl>
+      <section className="py-16 lg:py-20">
+        <div className="container-px">
+          <div className="overflow-hidden rounded-3xl border border-line bg-paper shadow-premium">
+            <div className="p-8 lg:p-10">
+              <SectionHeading
+                eyebrow="Programme areas"
+                title="Build capability where it matters."
+                lead="Explore focused pathways across strategy, learnerships, inclusion and reporting."
+                tone="ink"
+              />
+              <span className="mt-5 block h-1 w-12 rounded-full bg-prestige-green" aria-hidden="true" />
             </div>
+
+            {bbbeeGroups.map((group, gi) => (
+              <div
+                key={group.slug}
+                id={group.slug}
+                className={`scroll-mt-28 border-t border-line p-8 lg:p-10 ${
+                  gi % 2 === 0 ? 'bg-prestige-blue-light/40' : 'bg-paper'
+                }`}
+              >
+                <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-prestige-blue-deep font-display text-lg font-bold text-white">
+                      {String(gi + 1).padStart(2, '0')}
+                    </span>
+                    <div className="border-l-2 border-prestige-green pl-4">
+                      <h3 className="font-display text-xl font-semibold text-prestige-green-deep sm:text-2xl">
+                        {group.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-body">{group.lead}</p>
+                    </div>
+                  </div>
+                  <div className="grid content-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.services.map((s) => (
+                      <div key={s.name} className="rounded-xl border border-line bg-paper p-5">
+                        <p className="font-sans font-semibold text-prestige-blue-hover">{s.name}</p>
+                        <p className="mt-1.5 text-sm leading-relaxed text-body">{s.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
 
       {/* Delivery link */}
       <section className="border-t border-line py-14 lg:py-16">
