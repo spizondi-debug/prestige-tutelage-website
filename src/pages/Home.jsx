@@ -14,18 +14,13 @@ import LearningLadder from '../components/home/LearningLadder.jsx'
 // 06 — Featured programme stories
 import FeaturedStories from '../components/home/FeaturedStories.jsx'
 import LearnershipsSection from '../components/home/LearnershipsSection.jsx'
-import ShortCoursesSection from '../components/home/ShortCoursesSection.jsx'
 // 06b — Testimonials, ahead of the sector/ecosystem run
 import TestimonialVideo from '../components/home/TestimonialVideo.jsx'
-// 07/08/09 — Industries, Growth Pathways, the business ecosystem
-import IndustriesSection from '../components/home/IndustriesSection.jsx'
+// 07/08/09 — Growth Pathways, the business ecosystem
 import GrowthPathwaysSection from '../components/home/GrowthPathwaysSection.jsx'
 import BeyondTraining from '../components/home/BeyondTraining.jsx'
-// 10 — The human anchor
-import RealPrestige from '../components/home/RealPrestige.jsx'
 // 10/11 — Outcomes and trust
 import ImpactSection from '../components/home/ImpactSection.jsx'
-import WhyPrestige from '../components/home/WhyPrestige.jsx'
 import CredibilityStrip from '../components/home/CredibilityStrip.jsx'
 // 12/13 — Insights and the closing CTA
 import InsightsPreview from '../components/home/InsightsPreview.jsx'
@@ -71,18 +66,13 @@ export default function Home() {
 
       <FeaturedStories />
       <LearnershipsSection />
-      <ShortCoursesSection />
 
       <TestimonialVideo />
 
-      <IndustriesSection />
       <GrowthPathwaysSection />
       <BeyondTraining />
 
-      <RealPrestige />
-
       <ImpactSection />
-      <WhyPrestige />
       <CredibilityStrip />
 
       <InsightsPreview />
