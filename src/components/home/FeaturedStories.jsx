@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Photo from '../Photo.jsx'
-import PrestigePath from '../PrestigePath.jsx'
+import AgricultureVisual from './AgricultureVisual.jsx'
 import Reveal from '../Reveal.jsx'
 import CornerSwirl from '../CornerSwirl.jsx'
 import { qualificationsIn } from '../../data/programmes.js'
@@ -30,7 +30,6 @@ const stories = [
     headline: 'Skills that grow industries.',
     text: 'Animal, poultry and plant production for farm teams, supervisors and emerging farmers — learning that happens close to the soil and the stock.',
     photo: null, // awaiting genuine Prestige agricultural photography
-    stage: 2.4,
   },
   {
     area: 'Business, Administration & Leadership',
@@ -61,13 +60,7 @@ export default function FeaturedStories() {
                 {s.photo ? (
                   <Photo src={s.photo} alt={s.alt} className="absolute inset-0 h-full w-full" />
                 ) : (
-                  <div className="absolute inset-0 bg-shadow">
-                    <PrestigePath
-                      stage={s.stage}
-                      intensity={0.55}
-                      className="absolute inset-0 h-full w-full"
-                    />
-                  </div>
+                  <AgricultureVisual className="absolute inset-0 h-full w-full" />
                 )}
               </div>
 
@@ -86,23 +79,47 @@ export default function FeaturedStories() {
                       {s.headline}
                     </h3>
                     <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">{s.text}</p>
-                    {count > 0 && (
-                      <p className="mt-5 text-sm text-muted">
-                        {count} {count === 1 ? 'qualification' : 'qualifications'} in this area
-                      </p>
+                    {s.photo ? (
+                      <>
+                        {count > 0 && (
+                          <p className="mt-5 text-sm text-muted">
+                            {count} {count === 1 ? 'qualification' : 'qualifications'} in this area
+                          </p>
+                        )}
+                        <Link
+                          to="/programmes#catalogue"
+                          className="chev group mt-8 text-prestige-blue-hover hover:text-prestige-blue-hover"
+                        >
+                          <span className="chev-label">Explore {s.eyebrow} programmes</span>
+                          <span
+                            aria-hidden="true"
+                            className="transition-transform duration-500 ease-prestige group-hover:translate-x-1"
+                          >
+                            ›
+                          </span>
+                        </Link>
+                      </>
+                    ) : (
+                      <div className="mt-7 max-w-xl divide-y divide-line rounded-2xl border border-line bg-prestige-green-pale/50">
+                        {count > 0 && (
+                          <p className="px-6 py-4 text-sm font-medium text-ink">
+                            {count} {count === 1 ? 'qualification' : 'qualifications'} in this area
+                          </p>
+                        )}
+                        <Link
+                          to="/programmes#catalogue"
+                          className="group flex items-center justify-between px-6 py-4 font-semibold text-prestige-green-deep transition-colors duration-200 ease-prestige hover:text-prestige-green"
+                        >
+                          <span>Explore {s.eyebrow} programmes</span>
+                          <span
+                            aria-hidden="true"
+                            className="transition-transform duration-500 ease-prestige group-hover:translate-x-1"
+                          >
+                            ›
+                          </span>
+                        </Link>
+                      </div>
                     )}
-                    <Link
-                      to="/programmes#catalogue"
-                      className="chev group mt-8 text-prestige-blue-hover hover:text-prestige-blue-hover"
-                    >
-                      <span className="chev-label">Explore {s.eyebrow} programmes</span>
-                      <span
-                        aria-hidden="true"
-                        className="transition-transform duration-500 ease-prestige group-hover:translate-x-1"
-                      >
-                        ›
-                      </span>
-                    </Link>
                   </Reveal>
                 </div>
               </div>
