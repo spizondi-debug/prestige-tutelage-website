@@ -231,14 +231,34 @@ export default function About() {
       </section>
 
       {/* Journey */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden pb-20 pt-16 lg:pb-28 lg:pt-24">
+        <div className="container-px relative">
           <SectionHeading eyebrow="Our journey" title="Built steadily, the way trust is built." />
-          <ol className="mt-10 grid gap-10 border-t border-line pt-10 lg:grid-cols-3">
+
+          {/* Numbered timeline — desktop only; the chapter badge inline with
+              each item's own heading (below) carries the same signal on
+              narrow screens without needing three evenly-spaced columns. */}
+          <div className="relative mt-14 hidden lg:block" aria-hidden="true">
+            <div className="absolute inset-x-2 top-1/2 h-px -translate-y-1/2 bg-prestige-green/30" />
+            <span className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-prestige-green" />
+            <span className="absolute right-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-prestige-green" />
+            <div className="relative grid grid-cols-3">
+              {journey.map((j, i) => (
+                <div key={j.stage} className="flex justify-center">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-prestige-green font-display text-base font-bold text-white ring-8 ring-prestige-green/10">
+                    {i + 1}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <ol className="mt-6 grid gap-10 lg:mt-10 lg:grid-cols-3 lg:gap-16">
             {journey.map((j, i) => (
-              <li key={j.stage} className="relative pl-5">
-                <span className="absolute left-0 top-1 h-full w-px bg-line" aria-hidden="true" />
-                <span className="absolute -left-[3px] top-1 h-2 w-2 rounded-full bg-prestige-green" aria-hidden="true" />
+              <li key={j.stage}>
+                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-prestige-green font-display text-base font-bold text-white ring-8 ring-prestige-green/10 lg:hidden">
+                  {i + 1}
+                </span>
                 <p className="text-sm font-semibold uppercase tracking-wider text-muted">Chapter {i + 1}</p>
                 <h3 className="mt-2 font-display text-xl font-semibold text-prestige-blue-hover">{j.stage}</h3>
                 <p className="mt-2 leading-relaxed text-body">{j.text}</p>
@@ -246,19 +266,53 @@ export default function About() {
             ))}
           </ol>
         </div>
+
+        {/* Wave transition into the Why-partner section below. */}
+        <svg
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-14 w-full text-prestige-blue-light lg:h-20"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M0,45 C240,95 480,5 720,25 C960,45 1200,95 1440,50 L1440,100 L0,100 Z" />
+        </svg>
       </section>
 
       {/* Why partner */}
-      <section className="border-t border-line bg-mist/60 py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden bg-prestige-blue-light py-16 lg:py-24">
+        <svg
+          className="pointer-events-none absolute -left-24 -top-24 hidden h-[26rem] w-[26rem] lg:block"
+          viewBox="0 0 400 400"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="0" cy="0" r="140" stroke="#066DCE" strokeWidth="1.2" opacity="0.18" />
+          <circle cx="0" cy="0" r="220" stroke="#066DCE" strokeWidth="1.1" opacity="0.14" />
+          <circle cx="0" cy="0" r="300" stroke="#31B84A" strokeWidth="1.1" opacity="0.16" />
+        </svg>
+        <svg
+          className="pointer-events-none absolute -bottom-24 -right-24 hidden h-[26rem] w-[26rem] lg:block"
+          viewBox="0 0 400 400"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="400" cy="400" r="140" stroke="#066DCE" strokeWidth="1.2" opacity="0.18" />
+          <circle cx="400" cy="400" r="220" stroke="#066DCE" strokeWidth="1.1" opacity="0.14" />
+          <circle cx="400" cy="400" r="300" stroke="#31B84A" strokeWidth="1.1" opacity="0.16" />
+        </svg>
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               eyebrow="Why organisations partner with Prestige"
               title="Chosen for how we work, kept for what we deliver."
             />
             <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
-              {whyPrestige.map((w) => (
-                <div key={w.title} className="border-b border-line py-5">
+              {whyPrestige.map((w, i) => (
+                <div
+                  key={w.title}
+                  className={`border-b border-line py-5 ${i % 2 === 1 ? 'sm:border-l sm:pl-8' : ''}`}
+                >
                   <dt className="font-display text-lg font-semibold text-prestige-blue-hover">{w.title}</dt>
                   <dd className="mt-1.5 leading-relaxed text-body">{w.text}</dd>
                 </div>
