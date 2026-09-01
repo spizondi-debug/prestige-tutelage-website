@@ -65,3 +65,26 @@ export const growthPathwaysMedia = {
   // Re-test if the film is ever re-cut; the answer is different for footage.
   sources: [{ type: 'video/mp4', ext: 'mp4' }],
 }
+
+/**
+ * Homepage testimonial — a short piece to camera, supplied by Prestige.
+ *
+ * Real speech, not motion graphics, so unlike the Growth Pathways film this
+ * one has no measured basis for skipping captions — the source has no
+ * transcript, and writing one from listening would risk putting words in
+ * someone's mouth that are not exactly what was said. `captions: null` here
+ * records a real gap, not a checked absence. Point it at a .vtt the moment
+ * an accurate transcript exists.
+ *
+ * Vertical (576×768) because that is the orientation it was shot in — a
+ * phone held upright to camera, not a widescreen production. VideoFeature
+ * does not assume a shape, so the section around it is built narrow to match
+ * rather than stretching or cropping the frame to fit a wide slot.
+ */
+export const testimonialMedia = {
+  src: 'testimonial/prestige-testimonial',
+  poster: 'testimonial-video-poster.jpg',
+  alt: 'A member of the Prestige Tutelage team speaking to camera',
+  captions: null,
+  sources: [{ type: 'video/mp4', ext: 'mp4' }],
+}

@@ -23,6 +23,7 @@ export const imageMeta = {
   'learners-certificates-group.jpg': { w: 1920, h: 2503 },
   'learners-client-site.jpg': { w: 1920, h: 3231 },
   'learners-plate-handling.jpg': { w: 1920, h: 3231 },
+  'testimonial-video-poster.jpg': { w: 576, h: 768 },
   'training-room.jpg': { w: 1920, h: 1440 },
   'workshop-training.jpg': { w: 1920, h: 2400 },
 }

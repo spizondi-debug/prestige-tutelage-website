@@ -21,6 +21,7 @@ import GrowthPathwaysSection from '../components/home/GrowthPathwaysSection.jsx'
 import BeyondTraining from '../components/home/BeyondTraining.jsx'
 // 09 — The human anchor
 import RealPrestige from '../components/home/RealPrestige.jsx'
+import TestimonialVideo from '../components/home/TestimonialVideo.jsx'
 // 10/11 — Outcomes and trust
 import ImpactSection from '../components/home/ImpactSection.jsx'
 import WhyPrestige from '../components/home/WhyPrestige.jsx'
@@ -76,6 +77,7 @@ export default function Home() {
       <BeyondTraining />
 
       <RealPrestige />
+      <TestimonialVideo />
 
       <ImpactSection />
       <WhyPrestige />
