@@ -9,6 +9,7 @@
     "build": "node scripts/build-sitemap.mjs && vite build",
     "preview": "vite preview",
     "build:preview": "node scripts/build-preview.mjs",
+    "build:ghpages": "vite build --base=/prestige-tutelage-website/ && cp dist/index.html dist/404.html",
     "build:images": "node scripts/build-image-meta.mjs",
     "validate:heroes": "node scripts/validate-heroes.mjs",
     "validate:seo": "node scripts/validate-seo.mjs",

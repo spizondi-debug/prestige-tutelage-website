@@ -1,0 +1,66 @@
+name: Deploy Preview to GitHub Pages
+
+# Deploys this branch to GitHub Pages so it can be shared with a plain URL —
+# separate from the production build, which is packaged for the real
+# www.prestigetutelage.co.za domain at path "/" and isn't affected by this.
+#
+# `base: /prestige-tutelage-website/` (via build:ghpages) matches this repo's
+# Pages URL, a project page under spizondi-debug.github.io, not a custom
+# domain. dist/index.html is copied to dist/404.html so a direct hit or
+# refresh on any route (e.g. /programmes) still loads the app shell instead
+# of GitHub's static 404 — Pages has no server to rewrite paths the way
+# public/_redirects does on the real host.
+#
+# One manual step this workflow cannot do itself: a repo admin must set
+# Settings → Pages → Source to "GitHub Actions" once. Until then this run
+# will build successfully but the deploy step will fail with a clear error.
+
+on:
+  push:
+    branches:
+      - claude/prestige-tutelage-setup-t02h2x
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for GitHub Pages
+        run: npm run build:ghpages
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
