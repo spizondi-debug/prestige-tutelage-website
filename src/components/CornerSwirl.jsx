@@ -15,13 +15,15 @@ import { assetUrl } from '../lib/asset.js'
  */
 export default function CornerSwirl({ size = 'md' }) {
   const sizes = {
+    // Large enough that the two swirls span most of a full-bleed section's
+    // width on desktop, rather than staying a corner accent.
     md: [
-      'clamp(320px, 62vw, 940px) clamp(320px, 62vw, 940px)',
-      'clamp(300px, 58vw, 880px) clamp(300px, 58vw, 880px)',
+      'clamp(480px, 92vw, 1500px) clamp(480px, 92vw, 1500px)',
+      'clamp(440px, 86vw, 1400px) clamp(440px, 86vw, 1400px)',
     ],
     sm: [
-      'clamp(220px, 40vw, 560px) clamp(220px, 40vw, 560px)',
-      'clamp(200px, 36vw, 500px) clamp(200px, 36vw, 500px)',
+      'clamp(380px, 76vw, 1200px) clamp(380px, 76vw, 1200px)',
+      'clamp(360px, 70vw, 1100px) clamp(360px, 70vw, 1100px)',
     ],
   }
   const [blueSize, greenSize] = sizes[size]
