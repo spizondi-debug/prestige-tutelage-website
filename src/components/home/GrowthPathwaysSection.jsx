@@ -43,9 +43,9 @@ export default function GrowthPathwaysSection() {
             </p>
             <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-line-dark pt-6 sm:grid-cols-3">
               {connects.map((c, i) => (
-                <li key={c} className="flex items-center gap-2.5 text-sm text-white/80">
+                <li key={c} className="flex items-start gap-2.5 text-sm text-white/80">
                   <span
-                    className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                    className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${
                       i % 2 ? 'bg-prestige-blue-hover' : 'bg-prestige-green'
                     }`}
                     aria-hidden="true"
