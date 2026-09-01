@@ -46,21 +46,24 @@ function BigValue({ item }) {
 export default function IntroducePrestige() {
   return (
     <section className="relative overflow-hidden bg-cloud py-24 lg:py-32">
-      {/* A flowing dotted wave, matching the approved reference — a wide
-          "smile" of dots dipping down and back up, with a fainter second
-          line beneath it, plus concentric ripples fanning from the
-          bottom-left corner. The wave sits high in its source image and the
-          layer is top-anchored, so it clears the panel below instead of
-          being hidden behind it. `cover` rather than a stretch-to-fill, so
-          the curve keeps its shape instead of warping on very different
-          section proportions. Decoration only; aria-hidden. */}
+      {/* Concentric dot-arc swirls, matching the approved reference — blue
+          fanning in from the top-right corner, green from the bottom-left.
+          Two independent square images, each anchored to its own corner,
+          rather than one image stretched to the section: a single stretched
+          image distorts (and its "reach" as a fraction of the canvas stops
+          short) whenever the section's own proportions differ from the
+          image's — full-bleed-wide on desktop, narrow and very tall once
+          the cards stack on mobile. A fixed square keeps each swirl's own
+          proportions correct at every width, clamped so it scales down
+          gracefully on small screens rather than overflowing. Decoration
+          only; aria-hidden. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: `url(${assetUrl('images/bg-wave.svg')})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'top',
-          backgroundRepeat: 'no-repeat',
+          backgroundImage: `url(${assetUrl('images/bg-dots-blue.svg')}), url(${assetUrl('images/bg-dots-green.svg')})`,
+          backgroundPosition: 'top right, bottom left',
+          backgroundRepeat: 'no-repeat, no-repeat',
+          backgroundSize: 'clamp(260px, 42vw, 620px) clamp(260px, 42vw, 620px), clamp(240px, 38vw, 560px) clamp(240px, 38vw, 560px)',
         }}
         aria-hidden="true"
       />
