@@ -4,7 +4,6 @@ import { usePageMeta } from '../lib/meta.js'
 import ContactPanel from '../components/ContactPanel.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { contact } from '../data/site.js'
-import { pageHeroes } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 
 const interests = [
@@ -109,7 +108,6 @@ export default function Contact() {
   return (
     <>
       <PageHeader
-        images={pageHeroes.contact}
         eyebrow="Contact"
         title={<>Let’s talk about <Accent>your workforce</Accent>.</>}
         lead="Tell us what your organisation is trying to achieve. We will come back with a practical, costed way forward — not a brochure."

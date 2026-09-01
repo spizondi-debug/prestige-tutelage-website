@@ -179,7 +179,6 @@ export const pageHeroes = {
   officeRental: [P.stockRemoteProfessional, P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats],
   assessment: [P.stockNotetakingAudience, P.facilitatorSession, P.trainingRoom, P.handoverReviewing, P.certificatesCohort],
   insights: [P.stockRemoteProfessional, P.intake, P.handoverRedShirt, P.handoverReviewing, P.cohortOutside],
-  contact: [P.handoverReviewing, P.intake, P.certificatesGroup, P.trainingRoom, P.stockWorkplaceTeam],
 }
 
 /**
