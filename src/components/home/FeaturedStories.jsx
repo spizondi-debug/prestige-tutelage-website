@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Photo from '../Photo.jsx'
-import AgricultureVisual from './AgricultureVisual.jsx'
+import PrestigePath from '../PrestigePath.jsx'
 import Reveal from '../Reveal.jsx'
 import CornerSwirl from '../CornerSwirl.jsx'
 import { qualificationsIn } from '../../data/programmes.js'
@@ -30,6 +30,7 @@ const stories = [
     headline: 'Skills that grow industries.',
     text: 'Animal, poultry and plant production for farm teams, supervisors and emerging farmers — learning that happens close to the soil and the stock.',
     photo: null, // awaiting genuine Prestige agricultural photography
+    stage: 2.4,
   },
   {
     area: 'Business, Administration & Leadership',
@@ -60,7 +61,13 @@ export default function FeaturedStories() {
                 {s.photo ? (
                   <Photo src={s.photo} alt={s.alt} className="absolute inset-0 h-full w-full" />
                 ) : (
-                  <AgricultureVisual className="absolute inset-0 h-full w-full" />
+                  <div className="absolute inset-0 bg-shadow">
+                    <PrestigePath
+                      stage={s.stage}
+                      intensity={0.55}
+                      className="absolute inset-0 h-full w-full"
+                    />
+                  </div>
                 )}
               </div>
 
