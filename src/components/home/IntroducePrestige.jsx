@@ -46,16 +46,20 @@ function BigValue({ item }) {
 export default function IntroducePrestige() {
   return (
     <section className="relative overflow-hidden bg-cloud py-24 lg:py-32">
-      {/* Concentric dot-arc swirls, matching the approved reference — blue
-          fanning in from the top-right corner, green from the bottom-left.
-          A generated SVG (public/images/bg-corner-dots.svg) rather than a
-          plain radial gradient, since the reference's texture is arcs of
-          dots, not a blur. Decoration only; aria-hidden. */}
+      {/* A flowing dotted wave, matching the approved reference — a wide
+          "smile" of dots dipping down and back up, with a fainter second
+          line beneath it, plus concentric ripples fanning from the
+          bottom-left corner. The wave sits high in its source image and the
+          layer is top-anchored, so it clears the panel below instead of
+          being hidden behind it. `cover` rather than a stretch-to-fill, so
+          the curve keeps its shape instead of warping on very different
+          section proportions. Decoration only; aria-hidden. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: `url(${assetUrl('images/bg-corner-dots.svg')})`,
-          backgroundSize: '100% 100%',
+          backgroundImage: `url(${assetUrl('images/bg-wave.svg')})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'top',
           backgroundRepeat: 'no-repeat',
         }}
         aria-hidden="true"
