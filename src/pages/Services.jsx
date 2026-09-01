@@ -5,6 +5,7 @@ import CTABand from '../components/CTABand.jsx'
 import { serviceGroups } from '../data/services.js'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function Services() {
   usePageMeta(
@@ -37,9 +38,10 @@ export default function Services() {
         <section
           key={group.slug}
           id={group.slug}
-          className={`scroll-mt-28 py-14 lg:py-20 ${gi % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
+          className={`relative scroll-mt-28 py-14 lg:py-20 ${gi % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
         >
-          <div className="container-px">
+          <CornerSwirl size="sm" />
+          <div className="container-px relative">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
               <div className="lg:sticky lg:top-32 lg:self-start">
                 <div className="mb-4 flex items-center gap-3">

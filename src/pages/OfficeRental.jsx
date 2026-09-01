@@ -11,6 +11,7 @@ import { spaceCategories, spaceFields, DETAILS_ON_ENQUIRY } from '../data/spaces
 import { contact } from '../data/site.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function OfficeRental() {
   usePageMeta(
@@ -37,8 +38,9 @@ export default function OfficeRental() {
       </PageHeader>
 
       {/* Details on enquiry — stated before anyone starts looking for specs */}
-      <section className="border-b border-line bg-paper py-10">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-b border-line bg-paper py-10">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-6 lg:grid-cols-[0.35fr_0.65fr] lg:gap-12">
             <h2 className="font-display text-xl font-semibold text-ink">Room options &amp; pricing</h2>
             <div>
@@ -54,8 +56,9 @@ export default function OfficeRental() {
       </section>
 
       {/* Categories */}
-      <section className="py-16 lg:py-20">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <ContentSlider
               images={sectionSliders.officeRental}
@@ -102,8 +105,9 @@ export default function OfficeRental() {
       </section>
 
       {/* Why book here */}
-      <section className="border-y border-line bg-mist/60 py-14 lg:py-16">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-y border-line bg-mist/60 py-14 lg:py-16">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               eyebrow="Why book with Prestige"
@@ -127,8 +131,9 @@ export default function OfficeRental() {
       </section>
 
       {/* Enquiry form */}
-      <section id="check-availability" className="scroll-mt-28 py-16 lg:py-20">
-        <div className="container-px">
+      <section id="check-availability" className="relative scroll-mt-28 overflow-hidden py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <SectionHeading

@@ -3,11 +3,13 @@ import { SectionHeading, Accent } from '../Section.jsx'
 import ContentSlider from '../ContentSlider.jsx'
 import { sectionSliders } from '../../data/pageHeroes.js'
 import { learnerships } from '../../data/programmes.js'
+import CornerSwirl from '../CornerSwirl.jsx'
 
 export default function LearnershipsSection() {
   return (
-    <section className="border-t border-line bg-paper py-20 lg:py-28">
-      <div className="container-px">
+    <section className="relative overflow-hidden border-t border-line bg-paper py-20 lg:py-28">
+      <CornerSwirl size="sm" />
+      <div className="container-px relative">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
           <ContentSlider
             images={sectionSliders.homeLearnerships}

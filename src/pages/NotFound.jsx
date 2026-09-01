@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import { allPages } from '../data/site.js'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function NotFound() {
   // A 404 must not be indexed: otherwise every mistyped or retired URL becomes
@@ -8,8 +9,9 @@ export default function NotFound() {
   usePageMeta('Page not found', 'The page you were looking for is not here. Browse Prestige Tutelage’s accredited programmes, short courses and business solutions instead.', { noindex: true })
 
   return (
-    <section className="py-20 lg:py-28">
-      <div className="container-px">
+    <section className="relative overflow-hidden py-20 lg:py-28">
+      <CornerSwirl size="sm" />
+      <div className="container-px relative">
         <div className="max-w-2xl">
           <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />
           <p className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">Error 404</p>

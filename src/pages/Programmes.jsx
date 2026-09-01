@@ -22,6 +22,7 @@ import {
 import { totalShortCourses } from '../data/shortCourses.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 const ALL = 'All'
 
@@ -143,8 +144,9 @@ export default function Programmes() {
       />
 
       {/* Catalogue with filters */}
-      <section id="catalogue" className="scroll-mt-28 bg-cloud py-16 lg:py-20">
-        <div className="container-px">
+      <section id="catalogue" className="relative scroll-mt-28 overflow-hidden bg-cloud py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading
             eyebrow="Qualification catalogue"
             title="Find the right qualification."
@@ -222,8 +224,9 @@ export default function Programmes() {
       </section>
 
       {/* Learnerships */}
-      <section id="learnerships" className="scroll-mt-28 border-y border-line bg-mist/60 py-16 lg:py-24">
-        <div className="container-px">
+      <section id="learnerships" className="relative scroll-mt-28 overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -266,8 +269,9 @@ export default function Programmes() {
       </section>
 
       {/* Customised technical interventions */}
-      <section id="technical" className="scroll-mt-28 py-16 lg:py-20">
-        <div className="container-px">
+      <section id="technical" className="relative scroll-mt-28 overflow-hidden py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -290,8 +294,9 @@ export default function Programmes() {
       </section>
 
       {/* Short courses pointer + custom corporate */}
-      <section id="custom" className="scroll-mt-28 border-t border-line bg-paper py-16 lg:py-20">
-        <div className="container-px">
+      <section id="custom" className="relative scroll-mt-28 overflow-hidden border-t border-line bg-paper py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeading

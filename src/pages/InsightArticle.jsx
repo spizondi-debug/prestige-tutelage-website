@@ -4,6 +4,7 @@ import CTABand from '../components/CTABand.jsx'
 import HeroSlider from '../components/HeroSlider.jsx'
 import { articleHeroes } from '../data/pageHeroes.js'
 import { insights } from '../data/insights.js'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function InsightArticle() {
   const { slug } = useParams()
@@ -79,8 +80,9 @@ export default function InsightArticle() {
       </article>
 
       {/* Related */}
-      <section className="border-t border-line py-14">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-t border-line py-14">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <h2 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">
             More insights
           </h2>

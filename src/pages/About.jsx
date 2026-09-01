@@ -61,8 +61,9 @@ export default function About() {
       />
 
       {/* Who we are */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -147,8 +148,9 @@ export default function About() {
       </section>
 
       {/* Approach + accreditation */}
-      <section className="border-y border-line bg-paper py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-y border-line bg-paper py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeading
@@ -200,8 +202,9 @@ export default function About() {
       </section>
 
       {/* Journey */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading eyebrow="Our journey" title="Built steadily, the way trust is built." />
           <ol className="mt-10 grid gap-10 border-t border-line pt-10 lg:grid-cols-3">
             {journey.map((j, i) => (
@@ -218,8 +221,9 @@ export default function About() {
       </section>
 
       {/* Why partner */}
-      <section className="border-t border-line bg-mist/60 py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-t border-line bg-mist/60 py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               eyebrow="Why organisations partner with Prestige"

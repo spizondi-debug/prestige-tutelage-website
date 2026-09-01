@@ -5,6 +5,7 @@ import ContactPanel from '../components/ContactPanel.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { contact } from '../data/site.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 const interests = [
   'Accredited Qualification',
@@ -113,8 +114,9 @@ export default function Contact() {
         lead="Tell us what your organisation is trying to achieve. We will come back with a practical, costed way forward — not a brochure."
       />
 
-      <section className="py-14 lg:py-20">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-14 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
             {/* Form */}
             <div>

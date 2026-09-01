@@ -8,6 +8,7 @@ import Disclaimer from '../components/Disclaimer.jsx'
 import { bbbeeGroups, bbbeeProcess, SCOPE_STATEMENT, OUTCOME_QUALIFIER } from '../data/bbbee.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function BBBEEConsulting() {
   usePageMeta(
@@ -29,8 +30,9 @@ export default function BBBEEConsulting() {
       </PageHeader>
 
       {/* Scope — stated up front, not buried */}
-      <section className="border-b border-line bg-paper py-10">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-b border-line bg-paper py-10">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-6 lg:grid-cols-[0.35fr_0.65fr] lg:gap-12">
             <h2 className="font-display text-xl font-semibold text-ink">What we do — and what we don’t</h2>
             <div className="space-y-4">
@@ -42,8 +44,9 @@ export default function BBBEEConsulting() {
       </section>
 
       {/* Why it matters */}
-      <section className="py-16 lg:py-20">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -99,9 +102,10 @@ export default function BBBEEConsulting() {
         <section
           key={group.slug}
           id={group.slug}
-          className={`scroll-mt-28 py-14 lg:py-16 ${gi % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
+          className={`relative scroll-mt-28 overflow-hidden py-14 lg:py-16 ${gi % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
         >
-          <div className="container-px">
+          <CornerSwirl size="sm" />
+          <div className="container-px relative">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
               <div>
                 <div className="mb-4 flex items-center gap-3">
@@ -129,8 +133,9 @@ export default function BBBEEConsulting() {
       ))}
 
       {/* Delivery link */}
-      <section className="border-t border-line py-14 lg:py-16">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-t border-line py-14 lg:py-16">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="max-w-3xl">
             <SectionHeading
               eyebrow="Planning and delivery in one place"

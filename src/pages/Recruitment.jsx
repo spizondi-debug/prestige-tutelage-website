@@ -17,6 +17,7 @@ import {
 } from '../data/recruitment.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function Recruitment() {
   usePageMeta(
@@ -43,8 +44,9 @@ export default function Recruitment() {
       </PageHeader>
 
       {/* Engagement types */}
-      <section className="border-b border-line bg-paper py-12 lg:py-14">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-b border-line bg-paper py-12 lg:py-14">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-8 sm:grid-cols-3">
             {engagementTypes.map((e) => (
               <div key={e.name} className="border-l-2 border-prestige-green/60 pl-5">
@@ -57,8 +59,9 @@ export default function Recruitment() {
       </section>
 
       {/* Service groups */}
-      <section className="py-16 lg:py-20">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeading
@@ -111,8 +114,9 @@ export default function Recruitment() {
       </section>
 
       {/* Learnership & youth recruitment — the differentiator */}
-      <section className="border-y border-line bg-mist/60 py-16 lg:py-20">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -141,8 +145,9 @@ export default function Recruitment() {
       </section>
 
       {/* Roles */}
-      <section className="py-16 lg:py-20">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
               eyebrow="Roles we recruit for"
@@ -163,8 +168,9 @@ export default function Recruitment() {
       </section>
 
       {/* Vacancy form */}
-      <section id="submit-a-vacancy" className="scroll-mt-28 border-t border-line bg-paper py-16 lg:py-20">
-        <div className="container-px">
+      <section id="submit-a-vacancy" className="relative scroll-mt-28 overflow-hidden border-t border-line bg-paper py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <SectionHeading

@@ -11,6 +11,7 @@ import { growthPathwaysMedia } from '../data/media.js'
 import {
   audiences, comparison, ENQUIRY, howItWorks, journey, outcomes,
 } from '../data/growthPathways.js'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 /**
  * The seven stages, as one rail.
@@ -146,8 +147,9 @@ export default function GrowthPathways() {
       </PageHeader>
 
       {/* The connected journey */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading
             eyebrow="The connected journey"
             title="Seven stages that usually live in seven different places."
@@ -158,8 +160,9 @@ export default function GrowthPathways() {
       </section>
 
       {/* How it works */}
-      <section className="border-y border-line bg-mist/50 py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-y border-line bg-mist/50 py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading
             eyebrow="How it works"
             title="Three steps, in the order they actually happen."
@@ -187,8 +190,9 @@ export default function GrowthPathways() {
 
       {/* Watch — the product film. Nothing downloads until play is pressed;
           see VideoFeature. */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
             <VideoFeature
               media={growthPathwaysMedia}
@@ -228,8 +232,9 @@ export default function GrowthPathways() {
       </section>
 
       {/* Why it matters */}
-      <section className="border-y border-line bg-paper py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-y border-line bg-paper py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <ContentSlider
               images={sectionSliders.growthPathways}
@@ -257,8 +262,9 @@ export default function GrowthPathways() {
       </section>
 
       {/* How the two fit together */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading
             eyebrow="How the two fit together"
             title="Prestige Tutelage delivers the learning. Growth Pathways connects it to the business."
@@ -291,8 +297,9 @@ export default function GrowthPathways() {
       </section>
 
       {/* Business outcomes */}
-      <section className="border-t border-line bg-mist/50 py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-t border-line bg-mist/50 py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading
             eyebrow="Business outcomes"
             title="What an organisation gets out of running it this way."

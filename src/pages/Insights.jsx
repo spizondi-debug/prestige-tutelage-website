@@ -5,6 +5,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { insights, insightCategories } from '../data/insights.js'
 import { pageHeroes } from '../data/pageHeroes.js'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function Insights() {
   usePageMeta(
@@ -25,8 +26,9 @@ export default function Insights() {
         lead="Explainers and perspectives for employers, HR teams and skills development facilitators navigating qualifications, learnerships and workplace learning in South Africa."
       />
 
-      <section className="py-12 lg:py-16">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-12 lg:py-16">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           {/* Category filter */}
           <nav className="flex flex-wrap gap-x-6 gap-y-2 border-b border-line pb-4" aria-label="Filter by category">
             {insightCategories.map((c) => (

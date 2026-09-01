@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
 import { SectionHeading, Accent } from '../Section.jsx'
 import { insights } from '../../data/insights.js'
+import CornerSwirl from '../CornerSwirl.jsx'
 
 export default function InsightsPreview() {
   const featured = insights.slice(0, 3)
 
   return (
-    <section className="border-t border-line bg-cloud py-20 lg:py-28">
-      <div className="container-px">
+    <section className="relative overflow-hidden border-t border-line bg-cloud py-20 lg:py-28">
+      <CornerSwirl size="sm" />
+      <div className="container-px relative">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Insights"

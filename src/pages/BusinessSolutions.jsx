@@ -6,6 +6,7 @@ import CTABand from '../components/CTABand.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 // Each solution has its own page — this is the way in, not a place to hide them.
 const solutions = [
@@ -148,9 +149,10 @@ export default function BusinessSolutions() {
       {solutions.map((s, i) => (
         <section
           key={s.to}
-          className={`py-14 lg:py-20 ${i % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
+          className={`relative overflow-hidden py-14 lg:py-20 ${i % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
         >
-          <div className="container-px">
+          <CornerSwirl size="sm" />
+          <div className="container-px relative">
             <div
               className={`grid gap-10 lg:gap-20 ${(s.photo || s.process) ? 'lg:grid-cols-2' : ''} ${
                 s.process ? 'items-stretch' : 'items-center'
@@ -192,8 +194,9 @@ export default function BusinessSolutions() {
       ))}
 
       {/* Pointer to the wider service list */}
-      <section className="border-t border-line py-14">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-t border-line py-14">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="max-w-3xl">
             <SectionHeading
               eyebrow="Also part of the offering"

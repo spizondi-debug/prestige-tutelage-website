@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import HeroSlider from './HeroSlider.jsx'
+import CornerSwirl from './CornerSwirl.jsx'
 
 /**
  * The shared page hero: a full-bleed photographic slider with the copy laid
@@ -31,8 +32,9 @@ export default function PageHeader({ eyebrow, title, lead, images, children }) {
 
   if (!slides.length) {
     return (
-      <section className="tex tex-grid border-b border-line bg-cloud">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-b border-line bg-cloud">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="max-w-3xl py-16 lg:py-24">
             {eyebrow && <p className="eyebrow">{eyebrow}</p>}
             <h1 className="mt-5 font-display text-editorial font-semibold text-ink">{title}</h1>

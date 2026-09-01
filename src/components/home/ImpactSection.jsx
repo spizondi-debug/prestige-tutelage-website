@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Photo from '../Photo.jsx'
 import Reveal from '../Reveal.jsx'
 import { Accent } from '../Section.jsx'
+import CornerSwirl from '../CornerSwirl.jsx'
 
 // Impact framing without fabricated case studies or statistics: the outcomes
 // Prestige designs for. Verified client stories can replace/extend this later.
@@ -27,8 +28,9 @@ const outcomes = [
  */
 export default function ImpactSection() {
   return (
-    <section className="tex tex-grid border-t border-line bg-paper">
-      <div className="grid lg:grid-cols-2">
+    <section className="relative overflow-hidden border-t border-line bg-paper">
+      <CornerSwirl size="sm" />
+      <div className="relative grid lg:grid-cols-2">
         <div className="relative min-h-[22rem] lg:min-h-[40rem]">
           <Photo
             src="certificates-cohort.jpg"

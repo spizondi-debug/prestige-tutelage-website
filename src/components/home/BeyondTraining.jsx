@@ -6,6 +6,7 @@ import Disclaimer from '../Disclaimer.jsx'
 import MediaRail, { RailTile } from '../MediaRail.jsx'
 import { SCOPE_STATEMENT } from '../../data/bbbee.js'
 import { Accent } from '../Section.jsx'
+import CornerSwirl from '../CornerSwirl.jsx'
 
 /**
  * The wider offer, as a picture-led rail rather than a text grid.
@@ -52,8 +53,9 @@ const solutions = [
 
 export default function BeyondTraining() {
   return (
-    <section className="tex tex-dots border-t border-line bg-cloud py-20 lg:py-28">
-      <div className="container-px">
+    <section className="relative overflow-hidden border-t border-line bg-cloud py-20 lg:py-28">
+      <CornerSwirl size="sm" />
+      <div className="container-px relative">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal>
             <p className="eyebrow">Beyond training</p>

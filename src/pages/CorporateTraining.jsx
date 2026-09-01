@@ -7,6 +7,7 @@ import CTABand from '../components/CTABand.jsx'
 import { corporateProcess, corporateAudiences, deliveryFormats } from '../data/corporate.js'
 import { sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function CorporateTraining() {
   usePageMeta(
@@ -56,8 +57,9 @@ export default function CorporateTraining() {
       </section>
 
       {/* Who we work with */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <ContentSlider
               images={sectionSliders.corporateInTheRoom}
@@ -97,8 +99,9 @@ export default function CorporateTraining() {
       </section>
 
       {/* Delivery formats */}
-      <section className="border-y border-line bg-paper py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden border-y border-line bg-paper py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -126,8 +129,9 @@ export default function CorporateTraining() {
       </section>
 
       {/* What you get */}
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading
             eyebrow="What you get"
             title="A partner who protects your reputation inside the business."
