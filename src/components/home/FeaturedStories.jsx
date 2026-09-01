@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Photo from '../Photo.jsx'
 import PrestigePath from '../PrestigePath.jsx'
+import GrowthVisual from './GrowthVisual.jsx'
 import Reveal from '../Reveal.jsx'
 import CornerSwirl from '../CornerSwirl.jsx'
 import { qualificationsIn } from '../../data/programmes.js'
@@ -30,7 +31,7 @@ const stories = [
     headline: 'Skills that grow industries.',
     text: 'Animal, poultry and plant production for farm teams, supervisors and emerging farmers — learning that happens close to the soil and the stock.',
     photo: null, // awaiting genuine Prestige agricultural photography
-    stage: 2.4,
+    visual: 'growth',
   },
   {
     area: 'Business, Administration & Leadership',
@@ -60,6 +61,8 @@ export default function FeaturedStories() {
               >
                 {s.photo ? (
                   <Photo src={s.photo} alt={s.alt} className="absolute inset-0 h-full w-full" />
+                ) : s.visual === 'growth' ? (
+                  <GrowthVisual />
                 ) : (
                   <div className="absolute inset-0 bg-shadow">
                     <PrestigePath
@@ -86,23 +89,25 @@ export default function FeaturedStories() {
                       {s.headline}
                     </h3>
                     <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">{s.text}</p>
-                    {count > 0 && (
-                      <p className="mt-5 text-sm text-muted">
-                        {count} {count === 1 ? 'qualification' : 'qualifications'} in this area
-                      </p>
-                    )}
-                    <Link
-                      to="/programmes#catalogue"
-                      className="chev group mt-8 text-prestige-blue-hover hover:text-prestige-blue-hover"
-                    >
-                      <span className="chev-label">Explore {s.eyebrow} programmes</span>
-                      <span
-                        aria-hidden="true"
-                        className="transition-transform duration-500 ease-prestige group-hover:translate-x-1"
+                    <div className="mt-6 inline-flex max-w-xs flex-col gap-3 rounded-2xl bg-prestige-green-pale px-5 py-4">
+                      {count > 0 && (
+                        <p className="border-b border-prestige-green/20 pb-3 text-sm text-body">
+                          {count} {count === 1 ? 'qualification' : 'qualifications'} in this area
+                        </p>
+                      )}
+                      <Link
+                        to="/programmes#catalogue"
+                        className="chev group text-prestige-blue-hover hover:text-prestige-blue-hover"
                       >
-                        ›
-                      </span>
-                    </Link>
+                        <span className="chev-label">Explore {s.eyebrow} programmes</span>
+                        <span
+                          aria-hidden="true"
+                          className="transition-transform duration-500 ease-prestige group-hover:translate-x-1"
+                        >
+                          ›
+                        </span>
+                      </Link>
+                    </div>
                   </Reveal>
                 </div>
               </div>
