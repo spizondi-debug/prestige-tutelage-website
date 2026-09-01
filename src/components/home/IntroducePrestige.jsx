@@ -44,8 +44,22 @@ function BigValue({ item }) {
 
 export default function IntroducePrestige() {
   return (
-    <section className="tex tex-dots bg-cloud py-24 lg:py-32">
-      <div className="container-px">
+    <section className="relative overflow-hidden bg-cloud py-24 lg:py-32">
+      {/* Soft corner glow + dot texture, matching the approved reference —
+          restrained blue top-right, restrained green bottom-left, a faint
+          dot matrix throughout. Decoration only; aria-hidden. */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            'radial-gradient(640px 460px at 94% -8%, rgba(8, 123, 232, 0.12), transparent 62%),' +
+            'radial-gradient(560px 420px at 2% 106%, rgba(49, 184, 74, 0.09), transparent 60%),' +
+            'radial-gradient(rgba(23, 43, 61, 0.10) 1px, transparent 1px)',
+          backgroundSize: 'auto, auto, 26px 26px',
+        }}
+        aria-hidden="true"
+      />
+      <div className="container-px relative">
         <div className="rounded-3xl border border-line bg-paper p-8 shadow-premium sm:p-10 lg:p-14">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_auto_1fr] lg:items-center lg:gap-14">
             <Reveal>
