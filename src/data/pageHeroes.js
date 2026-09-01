@@ -172,7 +172,6 @@ export const pageHeroes = {
   shortCourses: [P.trainingRoom, P.intake, P.cohortOutside, P.handoverOveralls],
   industries: [P.steelBeam, P.workshopFloor, P.bandsaw, P.loading],
   growthPathways: [P.stockBoardroomMeeting, P.facilitatorSession, P.handoverCongrats, P.certificatesCohort],
-  corporateTraining: [P.stockBoardroomMeeting, P.clientSite, P.plateHandling, P.welding],
   services: [P.trainingRoom, P.cohortOutside, P.handoverReviewing, P.angleGrinder],
   businessSolutions: [P.stockPresentationAudience, P.handoverReviewing, P.clientSite, P.steelBeam],
   bbbee: [P.handoverOveralls, P.certificatesGroup, P.intake, P.handoverCongrats],

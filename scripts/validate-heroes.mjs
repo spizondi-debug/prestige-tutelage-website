@@ -55,12 +55,22 @@ const bodyImagesFor = (key) => {
   return new Set(found)
 }
 
+// A page can carry body sliders without a hero (PageHeader falls back to a
+// plain, photo-less layout when no images are passed), so this has to walk
+// every known page file, not just the ones with a pageHeroes entry — keying
+// it off pageHeroes would silently stop scanning a page's body the moment
+// its hero was removed. Cached so a page with both a hero and a body slider
+// isn't scanned twice, which would double up any "unknown sectionSliders.X"
+// problem it has.
+const bodyCache = new Map()
+for (const key of Object.keys(PAGE_FILES)) bodyCache.set(key, bodyImagesFor(key))
+
 const seen = new Map()
 for (const [key, set] of Object.entries(pageHeroes)) {
   for (const s of set) if (!images.has(s.src)) problems.push(`${key}: missing file ${s.src}`)
   if (set.length < 3 || set.length > 5) problems.push(`${key}: ${set.length} slides (want 3-5)`)
 
-  const body = bodyImagesFor(key)
+  const body = bodyCache.get(key) ?? bodyImagesFor(key)
   for (const s of set) if (body.has(s.src)) problems.push(`${key}: hero repeats ${s.src} from its own page`)
 
   const fingerprint = set.map((s) => s.src).sort().join('|')
