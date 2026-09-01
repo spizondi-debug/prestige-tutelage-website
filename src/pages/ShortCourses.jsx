@@ -17,7 +17,10 @@ import {
 } from '../data/shortCourses.js'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { CountIcon, iconForCategory } from '../data/shortCourseIcons.js'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Users, Calendar, Laptop, ClipboardList } from 'lucide-react'
+
+/** Icon for each delivery-format tile, in list order. */
+const deliveryIcons = [Users, Calendar, Calendar, Users, Laptop, ClipboardList, Users]
 
 /**
  * The eyebrow label — the leading half of the category title, so "Leadership &
@@ -173,26 +176,47 @@ export default function ShortCourses() {
       </section>
 
       {/* Delivery */}
-      <section className="border-y border-line bg-mist/60 py-16 lg:py-20">
+      <section className="py-16 lg:py-20">
         <div className="container-px">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <div>
+          <div className="relative grid gap-10 lg:grid-cols-2 lg:gap-20">
+            {/* Connector — desktop only */}
+            <div
+              className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 lg:block"
+              aria-hidden="true"
+            >
+              <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-prestige-blue" />
+              <span className="absolute inset-y-2.5 left-1/2 w-px -translate-x-1/2 bg-line" />
+              <span className="absolute left-1/2 top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-paper bg-prestige-green">
+                <span className="h-2 w-2 rounded-full bg-paper" />
+              </span>
+              <span className="absolute bottom-0 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-prestige-green" />
+            </div>
+
+            <div className="rounded-2xl border border-line bg-paper p-7 shadow-premium sm:p-9">
               <SectionHeading
                 eyebrow="Delivery"
                 title="Scoped around your operation, not a fixed timetable."
                 lead="Course length depends on the depth you need, the size of the group and how much workplace application you want built in. We confirm the format when we scope the intervention."
               />
-              <ul className="mt-7 grid gap-x-10 border-t border-line sm:grid-cols-2">
-                {deliveryOptions.map((d) => (
-                  <li key={d} className="flex items-start gap-3 border-b border-line py-2.5 text-body">
-                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
-                    {d}
-                  </li>
-                ))}
+              <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                {deliveryOptions.map((d, i) => {
+                  const Icon = deliveryIcons[i]
+                  return (
+                    <li
+                      key={d}
+                      className="flex items-center gap-3 rounded-xl border border-line bg-cloud/60 px-4 py-3 text-sm font-medium text-ink"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-prestige-green-pale text-prestige-green-deep">
+                        <Icon size={17} strokeWidth={1.8} aria-hidden="true" />
+                      </span>
+                      {d}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
 
-            <div>
+            <div className="rounded-2xl border border-line bg-prestige-green-pale/60 p-7 sm:p-9">
               <SectionHeading
                 eyebrow="Customisation"
                 title="Need something specific?"
