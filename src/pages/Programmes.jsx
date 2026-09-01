@@ -145,7 +145,7 @@ export default function Programmes() {
 
       {/* Catalogue with filters */}
       <section id="catalogue" className="relative scroll-mt-28 overflow-hidden bg-cloud py-16 lg:py-20">
-        <CornerSwirl size="sm" />
+        <CornerSwirl size="sm" opacity={0.5} />
         <div className="container-px relative">
           <SectionHeading
             eyebrow="Qualification catalogue"
