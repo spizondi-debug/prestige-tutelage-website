@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BadgeCheck, ShieldCheck, Target } from 'lucide-react'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
@@ -49,9 +50,9 @@ const capabilities = [
 ]
 
 const principles = [
-  { t: 'Quality', d: 'Every assessment is designed, delivered and moderated to a standard we can defend.' },
-  { t: 'Integrity', d: 'Controls, invigilation and evidence handling that leave no doubt about a result.' },
-  { t: 'Competence', d: 'We assess what a person can actually do — not what they can recite.' },
+  { t: 'Quality', d: 'Every assessment is designed, delivered and moderated to a standard we can defend.', icon: BadgeCheck },
+  { t: 'Integrity', d: 'Controls, invigilation and evidence handling that leave no doubt about a result.', icon: ShieldCheck },
+  { t: 'Competence', d: 'We assess what a person can actually do — not what they can recite.', icon: Target },
 ]
 
 export default function AssessmentCentre() {
@@ -72,12 +73,15 @@ export default function AssessmentCentre() {
       </PageHeader>
 
       {/* Three principles */}
-      <section className="border-b border-line bg-paper py-12 lg:py-16">
+      <section className="border-b border-line bg-mist/50 py-12 lg:py-16">
         <div className="container-px">
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-3">
             {principles.map((p) => (
-              <div key={p.t} className="border-l-2 border-prestige-green/60 pl-5">
-                <h2 className="font-display text-xl font-semibold text-ink">{p.t}</h2>
+              <div key={p.t} className="rounded-2xl bg-paper p-7 shadow-premium">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-prestige-green/40 text-prestige-green-deep">
+                  <p.icon size={24} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <h2 className="mt-5 font-display text-xl font-semibold text-ink">{p.t}</h2>
                 <p className="mt-2 leading-relaxed text-body">{p.d}</p>
               </div>
             ))}
