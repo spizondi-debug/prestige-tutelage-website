@@ -128,8 +128,8 @@ const P = {
   },
   stockSeminarAudience: {
     src: 'stock-seminar-audience.jpg',
-    alt: 'A member of a seminar audience listening attentively',
-    position: 'center 35%',
+    alt: 'A close, candid view of a seminar audience member',
+    position: 'center 20%',
   },
   stockNotetakingAudience: {
     src: 'stock-notetaking-audience.jpg',
@@ -177,7 +177,7 @@ export const pageHeroes = {
   businessSolutions: [P.welding, P.clientSite, P.steelBeam, P.bandsaw],
   bbbee: [P.certificatesGroup, P.intake, P.handoverOveralls, P.handoverCongrats],
   recruitment: [P.intake, P.clientSite, P.certificatesGroup, P.handoverReviewing],
-  officeRental: [P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats],
+  officeRental: [P.cohortOutside, P.intake, P.certificatesGroup, P.handoverCongrats, P.stockRemoteProfessional],
   assessment: [P.facilitatorSession, P.trainingRoom, P.handoverReviewing, P.certificatesCohort],
   insights: [P.intake, P.welding, P.handoverReviewing, P.cohortOutside],
   contact: [P.handoverReviewing, P.intake, P.certificatesGroup, P.trainingRoom],
@@ -189,7 +189,7 @@ export const pageHeroes = {
  */
 export const sectionSliders = {
   aboutWhoWeAre: [P.handoverCongrats, P.handoverOveralls, P.handoverRedShirt],
-  corporateInTheRoom: [P.trainingRoom, P.workshopTraining, P.angleGrinder],
+  corporateInTheRoom: [P.trainingRoom, P.workshopTraining, P.angleGrinder, P.stockSeminarAudience],
   corporateDelivery: [P.workshopFloor, P.bandsaw, P.steelBeam],
   bbbee: [P.welding, P.bandsaw, P.plateHandling],
   recruitmentProcess: [P.handoverRedShirt, P.handoverOveralls, P.handoverCongrats],
