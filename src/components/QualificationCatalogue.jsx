@@ -71,7 +71,7 @@ export default function QualificationCatalogue({ id, className = '', limit }) {
           <button
             type="button"
             onClick={() => setActiveArea(null)}
-            className="inline-flex shrink-0 items-center gap-2.5 rounded-full bg-prestige-growth px-6 py-3.5 text-sm font-semibold text-white shadow-premium transition-transform duration-200 ease-prestige hover:-translate-y-0.5"
+            className="inline-flex shrink-0 items-center gap-2.5 rounded-full bg-prestige-green px-6 py-3.5 text-sm font-semibold text-ink shadow-premium transition-colors duration-200 ease-prestige hover:bg-prestige-green-light hover:shadow-premium"
           >
             <LayoutGrid size={18} strokeWidth={2} aria-hidden="true" />
             Browse All Qualifications

@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
-import { BadgeCheck, ShieldCheck, Target, Users, GraduationCap, User, Building2, ChevronDown, Info } from 'lucide-react'
+import {
+  BadgeCheck, ShieldCheck, Target, Users, GraduationCap, User, Building2, ChevronDown, Info,
+  UserCheck, CalendarDays, ClipboardList, Scale, Folder, BarChart3, MessageCircle, Archive,
+} from 'lucide-react'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
@@ -60,18 +63,26 @@ const pathways = [
 ]
 
 const capabilities = [
-  { name: 'Candidate Registration', text: 'Accurate capture and verification of candidate details before any assessment begins.' },
-  { name: 'Assessment Scheduling', text: 'Planned assessment calendars that fit operational realities and give candidates fair notice.' },
-  { name: 'Assessment Administration', text: 'Venue, materials, controls and logistics managed so the assessment runs without incident.' },
-  { name: 'Assessors', text: 'Registered, briefed assessors applying agreed criteria consistently across candidates.' },
-  { name: 'Moderation', text: 'Independent moderation of assessment decisions to confirm fairness and consistency.' },
-  { name: 'Invigilation', text: 'Controlled invigilation that protects the integrity of every sitting.' },
-  { name: 'Evidence Management', text: 'Secure collection, filing and retention of portfolios and assessment evidence.' },
-  { name: 'Results Processing', text: 'Timely, accurate processing and release of results through the correct channels.' },
-  { name: 'Appeals', text: 'A clear, documented route for candidates to query or appeal an assessment decision.' },
-  { name: 'Quality Assurance', text: 'Internal quality checks across assessment design, delivery and record-keeping.' },
-  { name: 'Record Management', text: 'Complete, retrievable records that stand up to audit and verification.' },
-  { name: 'Occupational Qualification Support', text: 'Support for candidates and employers navigating occupational qualification assessment requirements.' },
+  { name: 'Candidate Registration', text: 'Accurate capture and verification of candidate details before any assessment begins.', icon: UserCheck },
+  { name: 'Assessment Scheduling', text: 'Planned assessment calendars that fit operational realities and give candidates fair notice.', icon: CalendarDays },
+  { name: 'Assessment Administration', text: 'Venue, materials, controls and logistics managed so the assessment runs without incident.', icon: ClipboardList },
+  { name: 'Assessors', text: 'Registered, briefed assessors applying agreed criteria consistently across candidates.', icon: User },
+  { name: 'Moderation', text: 'Independent moderation of assessment decisions to confirm fairness and consistency.', icon: Scale },
+  { name: 'Invigilation', text: 'Controlled invigilation that protects the integrity of every sitting.', icon: ShieldCheck },
+  { name: 'Evidence Management', text: 'Secure collection, filing and retention of portfolios and assessment evidence.', icon: Folder },
+  { name: 'Results Processing', text: 'Timely, accurate processing and release of results through the correct channels.', icon: BarChart3 },
+  { name: 'Appeals', text: 'A clear, documented route for candidates to query or appeal an assessment decision.', icon: MessageCircle },
+  { name: 'Quality Assurance', text: 'Internal quality checks across assessment design, delivery and record-keeping.', icon: BadgeCheck },
+  { name: 'Record Management', text: 'Complete, retrievable records that stand up to audit and verification.', icon: Archive },
+  { name: 'Occupational Qualification Support', text: 'Support for candidates and employers navigating occupational qualification assessment requirements.', icon: GraduationCap },
+]
+
+/** Every three capabilities above form one stage of the assessment journey. */
+const capabilityStages = [
+  { label: 'Candidate and planning', tone: 'green', icon: CalendarDays },
+  { label: 'Assessment delivery', tone: 'blue', icon: Users },
+  { label: 'Evidence, results and quality', tone: 'blue', icon: BarChart3 },
+  { label: 'Quality and records', tone: 'blue', icon: BadgeCheck },
 ]
 
 const principles = [
@@ -122,13 +133,41 @@ export default function AssessmentCentre() {
             title="Everything an assessment requires, handled in one place."
             lead="Employers, providers and candidates deal with a single, accountable assessment operation rather than a chain of hand-offs."
           />
-          <dl className="mt-12 grid gap-x-12 border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((c) => (
-              <div key={c.name} className="border-b border-line py-5 lg:pr-6">
-                <dt className="font-sans font-semibold text-prestige-blue-hover">{c.name}</dt>
-                <dd className="mt-1.5 leading-relaxed text-body">{c.text}</dd>
-              </div>
-            ))}
+          <dl className="mt-12 border-t border-line">
+            {capabilityStages.map((stage, si) => {
+              const items = capabilities.slice(si * 3, si * 3 + 3)
+              const tone = TONE[stage.tone]
+              return (
+                <div key={stage.label} className="grid gap-6 border-b border-line py-8 lg:grid-cols-[13rem_1fr] lg:gap-10">
+                  <div className="flex items-center gap-3 lg:flex-col lg:items-start">
+                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${tone.edge} text-sm font-bold text-white`}>
+                      {si + 1}
+                    </span>
+                    <p className={`text-sm font-bold uppercase leading-snug tracking-wide ${tone.label}`}>
+                      {stage.label}
+                    </p>
+                    <div className="relative hidden pl-[14px] lg:mt-3 lg:block">
+                      <span className="absolute left-[14px] -top-2 h-5 border-l border-dashed border-prestige-blue/30" aria-hidden="true" />
+                      <span className={`flex h-12 w-12 items-center justify-center rounded-full ${tone.iconBg} ${tone.iconText}`}>
+                        <stage.icon size={20} strokeWidth={1.8} aria-hidden="true" />
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-x-8 gap-y-6 sm:grid-cols-3">
+                    {items.map((c, i) => (
+                      <div key={c.name} className={i > 0 ? 'sm:border-l sm:border-line sm:pl-8' : ''}>
+                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-prestige-blue-light text-prestige-blue-hover">
+                          <c.icon size={19} strokeWidth={1.8} aria-hidden="true" />
+                        </span>
+                        <dt className="mt-3 font-sans font-semibold text-prestige-blue-hover">{c.name}</dt>
+                        <dd className="mt-1.5 leading-relaxed text-body">{c.text}</dd>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </dl>
         </div>
       </section>
