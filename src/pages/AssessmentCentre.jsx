@@ -7,7 +7,6 @@ import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
-import CornerSwirl from '../components/CornerSwirl.jsx'
 
 // Scope is confirmed per engagement — no approval for specific qualifications
 // or assessment-centre scope is asserted anywhere on this page.
@@ -74,9 +73,8 @@ export default function AssessmentCentre() {
       </PageHeader>
 
       {/* Three principles */}
-      <section className="relative overflow-hidden border-b border-line bg-mist/50 py-12 lg:py-16">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-b border-line bg-mist/50 py-12 lg:py-16">
+        <div className="container-px">
           <div className="grid gap-5 sm:grid-cols-3">
             {principles.map((p) => (
               <div key={p.t} className="rounded-2xl bg-paper p-7 shadow-premium">
@@ -92,9 +90,8 @@ export default function AssessmentCentre() {
       </section>
 
       {/* Capabilities */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading
             eyebrow="Capabilities"
             title="Everything an assessment requires, handled in one place."
@@ -112,9 +109,8 @@ export default function AssessmentCentre() {
       </section>
 
       {/* Who uses it */}
-      <section className="relative overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line bg-mist/60 py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading
             eyebrow="Who we assess for"
             title="Three routes in — employers, providers and candidates."

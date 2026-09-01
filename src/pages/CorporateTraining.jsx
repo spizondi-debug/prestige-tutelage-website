@@ -57,9 +57,8 @@ export default function CorporateTraining() {
       </section>
 
       {/* Who we work with */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <ContentSlider
               images={sectionSliders.corporateInTheRoom}
@@ -129,9 +128,8 @@ export default function CorporateTraining() {
       </section>
 
       {/* What you get */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading
             eyebrow="What you get"
             title="A partner who protects your reputation inside the business."

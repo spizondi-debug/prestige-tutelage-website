@@ -151,7 +151,7 @@ export default function BusinessSolutions() {
           key={s.to}
           className={`relative overflow-hidden py-14 lg:py-20 ${i % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
         >
-          <CornerSwirl size="sm" />
+          {i % 2 === 1 && <CornerSwirl size="sm" />}
           <div className="container-px relative">
             <div
               className={`grid gap-10 lg:gap-20 ${(s.photo || s.process) ? 'lg:grid-cols-2' : ''} ${
@@ -194,9 +194,8 @@ export default function BusinessSolutions() {
       ))}
 
       {/* Pointer to the wider service list */}
-      <section className="relative overflow-hidden border-t border-line py-14">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-t border-line py-14">
+        <div className="container-px">
           <div className="max-w-3xl">
             <SectionHeading
               eyebrow="Also part of the offering"

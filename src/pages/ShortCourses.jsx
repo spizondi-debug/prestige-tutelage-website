@@ -18,7 +18,6 @@ import {
 import { pageHeroes } from '../data/pageHeroes.js'
 import { CountIcon, iconForCategory } from '../data/shortCourseIcons.js'
 import { ArrowUpRight } from 'lucide-react'
-import CornerSwirl from '../components/CornerSwirl.jsx'
 
 /**
  * The eyebrow label — the leading half of the category title, so "Leadership &
@@ -115,9 +114,8 @@ export default function ShortCourses() {
       </section>
 
       {/* Catalogue */}
-      <section id="catalogue" className="relative scroll-mt-28 overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section id="catalogue" className="scroll-mt-28 py-16 lg:py-20">
+        <div className="container-px">
           <div className="space-y-8">
             {shortCourseCategories.map((cat, i) => {
               const Icon = iconForCategory(cat.slug)
@@ -215,9 +213,8 @@ export default function ShortCourses() {
       </section>
 
       {/* How it works */}
-      <section className="relative overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading eyebrow="How it works" title="Simple to arrange, serious in delivery." />
             <ol className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">

@@ -59,9 +59,8 @@ export default function Recruitment() {
       </section>
 
       {/* Service groups */}
-      <section className="relative overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeading
@@ -114,9 +113,8 @@ export default function Recruitment() {
       </section>
 
       {/* Learnership & youth recruitment — the differentiator */}
-      <section className="relative overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line bg-mist/60 py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -145,9 +143,8 @@ export default function Recruitment() {
       </section>
 
       {/* Roles */}
-      <section className="relative overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
               eyebrow="Roles we recruit for"

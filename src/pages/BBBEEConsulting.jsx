@@ -44,9 +44,8 @@ export default function BBBEEConsulting() {
       </section>
 
       {/* Why it matters */}
-      <section className="relative overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -104,7 +103,7 @@ export default function BBBEEConsulting() {
           id={group.slug}
           className={`relative scroll-mt-28 overflow-hidden py-14 lg:py-16 ${gi % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
         >
-          <CornerSwirl size="sm" />
+          {gi % 2 === 1 && <CornerSwirl size="sm" />}
           <div className="container-px relative">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
               <div>
@@ -133,9 +132,8 @@ export default function BBBEEConsulting() {
       ))}
 
       {/* Delivery link */}
-      <section className="relative overflow-hidden border-t border-line py-14 lg:py-16">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-t border-line py-14 lg:py-16">
+        <div className="container-px">
           <div className="max-w-3xl">
             <SectionHeading
               eyebrow="Planning and delivery in one place"

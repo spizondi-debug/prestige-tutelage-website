@@ -40,7 +40,7 @@ export default function Services() {
           id={group.slug}
           className={`relative scroll-mt-28 py-14 lg:py-20 ${gi % 2 === 1 ? 'border-y border-line bg-paper' : ''}`}
         >
-          <CornerSwirl size="sm" />
+          {gi % 2 === 1 && <CornerSwirl size="sm" />}
           <div className="container-px relative">
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
               <div className="lg:sticky lg:top-32 lg:self-start">

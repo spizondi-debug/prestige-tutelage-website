@@ -9,7 +9,6 @@ import { whyPrestige } from '../components/home/WhyPrestige.jsx'
 import { brand, contact } from '../data/site.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
-import CornerSwirl from '../components/CornerSwirl.jsx'
 
 const philosophy = [
   {
@@ -61,9 +60,8 @@ export default function About() {
       />
 
       {/* Who we are */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -233,9 +231,8 @@ export default function About() {
       </section>
 
       {/* Journey */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading eyebrow="Our journey" title="Built steadily, the way trust is built." />
           <ol className="mt-10 grid gap-10 border-t border-line pt-10 lg:grid-cols-3">
             {journey.map((j, i) => (

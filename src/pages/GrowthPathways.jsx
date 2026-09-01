@@ -11,7 +11,6 @@ import { growthPathwaysMedia } from '../data/media.js'
 import {
   audiences, comparison, ENQUIRY, howItWorks, journey, outcomes,
 } from '../data/growthPathways.js'
-import CornerSwirl from '../components/CornerSwirl.jsx'
 
 /**
  * The seven stages, as one rail.
@@ -159,9 +158,8 @@ export default function GrowthPathways() {
       </section>
 
       {/* How it works */}
-      <section className="relative overflow-hidden border-y border-line bg-mist/50 py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line bg-mist/50 py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading
             eyebrow="How it works"
             title="Three steps, in the order they actually happen."
@@ -259,9 +257,8 @@ export default function GrowthPathways() {
       </section>
 
       {/* How the two fit together */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading
             eyebrow="How the two fit together"
             title="Prestige Tutelage delivers the learning. Growth Pathways connects it to the business."
@@ -294,9 +291,8 @@ export default function GrowthPathways() {
       </section>
 
       {/* Business outcomes */}
-      <section className="relative overflow-hidden border-t border-line bg-mist/50 py-16 lg:py-24">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-t border-line bg-mist/50 py-16 lg:py-24">
+        <div className="container-px">
           <SectionHeading
             eyebrow="Business outcomes"
             title="What an organisation gets out of running it this way."

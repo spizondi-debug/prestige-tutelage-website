@@ -268,9 +268,8 @@ export default function Programmes() {
       </section>
 
       {/* Customised technical interventions */}
-      <section id="technical" className="relative scroll-mt-28 overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section id="technical" className="scroll-mt-28 py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
               <SectionHeading

@@ -155,9 +155,8 @@ export default function CourseDetail() {
       </section>
 
       {/* Who it suits + accreditation */}
-      <section className="relative overflow-hidden py-14 lg:py-16" aria-labelledby="course-suitability">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-14 lg:py-16" aria-labelledby="course-suitability">
+        <div className="container-px">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <h2 id="course-suitability" className="font-display text-section font-semibold text-prestige-green-deep">
@@ -217,9 +216,8 @@ export default function CourseDetail() {
       </section>
 
       {/* Course outline */}
-      <section className="relative overflow-hidden border-t border-line bg-cloud py-16 lg:py-20" aria-labelledby="course-outline">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-t border-line bg-cloud py-16 lg:py-20" aria-labelledby="course-outline">
+        <div className="container-px">
           <div className="max-w-3xl">
             <h2 id="course-outline" className="font-display text-section font-semibold text-prestige-green-deep">
               Course Outline
@@ -251,9 +249,8 @@ export default function CourseDetail() {
       </section>
 
       {/* Assessment approach */}
-      <section className="relative overflow-hidden border-y border-line py-16 lg:py-20" aria-labelledby="course-assessment">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line py-16 lg:py-20" aria-labelledby="course-assessment">
+        <div className="container-px">
           <h2 id="course-assessment" className="font-display text-section font-semibold text-prestige-green-deep">
             Assessment Approach
           </h2>
@@ -271,9 +268,8 @@ export default function CourseDetail() {
       </section>
 
       {/* FAQs — every answer here is the one the structured data carries. */}
-      <section className="relative overflow-hidden bg-cloud py-16 lg:py-20" aria-labelledby="course-faqs">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="bg-cloud py-16 lg:py-20" aria-labelledby="course-faqs">
+        <div className="container-px">
           <h2 id="course-faqs" className="font-display text-section font-semibold text-prestige-green-deep">
             Frequently asked questions
           </h2>
@@ -290,9 +286,8 @@ export default function CourseDetail() {
 
       {/* Related programmes — internal links with descriptive anchors. */}
       {related.length > 0 && (
-        <section className="relative overflow-hidden border-t border-line py-16 lg:py-20" aria-labelledby="course-related">
-          <CornerSwirl size="sm" />
-          <div className="container-px relative">
+        <section className="border-t border-line py-16 lg:py-20" aria-labelledby="course-related">
+          <div className="container-px">
             <h2 id="course-related" className="font-display text-section font-semibold text-prestige-green-deep">
               Related qualifications
             </h2>

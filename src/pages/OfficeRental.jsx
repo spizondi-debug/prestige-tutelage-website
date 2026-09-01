@@ -56,9 +56,8 @@ export default function OfficeRental() {
       </section>
 
       {/* Categories */}
-      <section className="relative overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="py-16 lg:py-20">
+        <div className="container-px">
           <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <ContentSlider
               images={sectionSliders.officeRental}
@@ -105,9 +104,8 @@ export default function OfficeRental() {
       </section>
 
       {/* Why book here */}
-      <section className="relative overflow-hidden border-y border-line bg-mist/60 py-14 lg:py-16">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="border-y border-line bg-mist/60 py-14 lg:py-16">
+        <div className="container-px">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
               eyebrow="Why book with Prestige"
@@ -131,9 +129,8 @@ export default function OfficeRental() {
       </section>
 
       {/* Enquiry form */}
-      <section id="check-availability" className="relative scroll-mt-28 overflow-hidden py-16 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section id="check-availability" className="scroll-mt-28 py-16 lg:py-20">
+        <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <SectionHeading

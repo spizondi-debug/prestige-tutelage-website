@@ -6,7 +6,6 @@ import { industries } from '../data/industries.js'
 import { iconForOffering, iconForSector } from '../data/industryIcons.js'
 import { pageHeroes } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
-import CornerSwirl from '../components/CornerSwirl.jsx'
 
 /**
  * One sector, as a card: a solid coloured panel carrying the sector, against a
@@ -121,9 +120,8 @@ export default function Industries() {
         </nav>
       </PageHeader>
 
-      <section className="relative overflow-hidden bg-mist/50 py-14 lg:py-20">
-        <CornerSwirl size="sm" />
-        <div className="container-px relative">
+      <section className="bg-mist/50 py-14 lg:py-20">
+        <div className="container-px">
           <div className="space-y-8">
             {industries.map((ind, i) => (
               <Reveal key={ind.slug}>
