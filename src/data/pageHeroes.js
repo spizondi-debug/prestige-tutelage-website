@@ -1,16 +1,24 @@
 // Hero photograph sets, one per page.
 //
-// Each entry is a slide in that page's hero carousel. Every photograph is
-// Prestige's own: the licensed stock the site used to carry has been removed
-// from the library entirely.
+// Each entry is a slide in that page's hero carousel. Most photographs are
+// Prestige's own; the `stock*` entries are licensed stock, confirmed with
+// Prestige, reintroduced to widen the homepage rotation. Keep the two
+// visually distinguishable in this file (the `stock` prefix) so a future
+// edit doesn't mistake one for the other.
 //
 // `position` is the CSS object-position used to keep faces out of the crop
 // when a portrait source is shown in a landscape panel. Check it after
 // swapping any image.
 //
-// CONSENT — read before adding: several of these show identifiable learners,
-// and the certificate photographs carry readable names. Confirm publication
-// consent is held before the site goes to a public domain.
+// CONSENT — read before adding: several of the Prestige photographs show
+// identifiable learners, and the certificate photographs carry readable
+// names. Confirm publication consent is held before the site goes to a
+// public domain. The stock photographs carry their own licence, confirmed
+// separately — no additional consent question applies to those.
+//
+// The stock filenames arrived mismatched to their content (e.g. a file named
+// "graduation" was a construction site) — alt text below describes what is
+// actually in each photo, not the original filename.
 
 const P = {
   intake: {
@@ -108,6 +116,41 @@ const P = {
     alt: 'Prestige Tutelage learners with their certificates of completion',
     position: 'center 28%',
   },
+  stockConstructionWorker: {
+    src: 'stock-construction-worker.jpg',
+    alt: 'A tradesperson in safety gear using power tools at a construction site',
+    position: 'center 30%',
+  },
+  stockWorkplaceTeam: {
+    src: 'stock-workplace-team.jpg',
+    alt: 'Two workers in branded workwear and hard hats standing together on site',
+    position: 'center 30%',
+  },
+  stockSeminarAudience: {
+    src: 'stock-seminar-audience.jpg',
+    alt: 'A member of a seminar audience listening attentively',
+    position: 'center 35%',
+  },
+  stockNotetakingAudience: {
+    src: 'stock-notetaking-audience.jpg',
+    alt: 'An audience member taking notes during a training session',
+    position: 'center 40%',
+  },
+  stockPresentationAudience: {
+    src: 'stock-presentation-audience.jpg',
+    alt: 'A presenter addressing a seated, engaged corporate audience',
+    position: 'center 30%',
+  },
+  stockBoardroomMeeting: {
+    src: 'stock-boardroom-meeting.jpg',
+    alt: 'A team collaborating around a boardroom table with laptops open',
+    position: 'center 35%',
+  },
+  stockRemoteProfessional: {
+    src: 'stock-remote-professional.jpg',
+    alt: 'A professional working on a laptop in a plant-filled space',
+    position: 'center 30%',
+  },
 }
 
 /** Sets are ordered — the first slide is the one that loads eagerly.
@@ -117,7 +160,13 @@ const P = {
  * no two pages carry the same set, and each set runs 3–5 slides. Re-check all
  * three after any swap — scripts/validate-heroes.mjs does it in one command. */
 export const pageHeroes = {
-  home: [P.cohortOutside, P.angleGrinder, P.steelBeam, P.plateHandling, P.handoverRedShirt],
+  home: [
+    P.stockConstructionWorker,
+    P.stockWorkplaceTeam,
+    P.stockBoardroomMeeting,
+    P.stockPresentationAudience,
+    P.stockNotetakingAudience,
+  ],
   about: [P.intake, P.certificatesGroup, P.cohortOutside, P.handoverReviewing],
   programmes: [P.angleGrinder, P.certificatesGroup, P.trainingRoom, P.cohortOutside],
   shortCourses: [P.trainingRoom, P.intake, P.cohortOutside, P.workshopTraining],
