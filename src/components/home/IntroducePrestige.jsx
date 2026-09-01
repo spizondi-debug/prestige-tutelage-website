@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
+import { Grip } from 'lucide-react'
 import Reveal from '../Reveal.jsx'
 import { useCountUp } from '../../lib/motion.js'
-import { Accent } from '../Section.jsx'
 
 /**
  * The handover from the cinematic hero into the editorial site.
@@ -11,10 +11,10 @@ import { Accent } from '../Section.jsx'
  * no learner counts, no percentages we cannot stand behind.
  *
  * The figures are Prestige blue. #066DCE rather than the brighter #087BE8:
- * both are legal at this size — these are 36-48px, so the 3.0:1 large-text
- * floor applies and #087BE8 clears it at 3.93:1 on Cloud — but #066DCE is the
+ * both are legal at this size — these are 30-36px, so the 3.0:1 large-text
+ * floor applies and #087BE8 clears it at 3.93:1 on Paper — but #066DCE is the
  * blue every other piece of text on the site uses, and at 4.82:1 it stays
- * legal if this strip is ever moved or the figures set smaller.
+ * legal if a card is ever set smaller.
  */
 
 const proof = [
@@ -24,27 +24,21 @@ const proof = [
   { label: 'National', sub: 'delivery capability' },
 ]
 
-function Counter({ item }) {
+function BigValue({ item }) {
   const [ref, n] = useCountUp(item.value ?? 0)
   if (item.value == null) {
     return (
-      <>
-        <span className="block font-display text-4xl font-semibold text-prestige-blue-hover sm:text-5xl">
-          {item.label}
-        </span>
-        <span className="mt-2 block text-body">{item.sub}</span>
-      </>
+      <span className="block font-display text-3xl font-bold text-prestige-blue-hover sm:text-4xl">
+        {item.label}
+      </span>
     )
   }
   return (
-    <>
-      <span ref={ref} className="block font-display text-4xl font-semibold text-prestige-blue-hover sm:text-5xl">
-        {item.prefix}
-        <span className="tabular-nums">{n}</span>
-        {item.suffix}
-      </span>
-      <span className="mt-2 block text-body">{item.label}</span>
-    </>
+    <span ref={ref} className="block font-display text-3xl font-bold text-prestige-blue-hover sm:text-4xl">
+      {item.prefix}
+      <span className="tabular-nums">{n}</span>
+      {item.suffix}
+    </span>
   )
 }
 
@@ -52,29 +46,42 @@ export default function IntroducePrestige() {
   return (
     <section className="tex tex-dots bg-cloud py-24 lg:py-32">
       <div className="container-px">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-24">
-          <Reveal>
-            <h2 className="font-display text-editorial font-semibold text-prestige-green-deep">
-              More than <Accent>training</Accent>.
-            </h2>
-          </Reveal>
+        <div className="rounded-3xl border border-line bg-paper p-8 shadow-premium sm:p-10 lg:p-14">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_auto_1fr] lg:items-center lg:gap-14">
+            <Reveal>
+              <h2 className="font-display text-editorial font-semibold text-prestige-green-deep">
+                More than training.
+              </h2>
+            </Reveal>
 
-          <Reveal delay={80}>
-            <p className="max-w-xl text-lg leading-relaxed text-body">
-              Prestige Tutelage is a workforce-development partner helping organisations build
-              capable people, stronger talent pipelines and measurable skills-development outcomes.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/about" className="btn btn-outline">About Prestige</Link>
-              <Link to="/programmes" className="btn btn-primary">Explore Programmes</Link>
-            </div>
-          </Reveal>
+            <span className="hidden w-px self-stretch bg-line lg:block" aria-hidden="true" />
+
+            <Reveal delay={80}>
+              <p className="max-w-xl text-lg leading-relaxed text-body">
+                Prestige Tutelage is a workforce-development partner helping organisations build
+                capable people, stronger talent pipelines and measurable skills-development outcomes.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/about" className="btn btn-outline">About Prestige</Link>
+                <Link to="/programmes" className="btn btn-primary">Explore Programmes</Link>
+              </div>
+            </Reveal>
+          </div>
         </div>
 
-        <div className="mt-20 grid gap-x-12 gap-y-10 border-t border-line pt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4">
           {proof.map((item, i) => (
             <Reveal key={item.label} delay={i * 90}>
-              <Counter item={item} />
+              <div className="h-full rounded-2xl border border-line bg-paper p-6 shadow-premium">
+                <div className="flex items-start justify-between">
+                  <span className="block h-0.5 w-8 rounded-full bg-prestige-green" aria-hidden="true" />
+                  <Grip size={16} strokeWidth={2} className="text-line" aria-hidden="true" />
+                </div>
+                <div className="mt-5">
+                  <BigValue item={item} />
+                  <span className="mt-2 block text-body">{item.value == null ? item.sub : item.label}</span>
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>
