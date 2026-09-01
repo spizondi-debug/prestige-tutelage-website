@@ -15,13 +15,14 @@ import LearningLadder from '../components/home/LearningLadder.jsx'
 import FeaturedStories from '../components/home/FeaturedStories.jsx'
 import LearnershipsSection from '../components/home/LearnershipsSection.jsx'
 import ShortCoursesSection from '../components/home/ShortCoursesSection.jsx'
-// 06/07/08 — Industries, Growth Pathways, the business ecosystem
+// 06b — Testimonials, ahead of the sector/ecosystem run
+import TestimonialVideo from '../components/home/TestimonialVideo.jsx'
+// 07/08/09 — Industries, Growth Pathways, the business ecosystem
 import IndustriesSection from '../components/home/IndustriesSection.jsx'
 import GrowthPathwaysSection from '../components/home/GrowthPathwaysSection.jsx'
 import BeyondTraining from '../components/home/BeyondTraining.jsx'
-// 09 — The human anchor
+// 10 — The human anchor
 import RealPrestige from '../components/home/RealPrestige.jsx'
-import TestimonialVideo from '../components/home/TestimonialVideo.jsx'
 // 10/11 — Outcomes and trust
 import ImpactSection from '../components/home/ImpactSection.jsx'
 import WhyPrestige from '../components/home/WhyPrestige.jsx'
@@ -72,12 +73,13 @@ export default function Home() {
       <LearnershipsSection />
       <ShortCoursesSection />
 
+      <TestimonialVideo />
+
       <IndustriesSection />
       <GrowthPathwaysSection />
       <BeyondTraining />
 
       <RealPrestige />
-      <TestimonialVideo />
 
       <ImpactSection />
       <WhyPrestige />
