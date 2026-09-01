@@ -23,7 +23,10 @@ export const imageMeta = {
   'learners-certificates-group.jpg': { w: 1920, h: 2503 },
   'learners-client-site.jpg': { w: 1920, h: 3231 },
   'learners-plate-handling.jpg': { w: 1920, h: 3231 },
-  'testimonial-video-poster.jpg': { w: 576, h: 768 },
+  'testimonial-video-poster-1.jpg': { w: 576, h: 768 },
+  'testimonial-video-poster-2.jpg': { w: 576, h: 768 },
+  'testimonial-video-poster-3.jpg': { w: 576, h: 768 },
+  'testimonial-video-poster-4.jpg': { w: 576, h: 768 },
   'training-room.jpg': { w: 1920, h: 1440 },
   'workshop-training.jpg': { w: 1920, h: 2400 },
 }

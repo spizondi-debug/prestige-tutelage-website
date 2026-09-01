@@ -67,24 +67,29 @@ export const growthPathwaysMedia = {
 }
 
 /**
- * Homepage testimonial — a short piece to camera, supplied by Prestige.
+ * Homepage testimonials — short pieces to camera, supplied by Prestige, one
+ * per speaker.
  *
- * Real speech, not motion graphics, so unlike the Growth Pathways film this
- * one has no measured basis for skipping captions — the source has no
+ * Real speech, not motion graphics, so unlike the Growth Pathways film these
+ * have no measured basis for skipping captions — the source has no
  * transcript, and writing one from listening would risk putting words in
  * someone's mouth that are not exactly what was said. `captions: null` here
- * records a real gap, not a checked absence. Point it at a .vtt the moment
- * an accurate transcript exists.
+ * records a real gap, not a checked absence. Point a clip at a .vtt the
+ * moment an accurate transcript exists for it.
  *
- * Vertical (576×768) because that is the orientation it was shot in — a
+ * Vertical (576×768) because that is the orientation they were shot in — a
  * phone held upright to camera, not a widescreen production. VideoFeature
- * does not assume a shape, so the section around it is built narrow to match
- * rather than stretching or cropping the frame to fit a wide slot.
+ * does not assume a shape, so the section around them is built narrow to
+ * match rather than stretching or cropping the frame to fit a wide slot.
+ *
+ * No names or roles are attached. None were supplied, and inventing them
+ * would misrepresent real people — the same reasoning that keeps this site
+ * without fabricated testimonial quotes elsewhere.
  */
-export const testimonialMedia = {
-  src: 'testimonial/prestige-testimonial',
-  poster: 'testimonial-video-poster.jpg',
+export const testimonialMedia = [1, 2, 3, 4].map((n) => ({
+  src: `testimonial/prestige-testimonial-${n}`,
+  poster: `testimonial-video-poster-${n}.jpg`,
   alt: 'A member of the Prestige Tutelage team speaking to camera',
   captions: null,
   sources: [{ type: 'video/mp4', ext: 'mp4' }],
-}
+}))
