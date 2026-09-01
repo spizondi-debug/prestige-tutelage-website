@@ -23,7 +23,7 @@ import { totalShortCourses } from '../data/shortCourses.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 import CornerSwirl from '../components/CornerSwirl.jsx'
-import { FileText, User, Target } from 'lucide-react'
+import { FileText, User, Target, Briefcase, CheckCircle2 } from 'lucide-react'
 
 const ALL = 'All'
 
@@ -225,8 +225,9 @@ export default function Programmes() {
       </section>
 
       {/* Learnerships */}
-      <section id="learnerships" className="scroll-mt-28 border-y border-line bg-mist/60 py-16 lg:py-24">
-        <div className="container-px">
+      <section id="learnerships" className="relative scroll-mt-28 overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -234,11 +235,19 @@ export default function Programmes() {
                 title="Work-based learning, managed properly."
                 lead={learnerships.intro}
               />
-              <div className="mt-8 space-y-6">
-                {[learnerships.employed, learnerships.unemployed].map((l) => (
-                  <div key={l.title} className="border-l-2 border-prestige-green/60 pl-5">
-                    <h3 className="font-sans font-semibold text-prestige-blue-hover">{l.title}</h3>
-                    <p className="mt-1.5 leading-relaxed text-body">{l.text}</p>
+              <div className="mt-8 space-y-4">
+                {[
+                  { ...learnerships.employed, icon: Briefcase },
+                  { ...learnerships.unemployed, icon: User },
+                ].map((l) => (
+                  <div key={l.title} className="flex items-start gap-4 rounded-xl border-l-4 border-prestige-green bg-paper p-5 shadow-soft">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-prestige-green-pale text-prestige-green-deep">
+                      <l.icon size={20} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-semibold text-prestige-blue-hover">{l.title}</h3>
+                      <p className="mt-1.5 leading-relaxed text-body">{l.text}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -257,8 +266,8 @@ export default function Programmes() {
               </h3>
               <ul className="mt-4 grid gap-x-8 border-t border-line sm:grid-cols-2">
                 {learnerships.support.map((s) => (
-                  <li key={s} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                  <li key={s} className="flex items-center gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
+                    <CheckCircle2 size={17} strokeWidth={1.8} className="shrink-0 text-prestige-green-deep" aria-hidden="true" />
                     {s}
                   </li>
                 ))}
@@ -282,8 +291,8 @@ export default function Programmes() {
             </div>
             <ul className="grid content-start gap-x-10 border-t border-line sm:grid-cols-2">
               {technicalInterventions.items.map((i) => (
-                <li key={i} className="flex items-start gap-3 border-b border-line py-3 text-body">
-                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                <li key={i} className="flex items-center gap-3 border-b border-line py-3 text-body">
+                  <CheckCircle2 size={17} strokeWidth={1.8} className="shrink-0 text-prestige-green-deep" aria-hidden="true" />
                   {i}
                 </li>
               ))}
