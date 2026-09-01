@@ -89,7 +89,7 @@ export const growthPathwaysMedia = {
 export const testimonialMedia = [1, 2, 3, 4].map((n) => ({
   src: `testimonial/prestige-testimonial-${n}`,
   poster: `testimonial-video-poster-${n}.jpg`,
-  alt: 'A member of the Prestige Tutelage team speaking to camera',
+  alt: 'A Prestige Tutelage candidate speaking to camera',
   captions: null,
   sources: [{ type: 'video/mp4', ext: 'mp4' }],
 }))
