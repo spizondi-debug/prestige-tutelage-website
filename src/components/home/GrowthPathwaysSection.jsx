@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../Reveal.jsx'
 import { Accent } from '../Section.jsx'
-import { assetUrl } from '../../lib/asset.js'
-import { metaFor } from '../../data/imageMeta.js'
+import GrowthPathwaysMockup from './GrowthPathwaysMockup.jsx'
 
 const connects = [
   'Skills gaps',
@@ -15,17 +14,10 @@ const connects = [
 ]
 
 /**
- * The dashboard card is a real frame lifted from the supplied Growth Pathways
- * product film (public/videos/growth-pathways/), not a mockup drawn for this
- * page. Same ground rule as the film itself: the figures on it (74%, 23 skill
- * gaps, and so on) are product-demo sample data, not a client's numbers, so
- * nothing here should be read as a measured result — it illustrates the
- * software, the way a screenshot on any SaaS site does.
- *
- * Replaces the abstract PrestigePath canvas this section used to carry.
- * That component is still the signature visual elsewhere (the /growth-pathways
- * page itself); here, a real screenshot of the product does more work than an
- * abstract animation once one exists to show.
+ * The right-hand visual is a stylised illustration (GrowthPathwaysMockup),
+ * not a screenshot — a tilted laptop/phone panel with a scatter of glass
+ * cards, each carrying an obviously illustrative stat. Replaces the real
+ * product-film frame this section carried previously.
  */
 export default function GrowthPathwaysSection() {
   return (
@@ -46,7 +38,10 @@ export default function GrowthPathwaysSection() {
               Explore Prestige Growth Pathways
             </Link>
 
-            <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-line-dark pt-6 sm:grid-cols-3">
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+              One connected pathway
+            </p>
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-line-dark pt-6 sm:grid-cols-3">
               {connects.map((c, i) => (
                 <li key={c} className="flex items-center gap-2.5 text-sm text-white/80">
                   <span
@@ -66,21 +61,9 @@ export default function GrowthPathwaysSection() {
               className="absolute -inset-x-6 -inset-y-8 rounded-[2rem] bg-prestige-blue/20 blur-2xl"
               aria-hidden="true"
             />
-            <picture className="relative block overflow-hidden rounded-2xl shadow-lifted ring-1 ring-white/10">
-              <source srcSet={assetUrl('images/growth-pathways-dashboard.webp')} type="image/webp" />
-              <img
-                src={assetUrl('images/growth-pathways-dashboard.jpg')}
-                alt="The Prestige Growth Pathways dashboard, showing workforce readiness, skill gaps and development progress by division with sample product-demo figures"
-                width={metaFor('growth-pathways-dashboard.jpg')?.w}
-                height={metaFor('growth-pathways-dashboard.jpg')?.h}
-                loading="lazy"
-                decoding="async"
-                className="block w-full"
-              />
-            </picture>
-            <p className="relative mt-4 text-center text-xs text-white/50">
-              From the Prestige Growth Pathways product film — sample figures, not client data.
-            </p>
+            <div className="relative">
+              <GrowthPathwaysMockup />
+            </div>
           </Reveal>
         </div>
       </div>
