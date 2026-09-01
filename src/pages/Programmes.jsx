@@ -23,6 +23,7 @@ import { totalShortCourses } from '../data/shortCourses.js'
 import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { Accent } from '../components/Section.jsx'
 import CornerSwirl from '../components/CornerSwirl.jsx'
+import { FileText, User, Target } from 'lucide-react'
 
 const ALL = 'All'
 
@@ -134,9 +135,9 @@ export default function Programmes() {
           title: 'Qualifications & accredited programmes',
           lead: 'Structured programmes and learnerships that combine guided learning, workplace experience and formal assessment.',
           tiles: [
-            { name: 'Full qualifications', text: 'Structured learning toward a qualification, with formal assessment and moderation.' },
-            { name: 'Learnerships', text: 'Qualification-linked programmes combining classroom learning with structured workplace experience.' },
-            { name: 'Skills programmes', text: 'Focused components for organisations that need targeted capability quickly.' },
+            { name: 'Full qualifications', text: 'Structured learning toward a qualification, with formal assessment and moderation.', icon: FileText },
+            { name: 'Learnerships', text: 'Qualification-linked programmes combining classroom learning with structured workplace experience.', icon: User },
+            { name: 'Skills programmes', text: 'Focused components for organisations that need targeted capability quickly.', icon: Target },
           ],
           detail: AVAILABILITY_DISCLAIMER,
           cta: { label: 'View the qualification catalogue', href: '#catalogue' },
