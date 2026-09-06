@@ -84,7 +84,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** HR directors, L&D managers, skills development facilitators and business owners in South Africa
 
-**Visual direction:** Portrait photograph of a real graduate anchored to the right of the square and to the lower two-thirds of the vertical. Deep navy field carries the wordmark, headline and four proof points. A single green rule separates eyebrow from headline. No badges, no icon clutter.
+**Visual direction:** Header carries the logo on navy. The graduate portrait runs full width beneath it, veiled into the field at its lower edge. Green eyebrow and rule lead into the headline; three proof points on the square, four plus the supporting paragraph on the vertical. Green bar closes the poster with the website address.
 
 **Caption:**
 
@@ -129,7 +129,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** Skills development facilitators, HR managers and quality/compliance leads
 
-**Visual direction:** Photograph of graduates together bled across the top third. Navy content field below carries the headline and four assurance points, each on a green rule. Compliance footnote sits quietly at the base in muted type.
+**Visual direction:** Graduates-together photograph as the full-width band. Blue accent. Four assurance points on the vertical, three on the square, each marked with a blue dot. The availability footnote sits in muted type directly above the call-to-action bar.
 
 **Compliance footnote on the poster:** Programme availability subject to current registration and enrolment conditions.
 
@@ -172,7 +172,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** Manufacturing operations managers, plant HR, production supervisors and skills development facilitators in industry
 
-**Visual direction:** No photograph — a clean navy-to-blue field with a three-row NQF ladder. Each row states the qualification, NQF level and SAQA ID in a fixed three-column rhythm. Green rules separate rows. The scoping note sits at the base, legible but subordinate.
+**Visual direction:** No photograph. The navy field carries a three-row qualification ladder — each row names Production Technology, states its NQF level in blue at the right, and carries its SAQA ID beneath in muted type. The scoping note runs full width above the call-to-action bar.
 
 **Compliance footnote on the poster:** Production Technology delivery and learner registration are subject to confirmation of the applicable current accreditation, registration and enrolment route.
 
@@ -215,7 +215,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** L&D managers, operations managers and employees moving into project roles
 
-**Visual direction:** Photograph of a young professional cropped to the right column of the square, and to the upper band of the vertical. Left field is navy with the qualification title and a three-cell fact block — SAQA ID, NQF Level, Credits — set in equal-width cells so the numerals align on a shared baseline.
+**Visual direction:** Young-professional photograph as the top band. A three-cell fact block — SAQA ID, NQF Level, Credits — sits beneath the headline with the numerals on a shared baseline. Blue accent.
 
 **Compliance footnote on the poster:** Programme availability subject to current registration and enrolment conditions.
 
@@ -258,7 +258,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** HR managers, office managers and senior administrators
 
-**Visual direction:** No photograph. Cloud-white field with navy type for contrast against the darker posts either side of it in the calendar. Green fact block with three equal cells. Generous white space; the qualification name is the single dominant element.
+**Visual direction:** No photograph. The navy field is given over to the qualification name and a three-cell green fact block: SAQA ID 118740, NQF Level 5, 240 credits. The most spacious poster in the set, and the headline is set a size larger because nothing competes with it.
 
 **Compliance footnote on the poster:** Programme availability subject to current registration and enrolment conditions.
 
@@ -298,7 +298,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** HR directors, HR managers and HR administrators building an internal pipeline
 
-**Visual direction:** Two-row qualification ladder on navy, each row carrying name, NQF level and the SAQA ID with credits. Photograph of a young professional confined to a narrow right column on the square and a top band on the vertical, never overlapping type.
+**Visual direction:** Two-row qualification ladder on navy, each row carrying the role, its NQF level in blue, and the SAQA ID with credits beneath. Young-professional photograph as the top band.
 
 **Compliance footnote on the poster:** Programme availability subject to current registration and enrolment conditions.
 
@@ -343,7 +343,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** Marketing managers, HR managers and marketing assistants
 
-**Visual direction:** Green-accented fact block on navy, mirroring post 4 and 5 so the qualification posts read as one family. Photograph kept to a narrow column. Three points set as a single restrained row of labels, not icons.
+**Visual direction:** Green-accented three-cell fact block, mirroring posts 4 and 5 so the qualification posters read as one family. Young-professional photograph as the top band.
 
 **Compliance footnote on the poster:** Programme availability subject to current registration and enrolment conditions.
 
@@ -384,7 +384,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** ECD centre owners, community development programmes, CSI leads and ECD practitioners
 
-**Visual direction:** Warmest post of the set. Green accent throughout. Photograph of a graduate celebrating carries the emotional register; type stays disciplined and factual so the post does not tip into sentimentality.
+**Visual direction:** Graduate-celebrating photograph as the top band — the warmest image in the set. Green throughout. The fact block states SAQA ID, NQF Level and Credits, and the type stays factual so the post does not tip into sentimentality.
 
 **Compliance footnote on the poster:** Programme availability subject to current registration and enrolment conditions.
 
@@ -434,7 +434,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** Employers running youth programmes, CSI leads, community organisations and unemployed young people
 
-**Visual direction:** Photograph of a graduate celebrating, used at scale as the emotional anchor. Navy field carries a four-step explanation of what a learnership actually is. No promises of employment — the copy describes the structure, not an outcome.
+**Visual direction:** Graduate-celebrating photograph as the top band, green accent. The points explain what a learnership structurally is: four on the vertical, three on the square. No claim about employment outcomes appears anywhere on the poster.
 
 **Compliance footnote on the poster:** Learner eligibility, programme availability and enrolment conditions apply.
 
@@ -485,7 +485,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** Procurement teams, executives, transformation managers and skills development facilitators
 
-**Visual direction:** The most corporate post of the set. Photograph held to a narrow band. A single large 'Level 1' figure set in the fact block, with the four advisory services beneath on green rules. The disclaimer is given real space at the base — it is part of the credibility, not fine print to hide.
+**Visual direction:** Graduates-group photograph as the top band, blue accent. The headline states Level 1 B-BBEE plainly and four advisory services follow. The scope disclaimer is given real space above the call-to-action bar rather than being hidden as fine print.
 
 **Compliance footnote on the poster:** Prestige Tutelage is a training provider and skills development consultancy, not a B-BBEE verification agency. Learnerships may contribute to an organisation's broader skills-development and transformation objectives, subject to applicable legislation, codes and programme requirements.
 
@@ -518,7 +518,7 @@ people appear anywhere in the campaign.
 **Headline:** One partner, from the first gap analysis to the final report.
 **Headline (square):** One partner, end to end.
 
-**Supporting copy:** Understand. Diagnose. Design. Deliver. Measure. Instead of a different provider for every piece of the work.
+**Supporting copy:** One partner across analysis, delivery, learner administration, assessment and reporting — instead of a different provider for every piece of the work.
 
 **On-poster points:**
 - Understand — objectives, operations and constraints
@@ -538,7 +538,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** HR directors, L&D managers, operations managers and executives
 
-**Visual direction:** A five-step process ladder — the only numbered layout in the campaign. Steps are numbered 01 to 05 in green, set on a strict vertical rhythm with equal row heights. Photograph reduced to a top band so the sequence carries the post.
+**Visual direction:** The only numbered layout in the campaign. Steps run 01 to 05 in blue on a strict vertical rhythm — the five verbs alone on the square, each with its explanation on the vertical. Graduates-together photograph as the top band.
 
 **Caption:**
 
@@ -583,7 +583,7 @@ people appear anywhere in the campaign.
 
 **Target audience:** HR directors, L&D managers, skills development facilitators, operations managers and business owners
 
-**Visual direction:** The closing post. Photograph returns from post 1 so the campaign frames itself. Contact details are set as a clean four-row block with the website first and largest. Green accent. No form fields, no urgency devices, no false scarcity.
+**Visual direction:** The closing poster. The graduate portrait from post 1 returns so the campaign frames itself. Contact details form a four-row block with the website first and set in bold. Green accent. No form fields, no urgency devices, no false scarcity.
 
 **Caption:**
 
