@@ -1,0 +1,1088 @@
+{
+  "campaign": {
+    "name": "Prestige Tutelage — Skills That Work",
+    "owner": "Prestige Tutelage (Pty) Ltd",
+    "posts": 12,
+    "cadence": "One post per campaign day, weekdays",
+    "primaryCta": "prestigetutelage.co.za",
+    "channels": {
+      "linkedin": "Posted manually from the LinkedIn manual-posting guide",
+      "facebook": "Prepared later through Metricool",
+      "tiktok": "Prepared later through Metricool",
+      "youtube": "Prepared later through Metricool (Shorts)"
+    },
+    "language": "South African English (en-ZA)",
+    "assetSpec": {
+      "square": "1080 x 1080 PNG",
+      "vertical": "1080 x 1920 PNG",
+      "video": "1080 x 1920 MP4, H.264, 30fps, 15-25s, silent, on-screen text only"
+    }
+  },
+  "brand": {
+    "logo": "public/prestige-tutelage-logo.png",
+    "logoNote": "Original supplied artwork. Never redrawn, recoloured or substituted.",
+    "colours": {
+      "blue": "#006FD8",
+      "blueDeep": "#0B2742",
+      "blueMid": "#0E3E6B",
+      "green": "#2DA22F",
+      "greenDeep": "#1B7A2E",
+      "ink": "#102436",
+      "body": "#526575",
+      "cloud": "#F5F8FA",
+      "line": "#DCE6EC",
+      "paper": "#FFFFFF"
+    },
+    "colourNote": "Blue and green are sampled directly from the original logo artwork so every poster sits in exact harmony with the mark. blueDeep, ink, body, cloud and line are the repository's own tokens from tailwind.config.js.",
+    "typography": {
+      "family": "Poppins",
+      "weights": [
+        300,
+        400,
+        500,
+        600,
+        700,
+        800
+      ],
+      "note": "Poppins matches the geometric sans of the original logo wordmark."
+    },
+    "tagline": "Passion for training",
+    "positioning": "Accredited training & workforce development"
+  },
+  "contact": {
+    "website": "prestigetutelage.co.za",
+    "email": "info@prestigetutelage.co.za",
+    "phone": "010 065 0822",
+    "address": "64 Hill Street, Ferndale, Randburg, 2194"
+  },
+  "compliance": {
+    "availabilityDisclaimer": "Programme availability is subject to current qualification registration, Prestige Tutelage's applicable accreditation or approved delivery route, learner eligibility, workplace requirements and the relevant assessment and certification arrangements.",
+    "availabilityShort": "Programme availability subject to current registration and enrolment conditions.",
+    "rules": [
+      "No invented statistics, completion rates, learner numbers or client counts.",
+      "No named clients, testimonials or logos that are not supplied and approved.",
+      "No AI-generated people. Only the five genuine photographs already in the repository.",
+      "SAQA IDs, NQF levels and credits are quoted only where the repository holds a verified value.",
+      "Short courses are never described as accredited or credit-bearing.",
+      "B-BBEE posts claim Level 1 contributor status only, with no guarantee of client scorecard outcomes.",
+      "Prestige is never presented as a B-BBEE verification agency."
+    ]
+  },
+  "photography": [
+    {
+      "file": "graduate-portrait-hero.jpg",
+      "size": "1200x1500",
+      "subject": "Graduate portrait, vertical",
+      "usedBy": [
+        1,
+        12
+      ]
+    },
+    {
+      "file": "graduate-celebrating.jpg",
+      "size": "1400x1120",
+      "subject": "Graduate celebrating",
+      "usedBy": [
+        8,
+        9
+      ]
+    },
+    {
+      "file": "graduates-together.jpg",
+      "size": "1600x1067",
+      "subject": "Graduates together",
+      "usedBy": [
+        2,
+        11
+      ]
+    },
+    {
+      "file": "graduates-group.jpg",
+      "size": "1600x1067",
+      "subject": "Group of graduates walking",
+      "usedBy": [
+        10
+      ]
+    },
+    {
+      "file": "young-professional.jpg",
+      "size": "1400x1120",
+      "subject": "Young professional",
+      "usedBy": [
+        4,
+        6,
+        7
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "day": 1,
+      "theme": "Prestige Tutelage company introduction",
+      "layout": "photo-hero",
+      "photo": "graduate-portrait-hero.jpg",
+      "accent": "green",
+      "eyebrow": "Accredited training & workforce development",
+      "headline": "Skills that hold up at work.",
+      "subhead": "Prestige Tutelage is a South African training and workforce development company based in Randburg, working with employers across business, production, agriculture and community development.",
+      "points": [
+        "Accredited programmes and learnerships",
+        "Short courses and corporate training",
+        "Own assessment centre and learner administration",
+        "Level 1 B-BBEE contributor"
+      ],
+      "squarePoints": [
+        "Accredited programmes and learnerships",
+        "Short courses and corporate training",
+        "Assessment and learner administration"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "",
+      "audience": "HR directors, L&D managers, skills development facilitators and business owners in South Africa",
+      "visualDirection": "Portrait photograph of a real graduate anchored to the right of the square and to the lower two-thirds of the vertical. Deep navy field carries the wordmark, headline and four proof points. A single green rule separates eyebrow from headline. No badges, no icon clutter.",
+      "caption": "Prestige Tutelage is an accredited training and workforce development company based in Ferndale, Randburg.\n\nWe work with employers across business, production, agriculture and community development — delivering accredited programmes and learnerships, short courses and corporate training, with our own assessment centre and learner administration behind every result.\n\nOne partner across analysis, delivery, assessment and reporting. A Level 1 B-BBEE contributor.\n\nHave a look at what we do: prestigetutelage.co.za",
+      "hashtags": [
+        "#SkillsDevelopment",
+        "#Learnerships",
+        "#SouthAfrica",
+        "#WorkforceDevelopment",
+        "#Training"
+      ],
+      "media": {
+        "square": "post-01-company-introduction-square.png",
+        "vertical": "post-01-company-introduction-vertical.png",
+        "video": "post-01-company-introduction.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 3.0
+        },
+        {
+          "kind": "statement",
+          "text": "Skills that hold up at work.",
+          "sub": "Accredited training & workforce development",
+          "seconds": 3.6
+        },
+        {
+          "kind": "list",
+          "text": "What we do",
+          "items": [
+            "Accredited programmes and learnerships",
+            "Short courses and corporate training",
+            "Assessment and learner administration"
+          ],
+          "seconds": 5.4
+        },
+        {
+          "kind": "photo",
+          "text": "Based in Randburg. Delivering across South Africa.",
+          "sub": "Level 1 B-BBEE contributor",
+          "seconds": 3.6
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "day": 2,
+      "theme": "Accredited workplace skills development",
+      "layout": "photo-hero",
+      "photo": "graduates-together.jpg",
+      "accent": "blue",
+      "eyebrow": "Accredited programmes",
+      "headline": "A certificate is only worth the work behind it.",
+      "subhead": "Prestige delivers qualifications with formal assessment, moderation and quality assurance behind every result — and the learner administration that keeps the record clean.",
+      "points": [
+        "Planned, fair assessment against agreed outcomes",
+        "Independent moderation of assessment decisions",
+        "Controlled invigilation and evidence management",
+        "Registrations, attendance and progress properly tracked"
+      ],
+      "squarePoints": [
+        "Planned, fair assessment",
+        "Independent moderation",
+        "Controlled invigilation and evidence"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Programme availability subject to current registration and enrolment conditions.",
+      "audience": "Skills development facilitators, HR managers and quality/compliance leads",
+      "visualDirection": "Photograph of graduates together bled across the top third. Navy content field below carries the headline and four assurance points, each on a green rule. Compliance footnote sits quietly at the base in muted type.",
+      "caption": "A qualification means something when the work behind it is real.\n\nAt Prestige Tutelage, every result is backed by planned assessment against agreed outcomes, independent moderation, controlled invigilation and properly managed evidence. Registrations, attendance and learner progress are tracked so the records stand up to scrutiny long after the certificate is handed over.\n\nAdministration is not paperwork. It is part of the quality.\n\nProgramme availability is subject to current registration and enrolment conditions.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#SkillsDevelopment",
+        "#Accreditation",
+        "#QualityAssurance",
+        "#Learnerships",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-02-accredited-skills-development-square.png",
+        "vertical": "post-02-accredited-skills-development-vertical.png",
+        "video": "post-02-accredited-skills-development.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "A certificate is only worth the work behind it.",
+          "sub": "Accredited programmes",
+          "seconds": 4.0
+        },
+        {
+          "kind": "list",
+          "text": "Behind every result",
+          "items": [
+            "Planned, fair assessment",
+            "Independent moderation",
+            "Controlled invigilation and evidence management"
+          ],
+          "seconds": 5.4
+        },
+        {
+          "kind": "statement",
+          "text": "Administration is part of the quality.",
+          "sub": "Clean records. Honest assessment.",
+          "seconds": 3.6
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "day": 3,
+      "theme": "Production Technology programmes",
+      "layout": "programme",
+      "photo": null,
+      "accent": "blue",
+      "eyebrow": "Manufacturing & Production",
+      "headline": "Production Technology, NQF 2 to NQF 4.",
+      "subhead": "Structured technical progression for production teams — from entry-level discipline on the line through to leading-hand responsibility.",
+      "programmeRows": [
+        {
+          "label": "Production Technology",
+          "meta": "NQF 2",
+          "saqa": "SAQA ID 58781"
+        },
+        {
+          "label": "Production Technology",
+          "meta": "NQF 3",
+          "saqa": "SAQA ID 58785"
+        },
+        {
+          "label": "Production Technology",
+          "meta": "NQF 4",
+          "saqa": "SAQA ID 58779"
+        }
+      ],
+      "points": [
+        "Entry-level production staff building technical discipline",
+        "Team members consolidating competence on the line",
+        "Experienced staff progressing toward leading-hand roles"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Production Technology delivery and learner registration are subject to confirmation of the applicable current accreditation, registration and enrolment route.",
+      "audience": "Manufacturing operations managers, plant HR, production supervisors and skills development facilitators in industry",
+      "visualDirection": "No photograph — a clean navy-to-blue field with a three-row NQF ladder. Each row states the qualification, NQF level and SAQA ID in a fixed three-column rhythm. Green rules separate rows. The scoping note sits at the base, legible but subordinate.",
+      "caption": "Production Technology at NQF 2, 3 and 4 — a structured route for the people who run the line.\n\nNQF 2 (SAQA ID 58781) builds foundational technical and operational discipline for entry-level production staff. NQF 3 (SAQA ID 58785) consolidates technical competence on the line. NQF 4 (SAQA ID 58779) supports experienced staff moving toward technical and leading-hand responsibility.\n\nAlongside these, we design customised technical interventions around a plant's own equipment, standards and problems — machine operation, first-line maintenance, 5S, root-cause analysis and quality awareness.\n\nProduction Technology delivery and learner registration are subject to confirmation of the applicable current accreditation, registration and enrolment route.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#Manufacturing",
+        "#ProductionTechnology",
+        "#SkillsDevelopment",
+        "#NQF",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-03-production-technology-square.png",
+        "vertical": "post-03-production-technology-vertical.png",
+        "video": "post-03-production-technology.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Production Technology",
+          "sub": "Manufacturing & Production",
+          "seconds": 3.2
+        },
+        {
+          "kind": "rows",
+          "text": "Three levels",
+          "items": [
+            "Production Technology  ·  NQF 2",
+            "Production Technology  ·  NQF 3",
+            "Production Technology  ·  NQF 4"
+          ],
+          "seconds": 6.0
+        },
+        {
+          "kind": "statement",
+          "text": "From the line to leading hand.",
+          "sub": "Structured technical progression",
+          "seconds": 3.6
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "day": 4,
+      "theme": "Project Management NQF Level 5",
+      "layout": "programme",
+      "photo": "young-professional.jpg",
+      "accent": "blue",
+      "eyebrow": "Occupational Qualification",
+      "headline": "Project Manager, NQF Level 5.",
+      "subhead": "For project coordinators, team leaders, administrators and employees stepping into project-management responsibility.",
+      "programmeRows": [
+        {
+          "label": "SAQA ID",
+          "meta": "101869",
+          "saqa": ""
+        },
+        {
+          "label": "NQF Level",
+          "meta": "5",
+          "saqa": ""
+        },
+        {
+          "label": "Credits",
+          "meta": "240",
+          "saqa": ""
+        }
+      ],
+      "points": [
+        "Project coordinators and team leaders",
+        "Administrators taking on project responsibility",
+        "Employees moving into formal project roles"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Programme availability subject to current registration and enrolment conditions.",
+      "audience": "L&D managers, operations managers and employees moving into project roles",
+      "visualDirection": "Photograph of a young professional cropped to the right column of the square, and to the upper band of the vertical. Left field is navy with the qualification title and a three-cell fact block — SAQA ID, NQF Level, Credits — set in equal-width cells so the numerals align on a shared baseline.",
+      "caption": "Project Manager — an occupational qualification at NQF Level 5, 240 credits (SAQA ID 101869).\n\nIt is built for project coordinators, team leaders, administrators and employees progressing into project-management responsibilities: the people already holding projects together who need the formal grounding to match.\n\nDelivered on-site, off-site or as a cohort programme, with learner administration and assessment handled end to end.\n\nProgramme availability is subject to current registration and enrolment conditions.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#ProjectManagement",
+        "#NQF5",
+        "#SkillsDevelopment",
+        "#ProfessionalDevelopment",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-04-project-management-nqf5-square.png",
+        "vertical": "post-04-project-management-nqf5-vertical.png",
+        "video": "post-04-project-management-nqf5.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Project Manager",
+          "sub": "Occupational Qualification · NQF Level 5",
+          "seconds": 3.6
+        },
+        {
+          "kind": "facts",
+          "text": "",
+          "items": [
+            "SAQA ID|101869",
+            "NQF Level|5",
+            "Credits|240"
+          ],
+          "seconds": 5.4
+        },
+        {
+          "kind": "statement",
+          "text": "For the people already holding projects together.",
+          "sub": "Coordinators · Team leaders · Administrators",
+          "seconds": 4.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "day": 5,
+      "theme": "Office Supervisor NQF Level 5",
+      "layout": "programme",
+      "photo": null,
+      "accent": "green",
+      "eyebrow": "Occupational Qualification",
+      "headline": "Office Supervisor, NQF Level 5.",
+      "subhead": "For office coordinators and senior administrators supervising administrative teams and office operations.",
+      "programmeRows": [
+        {
+          "label": "SAQA ID",
+          "meta": "118740",
+          "saqa": ""
+        },
+        {
+          "label": "NQF Level",
+          "meta": "5",
+          "saqa": ""
+        },
+        {
+          "label": "Credits",
+          "meta": "240",
+          "saqa": ""
+        }
+      ],
+      "points": [
+        "Office coordinators supervising administrative teams",
+        "Senior administrators accountable for office operations",
+        "Administrators moving into first-line supervision"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Programme availability subject to current registration and enrolment conditions.",
+      "audience": "HR managers, office managers and senior administrators",
+      "visualDirection": "No photograph. Cloud-white field with navy type for contrast against the darker posts either side of it in the calendar. Green fact block with three equal cells. Generous white space; the qualification name is the single dominant element.",
+      "caption": "Office Supervisor — an occupational qualification at NQF Level 5, 240 credits (SAQA ID 118740).\n\nIt is designed for office coordinators and senior administrators who supervise administrative teams and office operations — the role where good admin becomes real supervision, and where most people are promoted into responsibility without ever being trained for it.\n\nProgramme availability is subject to current registration and enrolment conditions.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#OfficeSupervisor",
+        "#NQF5",
+        "#SkillsDevelopment",
+        "#Administration",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-05-office-supervisor-nqf5-square.png",
+        "vertical": "post-05-office-supervisor-nqf5-vertical.png",
+        "video": "post-05-office-supervisor-nqf5.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Office Supervisor",
+          "sub": "Occupational Qualification · NQF Level 5",
+          "seconds": 3.6
+        },
+        {
+          "kind": "facts",
+          "text": "",
+          "items": [
+            "SAQA ID|118740",
+            "NQF Level|5",
+            "Credits|240"
+          ],
+          "seconds": 5.4
+        },
+        {
+          "kind": "statement",
+          "text": "Promoted into responsibility. Trained for it.",
+          "sub": "For office coordinators and senior administrators",
+          "seconds": 4.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "day": 6,
+      "theme": "Human Resources programmes",
+      "layout": "programme",
+      "photo": "young-professional.jpg",
+      "accent": "blue",
+      "eyebrow": "Occupational Qualifications",
+      "headline": "Two levels of HR qualification.",
+      "subhead": "A formal route from HR administration into generalist and advisory practice.",
+      "programmeRows": [
+        {
+          "label": "HR Management Administrator",
+          "meta": "NQF 5",
+          "saqa": "SAQA ID 121150 · 120 credits"
+        },
+        {
+          "label": "HR Management Officer",
+          "meta": "NQF 6",
+          "saqa": "SAQA ID 121151 · 134 credits"
+        }
+      ],
+      "points": [
+        "Administrators building a formal foundation in HR practice",
+        "Officers progressing into generalist and advisory work"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Programme availability subject to current registration and enrolment conditions.",
+      "audience": "HR directors, HR managers and HR administrators building an internal pipeline",
+      "visualDirection": "Two-row qualification ladder on navy, each row carrying name, NQF level and the SAQA ID with credits. Photograph of a young professional confined to a narrow right column on the square and a top band on the vertical, never overlapping type.",
+      "caption": "Two levels of HR qualification, and a clear route between them.\n\nHuman Resource Management Administrator sits at NQF Level 5, 120 credits (SAQA ID 121150) — a formal foundation for HR administrators and assistants building their grounding in human resource practice and people administration.\n\nHuman Resource Management Officer sits at NQF Level 6, 134 credits (SAQA ID 121151) — for HR officers and practitioners progressing into broader generalist and advisory responsibilities.\n\nIt is a practical way to build an HR pipeline inside the business rather than recruiting for it every time.\n\nProgramme availability is subject to current registration and enrolment conditions.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#HumanResources",
+        "#HRDevelopment",
+        "#NQF",
+        "#SkillsDevelopment",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-06-human-resources-square.png",
+        "vertical": "post-06-human-resources-vertical.png",
+        "video": "post-06-human-resources.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Human Resources",
+          "sub": "Occupational Qualifications",
+          "seconds": 3.2
+        },
+        {
+          "kind": "rows",
+          "text": "Two levels",
+          "items": [
+            "HR Management Administrator  ·  NQF 5",
+            "HR Management Officer  ·  NQF 6"
+          ],
+          "seconds": 5.4
+        },
+        {
+          "kind": "statement",
+          "text": "Build the HR pipeline inside the business.",
+          "sub": "A formal route from administration to advisory",
+          "seconds": 4.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "day": 7,
+      "theme": "Marketing Coordinator NQF Level 5",
+      "layout": "programme",
+      "photo": "young-professional.jpg",
+      "accent": "green",
+      "eyebrow": "Occupational Qualification",
+      "headline": "Marketing Coordinator, NQF Level 5.",
+      "subhead": "For marketing assistants and coordinators responsible for campaign coordination, customer insight and marketing administration.",
+      "programmeRows": [
+        {
+          "label": "SAQA ID",
+          "meta": "118706",
+          "saqa": ""
+        },
+        {
+          "label": "NQF Level",
+          "meta": "5",
+          "saqa": ""
+        },
+        {
+          "label": "Credits",
+          "meta": "175",
+          "saqa": ""
+        }
+      ],
+      "points": [
+        "Campaign coordination",
+        "Customer insight",
+        "Marketing administration"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Programme availability subject to current registration and enrolment conditions.",
+      "audience": "Marketing managers, HR managers and marketing assistants",
+      "visualDirection": "Green-accented fact block on navy, mirroring post 4 and 5 so the qualification posts read as one family. Photograph kept to a narrow column. Three points set as a single restrained row of labels, not icons.",
+      "caption": "Marketing Coordinator — an occupational qualification at NQF Level 5, 175 credits (SAQA ID 118706).\n\nIt is aimed at marketing assistants and coordinators responsible for campaign coordination, customer insight and marketing administration — the practical, organising side of marketing that keeps campaigns running properly.\n\nProgramme availability is subject to current registration and enrolment conditions.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#Marketing",
+        "#NQF5",
+        "#SkillsDevelopment",
+        "#ProfessionalDevelopment",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-07-marketing-coordinator-nqf5-square.png",
+        "vertical": "post-07-marketing-coordinator-nqf5-vertical.png",
+        "video": "post-07-marketing-coordinator-nqf5.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Marketing Coordinator",
+          "sub": "Occupational Qualification · NQF Level 5",
+          "seconds": 3.6
+        },
+        {
+          "kind": "facts",
+          "text": "",
+          "items": [
+            "SAQA ID|118706",
+            "NQF Level|5",
+            "Credits|175"
+          ],
+          "seconds": 5.4
+        },
+        {
+          "kind": "statement",
+          "text": "The organising side of marketing.",
+          "sub": "Campaigns · Customer insight · Administration",
+          "seconds": 4.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "day": 8,
+      "theme": "Early Childhood Development",
+      "layout": "photo-hero",
+      "photo": "graduate-celebrating.jpg",
+      "accent": "green",
+      "eyebrow": "Education & Community Development",
+      "headline": "Early Childhood Development.",
+      "subhead": "The Early Childhood Development Practitioner qualification — for practitioners, assistants and community-based educators supporting young children’s learning, care and development.",
+      "programmeRows": [
+        {
+          "label": "SAQA ID",
+          "meta": "97542",
+          "saqa": ""
+        },
+        {
+          "label": "NQF Level",
+          "meta": "4",
+          "saqa": ""
+        },
+        {
+          "label": "Credits",
+          "meta": "131",
+          "saqa": ""
+        }
+      ],
+      "points": [
+        "ECD practitioners and assistants",
+        "Community-based educators",
+        "Centres formalising practitioner qualifications"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Programme availability subject to current registration and enrolment conditions.",
+      "audience": "ECD centre owners, community development programmes, CSI leads and ECD practitioners",
+      "visualDirection": "Warmest post of the set. Green accent throughout. Photograph of a graduate celebrating carries the emotional register; type stays disciplined and factual so the post does not tip into sentimentality.",
+      "caption": "Early Childhood Development Practitioner — an occupational qualification at NQF Level 4, 131 credits (SAQA ID 97542).\n\nIt supports ECD practitioners, assistants and community-based educators working with young children's learning, care and development — often people who have been doing the work for years without a formal qualification behind them.\n\nFor centres, community programmes and CSI initiatives, it is a direct way to formalise practice and strengthen the people already doing the job.\n\nProgramme availability is subject to current registration and enrolment conditions.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#EarlyChildhoodDevelopment",
+        "#ECD",
+        "#SkillsDevelopment",
+        "#CommunityDevelopment",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-08-early-childhood-development-square.png",
+        "vertical": "post-08-early-childhood-development-vertical.png",
+        "video": "post-08-early-childhood-development.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Early Childhood Development Practitioner",
+          "sub": "Occupational Qualification · NQF Level 4",
+          "seconds": 4.0
+        },
+        {
+          "kind": "facts",
+          "text": "",
+          "items": [
+            "SAQA ID|97542",
+            "NQF Level|4",
+            "Credits|131"
+          ],
+          "seconds": 5.0
+        },
+        {
+          "kind": "photo",
+          "text": "Formalise the practice of people already doing the work.",
+          "sub": "Practitioners · Assistants · Community educators",
+          "seconds": 4.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "day": 9,
+      "theme": "Learnership opportunities for unemployed youth",
+      "layout": "photo-hero",
+      "photo": "graduate-celebrating.jpg",
+      "accent": "green",
+      "eyebrow": "Unemployed learnerships — 18.2",
+      "headline": "A structured route from no experience to a real qualification.",
+      "headlineSquare": "A real route to a real qualification.",
+      "subhead": "A learnership combines classroom learning with real workplace experience under a formal agreement between the learner, the employer and the training provider.",
+      "points": [
+        "Classroom learning with structured workplace exposure",
+        "A formal learning agreement, not an informal placement",
+        "Learner support that keeps people engaged and progressing",
+        "A registered qualification at the end of the route"
+      ],
+      "squarePoints": [
+        "Classroom learning with workplace exposure",
+        "A formal learning agreement",
+        "A registered qualification at the end"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Learner eligibility, programme availability and enrolment conditions apply.",
+      "audience": "Employers running youth programmes, CSI leads, community organisations and unemployed young people",
+      "visualDirection": "Photograph of a graduate celebrating, used at scale as the emotional anchor. Navy field carries a four-step explanation of what a learnership actually is. No promises of employment — the copy describes the structure, not an outcome.",
+      "caption": "What a learnership actually is, in plain terms.\n\nIt is a structured, work-based route to a registered qualification. Classroom learning is combined with real workplace experience, under a formal agreement between the learner, the employer and the training provider.\n\nAn 18.2 learnership creates that structure for unemployed learners — proper learning, proper workplace exposure, and human support that keeps people engaged and progressing rather than dropping out halfway.\n\nFor employers, Prestige carries the load: learner sourcing, screening, onboarding, learning agreements, induction, delivery, workplace coordination, attendance, assessments, monitoring and reporting.\n\nLearner eligibility, programme availability and enrolment conditions apply.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#Learnerships",
+        "#YouthEmployment",
+        "#SkillsDevelopment",
+        "#YouthDevelopment",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-09-youth-learnerships-square.png",
+        "vertical": "post-09-youth-learnerships-vertical.png",
+        "video": "post-09-youth-learnerships.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "What a learnership actually is.",
+          "sub": "Unemployed learnerships — 18.2",
+          "seconds": 3.6
+        },
+        {
+          "kind": "list",
+          "text": "The structure",
+          "items": [
+            "Classroom learning",
+            "Real workplace experience",
+            "A formal learning agreement",
+            "A registered qualification"
+          ],
+          "seconds": 6.0
+        },
+        {
+          "kind": "photo",
+          "text": "Structure, support and a route that finishes.",
+          "sub": "",
+          "seconds": 3.6
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "day": 10,
+      "theme": "Employer B-BBEE and skills-development value",
+      "layout": "photo-hero",
+      "photo": "graduates-group.jpg",
+      "accent": "blue",
+      "eyebrow": "For employers",
+      "headline": "Level 1 B-BBEE.",
+      "subhead": "Prestige Tutelage is a Level 1 B-BBEE contributor. Procurement from Prestige supports clients’ own scorecards, and our programmes can support the skills development element of B-BBEE planning.",
+      "points": [
+        "Skills gap and training needs analysis",
+        "Skills development consulting on pathways and evidence",
+        "B-BBEE skills development advisory and implementation support",
+        "Clean learner data and reporting for skills planning cycles"
+      ],
+      "squarePoints": [
+        "Skills gap and training needs analysis",
+        "Skills development consulting",
+        "B-BBEE skills development advisory"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "Prestige Tutelage is a training provider and skills development consultancy, not a B-BBEE verification agency. Learnerships may contribute to an organisation's broader skills-development and transformation objectives, subject to applicable legislation, codes and programme requirements.",
+      "audience": "Procurement teams, executives, transformation managers and skills development facilitators",
+      "visualDirection": "The most corporate post of the set. Photograph held to a narrow band. A single large 'Level 1' figure set in the fact block, with the four advisory services beneath on green rules. The disclaimer is given real space at the base — it is part of the credibility, not fine print to hide.",
+      "caption": "Prestige Tutelage is a Level 1 B-BBEE contributor.\n\nProcurement from Prestige supports clients' own scorecards, and our programmes can support the skills development element of B-BBEE planning.\n\nBeyond delivery, we help structure the work: skills gap analysis, training needs analysis, consulting on pathways, evidence and implementation, and the clean learner data and reporting that skills planning cycles depend on.\n\nTo be clear about scope — Prestige is a training provider and skills development consultancy, not a B-BBEE verification agency. Learnerships may contribute to an organisation's broader skills-development and transformation objectives, subject to applicable legislation, codes and programme requirements.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#BBBEE",
+        "#SkillsDevelopment",
+        "#Transformation",
+        "#Procurement",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-10-bbbee-employer-value-square.png",
+        "vertical": "post-10-bbbee-employer-value-vertical.png",
+        "video": "post-10-bbbee-employer-value.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Level 1 B-BBEE contributor.",
+          "sub": "For employers",
+          "seconds": 3.6
+        },
+        {
+          "kind": "list",
+          "text": "How we support the work",
+          "items": [
+            "Skills gap and training needs analysis",
+            "Skills development consulting",
+            "B-BBEE skills development advisory",
+            "Reporting for skills planning cycles"
+          ],
+          "seconds": 6.0
+        },
+        {
+          "kind": "statement",
+          "text": "A training provider and consultancy — not a verification agency.",
+          "sub": "Scope stated plainly",
+          "seconds": 4.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "day": 11,
+      "theme": "End-to-end learner and employer support",
+      "layout": "photo-hero",
+      "photo": "graduates-together.jpg",
+      "accent": "blue",
+      "eyebrow": "One accountable partner",
+      "headline": "One partner, from the first gap analysis to the final report.",
+      "headlineSquare": "One partner, end to end.",
+      "subhead": "Understand. Diagnose. Design. Deliver. Measure. Instead of a different provider for every piece of the work.",
+      "points": [
+        "Understand — objectives, operations and constraints",
+        "Diagnose — skills gap and training needs analysis",
+        "Design — the right mix of interventions",
+        "Deliver — facilitation, logistics and administration",
+        "Measure — progress, completion and application"
+      ],
+      "squarePoints": [
+        "Understand",
+        "Diagnose",
+        "Design",
+        "Deliver",
+        "Measure"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "",
+      "audience": "HR directors, L&D managers, operations managers and executives",
+      "visualDirection": "A five-step process ladder — the only numbered layout in the campaign. Steps are numbered 01 to 05 in green, set on a strict vertical rhythm with equal row heights. Photograph reduced to a top band so the sequence carries the post.",
+      "caption": "Five steps, one accountable partner.\n\nUnderstand — your objectives, operations, people and constraints.\nDiagnose — skills gap and training needs analysis grounded in the actual work.\nDesign — the right mix of qualifications, learnerships, short courses and workplace learning.\nDeliver — facilitation, logistics and learner administration handled end to end.\nMeasure — progress, completion and workplace application reported clearly.\n\nThat means one partner across accredited programmes, learnerships, short courses, workplace training, assessment and learner administration, instead of a different provider for every piece.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#WorkforceDevelopment",
+        "#LearningAndDevelopment",
+        "#SkillsDevelopment",
+        "#CorporateTraining",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-11-end-to-end-support-square.png",
+        "vertical": "post-11-end-to-end-support-vertical.png",
+        "video": "post-11-end-to-end-support.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "One partner, end to end.",
+          "sub": "Instead of a different provider for every piece",
+          "seconds": 3.6
+        },
+        {
+          "kind": "steps",
+          "text": "",
+          "items": [
+            "Understand",
+            "Diagnose",
+            "Design",
+            "Deliver",
+            "Measure"
+          ],
+          "seconds": 7.0
+        },
+        {
+          "kind": "statement",
+          "text": "Reported clearly, every step.",
+          "sub": "",
+          "seconds": 3.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "day": 12,
+      "theme": "Book a training consultation",
+      "layout": "cta",
+      "photo": "graduate-portrait-hero.jpg",
+      "accent": "green",
+      "eyebrow": "Start with a conversation",
+      "headline": "Let's scope the training properly, before anyone commits budget.",
+      "headlineSquare": "Let’s scope the training properly.",
+      "subhead": "A consultation to understand the roles, the gaps and the constraints — and to put a clear, structured proposal in front of you.",
+      "points": [
+        "prestigetutelage.co.za",
+        "info@prestigetutelage.co.za",
+        "010 065 0822",
+        "64 Hill Street, Ferndale, Randburg"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "",
+      "audience": "HR directors, L&D managers, skills development facilitators, operations managers and business owners",
+      "visualDirection": "The closing post. Photograph returns from post 1 so the campaign frames itself. Contact details are set as a clean four-row block with the website first and largest. Green accent. No form fields, no urgency devices, no false scarcity.",
+      "caption": "If training is on the plan for the year, the useful first step is a proper conversation.\n\nWe start with your business — the roles, the real gaps, the operational constraints and the budget reality — and come back with a structured proposal rather than a course list.\n\nprestigetutelage.co.za\ninfo@prestigetutelage.co.za\n010 065 0822\n64 Hill Street, Ferndale, Randburg\n\nHappy to talk it through whenever it suits you.",
+      "hashtags": [
+        "#SkillsDevelopment",
+        "#CorporateTraining",
+        "#Learnerships",
+        "#WorkforceDevelopment",
+        "#SouthAfrica"
+      ],
+      "media": {
+        "square": "post-12-book-a-consultation-square.png",
+        "vertical": "post-12-book-a-consultation-vertical.png",
+        "video": "post-12-book-a-consultation.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "Let's scope the training properly.",
+          "sub": "Before anyone commits budget",
+          "seconds": 3.8
+        },
+        {
+          "kind": "list",
+          "text": "What a consultation covers",
+          "items": [
+            "The roles and the real gaps",
+            "Operational and budget constraints",
+            "A structured proposal, not a course list"
+          ],
+          "seconds": 5.4
+        },
+        {
+          "kind": "contact",
+          "text": "prestigetutelage.co.za",
+          "items": [
+            "info@prestigetutelage.co.za",
+            "010 065 0822",
+            "64 Hill Street, Ferndale, Randburg"
+          ],
+          "seconds": 4.6
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.4
+        }
+      ]
+    }
+  ]
+}
