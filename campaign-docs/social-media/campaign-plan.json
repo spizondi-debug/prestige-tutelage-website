@@ -12,6 +12,11 @@
       "youtube": "Prepared later through Metricool (Shorts)"
     },
     "language": "South African English (en-ZA)",
+    "audio": {
+      "track": "campaign-docs/social-media/audio/REPLACE-WITH-LICENSED-TRACK.mp3",
+      "note": "Background music. No voiceover in these videos, so the track is normalised to -14 LUFS — a normal listening level, not a ducked bed. Must be a licensed track; replace the placeholder before publishing.",
+      "loudnessLufs": -14
+    },
     "assetSpec": {
       "square": "1080 x 1080 PNG",
       "vertical": "1080 x 1920 PNG",

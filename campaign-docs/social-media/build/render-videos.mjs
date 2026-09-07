@@ -6,7 +6,7 @@
 
 import { chromium } from 'playwright'
 import { spawn } from 'node:child_process'
-import { mkdirSync } from 'node:fs'
+import { mkdirSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { plan, videoHtml, durationOf, repoRoot, W, H, FPS } from './video.mjs'
 
@@ -15,6 +15,60 @@ const posts = only.length ? plan.posts.filter((p) => only.includes(p.id)) : plan
 
 const OUT = resolve(repoRoot, 'public/social-posts/videos')
 mkdirSync(OUT, { recursive: true })
+
+/**
+ * Background music, if a track has been supplied.
+ *
+ * The campaign default lives at plan.campaign.audio.track; a post may override
+ * it with its own `audioTrack`. Paths are relative to the repo root. When no
+ * track is present the render stays silent, exactly as before — the videos are
+ * designed to be understood with the sound off either way.
+ *
+ * These videos carry no voiceover, so the music is the only audio and should sit
+ * at a normal listening level rather than ducked under a voice. Rather than
+ * trusting whatever level the supplied file happens to have, the track is
+ * loudness-normalised to -14 LUFS with -1.5 dBTP headroom: the target the
+ * platforms normalise to anyway, so the clip is neither quiet nor clipped.
+ *
+ * If a voiceover is added later, drop LUFS_TARGET to about -24 so the music
+ * sits under the voice.
+ */
+const LUFS_TARGET = Number(process.env.PT_AUDIO_LUFS ?? -14)
+const TRUE_PEAK = -1.5
+const FADE_IN = 0.8
+const FADE_OUT = 1.5
+
+function trackFor(post) {
+  const rel = post.audioTrack ?? plan.campaign?.audio?.track
+  if (!rel) return null
+  const abs = resolve(repoRoot, rel)
+  if (!existsSync(abs)) {
+    console.log(`     ! audio track not found, rendering silent: ${rel}`)
+    return null
+  }
+  return abs
+}
+
+/** ffmpeg arguments for muxing the bed under a clip of `seconds`. */
+function audioArgs(track, seconds) {
+  if (!track) return { input: [], output: ['-an'] }
+  return {
+    // Loop the track so a short bed still covers the whole clip.
+    input: ['-stream_loop', '-1', '-i', track],
+    output: [
+      '-map', '0:v:0', '-map', '1:a:0',
+      '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2',
+      '-af', [
+        `loudnorm=I=${LUFS_TARGET}:TP=${TRUE_PEAK}:LRA=11`,
+        'aresample=48000',
+        `afade=t=in:st=0:d=${FADE_IN}`,
+        `afade=t=out:st=${(seconds - FADE_OUT).toFixed(2)}:d=${FADE_OUT}`,
+      ].join(','),
+      // Cut the looped audio at the video's length.
+      '-shortest', '-fflags', '+shortest', '-max_interleave_delta', '0',
+    ],
+  }
+}
 
 /** Checks the copy fits the frame before spending a minute encoding it. */
 function auditVideoPage() {
@@ -64,9 +118,12 @@ for (const post of posts) {
     continue
   }
 
+  const track = trackFor(post)
+  const audio = audioArgs(track, seconds)
   const ff = spawn('ffmpeg', [
     '-y', '-loglevel', 'error',
     '-f', 'image2pipe', '-framerate', String(FPS), '-i', 'pipe:0',
+    ...audio.input,
     '-c:v', 'libx264',
     '-preset', 'slow',
     '-crf', '23',
@@ -75,6 +132,7 @@ for (const post of posts) {
     '-profile:v', 'high', '-level', '4.0',
     '-movflags', '+faststart',
     '-r', String(FPS),
+    ...audio.output,
     outFile,
   ])
   const done = new Promise((res, rej) => {
@@ -93,7 +151,8 @@ for (const post of posts) {
   await page.close()
 
   console.log(
-    `ok   post ${String(post.id).padStart(2, '0')} ${post.media.video}  ${seconds.toFixed(1)}s  ${frames} frames`,
+    `ok   post ${String(post.id).padStart(2, '0')} ${post.media.video}  ${seconds.toFixed(1)}s  ` +
+      `${frames} frames  ${track ? 'music' : 'silent'}`,
   )
 }
 
