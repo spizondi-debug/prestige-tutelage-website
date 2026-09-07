@@ -165,13 +165,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 3.0
+          "seconds": 3.0,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Skills that hold up at work.",
           "sub": "Accredited training & workforce development",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "Skills that hold up at work."
         },
         {
           "kind": "list",
@@ -181,19 +183,22 @@
             "Short courses and corporate training",
             "Assessment and learner administration"
           ],
-          "seconds": 5.4
+          "seconds": 5.4,
+          "vo": "Accredited programmes, short courses, assessment."
         },
         {
           "kind": "photo",
           "text": "Based in Randburg. Delivering across South Africa.",
           "sub": "Level 1 B-BBEE contributor",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "Randburg based, delivering nationwide."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -240,13 +245,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "A certificate is only worth the work behind it.",
           "sub": "Accredited programmes",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "A certificate is only worth the work behind it."
         },
         {
           "kind": "list",
@@ -256,19 +263,22 @@
             "Independent moderation",
             "Controlled invigilation and evidence management"
           ],
-          "seconds": 5.4
+          "seconds": 5.4,
+          "vo": "Planned assessment. Independent moderation."
         },
         {
           "kind": "statement",
           "text": "Administration is part of the quality.",
           "sub": "Clean records. Honest assessment.",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "Administration is part of the quality."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -326,13 +336,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Production Technology",
           "sub": "Manufacturing & Production",
-          "seconds": 3.2
+          "seconds": 3.2,
+          "vo": "Production Technology."
         },
         {
           "kind": "rows",
@@ -342,19 +354,22 @@
             "Production Technology  ·  NQF 3",
             "Production Technology  ·  NQF 4"
           ],
-          "seconds": 6.0
+          "seconds": 6.0,
+          "vo": "Three levels. NQF two, three and four."
         },
         {
           "kind": "statement",
           "text": "From the line to leading hand.",
           "sub": "Structured technical progression",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "From the line to leading hand."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -412,13 +427,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Project Manager",
           "sub": "Occupational Qualification · NQF Level 5",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "Project Manager."
         },
         {
           "kind": "facts",
@@ -428,19 +445,22 @@
             "NQF Level|5",
             "Credits|240"
           ],
-          "seconds": 5.4
+          "seconds": 5.4,
+          "vo": "NQF level five. Two hundred and forty credits."
         },
         {
           "kind": "statement",
           "text": "For the people already holding projects together.",
           "sub": "Coordinators · Team leaders · Administrators",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "For the people already holding projects together."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -498,13 +518,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Office Supervisor",
           "sub": "Occupational Qualification · NQF Level 5",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "Office Supervisor."
         },
         {
           "kind": "facts",
@@ -514,19 +536,22 @@
             "NQF Level|5",
             "Credits|240"
           ],
-          "seconds": 5.4
+          "seconds": 5.4,
+          "vo": "NQF level five. Two hundred and forty credits."
         },
         {
           "kind": "statement",
           "text": "Promoted into responsibility. Trained for it.",
           "sub": "For office coordinators and senior administrators",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "Trained for the responsibility."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -578,13 +603,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Human Resources",
           "sub": "Occupational Qualifications",
-          "seconds": 3.2
+          "seconds": 3.2,
+          "vo": "Human Resources."
         },
         {
           "kind": "rows",
@@ -593,19 +620,22 @@
             "HR Management Administrator  ·  NQF 5",
             "HR Management Officer  ·  NQF 6"
           ],
-          "seconds": 5.4
+          "seconds": 5.4,
+          "vo": "Administrator at NQF five. Officer at NQF six."
         },
         {
           "kind": "statement",
           "text": "Build the HR pipeline inside the business.",
           "sub": "A formal route from administration to advisory",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "Build the HR pipeline inside the business."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -663,13 +693,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Marketing Coordinator",
           "sub": "Occupational Qualification · NQF Level 5",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "Marketing Coordinator."
         },
         {
           "kind": "facts",
@@ -679,19 +711,22 @@
             "NQF Level|5",
             "Credits|175"
           ],
-          "seconds": 5.4
+          "seconds": 5.4,
+          "vo": "NQF level five. One hundred and seventy five credits."
         },
         {
           "kind": "statement",
           "text": "The organising side of marketing.",
           "sub": "Campaigns · Customer insight · Administration",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "The organising side of marketing."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -749,13 +784,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Early Childhood Development Practitioner",
           "sub": "Occupational Qualification · NQF Level 4",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "Early Childhood Development."
         },
         {
           "kind": "facts",
@@ -765,19 +802,22 @@
             "NQF Level|4",
             "Credits|131"
           ],
-          "seconds": 5.0
+          "seconds": 5.0,
+          "vo": "NQF level four. One hundred and thirty one credits."
         },
         {
           "kind": "photo",
           "text": "Formalise the practice of people already doing the work.",
           "sub": "Practitioners · Assistants · Community educators",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "For people already doing the work."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -825,13 +865,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "What a learnership actually is.",
           "sub": "Unemployed learnerships — 18.2",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "What a learnership actually is."
         },
         {
           "kind": "list",
@@ -842,19 +884,22 @@
             "A formal learning agreement",
             "A registered qualification"
           ],
-          "seconds": 6.0
+          "seconds": 6.0,
+          "vo": "Classroom learning. Workplace experience."
         },
         {
           "kind": "photo",
           "text": "Structure, support and a route that finishes.",
           "sub": "",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "A route that finishes."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -901,13 +946,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Level 1 B-BBEE contributor.",
           "sub": "For employers",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "Level one B-BBEE."
         },
         {
           "kind": "list",
@@ -918,19 +965,22 @@
             "B-BBEE skills development advisory",
             "Reporting for skills planning cycles"
           ],
-          "seconds": 6.0
+          "seconds": 6.0,
+          "vo": "Skills gap analysis. Consulting. Reporting you can use."
         },
         {
           "kind": "statement",
           "text": "A training provider and consultancy — not a verification agency.",
           "sub": "Scope stated plainly",
-          "seconds": 4.0
+          "seconds": 4.0,
+          "vo": "A training provider, not a verifier."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -981,13 +1031,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "One partner, end to end.",
           "sub": "Instead of a different provider for every piece",
-          "seconds": 3.6
+          "seconds": 3.6,
+          "vo": "One partner, end to end."
         },
         {
           "kind": "steps",
@@ -999,19 +1051,22 @@
             "Deliver",
             "Measure"
           ],
-          "seconds": 7.0
+          "seconds": 7.0,
+          "vo": "Understand. Diagnose. Design. Deliver. Measure."
         },
         {
           "kind": "statement",
           "text": "Reported clearly, every step.",
           "sub": "",
-          "seconds": 3.0
+          "seconds": 3.0,
+          "vo": "Reported clearly."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     },
@@ -1054,13 +1109,15 @@
           "kind": "logo",
           "text": "",
           "sub": "",
-          "seconds": 2.6
+          "seconds": 2.6,
+          "vo": "Prestige Tutelage."
         },
         {
           "kind": "statement",
           "text": "Let's scope the training properly.",
           "sub": "Before anyone commits budget",
-          "seconds": 3.8
+          "seconds": 3.8,
+          "vo": "Let's scope the training properly."
         },
         {
           "kind": "list",
@@ -1070,7 +1127,8 @@
             "Operational and budget constraints",
             "A structured proposal, not a course list"
           ],
-          "seconds": 5.4
+          "seconds": 5.4,
+          "vo": "The roles. The real gaps. A structured proposal."
         },
         {
           "kind": "contact",
@@ -1080,13 +1138,15 @@
             "010 065 0822",
             "64 Hill Street, Ferndale, Randburg"
           ],
-          "seconds": 4.6
+          "seconds": 4.6,
+          "vo": "Happy to talk it through."
         },
         {
           "kind": "cta",
           "text": "prestigetutelage.co.za",
           "sub": "Prestige Tutelage",
-          "seconds": 3.4
+          "seconds": 3.4,
+          "vo": "prestigetutelage.co.za"
         }
       ]
     }

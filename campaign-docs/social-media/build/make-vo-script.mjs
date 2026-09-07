@@ -20,30 +20,12 @@ const HEADROOM = 0.5
 const words = (s) => (s || '').trim().split(/\s+/).filter(Boolean).length
 const secs = (s) => words(s) / WPS
 
-/** The line to speak for a scene — the on-screen copy, spoken plainly. */
-function lineFor(scene, post) {
-  switch (scene.kind) {
-    case 'logo':
-      return 'Prestige Tutelage.'
-    case 'statement':
-    case 'photo':
-      return scene.text
-    case 'list':
-      return [scene.text, ...(scene.items || [])].filter(Boolean).join('. ') + '.'
-    case 'rows':
-      return (scene.items || []).join('. ') + '.'
-    case 'facts':
-      return (scene.items || []).map((i) => i.split('|').join(', ')).join('. ') + '.'
-    case 'steps':
-      return (scene.items || []).join('. ') + '.'
-    case 'contact':
-      return [scene.text, ...(scene.items || [])].join('. ')
-    case 'cta':
-      return `${scene.text}`
-    default:
-      return ''
-  }
-}
+/**
+ * The approved spoken line for a scene. Deliberately shorter than the on-screen
+ * copy: the voice complements the visuals rather than reading them aloud, and
+ * every line here has been measured against its scene by synthesising it.
+ */
+const lineFor = (scene) => scene.vo || ''
 
 let overruns = 0
 const body = plan.posts
@@ -52,7 +34,7 @@ const body = plan.posts
     const rows = post.videoScenes.map((s) => {
       const start = t
       t += s.seconds
-      const line = lineFor(s, post)
+      const line = lineFor(s)
       const need = secs(line)
       const fits = need <= s.seconds - HEADROOM
       if (!fits) overruns++
@@ -76,9 +58,10 @@ ${rows
 
 const md = `# Voiceover recording script
 
-Read against the videos in \`public/social-posts/videos/\`. The lines are the
-on-screen copy spoken plainly — the point is to carry someone who is listening
-rather than reading, not to perform.
+Read against the videos in \`public/social-posts/videos/\`. The lines are shorter than the
+on-screen copy on purpose: the viewer can already read the screen, so the voice
+adds to it rather than repeating it. Every line has been measured against its
+scene, so if you read at a natural pace it will fit.
 
 ## How to record it
 
