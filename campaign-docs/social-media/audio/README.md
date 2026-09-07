@@ -31,3 +31,40 @@ with it, and mix the voice in as a separate stage.
 Posts 01-12 were produced and published silent, and are designed to be
 understood with the sound off. Adding music to posts already scheduled means
 re-rendering and replacing the media on each scheduled Metricool post.
+
+## Track brief — what to look for
+
+The videos are navy, disciplined and factual, aimed at South African employers.
+The music has to match that register: **warm and forward-moving, but
+understated**. It is carrying the clip alone, so it sets the whole tone.
+
+**Specification**
+
+| | |
+|---|---|
+| Length | 20s+ (clips run 18.6-19.8s; shorter loops, but a 30s+ track cuts cleaner) |
+| Vocals | **Instrumental only.** Lyrics compete with the on-screen text |
+| Tempo | ~90-110 BPM. Enough pulse to feel purposeful, not urgent |
+| Arc | Should build gently. The scenes run logo → statement → list → photograph → call to action |
+| Instrumentation | Piano, warm strings, soft synth pad, light percussion |
+
+**Search terms that land in the right place**
+
+- "uplifting corporate" · "inspiring ambient" · "hopeful piano"
+- "warm optimistic underscore" · "documentary hopeful" · "confident corporate"
+
+**Avoid**
+
+- Cinematic trailer drums and big braams — overblown for a training provider
+- EDM builds and drops — the drop will land mid-sentence
+- The bright ukulele-and-whistle "happy corporate" cliché — reads as a stock
+  advert and undercuts the credibility the copy works for
+- Anything triumphant. The posts claim competence, not victory
+
+**Sources** — Epidemic Sound, Artlist, Soundstripe, PremiumBeat. All licence
+commercial social use. Never a commercial release.
+
+**One track or several?** One across all twelve is more coherent and less work.
+If a post wants its own, set `audioTrack` on that post in campaign-plan.json —
+post 08 (Early Childhood Development) is the one that might justify something
+warmer, and post 03 (Production Technology) something more rhythmic.
