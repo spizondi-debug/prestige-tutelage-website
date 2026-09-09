@@ -70,6 +70,11 @@ export const pageSeo = {
     description:
       'B-BBEE skills development consulting, recruitment, assessment services and training venue rental from Prestige Tutelage in Randburg, Johannesburg.',
   },
+  '/yes-programme-management': {
+    title: 'YES Programme Management South Africa',
+    description:
+      'Prestige Tutelage manages YES Programme implementation for South African employers — youth recruitment, host placements, monitoring and close-out reporting.',
+  },
   '/bbbee-consulting': {
     title: 'B-BBEE Skills Development Consulting',
     description:

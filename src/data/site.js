@@ -21,6 +21,7 @@ export const contact = {
 export const businessSolutionLinks = [
   { label: 'All Business Solutions', to: '/business-solutions', description: 'The full Prestige offering beyond training' },
   { label: 'B-BBEE Consultation', to: '/bbbee-consulting', description: 'Skills-development strategy and implementation' },
+  { label: 'YES Programme Management', to: '/yes-programme-management', description: 'Youth Employment Service implementation and management' },
   { label: 'Recruitment', to: '/recruitment', description: 'Workforce sourcing and learner intakes' },
   { label: 'Assessment Centre', to: '/assessment-centre', description: 'Assessment, moderation and invigilation' },
   { label: 'Office & Training Venue Rental', to: '/office-rental', description: 'Professional space in Ferndale, Randburg' },

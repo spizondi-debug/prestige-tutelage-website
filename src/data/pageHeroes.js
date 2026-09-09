@@ -215,6 +215,7 @@ export const pageHeroes = {
   services: [P.stockBoardroomMeeting, P.stockWorkplaceTeam, P.stockNotetakingAudience, P.stockRemoteProfessional],
   businessSolutions: [P.stockPresentationAudience, P.stockSeminarAudience, P.stockBoardroomMeeting],
   bbbee: [P.stockPresentationAudience, P.stockConstructionWorker, P.stockRemoteProfessional, P.stockWorkplaceTeam],
+  yesProgramme: [P.stockTeamOnsite, P.stockWorkplaceTeam, P.stockSiteWorkerPhone, P.stockConstructionWorker],
   recruitment: [P.stockRemoteProfessional, P.stockNotetakingAudience, P.stockBoardroomMeeting, P.stockSeminarAudience],
   officeRental: [P.stockRemoteProfessional, P.stockPresentationAudience, P.stockWorkplaceTeam],
   assessment: [P.stockNotetakingAudience, P.stockConstructionWorker, P.stockSeminarAudience, P.stockBoardroomMeeting, P.stockRemoteProfessional],
