@@ -38,8 +38,8 @@ const solutions = [
     title: 'Assessment Centre',
     text: 'Professional assessment, moderation and invigilation services.',
     to: '/assessment-centre',
-    photo: 'facilitator-session.jpg',
-    alt: 'Prestige Tutelage learners working at desks while a facilitator leads the session',
+    photo: 'certificate-handover-red-shirt.jpg',
+    alt: 'A Prestige Tutelage learner receiving her certificate after assessment',
   },
   {
     n: '04',
