@@ -18,6 +18,8 @@ import {
 import { resolveCourse, coursePath } from '../lib/slug.js'
 import { courseSeo, courseFaqs, relatedCourses } from '../lib/seo.js'
 import CornerSwirl from '../components/CornerSwirl.jsx'
+import { brand, contact } from '../data/site.js'
+import { assetUrl } from '../lib/asset.js'
 
 /**
  * CourseDetail — one qualification, in full, at its own indexable URL.
@@ -95,6 +97,28 @@ export default function CourseDetail() {
   return (
     <>
       <StructuredData graph={graph} id={`ld-course-${q.saqaId}`} />
+
+      {/* Letterhead. Print-only: the site header is hidden on paper, so without
+          this the downloaded outline carries no branding at all. */}
+      <div className="print-only print-letterhead" aria-hidden="true">
+        <div className="print-letterhead__bar" />
+        <div className="print-letterhead__row">
+          <img
+            src={assetUrl('prestige-tutelage-logo.png')}
+            alt=""
+            className="print-letterhead__logo"
+            width="768"
+            height="404"
+          />
+          <div className="print-letterhead__meta">
+            <p className="print-letterhead__label">Course Outline</p>
+            <p>{brand.legalName}</p>
+            <p>{contact.addressLines.join(', ')}</p>
+            <p>{contact.phone} · {contact.email}</p>
+            <p>{contact.website}</p>
+          </div>
+        </div>
+      </div>
 
       {/* Course header */}
       <section className="relative overflow-hidden border-b border-line bg-paper" aria-labelledby="course-title">
@@ -321,12 +345,33 @@ export default function CourseDetail() {
         </section>
       )}
 
+      {/* Closing panel. The CTA band is a screen control with buttons that mean
+          nothing on paper, so it is hidden in print and this stands in its place. */}
+      <div className="print-only print-closing" aria-hidden="true">
+        <h2 className="print-closing__title">Enquire about this qualification</h2>
+        <p className="print-closing__text">
+          Tell us who you are training and where, and we will confirm availability, delivery
+          and the assessment arrangements in writing.
+        </p>
+        <ul className="print-closing__contact">
+          <li><strong>Telephone</strong> {contact.phone}</li>
+          <li><strong>Email</strong> {contact.email}</li>
+          <li><strong>Web</strong> {contact.website}</li>
+          <li><strong>Address</strong> {contact.addressLines.join(', ')}</li>
+        </ul>
+        <p className="print-closing__ref">
+          {outline?.fullName ?? q.name} · NQF Level {q.nqf} · SAQA ID {q.saqaId}
+        </p>
+      </div>
+
+      <div className="no-print">
       <CTABand
         title={`Talk to us about ${q.name}.`}
         text="Tell us who you are training and where, and we will confirm availability, delivery and the assessment arrangements in writing."
         primary={{ label: 'Enquire About This Course', to: enquiry }}
         secondary={{ label: 'Browse All Programmes', to: '/programmes#catalogue' }}
       />
+      </div>
     </>
   )
 }

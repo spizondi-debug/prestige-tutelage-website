@@ -382,36 +382,144 @@
    CTA bands and the buttons themselves come out, every accordion panel is
    forced open regardless of its grid-template-rows, and colour is dropped to
    ink on white so it stays legible on a mono printer. */
+/* Screen: the letterhead and closing panel exist only for paper. */
+.print-only { display: none; }
+
+@page {
+  size: A4;
+  margin: 14mm 13mm 15mm;
+}
+
 @media print {
-  header, footer, .no-print { display: none !important; }
-
-  body { background: #fff !important; }
-
-  /* Every module panel, open or not. The accordion animates on
-     grid-template-rows, so both the row size and the overflow clip have to be
-     released or a closed panel prints as a sliver. */
-  [role='region'] {
-    display: block !important;
-    grid-template-rows: 1fr !important;
-  }
-  [role='region'] > div { overflow: visible !important; }
+  /* --- what does not belong on paper ------------------------------------ */
+  header, footer, .no-print, .btn { display: none !important; }
   [aria-expanded] svg { display: none !important; }
-
-  /* Reveal fades its content in on scroll, via inline opacity/transform. A
-     section that was never scrolled to is still at opacity 0 when the page is
-     printed, so the finished state has to be forced here or it prints blank.
-     Scoped to [data-reveal] rather than every element carrying an inline
-     opacity, which would also flatten the hero slider's stacked slides. */
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
-
   a[href]::after { content: '' !important; }
 
-  * {
-    color: #172B3D !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  .print-only { display: block !important; }
+
+  /* --- page ------------------------------------------------------------- */
+  html, body {
+    background: #fff !important;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: #172B3D;
   }
-  .shadow-premium, .shadow-lifted { border: 1px solid #d5dde5 !important; }
+
+  /* Sections are screen furniture: full-bleed tints, big vertical rhythm and
+     borders that read as seams on paper. Flatten them and let the type carry
+     the structure instead. */
+  section {
+    background: #fff !important;
+    border: 0 !important;
+    padding: 0 0 12pt !important;
+    break-inside: auto;
+  }
+  .container-px { padding-left: 0 !important; padding-right: 0 !important; max-width: none !important; }
+
+  /* --- letterhead ------------------------------------------------------- */
+  .print-letterhead { margin-bottom: 10pt; }
+  .print-letterhead__bar {
+    height: 3pt;
+    background: linear-gradient(90deg, #087BE8 0%, #31B84A 100%) !important;
+    margin-bottom: 8pt;
+  }
+  .print-letterhead__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16pt;
+  }
+  .print-letterhead__logo { width: 42mm; height: auto; }
+  .print-letterhead__meta {
+    text-align: right;
+    font-size: 8pt;
+    line-height: 1.5;
+    color: #546F89;
+  }
+  .print-letterhead__meta p { margin: 0; }
+  .print-letterhead__label {
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0559A8 !important;
+    margin-bottom: 2pt !important;
+    font-size: 8.5pt;
+  }
+
+  /* --- typography ------------------------------------------------------- */
+  h1 { font-size: 19pt !important; line-height: 1.15 !important; color: #175E24 !important; margin: 0 0 6pt !important; }
+  h2 {
+    font-size: 12.5pt !important;
+    color: #175E24 !important;
+    margin: 14pt 0 5pt !important;
+    padding-top: 5pt;
+    border-top: 0.75pt solid rgba(23, 43, 61, 0.16) !important;
+  }
+  h3 { font-size: 10.5pt !important; color: #172B3D !important; margin: 9pt 0 3pt !important; }
+  p, li, dd { color: #3E5B77 !important; }
+
+  /* A heading stranded at the foot of a page is the commonest print defect. */
+  h1, h2, h3 { break-after: avoid; break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+
+  /* --- the facts strip -------------------------------------------------- */
+  /* Without a background this reads as five unrelated words. Keep the tint. */
+  dl.grid { border: 0 !important; gap: 4pt !important; background: transparent !important; }
+  dl.grid > div {
+    background: #EAF4FF !important;
+    border: 0.75pt solid rgba(8, 123, 232, 0.22) !important;
+    border-radius: 3pt !important;
+    padding: 5pt 4pt !important;
+    break-inside: avoid;
+  }
+  dl.grid dt { color: #0559A8 !important; font-size: 7.5pt !important; }
+  dl.grid dd { color: #172B3D !important; font-size: 12pt !important; margin: 0 !important; }
+
+  /* --- module list ------------------------------------------------------ */
+  /* The accordion animates on grid-template-rows, so a closed panel prints as
+     a sliver unless both the row size and the overflow clip are released. */
+  [role='region'] { display: block !important; grid-template-rows: 1fr !important; }
+  [role='region'] > div { overflow: visible !important; }
+  [role='region'], [data-module], dl > div { break-inside: avoid; }
+
+  /* Reveal fades content in on scroll via inline opacity. A section never
+     scrolled to is still at opacity 0 when printed, so force the end state. */
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+  /* --- cards ------------------------------------------------------------ */
+  .shadow-premium, .shadow-lifted, [class*='rounded-2xl'] {
+    box-shadow: none !important;
+    border: 0.75pt solid rgba(23, 43, 61, 0.16) !important;
+    break-inside: avoid;
+  }
+  * { box-shadow: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Decorative swirls cost toner and add nothing on paper. The accordion
+     chevrons go too (handled above), but not every aria-hidden svg — the
+     programme icon is one, and hiding it left an empty blue tile behind. */
+  [data-swirl] { display: none !important; }
+
+  /* --- closing panel ---------------------------------------------------- */
+  .print-closing {
+    break-inside: avoid;
+    margin-top: 14pt;
+    padding: 9pt 10pt;
+    border: 0.75pt solid rgba(8, 123, 232, 0.28) !important;
+    border-left: 3pt solid #087BE8 !important;
+    border-radius: 3pt;
+    background: #EAF4FF !important;
+  }
+  .print-closing__title { font-size: 11.5pt !important; color: #175E24 !important; margin: 0 0 3pt !important; border: 0 !important; padding: 0 !important; }
+  .print-closing__text { margin: 0 0 6pt !important; font-size: 9.5pt !important; }
+  .print-closing__contact { list-style: none; margin: 0; padding: 0; columns: 2; font-size: 9pt; }
+  .print-closing__contact li { margin: 0 0 2pt; break-inside: avoid; }
+  .print-closing__contact strong { color: #0559A8 !important; display: inline-block; min-width: 17mm; }
+  .print-closing__ref {
+    margin: 7pt 0 0 !important;
+    padding-top: 5pt;
+    border-top: 0.75pt solid rgba(8, 123, 232, 0.28);
+    font-size: 8pt !important;
+    color: #546F89 !important;
+  }
 }

@@ -34,6 +34,7 @@ export default function CornerSwirl({ size = 'md', opacity = 1 }) {
   return (
     <div
       className="pointer-events-none absolute inset-0"
+      data-swirl=""
       style={{
         backgroundImage: `url(${assetUrl('images/bg-dots-blue.svg')}), url(${assetUrl('images/bg-dots-green.svg')})`,
         backgroundPosition: 'top right, bottom left',
