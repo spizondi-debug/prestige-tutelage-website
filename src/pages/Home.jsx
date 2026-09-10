@@ -51,8 +51,20 @@ export default function Home() {
         title={<>Building the <Accent>workforce behind tomorrow</Accent>.</>}
         lead="Accredited learning, workforce development and business solutions that turn potential into capability."
       >
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+        {/* Three audiences, three actions: browse the catalogue, apply for a
+            learnership, open a workforce conversation. Green is the site's
+            enrolment colour (see .btn-green in index.css), so the learner
+            action reads as distinct from the other two without having to be
+            first or largest.
+
+            "Apply Now" rather than "Apply for a Learnership" because the hero
+            copy column is max-w-2xl — 672px — and the longer label pushed the
+            row to 738px, orphaning "Partner With Prestige" onto a line of its
+            own at every desktop width. flex-wrap stays as the fallback for
+            enlarged text. */}
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link to="/programmes" className="btn btn-primary">Explore Our Programmes</Link>
+          <Link to="/learnership-application" className="btn btn-green">Apply Now</Link>
           <Link to="/contact" className="btn btn-outline">Partner With Prestige</Link>
         </div>
       </PageHeader>
