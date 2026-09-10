@@ -231,6 +231,9 @@ export const sectionSliders = {
   corporateInTheRoom: [P.trainingRoom, P.workshopTraining, P.angleGrinder, P.stockSeminarAudience],
   corporateDelivery: [P.workshopFloor, P.bandsaw, P.steelBeam],
   bbbee: [P.welding, P.bandsaw, P.plateHandling],
+  // Prestige's own learner photography — young South Africans, not licensed stock.
+  yesYouth: [P.cohortOutside, P.certificatesCohort, P.certificatesGroup, P.intake],
+  yesWorkplace: [P.angleGrinder, P.welding, P.steelBeam, P.clientSite],
   recruitmentProcess: [P.handoverRedShirt, P.handoverOveralls, P.handoverCongrats],
   recruitmentYouth: [P.cohortOutside, P.certificatesCohort, P.workshopTraining],
   // The one section slider that draws on licensed stock rather than Prestige's

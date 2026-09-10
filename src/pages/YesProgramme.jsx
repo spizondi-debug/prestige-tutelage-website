@@ -11,12 +11,13 @@ import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CornerSwirl from '../components/CornerSwirl.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import { useEnquiryForm } from '../lib/useEnquiryForm.js'
 import StructuredData, {
   graphOf, organisationNode, websiteNode, breadcrumbNode, webPageNode, faqNode,
 } from '../components/StructuredData.jsx'
-import { pageHeroes } from '../data/pageHeroes.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
 import { contact } from '../data/site.js'
 import {
   SCOPE_NOTE, OUTCOME_QUALIFIER, FOOTER_TRUST_NOTICE, GAZETTE_REFERENCE,
@@ -171,7 +172,12 @@ export default function YesProgramme() {
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={80}>
+            <Reveal delay={80} className="space-y-6">
+              <ContentSlider
+                images={sectionSliders.yesYouth}
+                aspect="aspect-[4/3]"
+                label="Prestige Tutelage learners"
+              />
               <div className="rounded-2xl border border-prestige-blue/20 bg-prestige-blue-light p-7">
                 <Eyebrow>Before you plan anything</Eyebrow>
                 <p className="mt-3 leading-relaxed text-ink">{SCOPE_NOTE}</p>
@@ -323,7 +329,15 @@ export default function YesProgramme() {
               lead="Plenty of employers can fund more opportunities than they have desks, sites or supervisors for. Host placement closes that gap without lowering the standard of the work experience."
             />
           </Reveal>
-          <ol className="mt-12 grid gap-4 lg:grid-cols-4">
+          <div className="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-14">
+            <Reveal>
+              <ContentSlider
+                images={sectionSliders.yesWorkplace}
+                aspect="aspect-[4/3]"
+                label="Learners in the workplace"
+              />
+            </Reveal>
+          <ol className="grid gap-4 sm:grid-cols-2">
             {hostChain.map(([role, text], i) => (
               <Reveal as="li" key={role} delay={i * 60}>
                 <div className="flex h-full flex-col rounded-2xl border border-line bg-paper p-6 shadow-premium">
@@ -336,6 +350,7 @@ export default function YesProgramme() {
               </Reveal>
             ))}
           </ol>
+          </div>
           <Reveal>
             <Disclaimer className="mt-10">
               Host placement is subject to due diligence, placement availability and the applicable
