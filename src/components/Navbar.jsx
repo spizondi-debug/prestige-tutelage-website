@@ -200,7 +200,13 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden xl:block">
+          <div className="hidden items-center gap-2.5 xl:flex">
+            <Link
+              to="/learnership-application"
+              className="btn btn-green px-5 py-2.5 text-sm focus-visible:outline-white"
+            >
+              Apply Now
+            </Link>
             <Link
               to="/contact"
               className="btn bg-white px-5 py-2.5 text-sm text-prestige-blue-hover hover:bg-prestige-blue-light focus-visible:outline-white"
@@ -246,9 +252,16 @@ export default function Navbar() {
               ))}
             </ul>
             <Link
+              to="/learnership-application"
+              onClick={() => setOpen(false)}
+              className="btn btn-green mt-4 w-full"
+            >
+              Apply for a Learnership
+            </Link>
+            <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="btn mt-4 w-full bg-white text-prestige-blue-hover hover:bg-prestige-blue-light"
+              className="btn mt-2.5 w-full bg-white text-prestige-blue-hover hover:bg-prestige-blue-light"
             >
               Request a Proposal
             </Link>
