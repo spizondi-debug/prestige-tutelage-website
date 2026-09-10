@@ -455,10 +455,11 @@ export default function YesProgramme() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">
                   This form is for employers. If you are a young person looking for a placement,
-                  apply through the learner application instead.
+                  get in touch and we will point you at the current learner intakes — you do not
+                  pay anything to apply.
                 </p>
-                <Link to="/contact#learner" className="btn btn-outline mt-5">
-                  Submit a learner application
+                <Link to="/contact" className="btn btn-outline mt-5">
+                  Contact us about learner opportunities
                 </Link>
               </div>
               <dl className="mt-8 space-y-3 text-sm">
