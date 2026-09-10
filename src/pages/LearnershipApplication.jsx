@@ -251,9 +251,15 @@ export default function LearnershipApplication() {
                 </ul>
               </div>
 
-              <p className="mt-8 font-semibold text-red-700">
-                Please do not pay anyone to apply for a Prestige Tutelage learnership. Applying is free.
-              </p>
+              <div className="relative mt-8 overflow-hidden rounded-2xl bg-prestige-blue-deep p-6 text-left text-white">
+                <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1.5 bg-prestige-green" />
+                <p className="pl-2 text-sm leading-relaxed text-white/90">
+                  <strong className="font-semibold text-white">
+                    Please do not pay anyone to apply for a Prestige Tutelage learnership.
+                  </strong>{' '}
+                  Applying is free, and it stays free at every stage.
+                </p>
+              </div>
               <Link to="/programmes" className="btn btn-outline mt-8">Browse our programmes</Link>
             </div>
           </div>
@@ -281,13 +287,16 @@ export default function LearnershipApplication() {
         <div className="container-px relative">
           <div className="mx-auto max-w-3xl">
 
-            <div className="flex items-start gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-5">
-              <AlertTriangle aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
-              <p className="text-sm leading-relaxed text-amber-900">
-                <strong>Applying is free.</strong> Prestige Tutelage never asks for payment to apply,
-                be shortlisted, or be placed on a learnership. If anyone asks you to pay, it is not
-                us — report it to{' '}
-                <a href={contact.emailHref} className="font-semibold underline">{contact.email}</a>.
+            <div className="relative flex items-start gap-4 overflow-hidden rounded-2xl bg-prestige-blue-deep p-6 text-white">
+              <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1.5 bg-prestige-green" />
+              <AlertTriangle aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-prestige-green-light" />
+              <p className="text-sm leading-relaxed text-white/90">
+                <strong className="font-semibold text-white">Applying is free.</strong> Prestige
+                Tutelage never asks for payment to apply, be shortlisted, or be placed on a
+                learnership. If anyone asks you to pay, it is not us — report it to{' '}
+                <a href={contact.emailHref} className="font-semibold text-prestige-green-light underline">
+                  {contact.email}
+                </a>.
               </p>
             </div>
 
@@ -348,9 +357,11 @@ export default function LearnershipApplication() {
               )}
 
               {current.key === 'personal' && under18 && (
-                <p className="mt-5 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
+                <p className="mt-5 rounded-xl border border-prestige-blue/25 bg-prestige-blue-light p-5 text-sm leading-relaxed text-ink">
                   You are under 18, so a parent or guardian must consent. Please ask them to email{' '}
-                  <a href={contact.emailHref} className="font-semibold underline">{contact.email}</a>{' '}
+                  <a href={contact.emailHref} className="font-semibold text-prestige-blue-hover hover:underline">
+                    {contact.email}
+                  </a>{' '}
                   confirming they agree to your application.
                 </p>
               )}
