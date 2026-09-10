@@ -36,11 +36,36 @@ const columns = [
   },
 ]
 
+/**
+ * An email address is one unbreakable token, and the footer's contact column is
+ * the narrowest thing on the page. Offering a break after the "@" means that
+ * when it does have to wrap it wraps where a reader expects, rather than
+ * mid-domain ("info@prestigetute / lage.co.za"). `break-words` stays on the
+ * link as the last resort for a column narrower than the domain itself.
+ */
+function BreakableEmail({ value }) {
+  const at = value.indexOf('@')
+  if (at < 0) return value
+  return (
+    <>
+      {value.slice(0, at + 1)}
+      <wbr />
+      {value.slice(at + 1)}
+    </>
+  )
+}
+
 export default function Footer() {
   return (
     <footer className="tex tex-grain bg-prestige-blue-deep text-white/90">
       <div className="container-px">
-        <div className="grid gap-12 py-16 lg:grid-cols-[0.85fr_2.6fr] lg:gap-16">
+        {/* minmax(0,…) on the second track. A bare `2.6fr` is
+            `minmax(auto, 2.6fr)`, so the track cannot shrink below the
+            min-content of the link grid inside it — and the contact email is
+            one unbreakable 212px string. Between 1024px and 1180px that
+            forced the track wider than its share and pushed the whole page
+            past the viewport. */}
+        <div className="grid gap-12 py-16 lg:grid-cols-[0.85fr_minmax(0,2.6fr)] lg:gap-16">
           <div>
             {/* Knocked out to white, like the header — the brief asks for a
                 white logo on the blue footer rather than a white plate. */}
@@ -55,7 +80,11 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Two columns from sm, four only from xl. At lg the outer track
+              leaves these four cells about 139px each — narrower than the
+              contact address, and tighter than the link labels read well at.
+              Two columns of ~310px carry both comfortably. */}
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
             {columns.map((col) => (
               <div key={col.heading}>
                 <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
@@ -85,7 +114,7 @@ export default function Footer() {
               <p className="mt-3 text-[0.95rem] leading-relaxed">
                 <a href={contact.phoneHref} className="decoration-prestige-green-light underline-offset-4 transition-colors hover:text-white hover:underline">{contact.phone}</a>
                 <br />
-                <a href={contact.emailHref} className="decoration-prestige-green-light underline-offset-4 transition-colors hover:text-white hover:underline">{contact.email}</a>
+                <a href={contact.emailHref} className="break-words decoration-prestige-green-light underline-offset-4 transition-colors hover:text-white hover:underline"><BreakableEmail value={contact.email} /></a>
               </p>
             </div>
           </div>
@@ -94,7 +123,7 @@ export default function Footer() {
         <div className="flex flex-col gap-2 border-t border-white/30 py-6 text-sm text-white/85 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {brand.legalName}. All rights reserved.</p>
           <p>
-            <a href={contact.websiteHref} className="decoration-prestige-green-light underline-offset-4 transition-colors hover:text-white hover:underline">{contact.website}</a>
+            <a href={contact.websiteHref} className="break-words decoration-prestige-green-light underline-offset-4 transition-colors hover:text-white hover:underline">{contact.website}</a>
           </p>
         </div>
       </div>

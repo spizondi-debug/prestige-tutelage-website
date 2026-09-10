@@ -89,7 +89,15 @@ export default function QualificationCatalogue({ id, className = '', limit }) {
           <span className="font-semibold text-ink">{populatedAreas.length} training areas</span>
         </div>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[19rem_1fr] lg:gap-12">
+        {/* minmax(0,1fr), not 1fr. A bare `1fr` track is `minmax(auto, 1fr)`,
+            so the track can never shrink below its content's min-content
+            width — and the qualification rows carry a `truncate` meta line,
+            whose nowrap text makes that min-content the full untruncated
+            string. At 1024px, where this two-column layout first applies, the
+            track resolved to 658px against a 576px share and pushed the page
+            82px past the viewport. Flooring the track at 0 lets the truncate
+            do its job. */}
+        <div className="mt-10 grid gap-10 lg:grid-cols-[19rem_minmax(0,1fr)] lg:gap-12">
           {/* Sidebar filter */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">Filter by training area</p>
