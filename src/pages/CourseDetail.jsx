@@ -152,6 +152,13 @@ export default function CourseDetail() {
               <Link to={enquiry} className="btn btn-primary" data-analytics="course-enquiry">
                 Enquire About This Course
               </Link>
+              <Link
+                to="/learnership-application"
+                className="btn btn-outline"
+                data-analytics="course-apply"
+              >
+                Apply for This Learnership
+              </Link>
               <button
                 type="button"
                 onClick={() => window.print()}

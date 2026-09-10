@@ -8,6 +8,7 @@ const columns = [
     links: [
       { label: 'Programmes & Qualifications', to: '/programmes' },
       { label: 'Learnerships', to: '/programmes#learnerships' },
+      { label: 'Apply for a Learnership', to: '/learnership-application' },
       { label: 'Short Courses', to: '/short-courses' },
       { label: 'Corporate Training', to: '/corporate-training' },
     ],

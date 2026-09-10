@@ -252,7 +252,10 @@ export default function Programmes() {
                 ))}
               </div>
               <Disclaimer className="mt-7">{learnerships.contributionNote}</Disclaimer>
-              <Link to="/contact" className="btn btn-primary mt-8">Discuss a Learnership</Link>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/learnership-application" className="btn btn-primary">Apply for a Learnership</Link>
+                <Link to="/contact" className="btn btn-outline">Discuss a Learnership</Link>
+              </div>
             </div>
 
             <div>
