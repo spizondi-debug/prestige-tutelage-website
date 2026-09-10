@@ -11,12 +11,17 @@ import { assetUrl } from '../lib/asset.js'
  * distorts whenever the section's own proportions differ from the image's.
  * `size` controls how large each swirl reads relative to the viewport;
  * smaller than the homepage default for a section that carries less empty
- * space around its content. `opacity` (0–1) turns the whole thing down for
- * a section where the pattern sits over busier content — a photo carousel,
- * dense text — and needs to stay clearly in the background. Decoration
- * only; aria-hidden.
+ * space around its content. `opacity` (0–1) turns the whole thing down
+ * further for a section where the pattern sits over especially busy
+ * content. Decoration only; aria-hidden.
+ *
+ * The default is 0.4, not 1. At full strength the dot arcs compete with body
+ * copy for attention wherever a section's text runs across a corner, and the
+ * pattern had been turned down by hand, section by section, each time someone
+ * noticed — which is the signal that the default was wrong rather than those
+ * sections being unusual.
  */
-export default function CornerSwirl({ size = 'md', opacity = 1 }) {
+export default function CornerSwirl({ size = 'md', opacity = 0.4 }) {
   const sizes = {
     // Large enough that the two swirls span most of a full-bleed section's
     // width on desktop, rather than staying a corner accent.
