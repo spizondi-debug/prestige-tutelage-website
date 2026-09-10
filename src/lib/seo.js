@@ -70,6 +70,11 @@ export const pageSeo = {
     description:
       'B-BBEE skills development consulting, recruitment, assessment services and training venue rental from Prestige Tutelage in Randburg, Johannesburg.',
   },
+  '/learnership-application': {
+    title: 'Learnership Application',
+    description:
+      'Apply for a Prestige Tutelage learnership. Applying is free — we never ask for payment to apply, be shortlisted or be placed on a programme.',
+  },
   '/yes-programme-management': {
     title: 'YES Programme Management South Africa',
     description:

@@ -27,6 +27,7 @@ const Services = lazy(() => import('./pages/Services.jsx'))
 const BusinessSolutions = lazy(() => import('./pages/BusinessSolutions.jsx'))
 const BBBEEConsulting = lazy(() => import('./pages/BBBEEConsulting.jsx'))
 const YesProgramme = lazy(() => import('./pages/YesProgramme.jsx'))
+const LearnershipApplication = lazy(() => import('./pages/LearnershipApplication.jsx'))
 const Recruitment = lazy(() => import('./pages/Recruitment.jsx'))
 const OfficeRental = lazy(() => import('./pages/OfficeRental.jsx'))
 const Industries = lazy(() => import('./pages/Industries.jsx'))
@@ -82,6 +83,7 @@ export default function App() {
           <Route path="/business-solutions" element={<BusinessSolutions />} />
           <Route path="/bbbee-consulting" element={<BBBEEConsulting />} />
           <Route path="/yes-programme-management" element={<YesProgramme />} />
+          <Route path="/learnership-application" element={<LearnershipApplication />} />
           <Route path="/recruitment" element={<Recruitment />} />
           <Route path="/office-rental" element={<OfficeRental />} />
           <Route path="/industries" element={<Industries />} />

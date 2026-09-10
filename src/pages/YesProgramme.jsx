@@ -458,8 +458,8 @@ export default function YesProgramme() {
                   get in touch and we will point you at the current learner intakes — you do not
                   pay anything to apply.
                 </p>
-                <Link to="/contact" className="btn btn-outline mt-5">
-                  Contact us about learner opportunities
+                <Link to="/learnership-application" className="btn btn-outline mt-5">
+                  Submit a learner application
                 </Link>
               </div>
               <dl className="mt-8 space-y-3 text-sm">
