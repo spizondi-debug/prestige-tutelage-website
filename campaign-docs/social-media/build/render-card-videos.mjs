@@ -41,9 +41,14 @@ const FADE_OUT = 1.5
 const OUT = resolve(repoRoot, 'public/social-posts/cards')
 mkdirSync(OUT, { recursive: true })
 
-const track = plan.campaign?.audio?.track
-  ? resolve(repoRoot, plan.campaign.audio.track)
-  : null
+// A card may name its own track; otherwise it falls back to the campaign bed.
+// The two registers want different music — the navy sequence posts carry a
+// restrained corporate underscore, and a greeting card can carry something with
+// a pulse — so this is a per-card override rather than a change to the default.
+function trackFor(card) {
+  const rel = card.audioTrack ?? plan.campaign?.audio?.track
+  return rel ? resolve(repoRoot, rel) : null
+}
 
 let failed = false
 
@@ -56,6 +61,7 @@ for (const card of chosen) {
   }
 
   const out = resolve(OUT, `${card.file}.mp4`)
+  const track = trackFor(card)
   const hasAudio = track && existsSync(track)
   if (!hasAudio) console.log(`     ! no audio track, rendering silent`)
 
