@@ -1,1 +1,17 @@
+# Host rules. Order matters: the first match wins, so the canonical-host
+# redirects have to sit above the SPA fallback or the fallback swallows them.
+
+# Canonical host is www. Confirmed with the client; the whole site — canonical
+# tags, sitemap, robots.txt and JSON-LD — is built around it, so the apex has
+# to redirect rather than serve a second copy of every page. Without this the
+# same 49 URLs exist twice and the ranking signals split between them.
+# 301 (not 302) so the move is treated as permanent, and `!` so the rule is
+# applied even where a path would otherwise resolve.
+http://prestigetutelage.co.za/*    https://www.prestigetutelage.co.za/:splat  301!
+https://prestigetutelage.co.za/*   https://www.prestigetutelage.co.za/:splat  301!
+http://www.prestigetutelage.co.za/*  https://www.prestigetutelage.co.za/:splat  301!
+
+# Client-side routing: every unmatched path is served the app shell, which then
+# renders the route. 200 rather than a redirect so the URL the visitor asked
+# for is the URL that stays in the address bar.
 /*  /index.html  200

@@ -1,34 +1,34 @@
 import { Link } from 'react-router-dom'
-import { SectionHeading } from '../Section.jsx'
-import Photo from '../Photo.jsx'
+import { SectionHeading, Accent } from '../Section.jsx'
+import ContentSlider from '../ContentSlider.jsx'
+import { sectionSliders } from '../../data/pageHeroes.js'
 import { learnerships } from '../../data/programmes.js'
+import CornerSwirl from '../CornerSwirl.jsx'
 
 export default function LearnershipsSection() {
   return (
-    <section className="py-16 lg:py-24">
-      <div className="container-px">
+    <section className="relative overflow-hidden border-t border-line bg-paper py-20 lg:py-28">
+      <CornerSwirl size="sm" opacity={0.18} />
+      <div className="container-px relative">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-          <div className="relative order-last lg:order-first">
-            <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-xl2 bg-sand lg:block" aria-hidden="true" />
-            <div className="relative overflow-hidden rounded-xl2 border border-line shadow-card">
-              <Photo
-                src="graduate-celebrating.jpg"
-                alt="A graduate celebrating after completing his qualification"
-                className="aspect-[5/4] w-full"
-              />
-            </div>
-          </div>
+          <ContentSlider
+            images={sectionSliders.homeLearnerships}
+            aspect="aspect-[5/4]"
+            label="Prestige Tutelage learnerships and workplace training"
+            className="order-last lg:order-first"
+          />
 
           <div>
             <SectionHeading
               eyebrow="Learnerships"
-              title="Structured, work-based routes to real qualifications."
+              title={<>Structured, work-based routes to <Accent>real qualifications</Accent>.</>}
+            tone="blue"
               lead={learnerships.intro}
             />
             <div className="mt-8 space-y-6">
               {[learnerships.employed, learnerships.unemployed].map((l) => (
                 <div key={l.title} className="border-l-2 border-prestige-green/60 pl-5">
-                  <h3 className="font-sans font-semibold text-ink">{l.title}</h3>
+                  <h3 className="font-sans font-semibold text-prestige-blue-hover">{l.title}</h3>
                   <p className="mt-1.5 leading-relaxed text-body">{l.text}</p>
                 </div>
               ))}

@@ -5,7 +5,3 @@ dist
 .vscode/*
 npm-debug.log*
 preview/
-
-# Campaign export archives — derived from public/social-posts, rebuilt by
-# campaign-docs/social-media/build/make-zips.py
-campaign-docs/social-media/export/

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
-import { SectionHeading } from '../components/Section.jsx'
+import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
+import LearningRoutes from '../components/LearningRoutes.jsx'
 import {
   shortCourseCategories,
   shortCoursePositioning,
@@ -14,14 +15,47 @@ import {
   STATUS_NOTE,
   CERTIFICATE_NOTE,
 } from '../data/shortCourses.js'
+import { pageHeroes } from '../data/pageHeroes.js'
+import { CountIcon, iconForCategory } from '../data/shortCourseIcons.js'
+import { ArrowUpRight, Users, Calendar, Laptop, ClipboardList } from 'lucide-react'
 
+/** Icon for each delivery-format tile, in list order. */
+const deliveryIcons = [Users, Calendar, Calendar, Users, Laptop, ClipboardList, Users]
+
+/**
+ * The eyebrow label — the leading half of the category title, so "Leadership &
+ * Management" numbers as "01 · LEADERSHIP" without a second field in the data
+ * to keep in step with the title. Titles without an ampersand are already
+ * short enough to use whole.
+ */
+const shortLabel = (title) => title.split(' & ')[0]
+
+/**
+ * One course in the catalogue, as a link to a prefilled enquiry.
+ *
+ * The arrow is not decoration. Short courses have no detail page — the
+ * catalogue is the detail — so the only honest destination for a course is
+ * the enquiry form with that course already filled in. Contact reads ?course=
+ * and sets the interest to "Short Course" with the name in the message, so a
+ * visitor who clicks "Report Writing" does not have to retype it.
+ */
 function CourseList({ courses }) {
   return (
-    <ul className="grid gap-x-10 sm:grid-cols-2 xl:grid-cols-3">
+    <ul className="grid gap-x-8 sm:grid-cols-2 xl:grid-cols-3">
       {courses.map((c) => (
-        <li key={c} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
-          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
-          {c}
+        <li key={c} className="border-b border-line">
+          <Link
+            to={`/contact?course=${encodeURIComponent(c)}`}
+            className="group/course flex items-start gap-3 py-3 text-[0.95rem] text-body transition-colors hover:text-prestige-blue-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
+          >
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+            <span className="flex-1">{c}</span>
+            <ArrowUpRight
+              size={15}
+              aria-hidden="true"
+              className="mt-1 shrink-0 text-prestige-blue-hover/50 transition-all duration-200 group-hover/course:text-prestige-blue-hover group-hover/course:translate-x-0.5 group-hover/course:-translate-y-0.5"
+            />
+          </Link>
         </li>
       ))}
     </ul>
@@ -37,8 +71,9 @@ export default function ShortCourses() {
   return (
     <>
       <PageHeader
+        images={pageHeroes.shortCourses}
         eyebrow="Short courses & professional development"
-        title={shortCoursePositioning}
+        title={<>Practical learning for <Accent>immediate workplace impact</Accent>.</>}
         lead={`${totalShortCourses} focused courses that close specific gaps in days, not months — delivered for teams at your workplace, or arranged for individuals. Ideal alongside a qualification pathway, or on their own.`}
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -47,28 +82,20 @@ export default function ShortCourses() {
         </div>
       </PageHeader>
 
-      {/* What these are — stated plainly and early */}
-      <section className="border-b border-line bg-paper py-12">
-        <div className="container-px">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
-            <div className="border-l-2 border-prestige-blue/60 pl-5">
-              <h2 className="font-sans font-semibold text-ink">Professional development short courses</h2>
-              <p className="mt-2 leading-relaxed text-body">{STATUS_NOTE}</p>
-              <p className="mt-3 leading-relaxed text-body">{CERTIFICATE_NOTE}</p>
-            </div>
-            <div className="border-l-2 border-prestige-green/60 pl-5">
-              <h2 className="font-sans font-semibold text-ink">Looking for a qualification instead?</h2>
-              <p className="mt-2 leading-relaxed text-body">
-                Prestige also delivers qualifications with stated SAQA IDs and NQF levels, through
-                full programmes or learnerships.
-              </p>
-              <Link to="/programmes" className="mt-3 inline-block text-sm font-semibold text-prestige-blue hover:underline">
-                See programmes &amp; qualifications →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LearningRoutes
+        route1={{
+          badge: 'Short courses',
+          title: 'Professional short courses',
+          lead: 'Focused, practical courses for immediate workplace impact.',
+          detail: [STATUS_NOTE, CERTIFICATE_NOTE],
+        }}
+        route2={{
+          badge: 'Qualifications',
+          title: 'Qualifications & accredited programmes',
+          lead: 'Structured programmes and learnerships that combine guided learning, workplace experience and formal assessment.',
+          cta: { label: 'See programmes & qualifications', to: '/programmes' },
+        }}
+      />
 
       {/* Category quick-nav */}
       <section className="border-b border-line py-8">
@@ -79,7 +106,7 @@ export default function ShortCourses() {
               <a
                 key={c.slug}
                 href={`#${c.slug}`}
-                className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep"
+                className="text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover"
               >
                 {c.title}
                 <span className="ml-1.5 font-normal text-muted">{coursesOf(c).length}</span>
@@ -92,47 +119,56 @@ export default function ShortCourses() {
       {/* Catalogue */}
       <section id="catalogue" className="scroll-mt-28 py-16 lg:py-20">
         <div className="container-px">
-          <div className="space-y-14">
-            {shortCourseCategories.map((cat, i) => (
-              <div key={cat.slug} id={cat.slug} className="scroll-mt-28">
-                <div className="flex flex-col gap-6 border-t border-line pt-8 lg:flex-row lg:gap-16">
-                  <div className="lg:w-[22rem] lg:shrink-0">
-                    <div className="flex items-baseline gap-4">
-                      <span className="font-display text-2xl font-semibold text-prestige-green/70">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <h2 className="font-display text-2xl font-semibold leading-tight text-ink">
+          <div className="space-y-8">
+            {shortCourseCategories.map((cat, i) => {
+              const Icon = iconForCategory(cat.slug)
+              return (
+                <article
+                  key={cat.slug}
+                  id={cat.slug}
+                  className="scroll-mt-28 overflow-hidden rounded-2xl border border-line bg-paper shadow-premium"
+                >
+                  <div className="border-l-4 border-prestige-blue lg:grid lg:grid-cols-[20rem_1fr]">
+                    {/* Category */}
+                    <div className="bg-prestige-blue-light p-7 lg:p-8">
+                      <p className="flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-prestige-blue-hover">
+                        <Icon size={17} strokeWidth={1.9} aria-hidden="true" className="shrink-0" />
+                        {String(i + 1).padStart(2, '0')} · {shortLabel(cat.title)}
+                      </p>
+                      <h2 className="mt-3 font-display text-2xl font-semibold leading-tight text-prestige-green-deep">
                         {cat.title}
                       </h2>
+                      <p className="mt-3 leading-relaxed text-body">{cat.blurb}</p>
+                      <p className="mt-5 flex items-center gap-2.5 text-sm font-semibold text-prestige-green-deep">
+                        <CountIcon size={16} strokeWidth={1.9} aria-hidden="true" className="shrink-0" />
+                        {coursesOf(cat).length} courses
+                      </p>
+                      {cat.note && <Disclaimer className="mt-5">{cat.note}</Disclaimer>}
                     </div>
-                    <p className="mt-3 leading-relaxed text-body">{cat.blurb}</p>
-                    <p className="mt-3 text-sm text-muted">
-                      {coursesOf(cat).length} courses
-                    </p>
-                    {cat.note && <Disclaimer className="mt-4">{cat.note}</Disclaimer>}
-                  </div>
 
-                  <div className="flex-1">
-                    {cat.groups ? (
-                      <div className="space-y-8">
-                        {cat.groups.map((g) => (
-                          <div key={g.name}>
-                            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">
-                              {g.name}
-                            </h3>
-                            <div className="mt-3">
-                              <CourseList courses={g.courses} />
+                    {/* Courses */}
+                    <div className="p-7 lg:p-8">
+                      {cat.groups ? (
+                        <div className="space-y-8">
+                          {cat.groups.map((g) => (
+                            <div key={g.name}>
+                              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted">
+                                {g.name}
+                              </h3>
+                              <div className="mt-3">
+                                <CourseList courses={g.courses} />
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <CourseList courses={cat.courses} />
-                    )}
+                          ))}
+                        </div>
+                      ) : (
+                        <CourseList courses={cat.courses} />
+                      )}
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </article>
+              )
+            })}
           </div>
 
           <Disclaimer className="mt-12">{STATUS_NOTE}</Disclaimer>
@@ -140,26 +176,47 @@ export default function ShortCourses() {
       </section>
 
       {/* Delivery */}
-      <section className="border-y border-line bg-sand/60 py-16 lg:py-20">
+      <section className="py-16 lg:py-20">
         <div className="container-px">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-            <div>
+          <div className="relative grid gap-10 lg:grid-cols-2 lg:gap-20">
+            {/* Connector — desktop only */}
+            <div
+              className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 lg:block"
+              aria-hidden="true"
+            >
+              <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-prestige-blue" />
+              <span className="absolute inset-y-2.5 left-1/2 w-px -translate-x-1/2 bg-line" />
+              <span className="absolute left-1/2 top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-paper bg-prestige-green">
+                <span className="h-2 w-2 rounded-full bg-paper" />
+              </span>
+              <span className="absolute bottom-0 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-prestige-green" />
+            </div>
+
+            <div className="rounded-2xl border border-line bg-paper p-7 shadow-premium sm:p-9">
               <SectionHeading
                 eyebrow="Delivery"
                 title="Scoped around your operation, not a fixed timetable."
                 lead="Course length depends on the depth you need, the size of the group and how much workplace application you want built in. We confirm the format when we scope the intervention."
               />
-              <ul className="mt-7 grid gap-x-10 border-t border-line sm:grid-cols-2">
-                {deliveryOptions.map((d) => (
-                  <li key={d} className="flex items-start gap-3 border-b border-line py-2.5 text-body">
-                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
-                    {d}
-                  </li>
-                ))}
+              <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                {deliveryOptions.map((d, i) => {
+                  const Icon = deliveryIcons[i]
+                  return (
+                    <li
+                      key={d}
+                      className="flex items-center gap-3 rounded-xl border border-line bg-cloud/60 px-4 py-3 text-sm font-medium text-ink"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-prestige-green-pale text-prestige-green-deep">
+                        <Icon size={17} strokeWidth={1.8} aria-hidden="true" />
+                      </span>
+                      {d}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
 
-            <div>
+            <div className="rounded-2xl border border-line bg-prestige-green-pale/60 p-7 sm:p-9">
               <SectionHeading
                 eyebrow="Customisation"
                 title="Need something specific?"
@@ -192,10 +249,10 @@ export default function ShortCourses() {
                 { t: 'You get a clear record', d: 'Attendance, certificates and facilitator feedback, properly documented.' },
               ].map((s, i) => (
                 <li key={s.t} className="border-b border-line py-5">
-                  <span className="font-display text-lg font-semibold text-prestige-green">
+                  <span className="font-display text-lg font-semibold text-prestige-blue-hover">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="mt-2 font-sans font-semibold text-ink">{s.t}</h3>
+                  <h3 className="mt-2 font-sans font-semibold text-prestige-blue-hover">{s.t}</h3>
                   <p className="mt-1.5 leading-relaxed text-body">{s.d}</p>
                 </li>
               ))}

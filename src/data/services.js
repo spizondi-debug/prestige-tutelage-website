@@ -1,81 +1,82 @@
-// Broader Prestige Tutelage services architecture. B-BBEE work is positioned
-// as skills-development consulting and implementation support, not verification.
+// The full Prestige service ecosystem.
+//
+// Groups are ordered as a client journey: learn, advise, staff, manage, assure,
+// house, and give back. `to` links a group to its dedicated page where one
+// exists. Prestige supports the B-BBEE skills development element from the
+// employer side — it is not a verification agency (see data/bbbee.js).
 
 export const serviceGroups = [
   {
     slug: 'learning-development',
     title: 'Learning & Development',
-    lead: 'Formal qualifications, learnerships, short courses and workplace learning built around real capability needs.',
+    lead: 'The training itself — qualifications, learnerships, short courses and programmes built for your teams.',
     to: '/programmes',
-    cta: 'View Programmes',
+    toLabel: 'Programmes & Qualifications',
     services: [
-      { name: 'Occupational Qualifications', text: 'Structured learning aligned to verified qualification scope and current programme availability.' },
-      { name: 'Learnerships', text: 'Employed and unemployed learnership implementation with learner administration and workplace support.' },
-      { name: 'Short Courses', text: 'Focused professional development for immediate workplace application.' },
-      { name: 'Corporate Training', text: 'Customised team and workforce development delivered around the client environment.' },
+      { name: 'Qualifications', text: 'Registered qualifications across business, production, engineering, agriculture and ECD.', to: '/programmes' },
+      { name: 'Learnerships', text: 'Employed (18.1) and unemployed (18.2) programmes, implemented end to end.', to: '/programmes#learnerships' },
+      { name: 'Short Courses', text: 'Practical professional development across ten categories.', to: '/short-courses' },
+      { name: 'Corporate Training', text: 'Programmes designed around your objectives, operation and people.', to: '/corporate-training' },
     ],
   },
   {
     slug: 'workforce-advisory',
     title: 'Workforce Advisory',
-    lead: 'Turn organisational priorities into a practical development plan before training spend is committed.',
+    lead: 'Understand the capability your organisation actually needs before any training is booked.',
     to: '/bbbee-consulting',
-    cta: 'Explore B-BBEE Advisory',
+    toLabel: 'B-BBEE Skills Consulting',
     services: [
-      { name: 'Skills Gap Analysis', text: 'Identify where current capability falls short of role, operational and growth requirements.' },
-      { name: 'Training Needs Analysis', text: 'Translate workforce priorities into a structured intervention plan.' },
-      { name: 'Skills Development Consulting', text: 'Advice on pathways, learnerships, evidence, implementation and reporting.' },
-      { name: 'B-BBEE Skills Development Advisory', text: 'Support in structuring credible skills-development initiatives without representing Prestige as a verification agency.' },
+      { name: 'Skills Gap Analysis', text: 'Identify where current capability falls short of what roles and plans require.' },
+      { name: 'Training Needs Analysis', text: 'Translate business objectives into a prioritised, practical training plan.' },
+      { name: 'Skills Development Consulting', text: 'Guidance on skills planning, spend, reporting cycles and delivery routes.' },
+      { name: 'B-BBEE Skills Development Advisory', text: 'Structuring skills initiatives that support transformation objectives.', to: '/bbbee-consulting' },
     ],
   },
   {
     slug: 'talent',
     title: 'Talent',
-    lead: 'Recruitment and learner sourcing that strengthens the workforce pipeline before development even begins.',
+    lead: 'Finding the people — including the learners who become your future workforce.',
     to: '/recruitment',
-    cta: 'View Recruitment Services',
+    toLabel: 'Recruitment Services',
     services: [
-      { name: 'Recruitment Services', text: 'Candidate sourcing, screening, shortlisting and interview administration.' },
-      { name: 'Learner Recruitment', text: 'Purpose-built sourcing and onboarding for employed and unemployed learning programmes.' },
-      { name: 'Youth Talent Sourcing', text: 'Community, graduate and entry-level sourcing for youth-focused workforce pipelines.' },
+      { name: 'Recruitment', text: 'Sourcing, screening, shortlisting and interview support for employers.', to: '/recruitment' },
+      { name: 'Learner Recruitment', text: 'Specialist intake recruitment for learnership cohorts.', to: '/recruitment#learnership-recruitment' },
+      { name: 'Youth Talent Sourcing', text: 'Community, graduate and entry-level sourcing for youth programmes.', to: '/recruitment' },
     ],
   },
   {
     slug: 'programme-management',
     title: 'Programme Management',
-    lead: 'The administration and learner support that keeps training interventions on track.',
+    lead: 'The administration and coordination that keeps an intervention on track.',
     services: [
-      { name: 'Training Project Management', text: 'One accountable point of contact managing schedules, venues, facilitators and reporting.' },
       { name: 'Learner Administration', text: 'Registrations, records, attendance and progress tracking handled properly.' },
       { name: 'Workplace Monitoring', text: 'Structured monitoring of workplace learning components and mentor support.' },
-      { name: 'Learner Support', text: 'Human support that keeps learners engaged and progressing.' },
+      { name: 'Training Project Management', text: 'One accountable contact managing schedules, venues, facilitators and reporting.' },
     ],
   },
   {
     slug: 'assessment-quality',
     title: 'Assessment & Quality',
-    lead: 'Credible assessment, moderation, invigilation and evidence management behind every result.',
+    lead: 'Credible assessment, moderation and quality assurance behind every result.',
     to: '/assessment-centre',
-    cta: 'View Assessment Centre',
+    toLabel: 'Assessment Centre',
     services: [
-      { name: 'Assessment Centre', text: 'Professionally managed candidate registration, scheduling, assessment administration and records.' },
-      { name: 'Assessment Services', text: 'Planned, fair assessment of learner competence against agreed outcomes.' },
+      { name: 'Assessment Centre', text: 'A managed environment for candidate assessment at scale.', to: '/assessment-centre' },
+      { name: 'Assessment', text: 'Planned, fair assessment of learner competence against clear outcomes.' },
       { name: 'Moderation', text: 'Independent moderation that protects the integrity of assessment decisions.' },
       { name: 'Invigilation', text: 'Controlled, professional invigilation of tests and examinations.' },
-      { name: 'Evidence Management', text: 'Secure collection, filing and retention of assessment evidence.' },
     ],
   },
   {
     slug: 'business-facilities',
     title: 'Business Facilities',
-    lead: 'Flexible professional space in Ferndale, Randburg for learning, meetings, interviews and temporary business use.',
+    lead: 'Professional space in Ferndale, Randburg — for training, meetings, interviews and short-term office use.',
     to: '/office-rental',
-    cta: 'View Office & Training Space',
+    toLabel: 'Office & Training Space',
     services: [
-      { name: 'Office Rental', text: 'Flexible professional space for short-term business and project requirements.' },
-      { name: 'Training Room Rental', text: 'Space for workshops, training, induction and facilitated learning.' },
-      { name: 'Meeting Space', text: 'Professional rooms for meetings, interviews and planning sessions.' },
-      { name: 'Assessment / Examination Space', text: 'Controlled space for assessment and invigilation where appropriate.' },
+      { name: 'Training Room Rental', text: 'Rooms set up for groups who are there to learn.', to: '/office-rental#training-rooms' },
+      { name: 'Meeting Space', text: 'Professional rooms for client meetings, interviews and planning sessions.', to: '/office-rental#meeting-rooms' },
+      { name: 'Office Rental', text: 'Short-term office space for project teams, consultants and facilitators.', to: '/office-rental#office-space' },
     ],
   },
   {
@@ -86,7 +87,6 @@ export const serviceGroups = [
       { name: 'CSI Skills Programmes', text: 'Corporate social investment translated into structured, credible skills training.' },
       { name: 'Youth Development', text: 'Work-readiness and skills programmes that move young people toward employment.' },
       { name: 'Community Training', text: 'Accessible training delivered into communities, not just boardrooms.' },
-      { name: 'Unemployed Learner Programmes', text: 'Structured programmes that combine learning, support and workplace exposure.' },
     ],
   },
 ]

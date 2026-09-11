@@ -1,31 +1,107 @@
-/* Fonts are loaded via <link> in index.html so they do not block CSS parsing. */
+/* Poppins, self-hosted.
+ *
+ * Served from public/fonts rather than Google Fonts: it removes a third-party
+ * request from every page load, keeps the site rendering if that CDN is slow
+ * or blocked, and means the single-file preview works offline. Latin subset
+ * only — it already covers Afrikaans and South African diacritics — so all
+ * four weights together are about 31KB.
+ *
+ * font-display: swap so text paints immediately in the fallback and reflows
+ * once Poppins arrives, rather than sitting invisible. */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Prestige brand variables ────────────────────────────────────────────
+   The single source of truth for brand colour. Tailwind's tokens are
+   generated from the same values in tailwind.config.js; anything outside
+   Tailwind's reach (raw gradients, canvas drawing) reads them from here, so
+   there is one place to change the brand.
+
+   CONTRAST, measured: white on --prestige-blue is 4.19:1 — enough for large
+   text (3.0:1), short of normal text (4.5:1). --prestige-blue-hover is
+   5.14:1 and clears both, so surfaces that carry small white text (the
+   utility bar, footer body copy, buttons) use it rather than the brighter
+   blue. */
+:root {
+  --prestige-blue: #087BE8;
+  --prestige-blue-hover: #066DCE;
+  --prestige-blue-deep: #0559A8;
+  --prestige-blue-light: #EAF4FF;
+  --prestige-green: #31B84A;
+  --prestige-white: #FFFFFF;
+  --prestige-text: #172B3D;
+
+  /* THE HERO SCRIM — restored to the original dark treatment on request.
+     A blue overlay strong enough to seat white type also tints the whole
+     photograph blue: skin, PPE and workshop colour all shift, which is what
+     the client saw on the welding slide. This dark scrim seats the type just
+     as well and leaves the photograph its own colours. It is a scrim over an
+     image, not a brand surface — the site's blue system is unchanged.
+
+     Every stop was then taken down 20% (x0.8) on request so more of the
+     photograph reads through. That is paid for in contrast on the type above
+     it, so the accent below was re-measured against the rendered backdrop of
+     all 17 hero slides rather than against the flat colour. */
+  --prestige-hero-overlay: linear-gradient(
+    to right,
+    rgba(7, 26, 43, 0.72) 0%,
+    rgba(7, 26, 43, 0.62) 32%,
+    rgba(7, 26, 43, 0.40) 62%,
+    rgba(7, 26, 43, 0.27) 100%
+  );
+  --prestige-hero-overlay-y: linear-gradient(
+    to bottom,
+    rgba(7, 26, 43, 0.36) 0%,
+    transparent 28%,
+    transparent 62%,
+    rgba(7, 26, 43, 0.44) 100%
+  );
+}
 
 @layer base {
   * {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-
   html {
     scroll-behavior: smooth;
-    background: #F5F8FA;
   }
-
   body {
-    @apply bg-cream font-sans text-body;
+    @apply bg-cloud font-sans text-body;
   }
-
   h1, h2, h3 {
     @apply font-display text-ink;
-  }
-
-  ::selection {
-    background: rgba(30, 79, 216, 0.18);
-    color: #071A2B;
   }
 }
 
@@ -34,39 +110,416 @@
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
   }
 
+  /* ── Buttons ───────────────────────────────────────────────────────────
+     Four roles, no more. Pill geometry; the shape and the fill do the work.
+
+     Contrast is what fixes the text colours here, not taste: white on
+     Prestige Green is 3.32:1, so the Growth CTA carries Midnight text. See
+     the note at the top of tailwind.config.js before changing any of these. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-[0.95rem] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prestige-blue focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5
+           text-[0.95rem] font-semibold tracking-[0.01em]
+           /* Named properties rather than `all`. With `all`, the focus ring is
+              a transitioned property too, so it grew from 0 to 2px over 150ms
+              and a keyboard user tabbing quickly saw it lag behind them. The
+              hover colour, shadow and lift still animate; the outline is
+              instant. */
+           transition-[color,background-color,border-color,box-shadow,transform]
+           duration-200 ease-prestige
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+           focus-visible:outline-prestige-blue-deep
+           disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none;
+  }
+  /* On a blue or photographic surface the deep-blue ring disappears; white
+     is the only ring that reads on both. */
+  .on-dark .btn,
+  .hero-dark .btn {
+    @apply focus-visible:outline-white;
   }
 
+  /* Primary — the default action. Brightens and lifts on hover. */
   .btn-primary {
-    @apply bg-prestige-blue text-white shadow-soft hover:-translate-y-0.5 hover:bg-electric hover:shadow-glow;
+    @apply bg-prestige-blue-hover text-white hover:bg-prestige-blue-deep hover:shadow-premium;
   }
 
-  .btn-outline {
-    @apply border border-line bg-paper text-ink hover:-translate-y-0.5 hover:border-prestige-blue hover:text-prestige-blue hover:shadow-soft;
-  }
-
-  .btn-outline-light {
-    @apply border border-white/30 bg-white/[0.04] text-white backdrop-blur-sm hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/[0.09];
-  }
-
+  /* Growth — reserved for starting, progressing, enrolling. Not a general
+     alternative to primary: green earns its meaning by being rare. */
   .btn-green {
-    @apply bg-prestige-green text-midnight shadow-soft hover:-translate-y-0.5 hover:bg-prestige-green-deep hover:text-white hover:shadow-premium;
+    @apply bg-prestige-green text-ink hover:bg-prestige-green-light hover:shadow-premium;
   }
 
-  .surface-dark {
-    @apply bg-midnight text-white;
+  /* Dark — for light backgrounds that already carry a blue accent. */
+  .btn-dark {
+    @apply bg-prestige-blue text-white hover:bg-prestige-blue hover:shadow-premium;
   }
 
-  .surface-light {
-    @apply bg-cloud text-ink;
+  /* Outline — quiet secondary. Fills softly rather than inverting hard. */
+  .btn-outline {
+    @apply border border-prestige-blue/40 bg-transparent text-prestige-blue-hover
+           hover:border-prestige-blue hover:bg-prestige-blue-light;
   }
 
-  .prestige-gradient {
-    background: linear-gradient(135deg, #0B2742 0%, #1E4FD8 52%, #0FB87A 100%);
+  /* Outline on dark surfaces. */
+  .btn-ghost-light {
+    @apply border border-white/25 text-white hover:border-white/50 hover:bg-white/10;
   }
 
-  .prestige-midnight-gradient {
-    background: linear-gradient(145deg, #061521 0%, #071A2B 52%, #0B2742 100%);
+  /* ── Headline accent ───────────────────────────────────────────────────
+     The logo green, used to lift one phrase out of a headline.
+
+     Heading sizes only. #2DA22F is 3.32:1 on White and 3.12:1 on Cloud —
+     which clears AA for large text (3.0:1) but fails the 4.5:1 needed at body
+     size, so this must never wrap ordinary copy. It is also 2.89:1 on Mist,
+     below even the large-text floor, so a headline carrying an accent should
+     not sit on a Mist surface.
+
+     Dark surfaces swap to Growth Green through the variable: the logo green
+     is 5.30:1 on Midnight but the lighter one is 7.00:1 and reads better
+     against a photograph. */
+  /* Neither surface can carry the raw brand green as text.
+     On white it has to be darkened: #31B84A is 2.60:1 there, so green text
+     on light uses #1E7A2E (5.41:1).
+     On blue it has to be lightened: #31B84A on #087BE8 is 1.61:1, because
+     the two are almost the same luminance. #9AE4A8 was picked by sampling
+     the actual rendered backdrop behind the headline on all 17 hero slides —
+     the hardest is rgb(39,116,189) on a bright photo, where it measures
+     3.25:1, over the 3.0:1 floor for display type. The brand green manages
+     2.23:1 on that same backdrop, and no saturated green clears the floor
+     there at all, which is why this one is lifted so far. */
+  :root {
+    --hl-accent: #1E7A2E;
+  }
+  /* Flat blue surfaces still need the lifted green — measured 3.25:1 on
+     #066DCE, where anything more saturated fails. */
+  .on-dark {
+    --hl-accent: #9AE4A8;
+  }
+  /* A dark photo scrim is a different problem, and taking the scrim down 20%
+     changed the answer. The hardest backdrop across all 17 hero slides went
+     from rgb(69,79,87) to rgb(97,104,107), and at that lightness #45B95C
+     falls to 2.26:1 — under the 3.0:1 floor for display type. #72D985 is
+     3.24:1 there and is the deepest green in the ramp that still clears it.
+     White is unaffected at 5.67:1. */
+  .hero-dark,
+  .on-photo {
+    --hl-accent: #72D985;
+  }
+  .hl-accent {
+    color: var(--hl-accent);
+  }
+
+  /* ── Dark hero context ─────────────────────────────────────────────────
+     Pages hand the hero their CTAs and in-page navigation already styled for
+     a light background. Rather than edit every page, restyle those
+     descendants here: an outline button in blue-on-transparent is invisible
+     over a photograph, and Prestige Blue link text is only 3.58:1 on
+     Midnight. */
+  .hero-dark .btn-outline {
+    @apply border-white/35 bg-transparent text-white hover:border-white/70 hover:bg-white/10;
+  }
+  .hero-dark a.text-prestige-blue-hover,
+  .hero-dark .text-prestige-blue-hover {
+    @apply text-white;
+  }
+  .hero-dark a.text-prestige-blue-hover:hover {
+    @apply text-prestige-green-light;
+  }
+  .hero-dark .text-muted,
+  .hero-dark .text-body {
+    @apply text-white/90;
+  }
+
+  /* ── Micro label ───────────────────────────────────────────────────────
+     The small wide-tracked caps that sit above every statement. */
+  .eyebrow {
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-prestige-blue-hover;
+  }
+  /* On blue, the eyebrow is white. At 11.2px it needs 4.5:1, and the brand
+     green manages 1.61:1 on the brand blue — the two are nearly the same
+     luminance. Green does its accenting here as rules and markers instead. */
+  .eyebrow-light {
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-white;
+  }
+
+  /* ── Chevron link ──────────────────────────────────────────────────────
+     Text, a rule that draws itself in on hover, and a chevron that steps. */
+  /* Pair with `group` in the markup: `class="group chev"`. */
+  .chev {
+    @apply inline-flex items-center gap-2 text-[0.95rem] font-semibold transition-colors;
+  }
+  .chev-label {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full
+           after:origin-right after:scale-x-0 after:bg-current after:transition-transform
+           after:duration-500 after:ease-prestige
+           group-hover:after:origin-left group-hover:after:scale-x-100;
+  }
+
+  /* ── Horizontal rail ───────────────────────────────────────────────────
+     Snap-scrolling row of tall tiles. Scrollbar hidden; the rail is still
+     keyboard- and touch-scrollable, and arrow controls sit above it. */
+  .rail {
+    @apply flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2 lg:gap-6;
+    scrollbar-width: none;
+  }
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+  .rail > * {
+    @apply snap-start shrink-0;
+  }
+
+  /* ── Glass ─────────────────────────────────────────────────────────────
+     For navigation and floating overlays only. Never for ordinary cards. */
+  .glass {
+    background: rgba(5, 89, 168, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  /* ── Texture ───────────────────────────────────────────────────────────
+     Flat colour blocks read as "clean corporate". These give each surface
+     something to catch the light, without a single image request: the grain
+     is generated SVG noise, everything else is a gradient.
+
+     Two separate layers, deliberately: grain on ::after with its own low
+     opacity, bloom on ::before at full opacity with alpha baked into the
+     gradient stops. Putting both on one layer means any opacity that tames
+     the grain also kills the bloom — which is exactly how the first attempt
+     washed the blue hero out to grey.
+
+     Keep these values low. Texture you consciously notice is too strong. */
+
+  .tex {
+    position: relative;
+    isolation: isolate;
+  }
+  .tex > * {
+    position: relative;
+    z-index: 1;
+  }
+  .tex::before,
+  .tex::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Film grain — for dark surfaces. Fine, static, barely there. */
+  .tex-grain::after,
+  .tex-deep::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.035;
+  }
+
+  /* Soft light bloom for dark surfaces — the "technology" glow, kept wide
+     and dim so it never reads as a spotlight. */
+  .tex-bloom::before,
+  .tex-deep::before {
+    background-image:
+      radial-gradient(70% 60% at 8% -10%, rgba(21, 133, 216, 0.10) 0%, transparent 72%),
+      radial-gradient(60% 55% at 95% 108%, rgba(69, 185, 92, 0.06) 0%, transparent 72%);
+  }
+
+  /* Blueprint grid — for light surfaces. Reads as precision, not decoration. */
+  .tex-grid::after {
+    background-image:
+      linear-gradient(to right, rgba(23, 43, 61, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(23, 43, 61, 0.05) 1px, transparent 1px);
+    background-size: 76px 76px;
+    /* Fade the grid out downward so it frames the top of a section rather
+       than tiling the whole thing. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 62%);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 62%);
+  }
+
+  /* Dot matrix — a quieter alternative to the grid. */
+  .tex-dots::after {
+    background-image: radial-gradient(rgba(23, 43, 61, 0.11) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(90% 75% at 50% 40%, #000 0%, transparent 74%);
+    mask-image: radial-gradient(90% 75% at 50% 40%, #000 0%, transparent 74%);
+  }
+
+  /* A hairline catch of light along the top edge of a dark section — the
+     join between two surfaces, made deliberate. A shadow rather than a
+     pseudo-element, so it never competes for ::before with the bloom. */
+  .tex-edge {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
+
+  /* ── Media ─────────────────────────────────────────────────────────────
+     The slow push-in on hover. Suppressed entirely under reduced motion. */
+  .zoom-parent img {
+    @apply transition-transform duration-[1200ms] ease-prestige;
+  }
+  .zoom-parent:hover img {
+    @apply scale-[1.05];
+  }
+}
+
+/* Drives the slide progress bar. Keyed to the slide index in the component,
+   so it restarts on every change instead of drifting out of step. */
+@keyframes slideProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .zoom-parent:hover img {
+    transform: none;
+  }
+}
+
+/* ── Print ───────────────────────────────────────────────────────────────
+   "Download Course Outline" calls window.print(), so print has to produce a
+   real document rather than a screenshot of the page: navigation, footer,
+   CTA bands and the buttons themselves come out, every accordion panel is
+   forced open regardless of its grid-template-rows, and colour is dropped to
+   ink on white so it stays legible on a mono printer. */
+/* Screen: the letterhead and closing panel exist only for paper. */
+.print-only { display: none; }
+
+@page {
+  size: A4;
+  margin: 14mm 13mm 15mm;
+}
+
+@media print {
+  /* --- what does not belong on paper ------------------------------------ */
+  header, footer, .no-print, .btn { display: none !important; }
+  [aria-expanded] svg { display: none !important; }
+  a[href]::after { content: '' !important; }
+
+  .print-only { display: block !important; }
+
+  /* --- page ------------------------------------------------------------- */
+  html, body {
+    background: #fff !important;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: #172B3D;
+  }
+
+  /* Sections are screen furniture: full-bleed tints, big vertical rhythm and
+     borders that read as seams on paper. Flatten them and let the type carry
+     the structure instead. */
+  section {
+    background: #fff !important;
+    border: 0 !important;
+    padding: 0 0 12pt !important;
+    break-inside: auto;
+  }
+  .container-px { padding-left: 0 !important; padding-right: 0 !important; max-width: none !important; }
+
+  /* --- letterhead ------------------------------------------------------- */
+  .print-letterhead { margin-bottom: 10pt; }
+  .print-letterhead__bar {
+    height: 3pt;
+    background: linear-gradient(90deg, #087BE8 0%, #31B84A 100%) !important;
+    margin-bottom: 8pt;
+  }
+  .print-letterhead__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16pt;
+  }
+  .print-letterhead__logo { width: 42mm; height: auto; }
+  .print-letterhead__meta {
+    text-align: right;
+    font-size: 8pt;
+    line-height: 1.5;
+    color: #546F89;
+  }
+  .print-letterhead__meta p { margin: 0; }
+  .print-letterhead__label {
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0559A8 !important;
+    margin-bottom: 2pt !important;
+    font-size: 8.5pt;
+  }
+
+  /* --- typography ------------------------------------------------------- */
+  h1 { font-size: 19pt !important; line-height: 1.15 !important; color: #175E24 !important; margin: 0 0 6pt !important; }
+  h2 {
+    font-size: 12.5pt !important;
+    color: #175E24 !important;
+    margin: 14pt 0 5pt !important;
+    padding-top: 5pt;
+    border-top: 0.75pt solid rgba(23, 43, 61, 0.16) !important;
+  }
+  h3 { font-size: 10.5pt !important; color: #172B3D !important; margin: 9pt 0 3pt !important; }
+  p, li, dd { color: #3E5B77 !important; }
+
+  /* A heading stranded at the foot of a page is the commonest print defect. */
+  h1, h2, h3 { break-after: avoid; break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+
+  /* --- the facts strip -------------------------------------------------- */
+  /* Without a background this reads as five unrelated words. Keep the tint. */
+  dl.grid { border: 0 !important; gap: 4pt !important; background: transparent !important; }
+  dl.grid > div {
+    background: #EAF4FF !important;
+    border: 0.75pt solid rgba(8, 123, 232, 0.22) !important;
+    border-radius: 3pt !important;
+    padding: 5pt 4pt !important;
+    break-inside: avoid;
+  }
+  dl.grid dt { color: #0559A8 !important; font-size: 7.5pt !important; }
+  dl.grid dd { color: #172B3D !important; font-size: 12pt !important; margin: 0 !important; }
+
+  /* --- module list ------------------------------------------------------ */
+  /* The accordion animates on grid-template-rows, so a closed panel prints as
+     a sliver unless both the row size and the overflow clip are released. */
+  [role='region'] { display: block !important; grid-template-rows: 1fr !important; }
+  [role='region'] > div { overflow: visible !important; }
+  [role='region'], [data-module], dl > div { break-inside: avoid; }
+
+  /* Reveal fades content in on scroll via inline opacity. A section never
+     scrolled to is still at opacity 0 when printed, so force the end state. */
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+  /* --- cards ------------------------------------------------------------ */
+  .shadow-premium, .shadow-lifted, [class*='rounded-2xl'] {
+    box-shadow: none !important;
+    border: 0.75pt solid rgba(23, 43, 61, 0.16) !important;
+    break-inside: avoid;
+  }
+  * { box-shadow: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Decorative swirls cost toner and add nothing on paper. The accordion
+     chevrons go too (handled above), but not every aria-hidden svg — the
+     programme icon is one, and hiding it left an empty blue tile behind. */
+  [data-swirl] { display: none !important; }
+
+  /* --- closing panel ---------------------------------------------------- */
+  .print-closing {
+    break-inside: avoid;
+    margin-top: 14pt;
+    padding: 9pt 10pt;
+    border: 0.75pt solid rgba(8, 123, 232, 0.28) !important;
+    border-left: 3pt solid #087BE8 !important;
+    border-radius: 3pt;
+    background: #EAF4FF !important;
+  }
+  .print-closing__title { font-size: 11.5pt !important; color: #175E24 !important; margin: 0 0 3pt !important; border: 0 !important; padding: 0 !important; }
+  .print-closing__text { margin: 0 0 6pt !important; font-size: 9.5pt !important; }
+  .print-closing__contact { list-style: none; margin: 0; padding: 0; columns: 2; font-size: 9pt; }
+  .print-closing__contact li { margin: 0 0 2pt; break-inside: avoid; }
+  .print-closing__contact strong { color: #0559A8 !important; display: inline-block; min-width: 17mm; }
+  .print-closing__ref {
+    margin: 7pt 0 0 !important;
+    padding-top: 5pt;
+    border-top: 0.75pt solid rgba(8, 123, 232, 0.28);
+    font-size: 8pt !important;
+    color: #546F89 !important;
   }
 }

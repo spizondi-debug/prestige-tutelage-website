@@ -1,132 +1,200 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import { contact } from '../data/site.js'
-
-const solutionGroups = [
-  {
-    title: 'Talent Sourcing',
-    items: ['Candidate sourcing', 'Job advertising support', 'Community and youth sourcing', 'Graduate and entry-level sourcing'],
-  },
-  {
-    title: 'Screening & Shortlisting',
-    items: ['CV screening', 'Minimum-requirement checks', 'Candidate shortlisting', 'Telephone screening', 'Structured candidate evaluation'],
-  },
-  {
-    title: 'Interview Support',
-    items: ['Interview coordination', 'Structured interview guides', 'Candidate scheduling', 'Interview administration'],
-  },
-  {
-    title: 'Pre-employment Support',
-    items: ['Reference-check coordination', 'Qualification-verification coordination', 'Identity/document-verification coordination', 'Background-check coordination'],
-  },
-  {
-    title: 'Learnership & Youth Recruitment',
-    items: ['Unemployed learner sourcing', 'Employed learner screening', 'Learnership candidate recruitment', 'Youth programme recruitment', 'Disability-inclusive recruitment support', 'Learner onboarding', 'Documentation collection', 'Induction coordination'],
-  },
-]
-
-const initialForm = {
-  company: '', contactPerson: '', email: '', telephone: '', position: '', vacancies: '', employmentType: '', location: '', experience: '', qualifications: '', startDate: '', notes: '',
-}
+import ContentSlider from '../components/ContentSlider.jsx'
+import CTABand from '../components/CTABand.jsx'
+import Disclaimer from '../components/Disclaimer.jsx'
+import EnquiryForm from '../components/EnquiryForm.jsx'
+import { useEnquiryForm } from '../lib/useEnquiryForm.js'
+import {
+  recruitmentGroups,
+  learnerRecruitment,
+  roleCategories,
+  engagementTypes,
+  vacancyFields,
+  CHECKS_QUALIFIER,
+} from '../data/recruitment.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function Recruitment() {
   usePageMeta(
     'Recruitment Services',
-    'Recruitment services in Johannesburg for employers, learnerships, youth talent, entry-level candidates, administrative, manufacturing, agriculture, supervisor and HR roles.',
+    'Recruitment services in Johannesburg from Prestige Tutelage — candidate sourcing, screening and shortlisting, interview support, and specialist learnership and youth recruitment across South Africa.',
   )
 
-  const [form, setForm] = useState(initialForm)
-  const update = (key) => (e) => setForm((v) => ({ ...v, [key]: e.target.value }))
-
-  const submit = (e) => {
-    e.preventDefault()
-    const body = [
-      `Company: ${form.company}`,
-      `Contact person: ${form.contactPerson}`,
-      `Email: ${form.email}`,
-      `Telephone: ${form.telephone || '—'}`,
-      `Position title: ${form.position}`,
-      `Number of vacancies: ${form.vacancies || '—'}`,
-      `Employment type: ${form.employmentType || '—'}`,
-      `Location: ${form.location || '—'}`,
-      `Required experience: ${form.experience || '—'}`,
-      `Required qualifications: ${form.qualifications || '—'}`,
-      `Desired start date: ${form.startDate || '—'}`,
-      '',
-      'Additional information:',
-      form.notes || '—',
-    ].join('\n')
-    window.location.href = `${contact.emailHref}?subject=${encodeURIComponent(`Recruitment enquiry — ${form.position || form.company}`)}&body=${encodeURIComponent(body)}`
-  }
-
-  const field = 'mt-1.5 w-full rounded-lg border border-line bg-paper px-4 py-3 text-ink outline-none transition-colors focus:border-prestige-blue'
-  const label = 'block text-sm font-semibold text-ink'
+  const form = useEnquiryForm(vacancyFields, {
+    subject: (v) => `Vacancy — ${v.position || 'enquiry'}${v.company ? ` (${v.company})` : ''}`,
+  })
 
   return (
     <>
       <PageHeader
-        eyebrow="Recruitment Services"
-        title="Finding people who fit the role — and the organisation."
-        lead="Prestige connects employers with the right talent through a professional, fair and efficient recruitment process, with particular strength in learner, youth and workforce-pipeline recruitment."
+        images={pageHeroes.recruitment}
+        eyebrow="Recruitment services"
+        title={<>Finding people who <Accent>fit the role</Accent> — and the organisation.</>}
+        lead="Recruitment is the other half of workforce development. Prestige sources, screens and shortlists candidates for employers — and brings particular strength to learnership and youth intakes, because we also run the programmes those learners go into."
       >
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href="#submit-vacancy" className="btn btn-primary">Submit a Vacancy</a>
-          <Link to="/contact" className="btn btn-outline">Find Talent With Prestige</Link>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Link to="/contact?interest=Recruitment" className="btn btn-primary">Find Talent With Prestige</Link>
+          <a href="#submit-a-vacancy" className="btn btn-outline">Submit a Vacancy</a>
         </div>
       </PageHeader>
 
-      <section className="py-16 lg:py-24">
-        <div className="container-px">
-          <SectionHeading
-            eyebrow="Recruitment solutions"
-            title="From sourcing to shortlist, with the administration handled properly."
-            lead="We support permanent, project-based, entry-level and learnership recruitment across roles Prestige genuinely services."
-          />
-          <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-            {solutionGroups.map((group) => (
-              <article key={group.title} className="border-t border-line pt-5">
-                <h2 className="font-display text-xl font-semibold text-ink">{group.title}</h2>
-                <ul className="mt-4 space-y-2 text-body">
-                  {group.items.map((item) => <li key={item}>• {item}</li>)}
-                </ul>
-              </article>
+      {/* Engagement types */}
+      <section className="relative overflow-hidden border-b border-line bg-paper py-12 lg:py-14">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
+          <div className="grid gap-8 sm:grid-cols-3">
+            {engagementTypes.map((e) => (
+              <div key={e.name} className="border-l-2 border-prestige-green/60 pl-5">
+                <h2 className="font-sans font-semibold text-ink">{e.name}</h2>
+                <p className="mt-2 leading-relaxed text-body">{e.text}</p>
+              </div>
             ))}
           </div>
-          <p className="mt-10 max-w-4xl text-sm leading-relaxed text-muted">
-            Where regulated or specialist checks are required, Prestige coordinates the process with the appropriate third party rather than representing that it performs regulated verification itself.
-          </p>
         </div>
       </section>
 
-      <section id="submit-vacancy" className="scroll-mt-28 border-y border-line bg-paper py-16 lg:py-24">
+      {/* Service groups */}
+      <section className="py-16 lg:py-20">
         <div className="container-px">
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-            <SectionHeading
-              eyebrow="Employer enquiry"
-              title="Submit a vacancy."
-              lead="Give us the role, location and minimum requirements. The form opens a structured email to Prestige so no vacancy details are lost."
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <SectionHeading
+                eyebrow="What we do"
+                title="From first advert to first day."
+                lead="Take the whole process, or the part you do not have capacity for."
+              />
+              <p className="mt-5 leading-relaxed text-body">
+                Most of the work sits between the advert and the offer: reading applications
+                properly, calling candidates who look right on paper, coordinating diaries across
+                busy managers, and keeping every applicant informed. That is the part we carry.
+              </p>
+            </div>
+            <ContentSlider
+              images={sectionSliders.recruitmentProcess}
+              aspect="aspect-[4/3]"
+              label="Candidates placed through Prestige Tutelage"
             />
-            <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
-              <div><label className={label}>Company *</label><input required value={form.company} onChange={update('company')} className={field} /></div>
-              <div><label className={label}>Contact person *</label><input required value={form.contactPerson} onChange={update('contactPerson')} className={field} /></div>
-              <div><label className={label}>Email *</label><input required type="email" value={form.email} onChange={update('email')} className={field} /></div>
-              <div><label className={label}>Telephone</label><input type="tel" value={form.telephone} onChange={update('telephone')} className={field} /></div>
-              <div><label className={label}>Position title *</label><input required value={form.position} onChange={update('position')} className={field} /></div>
-              <div><label className={label}>Number of vacancies</label><input type="number" min="1" value={form.vacancies} onChange={update('vacancies')} className={field} /></div>
-              <div><label className={label}>Employment type</label><select value={form.employmentType} onChange={update('employmentType')} className={field}><option value="">Select</option><option>Permanent</option><option>Fixed-term / Project</option><option>Learnership</option><option>Graduate / Entry-level</option></select></div>
-              <div><label className={label}>Location</label><input value={form.location} onChange={update('location')} className={field} /></div>
-              <div><label className={label}>Required experience</label><textarea rows="3" value={form.experience} onChange={update('experience')} className={field} /></div>
-              <div><label className={label}>Required qualifications</label><textarea rows="3" value={form.qualifications} onChange={update('qualifications')} className={field} /></div>
-              <div><label className={label}>Desired start date</label><input type="date" value={form.startDate} onChange={update('startDate')} className={field} /></div>
-              <div className="sm:col-span-2"><label className={label}>Additional information</label><textarea rows="5" value={form.notes} onChange={update('notes')} className={field} /></div>
-              <div className="sm:col-span-2"><button type="submit" className="btn btn-primary">Submit Vacancy Enquiry</button></div>
-            </form>
+          </div>
+
+          <div className="mt-14 space-y-12">
+            {recruitmentGroups.map((g, i) => (
+              <div key={g.slug} id={g.slug} className="scroll-mt-28 border-t border-line pt-8">
+                <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+                  <div>
+                    <div className="flex items-baseline gap-4">
+                      <span className="font-display text-2xl font-semibold text-prestige-blue-hover/80">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="font-display text-2xl font-semibold leading-tight text-ink">
+                        {g.title}
+                      </h3>
+                    </div>
+                    <p className="mt-3 leading-relaxed text-body">{g.lead}</p>
+                    {g.note && <Disclaimer className="mt-4">{g.note}</Disclaimer>}
+                  </div>
+                  <ul className="grid content-start gap-x-10 sm:grid-cols-2">
+                    {g.services.map((s) => (
+                      <li key={s} className="flex items-start gap-3 border-b border-line py-2.5 text-body">
+                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Learnership & youth recruitment — the differentiator */}
+      <section className="border-y border-line bg-mist/60 py-16 lg:py-20">
+        <div className="container-px">
+          <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+            <div>
+              <SectionHeading
+                eyebrow="Where we are strongest"
+                title="Learnership & youth recruitment."
+                lead={learnerRecruitment.lead}
+              />
+              <ul className="mt-8 grid gap-x-10 border-t border-line sm:grid-cols-2">
+                {learnerRecruitment.services.map((s) => (
+                  <li key={s} className="flex items-start gap-3 border-b border-line py-2.5 text-body">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/programmes#learnerships" className="btn btn-outline mt-8">How Learnerships Work</Link>
+            </div>
+            <ContentSlider
+              images={sectionSliders.recruitmentYouth}
+              aspect="aspect-[4/3]"
+              label="Learnership and youth intakes recruited by Prestige Tutelage"
+              className="lg:mt-2"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Roles */}
+      <section className="py-16 lg:py-20">
+        <div className="container-px">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+            <SectionHeading
+              eyebrow="Roles we recruit for"
+              title="The roles we know, because we train for them."
+              lead="Our recruitment sits closest to the occupations we already develop people into."
+            />
+            <ul className="grid content-start gap-x-10 border-t border-line sm:grid-cols-2">
+              {roleCategories.map((r) => (
+                <li key={r} className="flex items-start gap-3 border-b border-line py-3 text-body">
+                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Disclaimer className="mt-10">{CHECKS_QUALIFIER}</Disclaimer>
+        </div>
+      </section>
+
+      {/* Vacancy form */}
+      <section id="submit-a-vacancy" className="relative scroll-mt-28 overflow-hidden border-t border-line bg-paper py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div>
+              <SectionHeading
+                eyebrow="Submit a vacancy"
+                title="Tell us who you need."
+                lead="The more you can tell us about the role and the person who would succeed in it, the better the shortlist."
+              />
+              <p className="mt-5 leading-relaxed text-body">
+                We will come back to confirm scope, timelines and terms before any sourcing starts.
+              </p>
+            </div>
+            <EnquiryForm
+              fields={vacancyFields}
+              form={form}
+              submitLabel="Submit Vacancy"
+              note="Prestige will confirm the engagement, scope and fees in writing before beginning any recruitment work."
+            />
+          </div>
+        </div>
+      </section>
+
+      <CTABand
+        title="Find talent with Prestige."
+        text="Whether it is one supervisor or a learnership intake of forty, tell us what you need and we will tell you honestly whether we are the right fit."
+        primary={{ label: 'Find Talent With Prestige', to: '/contact?interest=Recruitment' }}
+        secondary={{ label: 'Explore Services', to: '/services' }}
+      />
     </>
   )
 }
