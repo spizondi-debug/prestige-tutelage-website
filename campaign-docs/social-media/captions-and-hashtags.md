@@ -278,3 +278,26 @@ Happy to talk it through whenever it suits you.
 **Character count (caption without hashtags):** 415
 **Hashtags:** 5
 
+---
+
+## Post 13 — Friday message to learners and employers
+
+**Attach:** `post-13-friday-message-square.png` (feed) · `post-13-friday-message-vertical.png` (story/reel) · `post-13-friday-message.mp4` (video)
+
+```
+One week closer.
+
+To every learner who showed up this week — for the module that was hard, the early start, the long commute — progress is rarely dramatic. It looks like showing up, week after week.
+
+And to the employers backing them: thank you for making the room.
+
+Have a good weekend.
+
+prestigetutelage.co.za
+
+#SkillsDevelopment #Learnerships #SouthAfrica #WorkforceDevelopment #FridayThoughts
+```
+
+**Character count (caption without hashtags):** 311
+**Hashtags:** 5
+
