@@ -23,6 +23,7 @@ const PAGE_FILES = {
   home: 'Home', about: 'About', programmes: 'Programmes', shortCourses: 'ShortCourses',
   industries: 'Industries', growthPathways: 'GrowthPathways', corporateTraining: 'CorporateTraining',
   services: 'Services', businessSolutions: 'BusinessSolutions', bbbee: 'BBBEEConsulting',
+  yesProgramme: 'YesProgramme',
   recruitment: 'Recruitment', officeRental: 'OfficeRental', assessment: 'AssessmentCentre',
   insights: 'Insights', contact: 'Contact',
 }
