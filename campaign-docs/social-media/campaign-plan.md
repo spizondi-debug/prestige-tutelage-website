@@ -608,3 +608,48 @@ people appear anywhere in the campaign.
 
 **Video scenes:** logo → statement → list → contact → cta · 19.8s
 
+---
+
+## Day 13 — Post 13: Friday message to learners and employers
+
+**Headline:** One week closer.
+
+**Supporting copy:** Progress is rarely dramatic. It looks like showing up, week after week.
+
+**On-poster points:**
+- To every learner who showed up
+- To the employers who made the room
+- To the facilitators who kept it moving
+
+**Square variant points:**
+- To every learner who showed up
+- To the employers who made the room
+
+**Call to action:** prestigetutelage.co.za
+
+**Target audience:** Learners on programme, alumni, and the employers and skills development facilitators who host them
+
+**Visual direction:** Warmer and quieter than the sequence posts. No qualification data, no proof points, no sell — the message is the whole asset. Green accent throughout for the growth register. The poster carries the thanks; the video's photograph scene carries the weekend sign-off, so neither has to do both.
+
+**Caption:**
+
+> One week closer.
+>
+> To every learner who showed up this week — for the module that was hard, the early start, the long commute — progress is rarely dramatic. It looks like showing up, week after week.
+>
+> And to the employers backing them: thank you for making the room.
+>
+> Have a good weekend.
+>
+> prestigetutelage.co.za
+
+**Hashtags:** #SkillsDevelopment #Learnerships #SouthAfrica #WorkforceDevelopment #FridayThoughts
+
+**Media filenames:**
+
+- `public/social-posts/posters/square/post-13-friday-message-square.png`
+- `public/social-posts/posters/vertical/post-13-friday-message-vertical.png`
+- `public/social-posts/videos/post-13-friday-message.mp4`
+
+**Video scenes:** logo → statement → statement → photo → cta · 18.2s
+

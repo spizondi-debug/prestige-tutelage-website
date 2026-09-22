@@ -1,6 +1,8 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import CTABand from '../components/CTABand.jsx'
+import HeroSlider from '../components/HeroSlider.jsx'
+import { articleHeroes } from '../data/pageHeroes.js'
 import { insights } from '../data/insights.js'
 
 export default function InsightArticle() {
@@ -8,27 +10,38 @@ export default function InsightArticle() {
   const article = insights.find((a) => a.slug === slug)
   const related = insights.filter((a) => a.slug !== slug).slice(0, 3)
 
-  usePageMeta(article?.title ?? 'Insight', article?.excerpt)
+  // The excerpt alone lands around 110 characters, short of what a result
+  // snippet will show. The category and publisher are appended only while
+  // there is room, so a longer excerpt is never truncated to make space.
+  const seoDescription = article
+    ? [`${article.excerpt}`, `A Prestige Tutelage guide for South African employers on ${article.category.toLowerCase()}.`]
+        .reduce((acc, part) => (acc && (acc + ' ' + part).length > 158 ? acc : acc ? acc + ' ' + part : part), '')
+    : undefined
+  usePageMeta(article?.title ?? 'Insight', seoDescription, { type: 'article' })
 
   if (!article) return <Navigate to="/insights" replace />
+
+  const heroSlides = articleHeroes[article.category] ?? articleHeroes.default
 
   return (
     <>
       <article>
-        <header className="border-b border-line">
+        <header className="tex tex-grid border-b border-line bg-cloud">
           <div className="container-px">
-            <div className="max-w-3xl py-14 lg:py-20">
-              <Link to="/insights" className="text-sm font-semibold text-prestige-blue hover:underline">
-                ← All insights
-              </Link>
-              <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-prestige-green">
-                {article.category}
-              </p>
-              <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
-                {article.title}
-              </h1>
-              <p className="mt-5 text-lg leading-relaxed text-body">{article.excerpt}</p>
-              <p className="mt-5 text-sm text-muted">{article.minutes} min read</p>
+            <div className="grid items-center gap-10 py-14 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:py-20">
+              <div className="max-w-2xl">
+                <Link to="/insights" className="text-sm font-semibold text-prestige-blue-hover hover:underline">
+                  ← All insights
+                </Link>
+                <p className="eyebrow mt-6">{article.category}</p>
+                <h1 className="mt-4 font-display text-editorial font-semibold text-ink">
+                  {article.title}
+                </h1>
+                <p className="mt-6 text-lg leading-relaxed text-body">{article.excerpt}</p>
+                <p className="mt-5 text-sm text-muted">{article.minutes} min read</p>
+              </div>
+
+              <HeroSlider images={heroSlides} />
             </div>
           </div>
         </header>
@@ -74,8 +87,8 @@ export default function InsightArticle() {
           <div className="mt-6 grid gap-x-12 border-t border-line lg:grid-cols-3">
             {related.map((a) => (
               <Link key={a.slug} to={`/insights/${a.slug}`} className="group border-b border-line py-5 lg:pr-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-prestige-green">{a.category}</p>
-                <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue">
+                <p className="text-xs font-semibold uppercase tracking-wider text-prestige-blue-hover">{a.category}</p>
+                <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-prestige-blue-hover">
                   {a.title}
                 </h3>
               </Link>

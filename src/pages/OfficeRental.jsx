@@ -1,118 +1,175 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
+import CTABand from '../components/CTABand.jsx'
+import Disclaimer from '../components/Disclaimer.jsx'
+import EnquiryForm from '../components/EnquiryForm.jsx'
+import { useEnquiryForm } from '../lib/useEnquiryForm.js'
+import { spaceCategories, spaceFields, DETAILS_ON_ENQUIRY } from '../data/spaces.js'
 import { contact } from '../data/site.js'
-
-const spaces = [
-  { title: 'Training Rooms', text: 'Suitable for training, workshops, assessments, induction sessions and team development.' },
-  { title: 'Meeting Rooms', text: 'Suitable for client meetings, interviews, workshops and planning sessions.' },
-  { title: 'Office Space', text: 'Flexible professional space for short-term office use, project teams, consultants and facilitators.' },
-  { title: 'Assessment / Examination Space', text: 'Controlled space for assessment sessions, invigilation and candidate assessments where appropriate.' },
-]
-
-const initialForm = {
-  name: '', company: '', email: '', telephone: '', space: '', attendees: '', date: '', startTime: '', endTime: '', purpose: '', requirements: '',
-}
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function OfficeRental() {
   usePageMeta(
     'Office & Training Space Rental',
-    'Office rental, training room rental and meeting space in Ferndale, Randburg for workshops, meetings, assessments and short-term business use.',
+    'Training room, meeting room and office space rental in Ferndale, Randburg. Flexible professional space from Prestige Tutelage for training, workshops, interviews, assessments and short-term office use.',
   )
 
-  const [form, setForm] = useState(initialForm)
-  const update = (key) => (e) => setForm((v) => ({ ...v, [key]: e.target.value }))
-
-  const submit = (e) => {
-    e.preventDefault()
-    const body = [
-      `Name: ${form.name}`,
-      `Company: ${form.company || '—'}`,
-      `Email: ${form.email}`,
-      `Telephone: ${form.telephone || '—'}`,
-      `Space required: ${form.space || '—'}`,
-      `Number of attendees: ${form.attendees || '—'}`,
-      `Preferred date: ${form.date || '—'}`,
-      `Start time: ${form.startTime || '—'}`,
-      `End time: ${form.endTime || '—'}`,
-      `Purpose: ${form.purpose || '—'}`,
-      '',
-      'Additional requirements:',
-      form.requirements || '—',
-    ].join('\n')
-    window.location.href = `${contact.emailHref}?subject=${encodeURIComponent('Office / training space availability enquiry')}&body=${encodeURIComponent(body)}`
-  }
-
-  const field = 'mt-1.5 w-full rounded-lg border border-line bg-paper px-4 py-3 text-ink outline-none transition-colors focus:border-prestige-blue'
-  const label = 'block text-sm font-semibold text-ink'
+  const form = useEnquiryForm(spaceFields, {
+    subject: (v) => `Space enquiry — ${v.space || 'general'}${v.date ? ` (${v.date})` : ''}`,
+  })
 
   return (
     <>
       <PageHeader
-        eyebrow="Office & Training Space Rental"
-        title="Professional space when you need it."
-        lead="Flexible professional space through Prestige Tutelage in Ferndale, Randburg for training, meetings, assessments, interviews and temporary business use."
+        images={pageHeroes.officeRental}
+        eyebrow="Office & training space"
+        title={<>Professional space <Accent>when you need it</Accent>.</>}
+        lead={`Flexible professional space available through Prestige Tutelage in Ferndale, Randburg — for training, workshops, meetings, interviews, assessments and short-term office use.`}
       >
-        <a href="#availability" className="btn btn-primary mt-8">Check Space Availability</a>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#check-availability" className="btn btn-primary">Check Space Availability</a>
+          <a href={contact.phoneHref} className="btn btn-outline">Call {contact.phone}</a>
+        </div>
       </PageHeader>
 
-      <section className="py-16 lg:py-24">
+      {/* Details on enquiry — stated before anyone starts looking for specs */}
+      <section className="relative overflow-hidden border-b border-line bg-paper py-10">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
+          <div className="grid gap-6 lg:grid-cols-[0.35fr_0.65fr] lg:gap-12">
+            <h2 className="font-display text-xl font-semibold text-ink">Room options &amp; pricing</h2>
+            <div>
+              <p className="leading-relaxed text-body">{DETAILS_ON_ENQUIRY}</p>
+              <p className="mt-3 leading-relaxed text-body">
+                Options vary by date and booking, so we confirm what is available, what it includes
+                and what it costs when you enquire — rather than publishing a list that may not hold
+                for your dates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="py-16 lg:py-20">
         <div className="container-px">
-          <SectionHeading
-            eyebrow="Our spaces"
-            title="A professional setting for focused work, learning and assessment."
-            lead="Tell us the purpose, expected attendance and preferred date. We will confirm the current room options, capacity, facilities, availability and pricing."
-          />
-          <div className="mt-12 grid gap-x-10 border-t border-line md:grid-cols-2">
-            {spaces.map((space) => (
-              <article key={space.title} className="border-b border-line py-7 md:pr-8">
-                <h2 className="font-display text-2xl font-semibold text-ink">{space.title}</h2>
-                <p className="mt-3 leading-relaxed text-body">{space.text}</p>
+          <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <ContentSlider
+              images={sectionSliders.officeRental}
+              aspect="aspect-[4/3]"
+              label="The Prestige Tutelage venue in use"
+            />
+            <SectionHeading
+              eyebrow="What the space is used for"
+              title="Four kinds of booking."
+              lead="Tell us what you are running and we will advise on the right room. Room options, capacity, facilities and pricing are confirmed when you enquire."
+            />
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {spaceCategories.map((cat, i) => (
+              <article key={cat.slug} id={cat.slug} className="scroll-mt-28 border border-line bg-paper p-7">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-display text-2xl font-semibold text-prestige-blue-hover/80">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="font-display text-2xl font-semibold leading-tight text-ink">
+                    {cat.title}
+                  </h3>
+                </div>
+                <p className="mt-3 leading-relaxed text-body">{cat.lead}</p>
+
+                <h4 className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted">
+                  Suitable for
+                </h4>
+                <ul className="mt-3 border-t border-line">
+                  {cat.suitableFor.map((s) => (
+                    <li key={s} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
-          <div className="mt-10 border-l-4 border-prestige-green bg-sand/60 px-6 py-5">
-            <p className="leading-relaxed text-body">
-              Contact Prestige for current room options, capacity, facilities, availability and pricing. We do not publish unverified capacities, equipment specifications, parking, catering, accessibility or operating-hour claims.
-            </p>
+
+          <Disclaimer className="mt-10">{DETAILS_ON_ENQUIRY}</Disclaimer>
+        </div>
+      </section>
+
+      {/* Why book here */}
+      <section className="border-y border-line bg-mist/60 py-14 lg:py-16">
+        <div className="container-px">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <SectionHeading
+              eyebrow="Why book with Prestige"
+              title="A training company’s space, run by people who use it."
+            />
+            <div className="grid gap-x-12 border-t border-line sm:grid-cols-2">
+              {[
+                { t: 'Set up for learning', d: 'These are rooms a training provider uses every week — arranged for groups who are there to work.' },
+                { t: 'Assessment-aware', d: 'We understand what a controlled assessment needs, because we run them ourselves.' },
+                { t: 'In Ferndale, Randburg', d: `${contact.addressLines.join(', ')} — convenient for Johannesburg-based teams.` },
+                { t: 'One conversation', d: 'Booking, access and arrangements handled by the same team that answers the phone.' },
+              ].map((x) => (
+                <div key={x.t} className="border-b border-line py-5">
+                  <h3 className="font-display text-lg font-semibold text-prestige-blue-hover">{x.t}</h3>
+                  <p className="mt-1.5 leading-relaxed text-body">{x.d}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="availability" className="scroll-mt-28 border-y border-line bg-paper py-16 lg:py-24">
+      {/* Enquiry form */}
+      <section id="check-availability" className="scroll-mt-28 py-16 lg:py-20">
         <div className="container-px">
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <SectionHeading
-                eyebrow="Availability enquiry"
-                title="Tell us what space you need."
-                lead="The enquiry opens a structured email to Prestige with the details needed to confirm a suitable option."
+                eyebrow="Check availability"
+                title="Tell us what you need and when."
+                lead="We will confirm what is available for your dates, what the room includes and what it costs."
               />
-              <p className="mt-6 text-sm leading-relaxed text-muted">
-                Location: {contact.addressLines.join(', ')}.
-              </p>
-              <Link to="/assessment-centre" className="mt-5 inline-block text-sm font-semibold text-prestige-blue hover:underline">
-                Need formal assessment services instead? View the Assessment Centre →
-              </Link>
+              <div className="mt-7 space-y-2 text-body">
+                <p>
+                  <a href={contact.phoneHref} className="font-semibold text-prestige-blue-hover hover:underline">
+                    {contact.phone}
+                  </a>
+                </p>
+                <p>
+                  <a href={contact.emailHref} className="font-semibold text-prestige-blue-hover hover:underline">
+                    {contact.email}
+                  </a>
+                </p>
+                <address className="not-italic leading-relaxed text-muted">
+                  {contact.addressLines.join(', ')}
+                </address>
+              </div>
             </div>
-            <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
-              <div><label className={label}>Name *</label><input required value={form.name} onChange={update('name')} className={field} /></div>
-              <div><label className={label}>Company</label><input value={form.company} onChange={update('company')} className={field} /></div>
-              <div><label className={label}>Email *</label><input required type="email" value={form.email} onChange={update('email')} className={field} /></div>
-              <div><label className={label}>Telephone</label><input type="tel" value={form.telephone} onChange={update('telephone')} className={field} /></div>
-              <div><label className={label}>Space required</label><select value={form.space} onChange={update('space')} className={field}><option value="">Select</option>{spaces.map((s) => <option key={s.title}>{s.title}</option>)}</select></div>
-              <div><label className={label}>Number of attendees</label><input type="number" min="1" value={form.attendees} onChange={update('attendees')} className={field} /></div>
-              <div><label className={label}>Preferred date</label><input type="date" value={form.date} onChange={update('date')} className={field} /></div>
-              <div className="grid grid-cols-2 gap-3"><div><label className={label}>Start time</label><input type="time" value={form.startTime} onChange={update('startTime')} className={field} /></div><div><label className={label}>End time</label><input type="time" value={form.endTime} onChange={update('endTime')} className={field} /></div></div>
-              <div className="sm:col-span-2"><label className={label}>Purpose</label><input value={form.purpose} onChange={update('purpose')} className={field} placeholder="Training, meeting, interview, assessment…" /></div>
-              <div className="sm:col-span-2"><label className={label}>Additional requirements</label><textarea rows="5" value={form.requirements} onChange={update('requirements')} className={field} /></div>
-              <div className="sm:col-span-2"><button type="submit" className="btn btn-primary">Check Space Availability</button></div>
-            </form>
+            <EnquiryForm
+              fields={spaceFields}
+              form={form}
+              submitLabel="Check Space Availability"
+              note="Sending an enquiry does not reserve a room. We will confirm availability, facilities and pricing before any booking is held."
+            />
           </div>
         </div>
       </section>
+
+      <CTABand
+        title="Need the room for a programme we could also run?"
+        text="Plenty of clients start by booking space and end up asking us to deliver the training in it. Either conversation is welcome."
+        primary={{ label: 'Check Space Availability', to: '/contact?interest=Office%20%2F%20Training%20Space%20Rental' }}
+        secondary={{ label: 'See Corporate Training', to: '/corporate-training' }}
+      />
     </>
   )
 }

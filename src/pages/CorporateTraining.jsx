@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { corporateProcess, corporateAudiences, deliveryFormats } from '../data/corporate.js'
+import { sectionSliders } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
 
 export default function CorporateTraining() {
   usePageMeta(
@@ -15,7 +19,7 @@ export default function CorporateTraining() {
     <>
       <PageHeader
         eyebrow="Corporate training"
-        title="Training built around your business."
+        title={<>Training built around <Accent>your business</Accent>.</>}
         lead="Not a catalogue you choose from — a programme designed from your objectives, your operation and your people. Delivered where the work happens, administered properly, and measured against what actually changed."
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -25,14 +29,14 @@ export default function CorporateTraining() {
       </PageHeader>
 
       {/* The process */}
-      <section className="bg-prestige-blue-deep py-16 lg:py-24">
+      <section className="bg-prestige-blue-hover py-16 lg:py-24">
         <div className="container-px">
           <div className="max-w-3xl">
             <span className="mb-5 block h-px w-10 bg-prestige-green" aria-hidden="true" />
             <h2 className="font-display text-3xl font-semibold leading-tight text-white sm:text-4xl">
               One process, applied to your context.
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-white/80">
+            <p className="mt-4 text-lg leading-relaxed text-white">
               Every engagement runs the same disciplined arc — so you always know where you are, what
               comes next and what you will have at the end.
             </p>
@@ -41,11 +45,11 @@ export default function CorporateTraining() {
           <ol className="mt-12 grid gap-px overflow-hidden rounded-lg border border-white/15 bg-white/15 sm:grid-cols-2 lg:grid-cols-5">
             {corporateProcess.map((step, i) => (
               <li key={step.name} className="bg-prestige-blue-deep p-6">
-                <span className="font-display text-lg font-semibold text-prestige-green">
+                <span className="font-display text-lg font-semibold text-prestige-green-light">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h3 className="mt-3 font-sans font-semibold text-white">{step.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{step.text}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white">{step.text}</p>
               </li>
             ))}
           </ol>
@@ -55,6 +59,26 @@ export default function CorporateTraining() {
       {/* Who we work with */}
       <section className="py-16 lg:py-24">
         <div className="container-px">
+          <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <ContentSlider
+              images={sectionSliders.corporateInTheRoom}
+              aspect="aspect-[4/3]"
+              label="Prestige Tutelage facilitation and practical training"
+            />
+            <div>
+              <SectionHeading
+                eyebrow="In the room"
+                title="Facilitators who earn the room."
+                lead="Training only transfers when the person at the front has industry credibility, reads the group, and can hold a mixed room of people with very different starting points."
+              />
+              <p className="mt-5 leading-relaxed text-body">
+                Our facilitators are practitioners. They teach from work they have actually done, in
+                language the group recognises — and they are comfortable moving between the formal
+                content and the real questions that come up.
+              </p>
+            </div>
+          </div>
+
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
               eyebrow="Who we work with"
@@ -64,7 +88,7 @@ export default function CorporateTraining() {
             <dl className="grid content-start border-t border-line">
               {corporateAudiences.map((a) => (
                 <div key={a.role} className="grid gap-1 border-b border-line py-4 sm:grid-cols-[0.4fr_0.6fr] sm:gap-6">
-                  <dt className="font-sans font-semibold text-ink">{a.role}</dt>
+                  <dt className="font-sans font-semibold text-prestige-blue-hover">{a.role}</dt>
                   <dd className="leading-relaxed text-body">{a.need}</dd>
                 </div>
               ))}
@@ -74,18 +98,27 @@ export default function CorporateTraining() {
       </section>
 
       {/* Delivery formats */}
-      <section className="border-y border-line bg-paper py-16 lg:py-24">
-        <div className="container-px">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <SectionHeading
-              eyebrow="Delivery formats"
-              title="Delivered the way your organisation actually runs."
-              lead="Shift patterns, production pressure and dispersed sites are normal. We plan around them rather than asking you to plan around us."
-            />
+      <section className="relative overflow-hidden border-y border-line bg-paper py-16 lg:py-24">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+            <div>
+              <SectionHeading
+                eyebrow="Delivery formats"
+                title="Delivered the way your organisation actually runs."
+                lead="Shift patterns, production pressure and dispersed sites are normal. We plan around them rather than asking you to plan around us."
+              />
+              <ContentSlider
+                images={sectionSliders.corporateDelivery}
+                aspect="aspect-[4/5]"
+                label="Prestige Tutelage training delivered on client sites"
+                className="mt-8"
+              />
+            </div>
             <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
               {deliveryFormats.map((f) => (
                 <div key={f.name} className="border-b border-line py-5">
-                  <dt className="font-display text-lg font-semibold text-ink">{f.name}</dt>
+                  <dt className="font-display text-lg font-semibold text-prestige-blue-hover">{f.name}</dt>
                   <dd className="mt-1.5 leading-relaxed text-body">{f.text}</dd>
                 </div>
               ))}
@@ -111,7 +144,7 @@ export default function CorporateTraining() {
               { t: 'Reporting that means something', d: 'Progress, completion and workplace application — reported in language the business uses.' },
             ].map((x) => (
               <div key={x.t} className="border-b border-line py-5 lg:pr-6">
-                <h3 className="font-display text-lg font-semibold text-ink">{x.t}</h3>
+                <h3 className="font-display text-lg font-semibold text-prestige-blue-hover">{x.t}</h3>
                 <p className="mt-1.5 leading-relaxed text-body">{x.d}</p>
               </div>
             ))}

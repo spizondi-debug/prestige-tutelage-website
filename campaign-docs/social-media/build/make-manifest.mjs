@@ -16,7 +16,12 @@ const root = resolve(here, '../../..')
 const docs = resolve(root, 'campaign-docs/social-media')
 const plan = JSON.parse(readFileSync(resolve(docs, 'campaign-plan.json'), 'utf8'))
 
-const EXPECT = { square: 12, vertical: 12, video: 12 }
+// Derived from the plan, not hardcoded. The loop below already errors on any
+// post whose asset is missing, so this count is the belt-and-braces half: it
+// catches a plan that has quietly lost an entry. Hardcoding 12 made it fail
+// the moment a standalone post was added alongside the twelve-post sequence.
+const N = plan.posts.length
+const EXPECT = { square: N, vertical: N, video: N }
 const SPEC = {
   square: { w: 1080, h: 1080 },
   vertical: { w: 1080, h: 1920 },
@@ -118,6 +123,10 @@ if (errors.length) {
 /* ------------------------------------------------------------ manifest --- */
 
 const mb = (b) => (b / 1024 / 1024).toFixed(2)
+
+// One-off posts produced outside the numbered sequence, so the README can
+// describe the set honestly rather than implying they are part of it.
+const standalone = plan.posts.filter((p) => p.standalone)
 const total = rows.reduce((n, r) => n + r.bytes, 0)
 const posters = rows.filter((r) => r.kind !== 'video')
 const videos = rows.filter((r) => r.kind === 'video')
@@ -172,8 +181,9 @@ writeFileSync(resolve(docs, 'media-manifest.md'), manifestMd)
 
 const readme = `# Prestige Tutelage — social media campaign
 
-${plan.campaign.posts} posts. Each has a square poster, a vertical poster and a
-vertical video. ${posters.length} posters and ${videos.length} videos in total.
+${plan.campaign.posts} posts in the sequence${standalone.length ? `, plus ${standalone.length} standalone ${standalone.length === 1 ? 'post' : 'posts'}` : ''}. Each has a square
+poster, a vertical poster and a vertical video. ${posters.length} posters and ${videos.length} videos
+in total.
 
 Nothing here is scheduled or published by the build. Every asset is a file for
 a person to post.

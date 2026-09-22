@@ -1,4 +1,4 @@
-import { SectionHeading } from '../Section.jsx'
+import { SectionHeading, Accent } from '../Section.jsx'
 
 export const whyPrestige = [
   { title: 'Practical', text: 'Training that translates into workplace capability.' },
@@ -11,18 +11,19 @@ export const whyPrestige = [
 
 export default function WhyPrestige() {
   return (
-    <section className="py-16 lg:py-24">
+    <section className="border-t border-line bg-cloud py-20 lg:py-28">
       <div className="container-px">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <SectionHeading
             eyebrow="Why Prestige"
-            title="The way we work is the difference."
+            title={<>The way we work is <Accent>the difference</Accent>.</>}
+            tone="blue"
             lead="Organisations keep working with Prestige because of how the work gets done — not just what is on the course list."
           />
           <dl className="grid content-start gap-x-12 border-t border-line sm:grid-cols-2">
             {whyPrestige.map((w) => (
               <div key={w.title} className="border-b border-line py-5">
-                <dt className="font-display text-lg font-semibold text-ink">{w.title}</dt>
+                <dt className="font-display text-lg font-semibold text-prestige-blue-hover">{w.title}</dt>
                 <dd className="mt-1.5 leading-relaxed text-body">{w.text}</dd>
               </div>
             ))}

@@ -62,3 +62,4 @@ add background music without checking licensing.
 10. **Post 10** — Employer B-BBEE and skills-development value
 11. **Post 11** — End-to-end learner and employer support
 12. **Post 12** — Book a training consultation
+13. **Post 13** — Friday message to learners and employers

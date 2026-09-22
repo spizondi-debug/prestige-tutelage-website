@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/meta.js'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Photo from '../components/Photo.jsx'
+import LearningRoutes from '../components/LearningRoutes.jsx'
+import ContentSlider from '../components/ContentSlider.jsx'
 import CTABand from '../components/CTABand.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
@@ -19,28 +20,53 @@ import {
   customCorporate,
 } from '../data/programmes.js'
 import { totalShortCourses } from '../data/shortCourses.js'
+import { pageHeroes, sectionSliders } from '../data/pageHeroes.js'
+import { Accent } from '../components/Section.jsx'
+import CornerSwirl from '../components/CornerSwirl.jsx'
+import { FileText, User, Target, Briefcase, CheckCircle2, Shield } from 'lucide-react'
 
 const ALL = 'All'
 
+/**
+ * One filter column. Options render as pills of equal height, so a long label
+ * like "Education & Community Development" wraps to its own row rather than
+ * stretching its neighbours.
+ *
+ * The whole pill is the button, and the selected one carries a teal check that
+ * sits proud of its top-right corner — a second signal beyond colour alone,
+ * which matters for anyone who cannot separate the blue fill from the white
+ * one. `aria-pressed` carries the same state for assistive tech.
+ */
 function FilterGroup({ label, options, value, onChange, formatter = (v) => v }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-wider text-muted">{label}</p>
-      <div className="mt-2.5 flex flex-wrap gap-2">
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">{label}</p>
+      <div className="mt-3.5 flex flex-wrap gap-2.5">
         {[ALL, ...options].map((opt) => {
           const active = value === opt
           return (
             <button
               key={opt}
+              type="button"
               onClick={() => onChange(opt)}
               aria-pressed={active}
-              className={`border px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`relative inline-flex h-11 items-center rounded-full border px-5 text-sm font-medium transition-all duration-200 ease-prestige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep ${
                 active
-                  ? 'border-prestige-blue bg-prestige-blue text-white'
-                  : 'border-line bg-paper text-ink hover:border-prestige-blue/50'
+                  ? 'border-prestige-blue-hover bg-prestige-blue-hover text-white shadow-premium'
+                  : 'border-prestige-blue/15 bg-paper text-ink hover:border-prestige-blue/45 hover:bg-prestige-blue/[0.04]'
               }`}
             >
               {opt === ALL ? ALL : formatter(opt)}
+              {active && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-prestige-green ring-2 ring-paper"
+                >
+                  <svg viewBox="0 0 12 12" fill="none" className="h-3 w-3">
+                    <path d="m3 6.2 2 2L9 4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              )}
             </button>
           )
         })}
@@ -77,8 +103,9 @@ export default function Programmes() {
   return (
     <>
       <PageHeader
+        images={pageHeroes.programmes}
         eyebrow="Programmes & qualifications"
-        title="Learning that maps onto real occupations."
+        title={<>Learning that maps onto <Accent>real occupations</Accent>.</>}
         lead="Prestige Tutelage delivers qualifications across business and administration, manufacturing and production, engineering, agriculture and early childhood development — as full qualifications, through learnerships, or as part of a wider workforce plan."
       >
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2" aria-label="On this page">
@@ -88,58 +115,73 @@ export default function Programmes() {
             ['#technical', 'Technical interventions'],
             ['#custom', 'Custom corporate'],
           ].map(([href, label]) => (
-            <a key={href} href={href} className="text-sm font-semibold text-prestige-blue transition-colors hover:text-prestige-blue-deep">
+            <a key={href} href={href} className="text-sm font-semibold text-prestige-blue-hover transition-colors hover:text-prestige-blue-hover">
               {label}
             </a>
           ))}
         </nav>
       </PageHeader>
 
-      {/* Delivery routes */}
-      <section className="border-b border-line bg-paper py-12 lg:py-14">
-        <div className="container-px">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { t: 'Full qualifications', d: 'Structured learning toward a qualification, with formal assessment and moderation.' },
-              { t: 'Learnerships', d: 'Qualification-linked programmes combining classroom learning with structured workplace experience.' },
-              { t: 'Skills programmes', d: 'Focused components for organisations that need targeted capability quickly.' },
-            ].map((x) => (
-              <div key={x.t} className="border-l-2 border-prestige-green/60 pl-5">
-                <h2 className="font-sans font-semibold text-ink">{x.t}</h2>
-                <p className="mt-2 leading-relaxed text-body">{x.d}</p>
-              </div>
-            ))}
-          </div>
-          <Disclaimer className="mt-10">{AVAILABILITY_DISCLAIMER}</Disclaimer>
-        </div>
-      </section>
+      <LearningRoutes
+        route1={{
+          badge: 'Route 01',
+          title: 'Professional short courses',
+          lead: 'Focused, practical courses for immediate workplace impact.',
+          detail: 'Non-NQF and non-credit-bearing unless a specific course has been confirmed otherwise in writing.',
+          cta: { label: 'Explore short courses', to: '/short-courses' },
+        }}
+        route2={{
+          badge: 'Route 02',
+          title: 'Qualifications & accredited programmes',
+          lead: 'Structured programmes and learnerships that combine guided learning, workplace experience and formal assessment.',
+          tiles: [
+            { name: 'Full qualifications', text: 'Structured learning toward a qualification, with formal assessment and moderation.', icon: FileText },
+            { name: 'Learnerships', text: 'Qualification-linked programmes combining classroom learning with structured workplace experience.', icon: User },
+            { name: 'Skills programmes', text: 'Focused components for organisations that need targeted capability quickly.', icon: Target },
+          ],
+          detail: AVAILABILITY_DISCLAIMER,
+          cta: { label: 'View the qualification catalogue', href: '#catalogue' },
+        }}
+      />
 
       {/* Catalogue with filters */}
-      <section id="catalogue" className="scroll-mt-28 py-16 lg:py-20">
-        <div className="container-px">
+      <section id="catalogue" className="relative scroll-mt-28 overflow-hidden bg-cloud py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <SectionHeading
             eyebrow="Qualification catalogue"
             title="Find the right qualification."
             lead="Filter by what you need, the area you work in, or the NQF level you are targeting. Every qualification below shows the detail Prestige has verified."
           />
 
-          <div className="mt-10 grid gap-6 border-y border-line py-7 lg:grid-cols-3 lg:gap-10">
-            <FilterGroup label="Programme type" options={PROGRAMME_TYPES} value={type} onChange={setType} />
-            <FilterGroup label="Training area" options={populatedAreas} value={area} onChange={setArea}
-              formatter={(a) => a.replace(' & Agri-processing', '').replace(', Administration & Leadership', '')} />
-            <FilterGroup label="NQF level" options={nqfLevels} value={nqf} onChange={setNqf}
-              formatter={(n) => `NQF ${n}`} />
-          </div>
+          {/* One panel holds the three filter columns and the result row. */}
+          <div className="mt-10 overflow-hidden rounded-[20px] border border-line bg-paper shadow-premium">
+            {/* Brand hairline across the top edge. */}
+            <div className="h-[3px] w-full bg-[linear-gradient(to_right,#006FD8_0%,#0089E6_45%,#2DA22F_100%)]" aria-hidden="true" />
 
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-sm text-body" role="status" aria-live="polite">
-              Showing <span className="font-semibold text-ink">{filtered.length}</span> of {qualifications.length} qualifications
-            </p>
-            {filtersActive && (
-              <button onClick={reset} className="text-sm font-semibold text-prestige-blue hover:underline">
-                Clear filters
-              </button>
-            )}
+            <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-3 lg:gap-10">
+              <FilterGroup label="Programme type" options={PROGRAMME_TYPES} value={type} onChange={setType} />
+              <FilterGroup label="Training area" options={populatedAreas} value={area} onChange={setArea}
+                formatter={(a) => a.replace(' & Agri-processing', '').replace(', Administration & Leadership', '')} />
+              <FilterGroup label="NQF level" options={nqfLevels} value={nqf} onChange={setNqf}
+                formatter={(n) => `NQF ${n}`} />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line px-6 py-5 sm:px-8">
+              <p className="text-sm text-body" role="status" aria-live="polite">
+                Showing <span className="font-semibold text-ink">{filtered.length}</span>{' '}
+                {filtered.length === 1 ? 'programme' : 'programmes'}
+              </p>
+              {filtersActive && (
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="rounded-full px-3 py-1.5 text-sm font-semibold text-prestige-blue-hover transition-colors hover:bg-prestige-blue/[0.06] hover:text-prestige-blue-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige-blue-deep"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
           </div>
 
           {filtered.length === 0 ? (
@@ -165,7 +207,11 @@ export default function Programmes() {
                       <h3 className="font-display text-2xl font-semibold text-ink">{a}</h3>
                       <p className="max-w-3xl leading-relaxed text-body">{areaIntros[a]}</p>
                     </div>
-                    <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    {/* One card per row on mobile, two on tablet, three on
+                        large desktops. `items-stretch` is the default here, so
+                        each card fills its row and finishes level with its
+                        neighbours. */}
+                    <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                       {items.map((q) => <ProgrammeCard key={q.saqaId} q={q} />)}
                     </div>
                   </div>
@@ -179,8 +225,9 @@ export default function Programmes() {
       </section>
 
       {/* Learnerships */}
-      <section id="learnerships" className="scroll-mt-28 border-y border-line bg-sand/60 py-16 lg:py-24">
-        <div className="container-px">
+      <section id="learnerships" className="relative scroll-mt-28 overflow-hidden border-y border-line bg-mist/60 py-16 lg:py-24">
+        <CornerSwirl size="sm" opacity={0.35} />
+        <div className="container-px relative">
           <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -188,33 +235,42 @@ export default function Programmes() {
                 title="Work-based learning, managed properly."
                 lead={learnerships.intro}
               />
-              <div className="mt-8 space-y-6">
-                {[learnerships.employed, learnerships.unemployed].map((l) => (
-                  <div key={l.title} className="border-l-2 border-prestige-green/60 pl-5">
-                    <h3 className="font-sans font-semibold text-ink">{l.title}</h3>
-                    <p className="mt-1.5 leading-relaxed text-body">{l.text}</p>
+              <div className="mt-8 space-y-4">
+                {[
+                  { ...learnerships.employed, icon: Briefcase },
+                  { ...learnerships.unemployed, icon: User },
+                ].map((l) => (
+                  <div key={l.title} className="flex items-start gap-4 rounded-xl border-l-4 border-prestige-green bg-paper p-5 shadow-soft">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-prestige-green-pale text-prestige-green-deep">
+                      <l.icon size={20} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-semibold text-prestige-blue-hover">{l.title}</h3>
+                      <p className="mt-1.5 leading-relaxed text-body">{l.text}</p>
+                    </div>
                   </div>
                 ))}
               </div>
               <Disclaimer className="mt-7">{learnerships.contributionNote}</Disclaimer>
-              <Link to="/contact" className="btn btn-primary mt-8">Discuss a Learnership</Link>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/learnership-application" className="btn btn-primary">Apply for a Learnership</Link>
+                <Link to="/contact" className="btn btn-outline">Discuss a Learnership</Link>
+              </div>
             </div>
 
             <div>
-              <div className="overflow-hidden rounded-xl2 border border-line shadow-card">
-                <Photo
-                  src="graduate-celebrating.jpg"
-                  alt="A graduate celebrating after completing his qualification"
-                  className="aspect-[5/4] w-full"
-                />
-              </div>
+              <ContentSlider
+                images={sectionSliders.programmesLearnerships}
+                aspect="aspect-[5/4]"
+                label="Learners completing Prestige Tutelage learnerships"
+              />
               <h3 className="mt-8 font-sans text-sm font-semibold uppercase tracking-wider text-muted">
                 What Prestige can carry for you
               </h3>
               <ul className="mt-4 grid gap-x-8 border-t border-line sm:grid-cols-2">
                 {learnerships.support.map((s) => (
-                  <li key={s} className="flex items-start gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
+                  <li key={s} className="flex items-center gap-3 border-b border-line py-2.5 text-[0.95rem] text-body">
+                    <CheckCircle2 size={17} strokeWidth={1.8} className="shrink-0 text-prestige-green-deep" aria-hidden="true" />
                     {s}
                   </li>
                 ))}
@@ -225,8 +281,18 @@ export default function Programmes() {
       </section>
 
       {/* Customised technical interventions */}
-      <section id="technical" className="scroll-mt-28 py-16 lg:py-20">
-        <div className="container-px">
+      <section id="technical" className="relative scroll-mt-28 overflow-hidden py-16 lg:py-20">
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(8,123,232,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(8,123,232,0.08) 1px, transparent 1px)',
+            backgroundSize: '42px 42px',
+          }}
+        />
+        <CornerSwirl size="sm" opacity={0.35} />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
               <SectionHeading
@@ -234,23 +300,37 @@ export default function Programmes() {
                 title="Customised technical training for your plant."
                 lead={technicalInterventions.lead}
               />
-              <Disclaimer className="mt-6">{technicalInterventions.note}</Disclaimer>
+              <div className="mt-6 flex items-start gap-3 rounded-xl border border-line bg-prestige-blue-light/40 p-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-prestige-blue-light text-prestige-blue-hover">
+                  <Shield size={16} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <p className="text-sm leading-relaxed text-body">{technicalInterventions.note}</p>
+              </div>
             </div>
-            <ul className="grid content-start gap-x-10 border-t border-line sm:grid-cols-2">
-              {technicalInterventions.items.map((i) => (
-                <li key={i} className="flex items-start gap-3 border-b border-line py-3 text-body">
-                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-prestige-green" aria-hidden="true" />
-                  {i}
-                </li>
-              ))}
-            </ul>
+            <div className="rounded-2xl border border-line bg-paper p-8 shadow-premium sm:p-10">
+              <ul className="grid gap-x-10 sm:grid-cols-2">
+                {technicalInterventions.items.map((i, idx) => {
+                  const isLastRow = idx >= technicalInterventions.items.length - 2
+                  return (
+                    <li
+                      key={i}
+                      className={`flex items-center gap-3 py-3 text-body ${isLastRow ? '' : 'border-b border-line'} ${idx % 2 === 1 ? 'sm:border-l sm:border-line sm:pl-8' : ''}`}
+                    >
+                      <CheckCircle2 size={17} strokeWidth={1.8} className="shrink-0 text-prestige-green-deep" aria-hidden="true" />
+                      {i}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Short courses pointer + custom corporate */}
-      <section id="custom" className="scroll-mt-28 border-t border-line bg-paper py-16 lg:py-20">
-        <div className="container-px">
+      <section id="custom" className="relative scroll-mt-28 overflow-hidden border-t border-line bg-paper py-16 lg:py-20">
+        <CornerSwirl size="sm" />
+        <div className="container-px relative">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeading

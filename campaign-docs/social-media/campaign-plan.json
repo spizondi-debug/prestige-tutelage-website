@@ -22,7 +22,8 @@
       "square": "1080 x 1080 PNG",
       "vertical": "1080 x 1920 PNG",
       "video": "1080 x 1920 MP4, H.264, 30fps, 15-25s, silent, on-screen text only"
-    }
+    },
+    "postsNote": "Twelve posts in the 'Skills That Work' sequence (ids 1-12). Posts carrying \"standalone\": true are one-off pieces produced outside that sequence and are not counted in it."
   },
   "brand": {
     "logo": "public/prestige-tutelage-logo.png",
@@ -1147,6 +1148,77 @@
           "sub": "Prestige Tutelage",
           "seconds": 3.4,
           "vo": "prestigetutelage.co.za"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "day": 13,
+      "theme": "Friday message to learners and employers",
+      "standalone": true,
+      "standaloneNote": "Not part of the twelve-post 'Skills That Work' sequence. A one-off end-of-week message, produced separately and dated to the Friday it is posted.",
+      "layout": "photo-hero",
+      "photo": "graduate-celebrating.jpg",
+      "accent": "green",
+      "eyebrow": "From all of us at Prestige Tutelage",
+      "headline": "One week closer.",
+      "subhead": "Progress is rarely dramatic. It looks like showing up, week after week.",
+      "points": [
+        "To every learner who showed up",
+        "To the employers who made the room",
+        "To the facilitators who kept it moving"
+      ],
+      "squarePoints": [
+        "To every learner who showed up",
+        "To the employers who made the room"
+      ],
+      "cta": "prestigetutelage.co.za",
+      "footnote": "",
+      "audience": "Learners on programme, alumni, and the employers and skills development facilitators who host them",
+      "visualDirection": "Warmer and quieter than the sequence posts. No qualification data, no proof points, no sell — the message is the whole asset. Green accent throughout for the growth register. The poster carries the thanks; the video's photograph scene carries the weekend sign-off, so neither has to do both.",
+      "caption": "One week closer.\n\nTo every learner who showed up this week — for the module that was hard, the early start, the long commute — progress is rarely dramatic. It looks like showing up, week after week.\n\nAnd to the employers backing them: thank you for making the room.\n\nHave a good weekend.\n\nprestigetutelage.co.za",
+      "hashtags": [
+        "#SkillsDevelopment",
+        "#Learnerships",
+        "#SouthAfrica",
+        "#WorkforceDevelopment",
+        "#FridayThoughts"
+      ],
+      "media": {
+        "square": "post-13-friday-message-square.png",
+        "vertical": "post-13-friday-message-vertical.png",
+        "video": "post-13-friday-message.mp4"
+      },
+      "videoScenes": [
+        {
+          "kind": "logo",
+          "text": "",
+          "sub": "",
+          "seconds": 2.6
+        },
+        {
+          "kind": "statement",
+          "text": "One week closer.",
+          "sub": "To every learner who showed up this week.",
+          "seconds": 4.0
+        },
+        {
+          "kind": "statement",
+          "text": "Progress is rarely dramatic.",
+          "sub": "It looks like showing up, week after week.",
+          "seconds": 4.4
+        },
+        {
+          "kind": "photo",
+          "text": "Have a good weekend.",
+          "sub": "From all of us at Prestige Tutelage",
+          "seconds": 4.0
+        },
+        {
+          "kind": "cta",
+          "text": "prestigetutelage.co.za",
+          "sub": "Prestige Tutelage",
+          "seconds": 3.2
         }
       ]
     }

@@ -1,7 +1,8 @@
 # Prestige Tutelage — social media campaign
 
-12 posts. Each has a square poster, a vertical poster and a
-vertical video. 24 posters and 12 videos in total.
+12 posts in the sequence, plus 1 standalone post. Each has a square
+poster, a vertical poster and a vertical video. 26 posters and 13 videos
+in total.
 
 Nothing here is scheduled or published by the build. Every asset is a file for
 a person to post.
@@ -10,9 +11,9 @@ a person to post.
 
 | Path | Contents |
 |---|---|
-| `public/social-posts/posters/square/` | 12 posters, 1080 × 1080 PNG |
-| `public/social-posts/posters/vertical/` | 12 posters, 1080 × 1920 PNG |
-| `public/social-posts/videos/` | 12 videos, 1080 × 1920 MP4, H.264, silent |
+| `public/social-posts/posters/square/` | 13 posters, 1080 × 1080 PNG |
+| `public/social-posts/posters/vertical/` | 13 posters, 1080 × 1920 PNG |
+| `public/social-posts/videos/` | 13 videos, 1080 × 1920 MP4, H.264, silent |
 | `campaign-docs/social-media/` | Plan, captions, calendar, posting guide, manifest |
 
 ## Documents
@@ -56,7 +57,7 @@ Both renderers fail the build rather than writing a broken file. They reject
 text overflow, clipping, blocks colliding, anything crossing the canvas edge,
 single-word widows in headlines, and copy straying into a video safe area.
 `make-manifest.mjs` then refuses to write a manifest unless all
-36 assets exist, open correctly and match the specification.
+39 assets exist, open correctly and match the specification.
 
 `measure-balance.mjs` reports the residual whitespace on each poster, which is
 how the gap above the call-to-action bar was made consistent across the set.

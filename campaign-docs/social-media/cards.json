@@ -1,0 +1,23 @@
+[
+  {
+    "key": "friday",
+    "file": "card-friday-happy-friday",
+    "eyebrow": "End the week strong",
+    "line1": "HAPPY",
+    "line2": "FRIDAY!",
+    "lead": "May today bring fresh energy, good progress and a reason to smile.",
+    "boxLine1": "Keep learning. Keep growing.",
+    "boxLine2": "Keep moving forward.",
+    "url": "prestigetutelage.co.za",
+    "caption": "Happy Friday.\n\nMay today bring fresh energy, good progress and a reason to smile — and may the weekend give you a proper rest before Monday.\n\nKeep learning. Keep growing. Keep moving forward.\n\nprestigetutelage.co.za",
+    "hashtags": [
+      "#HappyFriday",
+      "#SkillsDevelopment",
+      "#KeepLearning",
+      "#SouthAfrica",
+      "#WorkforceDevelopment"
+    ],
+    "audioTrack": "campaign-docs/social-media/audio/friday-dance-115bpm.mp3",
+    "audioNote": "Instrumental dance bed, ~114 BPM, generated with ElevenLabs eleven_music_v2. Verified wordless by transcribing it (eleven_scribe_v1 returned an empty transcript) — the generation reported Instrumental: False, so this was checked rather than assumed. Commercial-use rights come from the ElevenLabs plan the workspace is on; confirm that before this is used beyond organic social."
+  }
+]
