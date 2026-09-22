@@ -5,3 +5,7 @@ dist
 .vscode/*
 npm-debug.log*
 preview/
+
+# Agent tooling installed per-machine, not part of the site
+.claude/
+skills-lock.json
