@@ -9,3 +9,6 @@ preview/
 # Campaign export archives — derived from public/social-posts, rebuilt by
 # campaign-docs/social-media/build/make-zips.py
 campaign-docs/social-media/export/
+
+# Voiceover render output (not a delivered asset)
+.vo-out/

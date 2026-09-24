@@ -1,0 +1,30 @@
+{
+  "_comment": [
+    "Recorded voiceover takes and where they sit against the videos.",
+    "Take in/out points were measured from the recording with silencedetect,",
+    "not estimated. Scene seconds here OVERRIDE campaign-plan.json for the",
+    "voiceover cut only: the published silent/music cut is left untouched.",
+    "Every override must keep the video inside the 15-25s brief."
+  ],
+  "source": "campaign-docs/social-media/audio/voiceover/brand-spot-raw.mp3",
+  "voice": "Nadine",
+  "takes": [
+    { "id": "t1", "in": 0.508, "out": 3.793, "text": "At Prestige Tutelage, we believe skills create opportunity." },
+    { "id": "t2", "in": 4.331, "out": 10.134, "text": "Through accredited practical training, we help people grow, workplaces perform, and communities move forward." },
+    { "id": "t3", "in": 10.714, "out": 11.821, "text": "Prestige Tutelage," },
+    { "id": "t4", "in": 12.283, "out": 15.000, "text": "passion for training and pathways for progress" }
+  ],
+  "placements": [
+    {
+      "post": 1,
+      "note": "Brand-spot copy, so it lands on the company introduction. Scenes stretched 19.0s -> 22.0s to give each take a breath at both ends.",
+      "sceneSeconds": [3.0, 4.0, 6.6, 3.6, 4.8],
+      "cues": [
+        { "take": "t1", "at": 3.30 },
+        { "take": "t2", "at": 7.30 },
+        { "take": "t3", "at": 17.50 },
+        { "take": "t4", "at": 19.05 }
+      ]
+    }
+  ]
+}
