@@ -35,6 +35,7 @@ const columns = [
     links: [
       { label: 'Insights', to: '/insights' },
       { label: 'Find the Right Training', to: '/#training-finder' },
+      { label: 'EduRance: free APS calculator', href: 'https://spizondi-debug.github.io/Edurance/aps-calculator.html' },
       { label: 'Contact', to: '/contact' },
     ],
   },
@@ -71,9 +72,15 @@ export default function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link to={l.to} className="text-[0.95rem] transition-colors hover:text-white">
-                        {l.label}
-                      </Link>
+                      {l.href ? (
+                        <a href={l.href} target="_blank" rel="noopener" className="text-[0.95rem] transition-colors hover:text-white">
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link to={l.to} className="text-[0.95rem] transition-colors hover:text-white">
+                          {l.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
